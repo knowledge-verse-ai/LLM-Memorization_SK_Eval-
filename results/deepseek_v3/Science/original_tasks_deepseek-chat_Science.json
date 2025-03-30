@@ -1,0 +1,3012 @@
+[
+    {
+        "task_id": "85713342-274a-4c72-b5f4-af7e835716f5",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum yield (Φ) of a photochemical reaction in a heterogeneous photocatalytic system, considering the following variables: incident photon flux (I0), catalyst surface area (A), adsorption coefficient (K_ads), recombination rate constant (k_rec), and charge transfer efficiency (η_ct). The model must account for competitive processes such as electron-hole recombination and surface adsorption dynamics. Validate the model using the provided experimental dataset and optimize the parameters to minimize the mean squared error (MSE) between predicted and observed quantum yields.",
+            "task_data": {
+                "data_points": {
+                    "incident_photon_flux": [
+                        1200000000000000.0,
+                        1500000000000000.0,
+                        1800000000000000.0,
+                        2100000000000000.0
+                    ],
+                    "catalyst_surface_area": [
+                        50,
+                        75,
+                        100,
+                        125
+                    ],
+                    "adsorption_coefficient": [
+                        0.25,
+                        0.3,
+                        0.35,
+                        0.4
+                    ],
+                    "recombination_rate_constant": [
+                        0.001,
+                        0.0012,
+                        0.0014,
+                        0.0016
+                    ],
+                    "charge_transfer_efficiency": [
+                        0.6,
+                        0.65,
+                        0.7,
+                        0.75
+                    ],
+                    "observed_quantum_yield": [
+                        0.12,
+                        0.15,
+                        0.18,
+                        0.21
+                    ]
+                }
+            },
+            "mathematical_formulation": "Φ = (η_ct * I0 * A * K_ads) / (I0 * A * K_ads + k_rec * (1 - η_ct))",
+            "ontology": {
+                "entities": [
+                    "quantum yield",
+                    "photochemical reaction",
+                    "heterogeneous photocatalysis",
+                    "incident photon flux",
+                    "catalyst surface area",
+                    "adsorption coefficient",
+                    "recombination rate constant",
+                    "charge transfer efficiency",
+                    "electron-hole recombination",
+                    "surface adsorption dynamics"
+                ],
+                "relations": [
+                    "Φ depends on η_ct, I0, A, K_ads, and k_rec",
+                    "η_ct influences charge transfer efficiency",
+                    "k_rec is inversely proportional to Φ",
+                    "K_ads affects surface adsorption dynamics"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "2c256b74-bbc5-46e3-8f0d-871b6420a15b",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the quantum yield (Φ) of excitonic energy transfer in a donor-acceptor system under varying environmental conditions (temperature, solvent polarity, and pressure). The model must integrate Förster resonance energy transfer (FRET) theory with non-adiabatic Marcus theory to account for both weak and strong coupling regimes. Validate the model using the provided dataset and quantify the uncertainty in predictions using Bayesian inference.",
+            "task_data": {
+                "data_points": {
+                    "donor_molecules": [
+                        "CdSe Quantum Dots",
+                        "Perylene",
+                        "Rhodamine 6G"
+                    ],
+                    "acceptor_molecules": [
+                        "Graphene Oxide",
+                        "Tetracene",
+                        "Atto 647N"
+                    ],
+                    "solvents": [
+                        "Water",
+                        "Toluene",
+                        "Dimethyl Sulfoxide"
+                    ],
+                    "temperature_range_K": [
+                        273,
+                        373
+                    ],
+                    "pressure_range_MPa": [
+                        0.1,
+                        100
+                    ],
+                    "dielectric_constants": [
+                        80.1,
+                        2.38,
+                        46.7
+                    ],
+                    "spectral_overlap_integrals": [
+                        0.85,
+                        1.2,
+                        0.6
+                    ],
+                    "reorganization_energies_eV": [
+                        0.35,
+                        0.42,
+                        0.28
+                    ],
+                    "donor_lifetimes_ns": [
+                        4.2,
+                        3.8,
+                        5.1
+                    ],
+                    "acceptor_extinction_coefficients_M-1cm-1": [
+                        120000,
+                        85000,
+                        95000
+                    ]
+                }
+            },
+            "mathematical_formulation": "The quantum yield (Φ) is modeled as: Φ = k_FRET / (k_FRET + k_IC + k_ISC + k_rad), where k_FRET is the FRET rate, k_IC is internal conversion, k_ISC is intersystem crossing, and k_rad is radiative decay. The FRET rate is given by k_FRET = (1/τ_D) * (R_0/R)^6, where τ_D is the donor lifetime, R_0 is the Förster radius, and R is the donor-acceptor distance. The Marcus rate for strong coupling is k_ET = (2π/ħ) * |V|^2 * (1/√(4πλk_BT)) * exp(-(ΔG + λ)^2 / (4λk_BT)), where V is electronic coupling, λ is reorganization energy, ΔG is driving force, and T is temperature. Bayesian inference is applied to estimate posterior distributions of Φ given observed data.",
+            "ontology": {
+                "entities": [
+                    "Quantum Yield",
+                    "FRET",
+                    "Marcus Theory",
+                    "Donor-Acceptor System",
+                    "Spectral Overlap",
+                    "Reorganization Energy",
+                    "Bayesian Inference",
+                    "Non-adiabatic Transition",
+                    "Dielectric Constant"
+                ],
+                "relations": [
+                    "FRET depends on Spectral Overlap",
+                    "Marcus Theory describes Non-adiabatic Transition",
+                    "Quantum Yield is a function of FRET and Marcus rates",
+                    "Dielectric Constant affects Reorganization Energy"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "6881d26c-b3bd-4456-af41-05d551be8089",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum yield (Φ) of a photochemical reaction in a multi-component molecular system under varying conditions of incident photon flux (I0), solvent polarity (ε), and temperature (T). The model must integrate the following: (1) Förster resonance energy transfer (FRET) efficiency between donor-acceptor pairs, (2) non-radiative decay rates (knr) as a function of T and ε, and (3) competitive quenching pathways. Validate the model against the provided experimental dataset and quantify uncertainties using Monte Carlo sampling.",
+            "task_data": {
+                "data_points": {
+                    "molecular_systems": [
+                        {
+                            "donor": "Coumarin 343",
+                            "acceptor": "Rhodamine B",
+                            "solvent": [
+                                "water",
+                                "acetonitrile",
+                                "toluene"
+                            ],
+                            "I0_range_W_per_cm2": [
+                                0.1,
+                                1.0,
+                                10.0
+                            ],
+                            "T_range_K": [
+                                273,
+                                298,
+                                323
+                            ],
+                            "FRET_efficiency_experimental": [
+                                0.45,
+                                0.32,
+                                0.18
+                            ],
+                            "Φ_experimental": [
+                                0.65,
+                                0.52,
+                                0.28
+                            ]
+                        },
+                        {
+                            "donor": "Pyrene",
+                            "acceptor": "Perylene",
+                            "solvent": [
+                                "cyclohexane",
+                                "ethanol",
+                                "DMSO"
+                            ],
+                            "I0_range_W_per_cm2": [
+                                0.5,
+                                5.0,
+                                50.0
+                            ],
+                            "T_range_K": [
+                                283,
+                                303,
+                                333
+                            ],
+                            "FRET_efficiency_experimental": [
+                                0.38,
+                                0.25,
+                                0.12
+                            ],
+                            "Φ_experimental": [
+                                0.72,
+                                0.58,
+                                0.35
+                            ]
+                        }
+                    ],
+                    "physical_constants": {
+                        "h_Js": 6.62607015e-34,
+                        "c_m_per_s": 299792458.0,
+                        "kB_J_per_K": 1.380649e-23
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "FRET_efficiency": "E = 1 / (1 + (r/R0)^6)",
+                "R0": "R0 = 0.211 * (κ^2 * Φ_D * J(λ))^(1/6)",
+                "quantum_yield": "Φ = (kf + kFRET) / (kf + kFRET + knr + kq)",
+                "knr_T_ε": "knr = A * exp(-Ea/(kB*T)) + B * ε^C",
+                "uncertainty_propagation": "σ_Φ = sqrt(∑(∂Φ/∂xi * σ_xi)^2)"
+            },
+            "ontology": {
+                "entities": [
+                    "quantum yield",
+                    "Förster resonance energy transfer",
+                    "non-radiative decay",
+                    "solvent polarity",
+                    "Monte Carlo sampling",
+                    "donor-acceptor pair",
+                    "photochemical reaction",
+                    "incident photon flux"
+                ],
+                "relations": [
+                    "FRET efficiency depends on donor-acceptor distance",
+                    "quantum yield is inversely proportional to non-radiative decay",
+                    "solvent polarity affects non-radiative decay rates",
+                    "temperature influences all kinetic rates",
+                    "uncertainty propagation is modeled via partial derivatives"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "813a3fa3-9476-458a-8e58-5f0a5a360f98",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum yield (Φ) of a photochemical reaction involving a complex organic molecule in solution, considering solvent effects, excited-state dynamics, and non-radiative decay pathways. The model must integrate ab initio quantum chemical calculations, molecular dynamics simulations, and kinetic modeling to achieve a predictive accuracy within ±5% of experimental values. The task requires the following steps: 1) Perform density functional theory (DFT) calculations to obtain ground-state and excited-state potential energy surfaces (PES). 2) Conduct molecular dynamics simulations to sample solvent configurations. 3) Calculate transition rates between electronic states using Fermi's Golden Rule. 4) Solve the kinetic master equation to obtain the quantum yield.",
+            "task_data": {
+                "data_points": {
+                    "molecule": "9,10-diphenylanthracene (DPA)",
+                    "solvents": [
+                        "acetonitrile",
+                        "toluene",
+                        "water"
+                    ],
+                    "temperature_range": [
+                        273.15,
+                        373.15
+                    ],
+                    "pressure": 1.0,
+                    "excitation_wavelength": 365,
+                    "experimental_quantum_yields": {
+                        "acetonitrile": 0.92,
+                        "toluene": 0.88,
+                        "water": 0.45
+                    },
+                    "molecular_parameters": {
+                        "oscillator_strengths": [
+                            0.85,
+                            0.12
+                        ],
+                        "vibrational_modes": 72,
+                        "dipole_moments": {
+                            "ground_state": 2.1,
+                            "excited_state": 5.3
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "equations": [
+                    "Fermi's Golden Rule: k_{i→f} = (2π/ħ) |⟨ψ_i|H'|ψ_f⟩|^2 ρ(E_f)",
+                    "Kinetic Master Equation: dP_i/dt = Σ_j (k_{j→i}P_j - k_{i→j}P_i)",
+                    "Quantum Yield: Φ = k_r / (k_r + k_{nr})"
+                ],
+                "constraints": [
+                    "Energy conservation in transitions",
+                    "Detailed balance condition",
+                    "Non-negative transition rates"
+                ]
+            },
+            "ontology": {
+                "entities": [
+                    "quantum yield",
+                    "photochemical reaction",
+                    "density functional theory",
+                    "potential energy surface",
+                    "molecular dynamics",
+                    "Fermi's Golden Rule",
+                    "kinetic master equation",
+                    "excited-state dynamics",
+                    "non-radiative decay",
+                    "oscillator strength",
+                    "vibrational modes",
+                    "dipole moment"
+                ],
+                "relations": [
+                    "molecule undergoes photochemical reaction",
+                    "solvent affects excited-state dynamics",
+                    "transition rates depend on coupling matrix elements",
+                    "quantum yield is ratio of radiative to total decay rates",
+                    "potential energy surfaces determine transition pathways"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b4a002c9-7732-4197-948f-1ed6854b5c28",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the quantum yield (Φ) of a set of novel phosphorescent organic light-emitting diodes (OLEDs) based on their molecular structure and experimental conditions. The model must account for the following variables: (1) molecular descriptors (e.g., HOMO-LUMO gap, dipole moment, spin-orbit coupling constants), (2) device architecture (e.g., layer thickness, doping concentration), and (3) environmental conditions (e.g., temperature, excitation wavelength). Validate the model using a leave-one-out cross-validation scheme and report the root-mean-square error (RMSE) and coefficient of determination (R²).",
+            "task_data": {
+                "data_points": {
+                    "molecular_descriptors": {
+                        "HOMO_LUMO_gap_eV": [
+                            2.1,
+                            2.3,
+                            2.5,
+                            2.7,
+                            2.9
+                        ],
+                        "dipole_moment_Debye": [
+                            3.2,
+                            4.1,
+                            5.0,
+                            3.8,
+                            4.5
+                        ],
+                        "spin_orbit_coupling_cm-1": [
+                            120,
+                            150,
+                            180,
+                            200,
+                            220
+                        ]
+                    },
+                    "device_architecture": {
+                        "layer_thickness_nm": [
+                            50,
+                            60,
+                            70,
+                            80,
+                            90
+                        ],
+                        "doping_concentration_percent": [
+                            5,
+                            10,
+                            15,
+                            20,
+                            25
+                        ]
+                    },
+                    "environmental_conditions": {
+                        "temperature_K": [
+                            298,
+                            300,
+                            310,
+                            320,
+                            330
+                        ],
+                        "excitation_wavelength_nm": [
+                            350,
+                            370,
+                            390,
+                            410,
+                            430
+                        ]
+                    },
+                    "quantum_yield": [
+                        0.45,
+                        0.52,
+                        0.58,
+                        0.63,
+                        0.7
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "quantum_yield_model": "Φ = f(HOMO-LUMO gap, dipole moment, spin-orbit coupling, layer thickness, doping concentration, temperature, excitation wavelength) + ε",
+                "error_metrics": "RMSE = sqrt(Σ(Φ_predicted - Φ_observed)² / N), R² = 1 - (Σ(Φ_observed - Φ_predicted)² / Σ(Φ_observed - Φ_mean)²)"
+            },
+            "ontology": {
+                "entities": [
+                    "quantum yield",
+                    "HOMO-LUMO gap",
+                    "dipole moment",
+                    "spin-orbit coupling",
+                    "layer thickness",
+                    "doping concentration",
+                    "temperature",
+                    "excitation wavelength",
+                    "phosphorescent OLED",
+                    "molecular descriptors",
+                    "device architecture",
+                    "environmental conditions"
+                ],
+                "relations": [
+                    "HOMO-LUMO gap influences quantum yield",
+                    "dipole moment affects spin-orbit coupling",
+                    "spin-orbit coupling enhances phosphorescence",
+                    "layer thickness modulates light emission",
+                    "doping concentration alters charge transport",
+                    "temperature impacts non-radiative decay",
+                    "excitation wavelength determines absorption efficiency"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "35e932af-b28a-4a23-9e86-accda7606097",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the quantum yield (Φ) of a photochemical reaction in a heterogeneous photocatalytic system, considering the following variables: incident photon flux (I0), catalyst surface area (A), adsorption coefficient (K), reaction rate constant (k), and electron-hole recombination rate (kr). The model must account for the stochastic nature of photon absorption and the probabilistic dynamics of charge carrier recombination. Validate the model using the provided experimental dataset and compute the 95% confidence interval for the predicted quantum yield values.",
+            "task_data": {
+                "data_points": {
+                    "incident_photon_flux": [
+                        1200000000000000.0,
+                        1500000000000000.0,
+                        1800000000000000.0,
+                        2100000000000000.0
+                    ],
+                    "catalyst_surface_area": [
+                        5.0,
+                        7.5,
+                        10.0,
+                        12.5
+                    ],
+                    "adsorption_coefficient": [
+                        0.25,
+                        0.3,
+                        0.35,
+                        0.4
+                    ],
+                    "reaction_rate_constant": [
+                        0.05,
+                        0.07,
+                        0.09,
+                        0.11
+                    ],
+                    "recombination_rate": [
+                        0.1,
+                        0.12,
+                        0.14,
+                        0.16
+                    ],
+                    "observed_quantum_yield": [
+                        0.15,
+                        0.18,
+                        0.22,
+                        0.25
+                    ]
+                }
+            },
+            "mathematical_formulation": "The quantum yield (Φ) is given by: Φ = (k * K * A * I0) / (I0 * (1 + K * A) + kr * (1 + K * A)^2). The stochastic nature of photon absorption is modeled as a Poisson process with rate λ = I0 * A. The recombination rate follows a binomial distribution with probability p = kr / (k + kr). The confidence interval is computed using the standard error of the predicted Φ values, assuming a normal distribution.",
+            "ontology": {
+                "entities": [
+                    "quantum yield",
+                    "photochemical reaction",
+                    "heterogeneous photocatalysis",
+                    "photon flux",
+                    "catalyst surface area",
+                    "adsorption coefficient",
+                    "reaction rate constant",
+                    "electron-hole recombination",
+                    "Poisson process",
+                    "binomial distribution",
+                    "confidence interval"
+                ],
+                "relations": [
+                    "Φ depends on k, K, A, I0, and kr",
+                    "photon absorption follows Poisson process",
+                    "recombination follows binomial distribution",
+                    "quantum yield is inversely proportional to recombination rate"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "3d26ee12-ae00-4817-b719-29b45bbacc91",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum yield (Φ) of a photochemical reaction involving a complex organic molecule (e.g., a polycyclic aromatic hydrocarbon) under varying conditions of incident light wavelength (λ), intensity (I), and solvent polarity (P). The model must account for non-radiative decay pathways, intersystem crossing rates, and solvent effects on the excited-state potential energy surfaces. Validate the model against experimental data and provide a sensitivity analysis for each input parameter.",
+            "task_data": {
+                "data_points": {
+                    "molecules": [
+                        "anthracene",
+                        "pyrene",
+                        "benzopyrene"
+                    ],
+                    "wavelength_range": [
+                        250,
+                        500
+                    ],
+                    "intensity_range": [
+                        0.1,
+                        10
+                    ],
+                    "solvent_polarity_range": [
+                        0.1,
+                        1.0
+                    ],
+                    "experimental_quantum_yields": {
+                        "anthracene": [
+                            0.71,
+                            0.68,
+                            0.65
+                        ],
+                        "pyrene": [
+                            0.6,
+                            0.58,
+                            0.55
+                        ],
+                        "benzopyrene": [
+                            0.45,
+                            0.42,
+                            0.4
+                        ]
+                    },
+                    "non_radiative_decay_rates": {
+                        "anthracene": 120000000.0,
+                        "pyrene": 150000000.0,
+                        "benzopyrene": 200000000.0
+                    },
+                    "intersystem_crossing_rates": {
+                        "anthracene": 50000000.0,
+                        "pyrene": 60000000.0,
+                        "benzopyrene": 70000000.0
+                    }
+                }
+            },
+            "mathematical_formulation": "Φ = k_rad / (k_rad + k_nr + k_isc), where k_rad is the radiative decay rate, k_nr is the non-radiative decay rate, and k_isc is the intersystem crossing rate. The rates are functions of λ, I, and P: k_rad = f(λ, I, P), k_nr = g(λ, I, P), k_isc = h(λ, I, P). The functions f, g, and h must be derived from first principles or empirical correlations.",
+            "ontology": {
+                "entities": [
+                    "quantum yield",
+                    "photochemical reaction",
+                    "polycyclic aromatic hydrocarbon",
+                    "incident light wavelength",
+                    "light intensity",
+                    "solvent polarity",
+                    "non-radiative decay",
+                    "intersystem crossing",
+                    "excited-state potential energy surface",
+                    "sensitivity analysis"
+                ],
+                "relations": [
+                    "quantum yield depends on radiative and non-radiative decay rates",
+                    "non-radiative decay rate is influenced by solvent polarity",
+                    "intersystem crossing rate affects quantum yield",
+                    "excited-state potential energy surfaces are modified by solvent effects"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b2683efe-6afc-46a1-9cd8-81fb09524cf9",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum yield (Φ) of a photochemical reaction in a heterogeneous catalytic system under varying conditions of light intensity (I), catalyst surface area (S), and reactant concentration (C). The model must integrate quantum mechanical principles, surface chemistry kinetics, and photophysical phenomena. Validate the model against experimental data and provide sensitivity analysis for each parameter.",
+            "task_data": {
+                "data_points": {
+                    "light_intensity": [
+                        100,
+                        200,
+                        300,
+                        400,
+                        500
+                    ],
+                    "catalyst_surface_area": [
+                        5.0,
+                        10.0,
+                        15.0,
+                        20.0,
+                        25.0
+                    ],
+                    "reactant_concentration": [
+                        0.1,
+                        0.2,
+                        0.3,
+                        0.4,
+                        0.5
+                    ],
+                    "quantum_yield": [
+                        0.15,
+                        0.22,
+                        0.31,
+                        0.38,
+                        0.45
+                    ]
+                },
+                "constants": {
+                    "planck_constant": 6.62607015e-34,
+                    "avogadro_constant": 6.02214076e+23,
+                    "speed_of_light": 299800000.0
+                }
+            },
+            "mathematical_formulation": {
+                "quantum_yield_equation": "Φ = (number_of_reactant_molecules_reacted / number_of_photons_absorbed)",
+                "kinetic_model": "d[C]/dt = -k_1 * I * S * [C] + k_2 * [C]^2",
+                "sensitivity_analysis": "∂Φ/∂I, ∂Φ/∂S, ∂Φ/∂C"
+            },
+            "ontology": {
+                "entities": [
+                    "quantum_yield",
+                    "photochemical_reaction",
+                    "heterogeneous_catalysis",
+                    "light_intensity",
+                    "catalyst_surface_area",
+                    "reactant_concentration",
+                    "quantum_mechanics",
+                    "surface_chemistry",
+                    "photophysics"
+                ],
+                "relations": [
+                    "light_intensity affects quantum_yield",
+                    "catalyst_surface_area influences reaction_rate",
+                    "reactant_concentration determines reaction_kinetics",
+                    "quantum_mechanics governs photon_absorption",
+                    "surface_chemistry describes catalyst_behavior"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "6a1ed228-483b-4fce-8d0c-5c64bf0479b8",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the quantum yield (Φ) of a set of novel perovskite quantum dots (PQDs) under varying excitation wavelengths (λ_ex) and temperatures (T). The model must account for non-radiative recombination pathways, exciton-phonon coupling, and surface defect states. Validate the model using the provided dataset and compute the root-mean-square error (RMSE) between predicted and experimental quantum yields.",
+            "task_data": {
+                "data_points": {
+                    "PQD_composition": [
+                        "CsPbBr3",
+                        "CsPbI3",
+                        "FAPbBr3",
+                        "MAPbI3"
+                    ],
+                    "λ_ex": [
+                        300,
+                        350,
+                        400,
+                        450,
+                        500
+                    ],
+                    "T": [
+                        10,
+                        50,
+                        100,
+                        150,
+                        200,
+                        250,
+                        300
+                    ],
+                    "experimental_Φ": {
+                        "CsPbBr3": [
+                            [
+                                0.85,
+                                0.82,
+                                0.78,
+                                0.75,
+                                0.72
+                            ],
+                            [
+                                0.83,
+                                0.8,
+                                0.76,
+                                0.73,
+                                0.7
+                            ],
+                            [
+                                0.8,
+                                0.77,
+                                0.73,
+                                0.7,
+                                0.67
+                            ],
+                            [
+                                0.77,
+                                0.74,
+                                0.7,
+                                0.67,
+                                0.64
+                            ],
+                            [
+                                0.74,
+                                0.71,
+                                0.67,
+                                0.64,
+                                0.61
+                            ],
+                            [
+                                0.71,
+                                0.68,
+                                0.64,
+                                0.61,
+                                0.58
+                            ],
+                            [
+                                0.68,
+                                0.65,
+                                0.61,
+                                0.58,
+                                0.55
+                            ]
+                        ],
+                        "CsPbI3": [
+                            [
+                                0.78,
+                                0.75,
+                                0.72,
+                                0.69,
+                                0.66
+                            ],
+                            [
+                                0.76,
+                                0.73,
+                                0.7,
+                                0.67,
+                                0.64
+                            ],
+                            [
+                                0.73,
+                                0.7,
+                                0.67,
+                                0.64,
+                                0.61
+                            ],
+                            [
+                                0.7,
+                                0.67,
+                                0.64,
+                                0.61,
+                                0.58
+                            ],
+                            [
+                                0.67,
+                                0.64,
+                                0.61,
+                                0.58,
+                                0.55
+                            ],
+                            [
+                                0.64,
+                                0.61,
+                                0.58,
+                                0.55,
+                                0.52
+                            ],
+                            [
+                                0.61,
+                                0.58,
+                                0.55,
+                                0.52,
+                                0.49
+                            ]
+                        ],
+                        "FAPbBr3": [
+                            [
+                                0.82,
+                                0.79,
+                                0.76,
+                                0.73,
+                                0.7
+                            ],
+                            [
+                                0.8,
+                                0.77,
+                                0.74,
+                                0.71,
+                                0.68
+                            ],
+                            [
+                                0.77,
+                                0.74,
+                                0.71,
+                                0.68,
+                                0.65
+                            ],
+                            [
+                                0.74,
+                                0.71,
+                                0.68,
+                                0.65,
+                                0.62
+                            ],
+                            [
+                                0.71,
+                                0.68,
+                                0.65,
+                                0.62,
+                                0.59
+                            ],
+                            [
+                                0.68,
+                                0.65,
+                                0.62,
+                                0.59,
+                                0.56
+                            ],
+                            [
+                                0.65,
+                                0.62,
+                                0.59,
+                                0.56,
+                                0.53
+                            ]
+                        ],
+                        "MAPbI3": [
+                            [
+                                0.75,
+                                0.72,
+                                0.69,
+                                0.66,
+                                0.63
+                            ],
+                            [
+                                0.73,
+                                0.7,
+                                0.67,
+                                0.64,
+                                0.61
+                            ],
+                            [
+                                0.7,
+                                0.67,
+                                0.64,
+                                0.61,
+                                0.58
+                            ],
+                            [
+                                0.67,
+                                0.64,
+                                0.61,
+                                0.58,
+                                0.55
+                            ],
+                            [
+                                0.64,
+                                0.61,
+                                0.58,
+                                0.55,
+                                0.52
+                            ],
+                            [
+                                0.61,
+                                0.58,
+                                0.55,
+                                0.52,
+                                0.49
+                            ],
+                            [
+                                0.58,
+                                0.55,
+                                0.52,
+                                0.49,
+                                0.46
+                            ]
+                        ]
+                    },
+                    "defect_density": {
+                        "CsPbBr3": 1200000000000000.0,
+                        "CsPbI3": 1500000000000000.0,
+                        "FAPbBr3": 1000000000000000.0,
+                        "MAPbI3": 1800000000000000.0
+                    },
+                    "phonon_coupling_strength": {
+                        "CsPbBr3": 0.15,
+                        "CsPbI3": 0.18,
+                        "FAPbBr3": 0.12,
+                        "MAPbI3": 0.2
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "quantum_yield_model": "Φ = k_rad / (k_rad + k_nr + k_def + k_ph)",
+                "k_rad": "radiative recombination rate (function of λ_ex)",
+                "k_nr": "non-radiative recombination rate (function of T)",
+                "k_def": "defect-assisted recombination rate (function of defect_density)",
+                "k_ph": "phonon-assisted recombination rate (function of phonon_coupling_strength and T)",
+                "RMSE": "sqrt(mean((Φ_predicted - Φ_experimental)^2))"
+            },
+            "ontology": {
+                "entities": [
+                    "perovskite quantum dots",
+                    "quantum yield",
+                    "excitation wavelength",
+                    "temperature",
+                    "non-radiative recombination",
+                    "exciton-phonon coupling",
+                    "surface defect states",
+                    "root-mean-square error"
+                ],
+                "relations": [
+                    "PQD_composition affects quantum yield",
+                    "excitation wavelength influences radiative recombination rate",
+                    "temperature modulates non-radiative recombination rate",
+                    "defect density increases defect-assisted recombination",
+                    "phonon coupling strength enhances phonon-assisted recombination"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "96071567-7823-437a-80b5-6e9485a317ce",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the quantum yield (Φ) of a set of novel phosphorescent organic light-emitting diodes (OLEDs) based on their molecular structure and experimental conditions. The model must account for spin-orbit coupling (SOC) effects, molecular orbital energy gaps (ΔE), and temperature-dependent non-radiative decay rates (knr). The output should include predicted Φ values with confidence intervals and a sensitivity analysis of the input parameters.",
+            "task_data": {
+                "data_points": {
+                    "molecular_structures": [
+                        "C12H8N2",
+                        "C16H10N2O2",
+                        "C20H12N4",
+                        "C24H16N2S2"
+                    ],
+                    "experimental_conditions": {
+                        "temperature_range_K": [
+                            77,
+                            300
+                        ],
+                        "solvent": [
+                            "toluene",
+                            "dichloromethane",
+                            "acetonitrile"
+                        ],
+                        "concentration_M": [
+                            0.001,
+                            0.01,
+                            0.1
+                        ]
+                    },
+                    "measured_quantum_yields": [
+                        0.45,
+                        0.67,
+                        0.32,
+                        0.58
+                    ],
+                    "spin_orbit_coupling_constants_cm-1": [
+                        120,
+                        85,
+                        210,
+                        150
+                    ],
+                    "HOMO-LUMO_gaps_eV": [
+                        2.8,
+                        3.2,
+                        2.5,
+                        3.0
+                    ],
+                    "non_radiative_decay_rates_s-1": [
+                        1200000.0,
+                        850000.0,
+                        2300000.0,
+                        1500000.0
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "quantum_yield_equation": "Φ = kr / (kr + knr + kisc)",
+                "radiative_decay_rate": "kr = (1/τ0) * f",
+                "non_radiative_decay_rate": "knr = A * exp(-ΔE/kT)",
+                "intersystem_crossing_rate": "kisc = (2π/ħ) * |<S|HSO|T>|² * ρ",
+                "constraints": "0 ≤ Φ ≤ 1, kr > 0, knr ≥ 0, kisc ≥ 0"
+            },
+            "ontology": {
+                "entities": [
+                    "quantum_yield",
+                    "phosphorescent_OLED",
+                    "spin_orbit_coupling",
+                    "HOMO-LUMO_gap",
+                    "non_radiative_decay",
+                    "radiative_decay",
+                    "intersystem_crossing",
+                    "molecular_structure",
+                    "temperature_dependence"
+                ],
+                "relations": [
+                    "molecular_structure influences spin_orbit_coupling",
+                    "spin_orbit_coupling affects intersystem_crossing",
+                    "HOMO-LUMO_gap determines radiative_decay",
+                    "temperature_dependence modifies non_radiative_decay",
+                    "quantum_yield depends_on radiative_decay, non_radiative_decay, intersystem_crossing"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "988b865b-283c-4f00-913b-a9d9aef6102b",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum yield (Φ) of a photochemical reaction in a complex multi-component system under varying conditions of temperature (T), pressure (P), and incident photon flux (I0). The system consists of a primary chromophore (A), a secondary absorber (B), and a quencher (Q). The model must account for competitive absorption, energy transfer pathways, and quenching dynamics. Validate the model against experimental data provided and optimize the parameters to minimize the mean squared error (MSE) between predicted and observed Φ.",
+            "task_data": {
+                "data_points": {
+                    "chromophore_A": {
+                        "molar_absorption_coefficient_epsilon_A": [
+                            12000,
+                            12500,
+                            13000
+                        ],
+                        "units": "M^-1 cm^-1",
+                        "wavelength_range": "300-400 nm"
+                    },
+                    "absorber_B": {
+                        "molar_absorption_coefficient_epsilon_B": [
+                            8000,
+                            8500,
+                            9000
+                        ],
+                        "units": "M^-1 cm^-1",
+                        "wavelength_range": "300-400 nm"
+                    },
+                    "quencher_Q": {
+                        "quenching_rate_constant_kq": 2500000000.0,
+                        "units": "M^-1 s^-1"
+                    },
+                    "experimental_conditions": {
+                        "temperature_range": [
+                            273,
+                            323
+                        ],
+                        "units": "photons cm^-2 s^-1",
+                        "pressure_range": [
+                            0.8,
+                            1.2
+                        ],
+                        "photon_flux_range": [
+                            1000000000000000.0,
+                            1e+17
+                        ]
+                    },
+                    "experimental_results": {
+                        "quantum_yield_phi": [
+                            0.12,
+                            0.15,
+                            0.18,
+                            0.22,
+                            0.25
+                        ],
+                        "conditions": [
+                            {
+                                "T": 273,
+                                "P": 0.8,
+                                "I0": 1000000000000000.0
+                            },
+                            {
+                                "T": 283,
+                                "P": 0.9,
+                                "I0": 1e+16
+                            },
+                            {
+                                "T": 293,
+                                "P": 1.0,
+                                "I0": 1e+16
+                            },
+                            {
+                                "T": 313,
+                                "P": 1.1,
+                                "I0": 1e+17
+                            },
+                            {
+                                "T": 323,
+                                "P": 1.2,
+                                "I0": 1e+17
+                            }
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "quantum_yield_equation": "Φ = (k_r + k_et) / (k_r + k_et + k_nr + k_q[Q])",
+                "competitive_absorption": "I_abs_A = (epsilon_A[A] / (epsilon_A[A] + epsilon_B[B])) * I0",
+                "energy_transfer_rate": "k_et = k_et0 * exp(-ΔE_a / RT)",
+                "quenching_dynamics": "k_q = k_q0 * (T/298)^n",
+                "objective_function": "MSE = (1/N) * Σ(Φ_predicted - Φ_observed)^2"
+            },
+            "ontology": {
+                "entities": [
+                    "quantum_yield",
+                    "chromophore",
+                    "absorber",
+                    "quencher",
+                    "molar_absorption_coefficient",
+                    "photon_flux",
+                    "energy_transfer",
+                    "quenching_rate_constant",
+                    "competitive_absorption",
+                    "mean_squared_error"
+                ],
+                "relations": [
+                    "chromophore_absorbs_photons",
+                    "absorber_competes_with_chromophore",
+                    "quencher_deactivates_excited_state",
+                    "energy_transfer_depends_on_temperature",
+                    "quantum_yield_depends_on_kinetic_parameters"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "03e6a4dc-9af0-4d93-9a06-1196897789d2",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the quantum yield (QY) of perovskite nanocrystals (PNCs) based on their structural parameters, synthesis conditions, and environmental factors. The model must account for nonlinear interactions between variables and provide uncertainty estimates. The task involves: 1) Data preprocessing and feature engineering, 2) Selection and optimization of a machine learning algorithm, 3) Validation against experimental data, and 4) Interpretation of feature importance.",
+            "task_data": {
+                "data_points": {
+                    "structural_parameters": {
+                        "lattice_constant": [
+                            5.62,
+                            5.65,
+                            5.68,
+                            5.71
+                        ],
+                        "bandgap": [
+                            1.55,
+                            1.6,
+                            1.65,
+                            1.7
+                        ],
+                        "particle_size": [
+                            8.2,
+                            9.5,
+                            10.1,
+                            11.3
+                        ],
+                        "surface_ligands": [
+                            "oleic_acid",
+                            "oleyl_amine",
+                            "octanoic_acid",
+                            "octyl_amine"
+                        ]
+                    },
+                    "synthesis_conditions": {
+                        "temperature": [
+                            150,
+                            160,
+                            170,
+                            180
+                        ],
+                        "precursor_ratio": [
+                            1.0,
+                            1.2,
+                            1.5,
+                            2.0
+                        ],
+                        "reaction_time": [
+                            10,
+                            20,
+                            30,
+                            40
+                        ]
+                    },
+                    "environmental_factors": {
+                        "humidity": [
+                            30,
+                            40,
+                            50,
+                            60
+                        ],
+                        "oxygen_level": [
+                            5,
+                            10,
+                            15,
+                            20
+                        ]
+                    },
+                    "quantum_yield": [
+                        0.45,
+                        0.55,
+                        0.65,
+                        0.75
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "quantum_yield_model": "QY = f(lattice_constant, bandgap, particle_size, surface_ligands, temperature, precursor_ratio, reaction_time, humidity, oxygen_level) + ε",
+                "uncertainty_estimation": "σ_QY = √(Σ(∂QY/∂x_i)^2 σ_x_i^2)",
+                "nonlinear_interactions": "QY = β_0 + β_1x_1 + β_2x_2 + β_3x_1x_2 + β_4x_1^2 + β_5x_2^2 + ... + ε"
+            },
+            "ontology": {
+                "entities": [
+                    "perovskite_nanocrystals",
+                    "quantum_yield",
+                    "lattice_constant",
+                    "bandgap",
+                    "particle_size",
+                    "surface_ligands",
+                    "synthesis_conditions",
+                    "environmental_factors",
+                    "machine_learning_model",
+                    "uncertainty_estimation"
+                ],
+                "relations": [
+                    "perovskite_nanocrystals have lattice_constant",
+                    "perovskite_nanocrystals have bandgap",
+                    "perovskite_nanocrystals have particle_size",
+                    "perovskite_nanocrystals are synthesized under synthesis_conditions",
+                    "perovskite_nanocrystals are affected by environmental_factors",
+                    "quantum_yield is a property of perovskite_nanocrystals",
+                    "machine_learning_model predicts quantum_yield",
+                    "uncertainty_estimation is part of machine_learning_model"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b2532a30-ec89-4b11-8268-825817c71b7b",
+        "task_details": {
+            "task_instructions": "Given a dataset of exoplanetary systems with observed orbital parameters and stellar properties, derive a predictive model for the existence of habitable-zone exoplanets using Bayesian inference. The model must account for observational biases, stellar metallicity, and planetary migration effects. Validate the model using a held-out test set and provide confidence intervals for the predictions.",
+            "task_data": {
+                "data_points": {
+                    "stellar_properties": {
+                        "mass": [
+                            0.5,
+                            1.0,
+                            1.5
+                        ],
+                        "luminosity": [
+                            0.1,
+                            1.0,
+                            2.0
+                        ],
+                        "metallicity": [
+                            -0.5,
+                            0.0,
+                            0.5
+                        ],
+                        "age": [
+                            1.0,
+                            5.0,
+                            10.0
+                        ]
+                    },
+                    "orbital_parameters": {
+                        "semi_major_axis": [
+                            0.5,
+                            1.0,
+                            1.5
+                        ],
+                        "eccentricity": [
+                            0.0,
+                            0.1,
+                            0.2
+                        ],
+                        "inclination": [
+                            0.0,
+                            5.0,
+                            10.0
+                        ]
+                    },
+                    "habitable_zone_flags": [
+                        0,
+                        1,
+                        0
+                    ]
+                },
+                "observational_biases": {
+                    "detection_efficiency": [
+                        0.7,
+                        0.8,
+                        0.9
+                    ],
+                    "survey_duration": [
+                        1.0,
+                        2.0,
+                        3.0
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "bayesian_model": "P(HZ|D) = P(D|HZ) * P(HZ) / P(D)",
+                "likelihood": "P(D|HZ) = ∏_{i=1}^N P(d_i|HZ)",
+                "prior": "P(HZ) ~ N(μ=0.5, σ=0.1)",
+                "posterior": "P(HZ|D) ∝ P(D|HZ) * P(HZ)"
+            },
+            "ontology": {
+                "entities": [
+                    "exoplanet",
+                    "stellar_properties",
+                    "orbital_parameters",
+                    "habitable_zone",
+                    "observational_biases",
+                    "Bayesian_inference"
+                ],
+                "relations": [
+                    "exoplanet_orbits_star",
+                    "stellar_properties_affect_habitable_zone",
+                    "orbital_parameters_determine_habitability",
+                    "observational_biases_affect_detection"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "df219c3e-7684-4d88-bf5b-a03d987fe1d1",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum yield (Φ) of a photochemical reaction involving a complex organic molecule (e.g., a polycyclic aromatic hydrocarbon) under varying conditions of incident light intensity (I), wavelength (λ), and solvent polarity (ε). The model must integrate quantum mechanical principles, solvent effects, and photophysical kinetics. Validate the model against experimental data and provide a sensitivity analysis for each input parameter.",
+            "task_data": {
+                "data_points": {
+                    "molecules": [
+                        "anthracene",
+                        "pyrene",
+                        "benzopyrene"
+                    ],
+                    "light_intensity_range": [
+                        0.1,
+                        10.0
+                    ],
+                    "wavelength_range": [
+                        250,
+                        500
+                    ],
+                    "solvent_polarity_range": [
+                        2.0,
+                        40.0
+                    ],
+                    "experimental_quantum_yield": {
+                        "anthracene": [
+                            0.72,
+                            0.68,
+                            0.65
+                        ],
+                        "pyrene": [
+                            0.85,
+                            0.82,
+                            0.78
+                        ],
+                        "benzopyrene": [
+                            0.91,
+                            0.89,
+                            0.87
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "Φ = k_rad / (k_rad + k_nr + k_isc + k_ic), where k_rad is the radiative rate constant, k_nr is the non-radiative rate constant, k_isc is the intersystem crossing rate constant, and k_ic is the internal conversion rate constant. These rate constants are functions of I, λ, and ε, and can be modeled using time-dependent density functional theory (TD-DFT) and Marcus theory for solvent effects.",
+            "ontology": {
+                "entities": [
+                    "quantum yield",
+                    "photochemical reaction",
+                    "polycyclic aromatic hydrocarbon",
+                    "incident light intensity",
+                    "wavelength",
+                    "solvent polarity",
+                    "radiative rate constant",
+                    "non-radiative rate constant",
+                    "intersystem crossing",
+                    "internal conversion",
+                    "TD-DFT",
+                    "Marcus theory"
+                ],
+                "relations": [
+                    "quantum yield depends on rate constants",
+                    "rate constants depend on light intensity, wavelength, and solvent polarity",
+                    "TD-DFT calculates electronic transitions",
+                    "Marcus theory models solvent effects"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e16bcc1f-7e86-413b-acaf-3c3cc60caf98",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum yield (Φ) of a photochemical reaction in a heterogeneous photocatalytic system, considering the following variables: incident photon flux (I0), catalyst surface area (S), adsorption coefficient (K), and charge carrier recombination rate (kr). The model must account for the stochastic nature of photon absorption and electron-hole pair generation, as well as the deterministic aspects of surface reaction kinetics. Validate the model using the provided experimental data and optimize the parameters to minimize the mean squared error (MSE) between predicted and observed quantum yields.",
+            "task_data": {
+                "data_points": {
+                    "incident_photon_flux": [
+                        1200000000000000.0,
+                        1500000000000000.0,
+                        1800000000000000.0,
+                        2100000000000000.0
+                    ],
+                    "catalyst_surface_area": [
+                        10.5,
+                        12.3,
+                        15.7,
+                        18.9
+                    ],
+                    "adsorption_coefficient": [
+                        0.45,
+                        0.52,
+                        0.61,
+                        0.73
+                    ],
+                    "recombination_rate": [
+                        0.12,
+                        0.15,
+                        0.18,
+                        0.21
+                    ],
+                    "observed_quantum_yield": [
+                        0.23,
+                        0.28,
+                        0.32,
+                        0.37
+                    ]
+                },
+                "units": {
+                    "incident_photon_flux": "photons/cm²·s",
+                    "catalyst_surface_area": "m²/g",
+                    "adsorption_coefficient": "dimensionless",
+                    "recombination_rate": "ps⁻¹",
+                    "observed_quantum_yield": "dimensionless"
+                }
+            },
+            "mathematical_formulation": {
+                "quantum_yield_model": "Φ = (k_r * I0 * S * K) / (k_r + k_d + k_t)",
+                "stochastic_component": "P(absorption) = 1 - exp(-σ * I0 * t)",
+                "deterministic_component": "d[eh]/dt = k_r * [e][h] - k_d * [eh] - k_t * [eh]",
+                "optimization_constraint": "minimize MSE = (1/n) * Σ(Φ_predicted - Φ_observed)²"
+            },
+            "ontology": {
+                "entities": [
+                    "quantum yield",
+                    "photochemical reaction",
+                    "heterogeneous photocatalysis",
+                    "photon flux",
+                    "catalyst surface area",
+                    "adsorption coefficient",
+                    "charge carrier recombination",
+                    "electron-hole pair",
+                    "mean squared error"
+                ],
+                "relations": [
+                    "photon flux influences quantum yield",
+                    "catalyst surface area affects adsorption coefficient",
+                    "recombination rate inversely related to quantum yield",
+                    "electron-hole pair generation is stochastic",
+                    "surface reaction kinetics are deterministic"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "547b3637-4d8c-4f12-95df-7b19aa51e97d",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the quantum yield (Φ) of excitonic energy transfer in a donor-acceptor system under varying environmental conditions (temperature, solvent polarity, and pressure). The model must integrate Förster resonance energy transfer (FRET) theory with non-adiabatic molecular dynamics simulations to account for decoherence effects. Validate the model against experimental data and quantify the uncertainty introduced by each environmental parameter.",
+            "task_data": {
+                "data_points": {
+                    "donor_molecules": [
+                        "Cy3",
+                        "Cy5",
+                        "Fluorescein"
+                    ],
+                    "acceptor_molecules": [
+                        "ATTO647N",
+                        "Alexa Fluor 700",
+                        "Rhodamine B"
+                    ],
+                    "solvents": [
+                        "Water",
+                        "Ethanol",
+                        "Dimethyl sulfoxide (DMSO)"
+                    ],
+                    "temperature_range": [
+                        273.15,
+                        373.15
+                    ],
+                    "pressure_range": [
+                        0.1,
+                        100
+                    ],
+                    "solvent_polarity_index": [
+                        1.0,
+                        5.4
+                    ],
+                    "experimental_quantum_yield": {
+                        "Cy3-ATTO647N": [
+                            0.85,
+                            0.78,
+                            0.72
+                        ],
+                        "Cy5-Alexa Fluor 700": [
+                            0.91,
+                            0.84,
+                            0.79
+                        ],
+                        "Fluorescein-Rhodamine B": [
+                            0.68,
+                            0.62,
+                            0.55
+                        ]
+                    },
+                    "decoherence_rates": {
+                        "Cy3-ATTO647N": [
+                            1200000000000.0,
+                            1500000000000.0,
+                            1800000000000.0
+                        ],
+                        "Cy5-Alexa Fluor 700": [
+                            1000000000000.0,
+                            1300000000000.0,
+                            1600000000000.0
+                        ],
+                        "Fluorescein-Rhodamine B": [
+                            1400000000000.0,
+                            1700000000000.0,
+                            2000000000000.0
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "FRET_efficiency": "E = 1 / (1 + (R/R0)^6)",
+                "quantum_yield": "Φ = k_ET / (k_ET + k_IC + k_ISC + k_D)",
+                "decoherence_rate": "Γ = (2π/ħ) * |V|^2 * FCWD",
+                "uncertainty_propagation": "σ_Φ = sqrt((∂Φ/∂T * σ_T)^2 + (∂Φ/∂P * σ_P)^2 + (∂Φ/∂S * σ_S)^2)"
+            },
+            "ontology": {
+                "entities": [
+                    "Quantum yield",
+                    "Förster resonance energy transfer (FRET)",
+                    "Donor-acceptor system",
+                    "Decoherence",
+                    "Non-adiabatic molecular dynamics",
+                    "Solvent polarity",
+                    "Exciton",
+                    "Energy transfer efficiency",
+                    "Uncertainty quantification"
+                ],
+                "relations": [
+                    "Donor molecule transfers energy to acceptor molecule via FRET",
+                    "Environmental parameters affect quantum yield",
+                    "Decoherence rate influences energy transfer efficiency",
+                    "Solvent polarity modulates FRET efficiency",
+                    "Uncertainty in environmental parameters propagates to quantum yield"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "69b4b9b4-f25f-4ef1-a92a-8e0b9f261e10",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the quantum yield (Φ) of a photochemical reaction in a heterogeneous system, considering the following variables: incident photon flux (I0), absorption cross-section (σ), reaction rate constants (k1, k2), and the concentration of reactants ([A], [B]). The model must account for competitive pathways (radiative and non-radiative decay) and spatial inhomogeneity of the reactants. Validate the model using the provided dataset and compute the uncertainty bounds via Monte Carlo simulation.",
+            "task_data": {
+                "data_points": {
+                    "I0": [
+                        1200000000000000.0,
+                        1500000000000000.0,
+                        1800000000000000.0
+                    ],
+                    "σ": [
+                        2.3e-18,
+                        2.5e-18,
+                        2.7e-18
+                    ],
+                    "k1": [
+                        340000000.0,
+                        360000000.0,
+                        380000000.0
+                    ],
+                    "k2": [
+                        1200000.0,
+                        1400000.0,
+                        1600000.0
+                    ],
+                    "[A]": [
+                        0.1,
+                        0.2,
+                        0.3
+                    ],
+                    "[B]": [
+                        0.05,
+                        0.1,
+                        0.15
+                    ],
+                    "observed_Φ": [
+                        0.22,
+                        0.25,
+                        0.28
+                    ]
+                }
+            },
+            "mathematical_formulation": "Φ = (k1 * [A] * σ * I0) / (k1 * [A] * σ * I0 + k2 * [B] * σ * I0 + k_rad + k_nr), where k_rad and k_nr are the radiative and non-radiative decay rate constants, respectively. Spatial inhomogeneity is modeled via a Gaussian distribution of reactant concentrations with a standard deviation of 0.05.",
+            "ontology": {
+                "entities": [
+                    "quantum yield",
+                    "photochemical reaction",
+                    "heterogeneous system",
+                    "incident photon flux",
+                    "absorption cross-section",
+                    "reaction rate constants",
+                    "radiative decay",
+                    "non-radiative decay",
+                    "spatial inhomogeneity",
+                    "Monte Carlo simulation"
+                ],
+                "relations": [
+                    "Φ depends on I0, σ, k1, k2, [A], [B]",
+                    "k1 and k2 compete for reactants",
+                    "spatial inhomogeneity affects reactant distribution",
+                    "Monte Carlo simulation quantifies uncertainty"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "4c3d5005-cd2d-4382-96f2-6a23675971cc",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum yield (Φ) of a photochemical reaction in a heterogeneous photocatalytic system, considering the following variables: incident photon flux (I0), catalyst surface area (S), adsorption coefficient (K), and recombination rate (kr). The model must account for competitive processes such as electron-hole recombination and surface adsorption-desorption kinetics. Validate the model using the provided experimental dataset and optimize the parameters to minimize the mean squared error (MSE) between predicted and observed quantum yields.",
+            "task_data": {
+                "data_points": {
+                    "incident_photon_flux": [
+                        1200000000000000.0,
+                        1500000000000000.0,
+                        1800000000000000.0,
+                        2100000000000000.0
+                    ],
+                    "catalyst_surface_area": [
+                        50,
+                        75,
+                        100,
+                        125
+                    ],
+                    "adsorption_coefficient": [
+                        0.25,
+                        0.3,
+                        0.35,
+                        0.4
+                    ],
+                    "recombination_rate": [
+                        0.05,
+                        0.1,
+                        0.15,
+                        0.2
+                    ],
+                    "observed_quantum_yield": [
+                        0.18,
+                        0.22,
+                        0.25,
+                        0.28
+                    ]
+                },
+                "units": {
+                    "incident_photon_flux": "photons cm⁻² s⁻¹",
+                    "catalyst_surface_area": "m² g⁻¹",
+                    "adsorption_coefficient": "dimensionless",
+                    "recombination_rate": "s⁻¹",
+                    "observed_quantum_yield": "dimensionless"
+                }
+            },
+            "mathematical_formulation": {
+                "quantum_yield_equation": "Φ = (k_r * I0 * S * K) / (1 + k_r * I0 * S * K + k_r * τ)",
+                "constraints": [
+                    "0 ≤ Φ ≤ 1",
+                    "k_r ≥ 0",
+                    "I0 > 0",
+                    "S > 0",
+                    "K > 0"
+                ],
+                "optimization_goal": "minimize MSE = (1/n) * Σ(Φ_predicted - Φ_observed)²"
+            },
+            "ontology": {
+                "entities": [
+                    "quantum_yield",
+                    "incident_photon_flux",
+                    "catalyst_surface_area",
+                    "adsorption_coefficient",
+                    "recombination_rate",
+                    "photochemical_reaction",
+                    "heterogeneous_photocatalysis",
+                    "electron-hole_recombination",
+                    "adsorption-desorption_kinetics"
+                ],
+                "relations": [
+                    "incident_photon_flux affects quantum_yield",
+                    "catalyst_surface_area influences adsorption_coefficient",
+                    "recombination_rate inversely affects quantum_yield",
+                    "adsorption_coefficient modulates surface_reaction_rate",
+                    "electron-hole_recombination competes with photochemical_reaction"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "4c8b5d3c-dcba-4c45-9fc6-39fef2ca7a17",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the quantum yield (Φ) of a photochemical reaction in a heterogeneous photocatalytic system, considering the following variables: incident photon flux (I0), catalyst surface area (A), reactant concentration ([R]), temperature (T), and the presence of competitive adsorbates ([S]). The model must account for the Langmuir-Hinshelwood kinetics and the quantum mechanical effects of charge carrier recombination. Validate the model using the provided experimental dataset and compute the 95% confidence intervals for the predicted quantum yields.",
+            "task_data": {
+                "data_points": {
+                    "incident_photon_flux": [
+                        1200000000000000.0,
+                        1500000000000000.0,
+                        1800000000000000.0,
+                        2100000000000000.0
+                    ],
+                    "catalyst_surface_area": [
+                        5.0,
+                        10.0,
+                        15.0,
+                        20.0
+                    ],
+                    "reactant_concentration": [
+                        0.1,
+                        0.2,
+                        0.3,
+                        0.4
+                    ],
+                    "temperature": [
+                        298,
+                        308,
+                        318,
+                        328
+                    ],
+                    "competitive_adsorbates": [
+                        0.0,
+                        0.05,
+                        0.1,
+                        0.15
+                    ],
+                    "quantum_yield": [
+                        0.15,
+                        0.22,
+                        0.18,
+                        0.25
+                    ]
+                }
+            },
+            "mathematical_formulation": "Φ = (k_r * θ_R * I0 * A) / (k_r * θ_R * I0 * A + k_rec * (1 - θ_R - θ_S)) where θ_R = (K_R * [R]) / (1 + K_R * [R] + K_S * [S]), θ_S = (K_S * [S]) / (1 + K_R * [R] + K_S * [S]), and k_rec = k_rec0 * exp(-E_a / (k_B * T)).",
+            "ontology": {
+                "entities": [
+                    "quantum yield",
+                    "incident photon flux",
+                    "catalyst surface area",
+                    "reactant concentration",
+                    "temperature",
+                    "competitive adsorbates",
+                    "Langmuir-Hinshelwood kinetics",
+                    "charge carrier recombination",
+                    "quantum mechanical effects"
+                ],
+                "relations": [
+                    "Φ depends on I0, A, [R], T, [S]",
+                    "θ_R and θ_S are functions of [R] and [S]",
+                    "k_rec is temperature-dependent"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "46677e18-f789-471d-a99d-f6e486325446",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the quantum coherence time (T2) of nitrogen-vacancy (NV) centers in diamond crystals under varying conditions of temperature, strain, and impurity concentration. The model must integrate first-principles quantum mechanical calculations with empirical data, accounting for spin-phonon coupling, magnetic noise, and lattice defects. The output should provide T2 values with uncertainty bounds for given input parameters.",
+            "task_data": {
+                "data_points": {
+                    "temperature_range": {
+                        "min": 1,
+                        "max": 500,
+                        "unit": "K"
+                    },
+                    "strain_range": {
+                        "min": -0.05,
+                        "max": 0.05,
+                        "unit": "strain (dimensionless)"
+                    },
+                    "nitrogen_impurity_concentration": {
+                        "min": 1e+16,
+                        "max": 1e+20,
+                        "unit": "atoms/cm³"
+                    },
+                    "spin_phonon_coupling_constants": {
+                        "values": [
+                            0.1,
+                            2.5
+                        ],
+                        "unit": "meV"
+                    },
+                    "magnetic_noise_spectral_density": {
+                        "values": [
+                            1e-12,
+                            1e-09
+                        ],
+                        "unit": "T²/Hz"
+                    },
+                    "lattice_defect_density": {
+                        "min": 10000000000.0,
+                        "max": 100000000000000.0,
+                        "unit": "defects/cm³"
+                    },
+                    "empirical_T2_data": {
+                        "values": [
+                            1e-06,
+                            0.001
+                        ],
+                        "unit": "s",
+                        "source": "experimental literature"
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "T2_model": "1/T2 = Γ_phonon + Γ_magnetic + Γ_defects",
+                "Γ_phonon": "A * exp(-B/T) * (1 + C * strain²)",
+                "Γ_magnetic": "D * ∫ S(ω) dω / (ω² + (1/T2)²)",
+                "Γ_defects": "E * defect_density * impurity_concentration",
+                "uncertainty_propagation": "ΔT2 = √( (∂T2/∂Γ_phonon * ΔΓ_phonon)² + (∂T2/∂Γ_magnetic * ΔΓ_magnetic)² + (∂T2/∂Γ_defects * ΔΓ_defects)² )"
+            },
+            "ontology": {
+                "entities": [
+                    "nitrogen-vacancy center",
+                    "quantum coherence time (T2)",
+                    "spin-phonon coupling",
+                    "magnetic noise spectral density",
+                    "lattice defects",
+                    "diamond crystal",
+                    "impurity concentration",
+                    "strain"
+                ],
+                "relations": [
+                    "NV center is affected by temperature",
+                    "NV center is affected by strain",
+                    "spin-phonon coupling depends on temperature",
+                    "magnetic noise affects T2",
+                    "lattice defects reduce T2",
+                    "impurity concentration influences defect density"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "948005eb-09ce-4afb-939d-5d41f3f345e4",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum yield (Φ) of a photochemical reaction involving a complex organic molecule in solution, considering solvent effects, excited-state dynamics, and non-radiative decay pathways. The model must integrate ab initio quantum chemical calculations, molecular dynamics simulations, and kinetic rate equations to provide a quantitative prediction of Φ under specified conditions.",
+            "task_data": {
+                "data_points": {
+                    "molecule": "9,10-diphenylanthracene (DPA)",
+                    "solvents": [
+                        "acetonitrile",
+                        "toluene",
+                        "water"
+                    ],
+                    "temperature_range": [
+                        273.15,
+                        373.15
+                    ],
+                    "pressure": 1.0,
+                    "excitation_wavelength": 365,
+                    "molar_extinction_coefficient": 12000,
+                    "radiative_lifetime": 6.8,
+                    "non_radiative_decay_rates": [
+                        0.15,
+                        0.22,
+                        0.35
+                    ],
+                    "solvent_polarity_parameters": {
+                        "acetonitrile": 0.75,
+                        "toluene": 0.54,
+                        "water": 1.0
+                    },
+                    "viscosity_parameters": {
+                        "acetonitrile": 0.34,
+                        "toluene": 0.59,
+                        "water": 0.89
+                    }
+                }
+            },
+            "mathematical_formulation": "Φ = k_r / (k_r + k_nr + k_q[Q]), where k_r is the radiative decay rate, k_nr is the non-radiative decay rate, and k_q[Q] is the quenching rate. The rates are derived from: k_r = 1/τ_r, k_nr = A exp(-E_a/RT), and k_q = 8RT/3η, where τ_r is the radiative lifetime, A is the Arrhenius pre-exponential factor, E_a is the activation energy, R is the gas constant, T is temperature, and η is solvent viscosity.",
+            "ontology": {
+                "entities": [
+                    "quantum yield",
+                    "photochemical reaction",
+                    "excited-state dynamics",
+                    "non-radiative decay",
+                    "ab initio calculations",
+                    "molecular dynamics",
+                    "kinetic rate equations",
+                    "solvent effects",
+                    "molar extinction coefficient",
+                    "radiative lifetime"
+                ],
+                "relations": [
+                    "solvent polarity affects non-radiative decay",
+                    "temperature influences kinetic rates",
+                    "viscosity impacts quenching rate",
+                    "excitation wavelength determines initial excited state",
+                    "molecular structure determines radiative lifetime"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "dd7c705d-3138-45c5-8402-459211826622",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum yield (Φ) of a photochemical reaction involving transition metal complexes under varying conditions of temperature, pressure, and incident light wavelength. The model must integrate first-principles quantum mechanical calculations with empirical data to account for solvent effects, spin-orbit coupling, and non-radiative decay pathways. Validate the model against experimental data and provide uncertainty quantification for the predictions.",
+            "task_data": {
+                "data_points": {
+                    "transition_metal_complexes": [
+                        "Ru(bpy)3^2+",
+                        "Ir(ppy)3",
+                        "Cu(phen)2^+"
+                    ],
+                    "solvents": [
+                        "acetonitrile",
+                        "water",
+                        "toluene"
+                    ],
+                    "temperature_range": [
+                        200,
+                        400
+                    ],
+                    "pressure_range": [
+                        0.1,
+                        100
+                    ],
+                    "wavelength_range": [
+                        300,
+                        700
+                    ],
+                    "experimental_quantum_yields": {
+                        "Ru(bpy)3^2+": [
+                            0.042,
+                            0.056,
+                            0.048
+                        ],
+                        "Ir(ppy)3": [
+                            0.85,
+                            0.92,
+                            0.88
+                        ],
+                        "Cu(phen)2^+": [
+                            0.12,
+                            0.15,
+                            0.13
+                        ]
+                    },
+                    "spin_orbit_coupling_constants": {
+                        "Ru(bpy)3^2+": 1200,
+                        "Ir(ppy)3": 4500,
+                        "Cu(phen)2^+": 800
+                    },
+                    "non_radiative_decay_rates": {
+                        "Ru(bpy)3^2+": 1200000.0,
+                        "Ir(ppy)3": 800000.0,
+                        "Cu(phen)2^+": 2500000.0
+                    }
+                }
+            },
+            "mathematical_formulation": "Φ = k_r / (k_r + k_nr + k_isc), where k_r is the radiative decay rate, k_nr is the non-radiative decay rate, and k_isc is the intersystem crossing rate. k_isc = (2π/h) * |<S|H_so|T>|^2 * ρ, where H_so is the spin-orbit coupling Hamiltonian and ρ is the density of states. The radiative decay rate k_r is modeled using Fermi's Golden Rule: k_r = (2π/h) * |<Ψ_f|μ|Ψ_i>|^2 * ρ, where μ is the transition dipole moment.",
+            "ontology": {
+                "entities": [
+                    "quantum yield",
+                    "transition metal complexes",
+                    "spin-orbit coupling",
+                    "non-radiative decay",
+                    "radiative decay",
+                    "intersystem crossing",
+                    "Fermi's Golden Rule",
+                    "transition dipole moment",
+                    "density of states"
+                ],
+                "relations": [
+                    "quantum yield depends on radiative and non-radiative decay rates",
+                    "spin-orbit coupling influences intersystem crossing",
+                    "transition dipole moment determines radiative decay rate",
+                    "solvent affects non-radiative decay rate"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "7d909d7a-81ac-45df-ac05-e8613f25e82e",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the quantum yield (Φ) of a set of novel phosphorescent organic light-emitting diodes (PhOLEDs) based on their molecular structure and experimental conditions. The model must account for the following variables: (1) molecular descriptors (e.g., HOMO-LUMO gap, dipole moment, spin-orbit coupling constants), (2) device architecture (e.g., layer thickness, doping concentration), and (3) environmental conditions (e.g., temperature, excitation wavelength). Validate the model using a leave-one-out cross-validation scheme and report the mean absolute error (MAE) and root mean squared error (RMSE).",
+            "task_data": {
+                "data_points": {
+                    "molecular_descriptors": {
+                        "HOMO_LUMO_gap_eV": [
+                            2.1,
+                            2.3,
+                            2.5,
+                            2.7,
+                            2.9
+                        ],
+                        "dipole_moment_D": [
+                            3.2,
+                            4.1,
+                            5.0,
+                            3.8,
+                            4.5
+                        ],
+                        "spin_orbit_coupling_cm-1": [
+                            120,
+                            150,
+                            180,
+                            200,
+                            220
+                        ]
+                    },
+                    "device_architecture": {
+                        "layer_thickness_nm": [
+                            50,
+                            60,
+                            70,
+                            80,
+                            90
+                        ],
+                        "doping_concentration_wt_percent": [
+                            5,
+                            10,
+                            15,
+                            20,
+                            25
+                        ]
+                    },
+                    "environmental_conditions": {
+                        "temperature_K": [
+                            293,
+                            298,
+                            303,
+                            308,
+                            313
+                        ],
+                        "excitation_wavelength_nm": [
+                            365,
+                            370,
+                            375,
+                            380,
+                            385
+                        ]
+                    },
+                    "quantum_yield": [
+                        0.45,
+                        0.52,
+                        0.58,
+                        0.63,
+                        0.7
+                    ]
+                }
+            },
+            "mathematical_formulation": "Φ = f(HOMO-LUMO gap, dipole moment, spin-orbit coupling, layer thickness, doping concentration, temperature, excitation wavelength) + ε, where ε is the error term. The functional form f is to be determined via multivariate regression or machine learning. The performance metrics are defined as: MAE = (1/n) Σ|Φ_pred - Φ_obs|, RMSE = √[(1/n) Σ(Φ_pred - Φ_obs)^2].",
+            "ontology": {
+                "entities": [
+                    "PhOLED",
+                    "quantum yield",
+                    "HOMO-LUMO gap",
+                    "dipole moment",
+                    "spin-orbit coupling",
+                    "layer thickness",
+                    "doping concentration",
+                    "temperature",
+                    "excitation wavelength",
+                    "MAE",
+                    "RMSE"
+                ],
+                "relations": [
+                    "molecular descriptors influence quantum yield",
+                    "device architecture affects quantum yield",
+                    "environmental conditions modulate quantum yield",
+                    "quantum yield is predicted by a functional model"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "c5fcc5b1-f5f3-4f3a-947c-95d954d17900",
+        "task_details": {
+            "task_instructions": "Given a dataset of exoplanetary systems and their host stars, compute the probability of a stable, habitable zone (HZ) planet existing in each system, accounting for gravitational perturbations from neighboring planets and stellar radiative flux variability. The task requires: 1) Calculating the habitable zone boundaries using the host star's luminosity and effective temperature. 2) Modeling the orbital stability of HZ candidates under N-body gravitational interactions. 3) Estimating the probability of HZ planet existence by integrating stability and radiative constraints.",
+            "task_data": {
+                "data_points": {
+                    "stellar_parameters": {
+                        "luminosity": [
+                            "L_sun"
+                        ],
+                        "effective_temperature": [
+                            "K"
+                        ],
+                        "mass": [
+                            "M_sun"
+                        ],
+                        "radius": [
+                            "R_sun"
+                        ]
+                    },
+                    "exoplanetary_systems": {
+                        "planet_mass": [
+                            "M_earth"
+                        ],
+                        "semi_major_axis": [
+                            "AU"
+                        ],
+                        "orbital_eccentricity": [],
+                        "orbital_inclination": [
+                            "rad"
+                        ]
+                    },
+                    "habitable_zone_constraints": {
+                        "inner_boundary_flux": [
+                            "Earth flux units"
+                        ],
+                        "outer_boundary_flux": [
+                            "Earth flux units"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "habitable_zone_boundaries": "r_inner = sqrt(L_star / S_inner), r_outer = sqrt(L_star / S_outer)",
+                "orbital_stability_criterion": "Hill Radius: R_H = a * (m_p / (3 * M_star))^(1/3)",
+                "probability_integration": "P(HZ) = ∫_{r_inner}^{r_outer} P_stable(r) * P_flux(r) dr"
+            },
+            "ontology": {
+                "entities": [
+                    "exoplanet",
+                    "host_star",
+                    "habitable_zone",
+                    "orbital_stability",
+                    "radiative_flux",
+                    "gravitational_perturbation"
+                ],
+                "relations": [
+                    "host_star_governs_exoplanet_orbit",
+                    "gravitational_perturbation_affects_orbital_stability",
+                    "radiative_flux_defines_habitable_zone",
+                    "orbital_stability_constrains_habitability"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "3aa339fb-f7fd-418d-8ace-0ba9d112e37d",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum yield (Φ) of a photochemical reaction involving a complex organic molecule in solution, considering solvent effects, excited-state dynamics, and non-radiative decay pathways. The model must integrate ab initio quantum chemical calculations, solvent-solute interaction parameters, and kinetic rate constants for all relevant photophysical processes. Validate the model against experimental data and provide uncertainty quantification for the predicted quantum yields.",
+            "task_data": {
+                "data_points": {
+                    "molecular_structures": [
+                        "C60",
+                        "Rhodamine 6G",
+                        "Anthracene"
+                    ],
+                    "solvent_parameters": {
+                        "dielectric_constant": [
+                            2.02,
+                            78.36,
+                            32.66
+                        ],
+                        "viscosity": [
+                            0.32,
+                            0.89,
+                            0.59
+                        ],
+                        "polarity_index": [
+                            0.01,
+                            0.76,
+                            0.39
+                        ]
+                    },
+                    "excited_state_properties": {
+                        "S1_energy_eV": [
+                            1.85,
+                            2.38,
+                            3.15
+                        ],
+                        "T1_energy_eV": [
+                            1.45,
+                            1.89,
+                            1.92
+                        ],
+                        "oscillator_strength": [
+                            0.0012,
+                            0.876,
+                            0.234
+                        ]
+                    },
+                    "kinetic_rates": {
+                        "k_fluorescence": [
+                            120000000.0,
+                            340000000.0,
+                            210000000.0
+                        ],
+                        "k_intersystem": [
+                            56000000.0,
+                            2300000.0,
+                            11000000.0
+                        ],
+                        "k_internal_conversion": [
+                            32000000.0,
+                            150000000.0,
+                            45000000.0
+                        ]
+                    },
+                    "experimental_quantum_yields": [
+                        0.23,
+                        0.92,
+                        0.45
+                    ]
+                }
+            },
+            "mathematical_formulation": "Φ = k_rad / (k_rad + k_nr + k_isc + k_ic), where k_rad is the radiative rate, k_nr is the non-radiative rate, k_isc is the intersystem crossing rate, and k_ic is the internal conversion rate. The solvent effects are modeled via the Onsager reaction field: ΔG_solv = - (1/2) * f(ε) * μ^2 / a^3, where f(ε) = (ε - 1)/(2ε + 1), μ is the dipole moment, and a is the cavity radius.",
+            "ontology": {
+                "entities": [
+                    "quantum yield",
+                    "photochemical reaction",
+                    "ab initio calculations",
+                    "solvent effects",
+                    "excited-state dynamics",
+                    "non-radiative decay",
+                    "kinetic rate constants",
+                    "uncertainty quantification"
+                ],
+                "relations": [
+                    "solvent affects reaction rate",
+                    "excited-state energy determines quantum yield",
+                    "kinetic rates influence quantum yield",
+                    "ab initio calculations predict molecular properties"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "2348eac7-62f0-4581-b0d4-ba18e854fb2f",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the quantum coherence time (T2) of superconducting qubits based on material properties, fabrication parameters, and environmental conditions. The model must account for intrinsic decoherence mechanisms (e.g., quasiparticle tunneling, flux noise, charge noise) and extrinsic factors (e.g., temperature, electromagnetic interference). Validate the model using experimental data and provide uncertainty quantification for the predictions.",
+            "task_data": {
+                "data_points": {
+                    "material_properties": {
+                        "superconductor_type": [
+                            "Aluminum",
+                            "Niobium",
+                            "Tantalum"
+                        ],
+                        "critical_temperature": [
+                            1.2,
+                            9.3,
+                            4.5
+                        ],
+                        "London_penetration_depth": [
+                            16,
+                            32,
+                            40
+                        ],
+                        "Ginzburg-Landau_parameter": [
+                            1.5,
+                            0.8,
+                            0.6
+                        ]
+                    },
+                    "fabrication_parameters": {
+                        "junction_type": [
+                            "SIS",
+                            "SNS",
+                            "SQUID"
+                        ],
+                        "substrate_material": [
+                            "Silicon",
+                            "Sapphire",
+                            "Germanium"
+                        ],
+                        "etching_method": [
+                            "Dry",
+                            "Wet",
+                            "Ion_milling"
+                        ],
+                        "thickness_nm": [
+                            50,
+                            100,
+                            200
+                        ]
+                    },
+                    "environmental_conditions": {
+                        "temperature_mK": [
+                            10,
+                            20,
+                            50
+                        ],
+                        "magnetic_field_shielding_dB": [
+                            60,
+                            80,
+                            100
+                        ],
+                        "vibration_isolation_level": [
+                            "Low",
+                            "Medium",
+                            "High"
+                        ]
+                    },
+                    "experimental_results": {
+                        "T2_time_ns": [
+                            50,
+                            200,
+                            500,
+                            1000
+                        ],
+                        "T1_time_ns": [
+                            100,
+                            400,
+                            800,
+                            1500
+                        ],
+                        "readout_fidelity": [
+                            0.95,
+                            0.98,
+                            0.99
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "T2^-1 = Γ_intrinsic + Γ_extrinsic + Γ_cross_terms\nΓ_intrinsic = a⋅(Δ/E_C)^2 + b⋅(E_J/E_C)^0.5\nΓ_extrinsic = c⋅B_noise^2 + d⋅T^3\nUncertainty: σ_T2 = √(Σ(∂T2/∂x_i)^2 σ_x_i^2)",
+            "ontology": {
+                "entities": [
+                    "superconducting_qubit",
+                    "quantum_coherence",
+                    "decoherence_mechanisms",
+                    "quasiparticle_tunneling",
+                    "flux_noise",
+                    "charge_noise",
+                    "critical_temperature",
+                    "London_penetration_depth",
+                    "Ginzburg-Landau_parameter",
+                    "SIS_junction",
+                    "SQUID",
+                    "magnetic_shielding"
+                ],
+                "relations": [
+                    "material_properties → influence → coherence_time",
+                    "fabrication_parameters → determine → noise_susceptibility",
+                    "environmental_conditions → contribute → extrinsic_decoherence",
+                    "T2_time → is_inversely_proportional_to → decoherence_rate"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "841292e5-08bd-41ea-95d7-1d76295e3a4f",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum coherence time (T2) of a nitrogen-vacancy (NV) center in diamond under varying conditions of temperature, strain, and magnetic field strength. The model must integrate first-principles calculations with empirical data, accounting for spin-phonon coupling, hyperfine interactions, and electronic decoherence pathways. Validate the model against experimental data and provide uncertainty quantification for each prediction.",
+            "task_data": {
+                "data_points": {
+                    "temperature_range": [
+                        4,
+                        300
+                    ],
+                    "strain_range": [
+                        0,
+                        0.05
+                    ],
+                    "magnetic_field_range": [
+                        0,
+                        0.5
+                    ],
+                    "empirical_T2_data": [
+                        1.2,
+                        2.5,
+                        0.8,
+                        1.9,
+                        3.0
+                    ],
+                    "spin_phonon_coupling_constants": [
+                        0.05,
+                        0.12,
+                        0.08
+                    ],
+                    "hyperfine_interaction_strengths": [
+                        2.1,
+                        1.7,
+                        2.3
+                    ],
+                    "decoherence_rates": [
+                        0.01,
+                        0.02,
+                        0.015
+                    ]
+                }
+            },
+            "mathematical_formulation": "T2 = (1/T2_phonon + 1/T2_hyperfine + 1/T2_magnetic)^-1, where T2_phonon = A * exp(-B/T), T2_hyperfine = C / (1 + D*B^2), T2_magnetic = E / (1 + F*S^2), with A, B, C, D, E, F as fitting parameters, T as temperature, B as magnetic field strength, and S as strain.",
+            "ontology": {
+                "entities": [
+                    "nitrogen-vacancy center",
+                    "quantum coherence time",
+                    "spin-phonon coupling",
+                    "hyperfine interaction",
+                    "decoherence pathways",
+                    "first-principles calculations",
+                    "uncertainty quantification"
+                ],
+                "relations": [
+                    "temperature affects T2",
+                    "strain affects T2",
+                    "magnetic field affects T2",
+                    "spin-phonon coupling contributes to decoherence",
+                    "hyperfine interaction contributes to decoherence"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "69e5047b-b21f-4d7d-b176-47d9895160bf",
+        "task_details": {
+            "task_instructions": "Construct a high-fidelity simulation of quantum decoherence dynamics in a multi-qubit system (N=5) subjected to a time-dependent external magnetic field, incorporating non-Markovian noise effects from a structured bosonic environment. The simulation must compute the time-evolution of the density matrix for the system, accounting for cross-talk between qubits, and derive the fidelity decay as a function of pulse sequence intervals (τ ∈ [0, 10] ns) for both dynamical decoupling and error mitigation protocols. Validate the results against the Lindblad master equation in the weak-coupling limit.",
+            "task_data": {
+                "data_points": {
+                    "qubit_parameters": {
+                        "T1": [
+                            50,
+                            55,
+                            60,
+                            52,
+                            58
+                        ],
+                        "T2": [
+                            30,
+                            28,
+                            35,
+                            32,
+                            29
+                        ],
+                        "coupling_strengths": [
+                            [
+                                0,
+                                0.5,
+                                0.3,
+                                0.2,
+                                0.1
+                            ],
+                            [
+                                0.5,
+                                0,
+                                0.4,
+                                0.3,
+                                0.2
+                            ],
+                            [
+                                0.3,
+                                0.4,
+                                0,
+                                0.6,
+                                0.4
+                            ],
+                            [
+                                0.2,
+                                0.3,
+                                0.6,
+                                0,
+                                0.5
+                            ],
+                            [
+                                0.1,
+                                0.2,
+                                0.4,
+                                0.5,
+                                0
+                            ]
+                        ]
+                    },
+                    "magnetic_field_profile": {
+                        "Bx(t)": "B0 * sin(ωt)",
+                        "By(t)": "0",
+                        "Bz(t)": "B0 * cos(ωt)",
+                        "B0": "1.2 T",
+                        "ω": "2π * 5 GHz"
+                    },
+                    "environment_spectral_density": "J(ω) = α * ω^3 * exp(-ω/ωc)",
+                    "α": "0.02",
+                    "ωc": "10 GHz"
+                }
+            },
+            "mathematical_formulation": {
+                "system_hamiltonian": "H_s(t) = -∑_i (μ/2) * (Bx(t)σ_x^i + Bz(t)σ_z^i) + ∑_{i<j} J_ij σ_z^i ⊗ σ_z^j",
+                "environment_interaction": "H_int = ∑_i σ_z^i ⊗ B_i, where B_i are bath operators",
+                "non_markovian_dynamics": "∂ρ/∂t = -i[H_s(t), ρ(t)] + ∫_0^t ds K(t-s) [σ_z, [σ_z, ρ(s)]], where K(t-s) is the noise kernel derived from J(ω)",
+                "fidelity_metric": "F(t) = Tr[ρ_ideal(t) * ρ_noisy(t)]"
+            },
+            "ontology": {
+                "entities": [
+                    "qubit",
+                    "decoherence",
+                    "non-Markovian noise",
+                    "dynamical decoupling",
+                    "Lindblad master equation",
+                    "bosonic environment",
+                    "fidelity decay",
+                    "cross-talk",
+                    "spectral density",
+                    "pulse sequence"
+                ],
+                "relations": [
+                    "qubit couples to magnetic field",
+                    "environment induces decoherence",
+                    "dynamical decoupling suppresses noise",
+                    "non-Markovian noise correlates with spectral density",
+                    "fidelity decay measures simulation accuracy"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e437ba72-27e9-4799-a645-eb1f5c1c6fa3",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum coherence time (T2) of nitrogen-vacancy (NV) centers in diamond under varying conditions of temperature (T), external magnetic field (B), and nitrogen impurity concentration (N). The model must integrate first-principles calculations of spin-phonon coupling, magnetic field interactions, and impurity-induced decoherence pathways. Validate the model against experimental data and provide uncertainty quantification for the predictions.",
+            "task_data": {
+                "data_points": {
+                    "temperature_range": {
+                        "min": 1,
+                        "max": 300,
+                        "unit": "K"
+                    },
+                    "magnetic_field_range": {
+                        "min": 0,
+                        "max": 1,
+                        "unit": "T"
+                    },
+                    "nitrogen_concentration_range": {
+                        "min": 1e+16,
+                        "max": 1e+18,
+                        "unit": "cm^-3"
+                    },
+                    "experimental_T2_data": [
+                        {
+                            "T": 4,
+                            "B": 0.01,
+                            "N": 1e+16,
+                            "T2": 0.0025,
+                            "unit": "s"
+                        },
+                        {
+                            "T": 77,
+                            "B": 0.05,
+                            "N": 5e+16,
+                            "T2": 0.0012,
+                            "unit": "s"
+                        },
+                        {
+                            "T": 300,
+                            "B": 0.1,
+                            "N": 1e+17,
+                            "T2": 0.0008,
+                            "unit": "s"
+                        }
+                    ],
+                    "material_properties": {
+                        "diamond_debye_temperature": 1860,
+                        "unit": "GHz",
+                        "NV_center_zero_field_splitting": 2.87
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "T2_model": "1/T2 = Γ_phonon(T) + Γ_magnetic(B) + Γ_impurity(N)",
+                "Γ_phonon": "A * T^5 * integral[g(ω)/ω^4 * (n(ω) + 1) dω, 0 to ω_D]",
+                "Γ_magnetic": "B * (μ_B * B / ħ)^2 * τ_c",
+                "Γ_impurity": "C * N * σ * v",
+                "n(ω)": "1/(exp(ħω/kT) - 1)",
+                "constraints": [
+                    "A, B, C are fitting parameters",
+                    "τ_c is correlation time",
+                    "σ is scattering cross-section",
+                    "v is relative velocity"
+                ]
+            },
+            "ontology": {
+                "entities": [
+                    "nitrogen-vacancy center",
+                    "quantum coherence time",
+                    "spin-phonon coupling",
+                    "decoherence",
+                    "first-principles calculations",
+                    "magnetic field interactions",
+                    "impurity scattering",
+                    "Debye temperature",
+                    "zero-field splitting"
+                ],
+                "relations": [
+                    "NV center is subject to spin-phonon coupling",
+                    "external magnetic field influences spin dynamics",
+                    "nitrogen impurities cause decoherence",
+                    "temperature affects phonon population",
+                    "T2 is inversely proportional to decoherence rates"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "6b19b947-3d1c-4440-83b7-5339d65e2e72",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum coherence time (T2) of nitrogen-vacancy (NV) centers in diamond under varying conditions of temperature, strain, and magnetic field strength. The model must incorporate spin-phonon interactions, electronic spin interactions with neighboring nuclear spins, and the effects of strain-induced splitting of the ground state spin sublevels. Validate the model against experimental data and provide uncertainty quantification for the predictions.",
+            "task_data": {
+                "data_points": {
+                    "temperature_range": [
+                        4,
+                        300
+                    ],
+                    "magnetic_field_range": [
+                        0,
+                        1000
+                    ],
+                    "strain_range": [
+                        0,
+                        0.1
+                    ],
+                    "NV_center_properties": {
+                        "zero_field_splitting": 2.87,
+                        "electron_g_factor": 2.0,
+                        "hyperfine_constants": [
+                            -2.1,
+                            -2.3
+                        ],
+                        "nuclear_spins": [
+                            1,
+                            1
+                        ]
+                    },
+                    "material_properties": {
+                        "diamond_debye_temperature": 1860,
+                        "phonon_modes": [
+                            "acoustic",
+                            "optical"
+                        ],
+                        "strain_susceptibility": 0.5
+                    },
+                    "experimental_data": {
+                        "T2_measurements": [
+                            {
+                                "temperature": 10,
+                                "magnetic_field": 50,
+                                "strain": 0.01,
+                                "T2": 500
+                            },
+                            {
+                                "temperature": 50,
+                                "magnetic_field": 100,
+                                "strain": 0.02,
+                                "T2": 200
+                            },
+                            {
+                                "temperature": 100,
+                                "magnetic_field": 200,
+                                "strain": 0.03,
+                                "T2": 100
+                            }
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "The coherence time T2 is modeled as: 1/T2 = Γ_phonon + Γ_spin + Γ_strain, where Γ_phonon = A * exp(-B/T), Γ_spin = C * B^2, and Γ_strain = D * ε^2. Here, A, B, C, D are material-specific constants, T is temperature, B is magnetic field strength, and ε is strain. The spin-phonon interaction is treated via a Redfield formalism, while the spin-spin interactions are modeled using a cluster expansion method.",
+            "ontology": {
+                "entities": [
+                    "nitrogen-vacancy center",
+                    "quantum coherence time",
+                    "spin-phonon interaction",
+                    "hyperfine interaction",
+                    "strain tensor",
+                    "Redfield theory",
+                    "cluster expansion"
+                ],
+                "relations": [
+                    "NV center is subject to spin-phonon interaction",
+                    "NV center interacts with nuclear spins via hyperfine interaction",
+                    "strain affects zero-field splitting of NV center",
+                    "temperature influences phonon-induced decoherence",
+                    "magnetic field modulates spin-spin interactions"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "d470d59f-f12f-4747-aa7a-92a4bec20bae",
+        "task_details": {
+            "task_instructions": "Given a dataset of exoplanetary systems with observed orbital parameters and stellar properties, derive the stability criteria for a hypothetical n-body system (n ≥ 4) under gravitational perturbation. The task involves: (1) calculating the Lyapunov characteristic exponents for each system to determine chaotic behavior, (2) applying the Hill stability criterion to pairwise orbits, (3) simulating the systems using N-body integration under relativistic corrections, and (4) deriving a generalized stability parameter Λ that predicts system longevity (> 1 Myr) as a function of initial conditions. The output must include Λ for each system and a classification of stable/unstable based on Λ > Λ_critical (threshold to be derived).",
+            "task_data": {
+                "data_points": {
+                    "stellar_mass": [
+                        1.02,
+                        0.78,
+                        1.45,
+                        1.12
+                    ],
+                    "stellar_radius": [
+                        1.05,
+                        0.85,
+                        1.3,
+                        1.08
+                    ],
+                    "exoplanets": [
+                        {
+                            "mass": [
+                                0.003,
+                                0.012,
+                                0.008
+                            ],
+                            "semi_major_axis": [
+                                0.05,
+                                0.12,
+                                0.25
+                            ],
+                            "eccentricity": [
+                                0.01,
+                                0.05,
+                                0.03
+                            ]
+                        },
+                        {
+                            "mass": [
+                                0.005,
+                                0.009,
+                                0.015,
+                                0.002
+                            ],
+                            "semi_major_axis": [
+                                0.08,
+                                0.15,
+                                0.3,
+                                0.45
+                            ],
+                            "eccentricity": [
+                                0.02,
+                                0.1,
+                                0.07,
+                                0.01
+                            ]
+                        },
+                        {
+                            "mass": [
+                                0.02,
+                                0.025,
+                                0.01,
+                                0.006
+                            ],
+                            "semi_major_axis": [
+                                0.1,
+                                0.2,
+                                0.35,
+                                0.5
+                            ],
+                            "eccentricity": [
+                                0.05,
+                                0.15,
+                                0.1,
+                                0.02
+                            ]
+                        },
+                        {
+                            "mass": [
+                                0.004,
+                                0.007,
+                                0.011,
+                                0.003
+                            ],
+                            "semi_major_axis": [
+                                0.07,
+                                0.18,
+                                0.28,
+                                0.4
+                            ],
+                            "eccentricity": [
+                                0.03,
+                                0.08,
+                                0.04,
+                                0.01
+                            ]
+                        }
+                    ]
+                },
+                "constants": {
+                    "gravitational_constant": 6.6743e-11,
+                    "speed_of_light": 299792458.0,
+                    "solar_mass": 1.98847e+30
+                }
+            },
+            "mathematical_formulation": {
+                "lyapunov_exponent": "λ = lim_(t→∞) (1/t) ln(||δ(t)|| / ||δ(0)||)",
+                "hill_stability": "a_outer (1 - e_outer) > a_inner (1 + e_inner) * (3 * (m_inner / m_outer)^(1/3))",
+                "relativistic_correction": "Δω = (6πGM)/(c²a(1 - e²))",
+                "stability_parameter": "Λ = (∑(λ_i^(-1)) / (T_orbital * N_body * (1 + ∑(e_i)))",
+                "critical_threshold": "Λ_critical = 1.5 ± 0.2 (empirically derived)"
+            },
+            "ontology": {
+                "entities": [
+                    "exoplanetary system",
+                    "Lyapunov characteristic exponent",
+                    "Hill stability",
+                    "N-body integration",
+                    "relativistic corrections",
+                    "semi-major axis",
+                    "eccentricity",
+                    "chaotic behavior",
+                    "orbital stability",
+                    "gravitational perturbation"
+                ],
+                "relations": [
+                    "stellar_mass influences orbital dynamics",
+                    "eccentricity affects Hill stability",
+                    "Lyapunov exponent measures chaotic behavior",
+                    "relativistic corrections perturb periastron",
+                    "stability parameter Λ predicts system longevity"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "909ece1c-6218-4522-bb84-b4a68af99a9d",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum coherence time (T2) of nitrogen-vacancy (NV) centers in diamond under varying conditions of temperature, strain, and magnetic field strength. The model must integrate ab initio calculations, empirical data, and phenomenological relations to achieve predictive accuracy within 10% of experimental values. The output should include a sensitivity analysis of the parameters affecting T2.",
+            "task_data": {
+                "data_points": {
+                    "temperature_range": [
+                        4,
+                        300
+                    ],
+                    "strain_range": [
+                        0,
+                        0.05
+                    ],
+                    "magnetic_field_range": [
+                        0,
+                        1
+                    ],
+                    "NV_center_properties": {
+                        "zero_field_splitting": 2.87,
+                        "hyperfine_constants": [
+                            -2.16,
+                            -2.16,
+                            -2.16
+                        ],
+                        "spin_orbit_coupling": 0.01
+                    },
+                    "experimental_T2_values": [
+                        {
+                            "temperature": 4,
+                            "strain": 0,
+                            "magnetic_field": 0,
+                            "T2": 2.0
+                        },
+                        {
+                            "temperature": 77,
+                            "strain": 0.01,
+                            "magnetic_field": 0.5,
+                            "T2": 1.5
+                        },
+                        {
+                            "temperature": 300,
+                            "strain": 0.02,
+                            "magnetic_field": 1.0,
+                            "T2": 0.8
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "T2_equation": "1/T2 = 1/T2_phonon + 1/T2_strain + 1/T2_magnetic",
+                "phonon_contribution": "1/T2_phonon = A * exp(-B/T)",
+                "strain_contribution": "1/T2_strain = C * ε^2",
+                "magnetic_contribution": "1/T2_magnetic = D * B^2",
+                "constraints": {
+                    "A": [
+                        0.1,
+                        1.0
+                    ],
+                    "B": [
+                        10,
+                        100
+                    ],
+                    "C": [
+                        0.01,
+                        0.1
+                    ],
+                    "D": [
+                        0.001,
+                        0.01
+                    ]
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "nitrogen-vacancy center",
+                    "quantum coherence time",
+                    "ab initio calculations",
+                    "phenomenological relations",
+                    "sensitivity analysis",
+                    "zero-field splitting",
+                    "hyperfine constants",
+                    "spin-orbit coupling"
+                ],
+                "relations": [
+                    "NV center is affected by temperature",
+                    "NV center is affected by strain",
+                    "NV center is affected by magnetic field",
+                    "T2 is inversely proportional to phonon contribution",
+                    "T2 is inversely proportional to strain contribution",
+                    "T2 is inversely proportional to magnetic contribution"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e9d9fe1f-c300-4ece-a1b0-4fbb29bd4ece",
+        "task_details": {
+            "task_instructions": "Construct a high-dimensional quantum many-body Hamiltonian for a strongly correlated electron system, incorporating spin-orbit coupling, Coulomb repulsion, and lattice distortion effects. Diagonalize the Hamiltonian to compute the ground state energy and the first excited state energy, ensuring numerical precision to at least 10^-6 eV. Validate the results by comparing with known experimental data for a specific material (e.g., Sr2IrO4).",
+            "task_data": {
+                "data_points": {
+                    "material_parameters": {
+                        "Sr2IrO4": {
+                            "lattice_constant": 5.48,
+                            "spin_orbit_coupling": 0.4,
+                            "Coulomb_repulsion_U": 2.0,
+                            "hopping_parameters": {
+                                "t1": 0.3,
+                                "t2": 0.1,
+                                "t3": 0.05
+                            },
+                            "distortion_angle": 11.5
+                        }
+                    },
+                    "experimental_data": {
+                        "ground_state_energy": -1.25,
+                        "first_excited_state_energy": -1.1
+                    }
+                }
+            },
+            "mathematical_formulation": "The Hamiltonian H is given by: H = H_kinetic + H_SO + H_U + H_distortion, where:\n- H_kinetic = -∑_{i,j,σ} t_{ij} (c_{iσ}^† c_{jσ} + h.c.)\n- H_SO = λ ∑_i L_i · S_i\n- H_U = U ∑_i n_{i↑} n_{i↓}\n- H_distortion = ∑_i D (θ_i - θ_0)^2\nwith c_{iσ}^† (c_{iσ}) as creation (annihilation) operators, λ as spin-orbit coupling strength, U as Coulomb repulsion, and D as distortion stiffness.",
+            "ontology": {
+                "entities": [
+                    "Hamiltonian",
+                    "spin-orbit coupling",
+                    "Coulomb repulsion",
+                    "lattice distortion",
+                    "ground state energy",
+                    "first excited state energy",
+                    "Sr2IrO4"
+                ],
+                "relations": [
+                    "Hamiltonian describes the energy levels of the system",
+                    "spin-orbit coupling affects the electronic structure",
+                    "Coulomb repulsion influences electron-electron interactions",
+                    "lattice distortion modifies the crystal field",
+                    "ground state energy is the lowest eigenvalue of the Hamiltonian",
+                    "first excited state energy is the next eigenvalue of the Hamiltonian"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "c72ccafc-4c79-4a64-af61-cf079fcbf54b",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the quantum coherence time (T2) of nitrogen-vacancy (NV) centers in diamond under varying conditions of temperature, strain, and magnetic field strength. The model must integrate first-principles calculations with empirical data, accounting for spin-phonon coupling, hyperfine interactions, and electronic spin relaxation mechanisms. Validate the model against experimental data and provide uncertainty quantification for each prediction.",
+            "task_data": {
+                "data_points": {
+                    "temperature_range": {
+                        "min": 1,
+                        "max": 500,
+                        "unit": "K"
+                    },
+                    "strain_range": {
+                        "min": 0,
+                        "max": 0.1,
+                        "unit": "strain"
+                    },
+                    "magnetic_field_range": {
+                        "min": 0,
+                        "max": 1,
+                        "unit": "T"
+                    },
+                    "NV_center_properties": {
+                        "zero_field_splitting": 2.87,
+                        "unit": "GHz",
+                        "hyperfine_constants": {
+                            "A_parallel": -2.16,
+                            "A_perpendicular": -2.16,
+                            "unit": "MHz"
+                        },
+                        "spin_phonon_coupling_coefficients": {
+                            "lambda_longitudinal": 0.1,
+                            "lambda_transverse": 0.05,
+                            "unit": "dimensionless"
+                        }
+                    },
+                    "experimental_T2_data": [
+                        {
+                            "temperature": 4,
+                            "strain": 0.01,
+                            "magnetic_field": 0.05,
+                            "T2": 2.5,
+                            "unit": "ms"
+                        },
+                        {
+                            "temperature": 100,
+                            "strain": 0.02,
+                            "magnetic_field": 0.1,
+                            "T2": 1.8,
+                            "unit": "ms"
+                        },
+                        {
+                            "temperature": 300,
+                            "strain": 0.005,
+                            "magnetic_field": 0.2,
+                            "T2": 0.5,
+                            "unit": "ms"
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "The quantum coherence time T2 is modeled as: 1/T2 = Γ_phonon + Γ_hyperfine + Γ_magnetic, where Γ_phonon = λ² * J(ω), Γ_hyperfine = ∑ A_i² * S(S+1)/3, and Γ_magnetic = γ² B² τ_c. Here, λ is the spin-phonon coupling coefficient, J(ω) is the spectral density of phonons, A_i are hyperfine constants, S is the spin quantum number, γ is the gyromagnetic ratio, B is the magnetic field strength, and τ_c is the correlation time of magnetic fluctuations.",
+            "ontology": {
+                "entities": [
+                    "nitrogen-vacancy center",
+                    "quantum coherence time",
+                    "spin-phonon coupling",
+                    "hyperfine interaction",
+                    "zero-field splitting",
+                    "gyromagnetic ratio",
+                    "spectral density"
+                ],
+                "relations": [
+                    "NV center exhibits zero-field splitting",
+                    "spin-phonon coupling affects T2",
+                    "hyperfine interaction contributes to decoherence",
+                    "magnetic field influences spin relaxation"
+                ]
+            }
+        }
+    }
+]

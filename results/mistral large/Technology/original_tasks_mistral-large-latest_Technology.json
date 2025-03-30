@@ -1,0 +1,2906 @@
+[
+    {
+        "task_id": "a5c5555b-10d8-4780-8b86-3e38b2dbddcb",
+        "task_details": {
+            "task_instructions": "Design a quantum algorithm to optimize the throughput of a 5G network with dynamic traffic patterns, considering interference, latency, and energy consumption constraints. The algorithm should be capable of real-time adjustments based on changing network conditions and user demands.",
+            "task_data": {
+                "data_points": {
+                    "network_topology": {
+                        "base_stations": [
+                            {
+                                "id": "BS1",
+                                "location": {
+                                    "latitude": 34.0522,
+                                    "longitude": -118.2437
+                                },
+                                "capacity": 500
+                            },
+                            {
+                                "id": "BS2",
+                                "location": {
+                                    "latitude": 34.0422,
+                                    "longitude": -118.2537
+                                },
+                                "capacity": 450
+                            }
+                        ],
+                        "users": [
+                            {
+                                "id": "U1",
+                                "location": {
+                                    "latitude": 34.05,
+                                    "longitude": -118.24
+                                },
+                                "demand": 10
+                            },
+                            {
+                                "id": "U2",
+                                "location": {
+                                    "latitude": 34.045,
+                                    "longitude": -118.25
+                                },
+                                "demand": 15
+                            }
+                        ]
+                    },
+                    "traffic_patterns": [
+                        {
+                            "time": "08:00",
+                            "demand": 300
+                        },
+                        {
+                            "time": "12:00",
+                            "demand": 500
+                        },
+                        {
+                            "time": "18:00",
+                            "demand": 400
+                        }
+                    ],
+                    "interference_matrix": [
+                        [
+                            0.1,
+                            0.2
+                        ],
+                        [
+                            0.2,
+                            0.1
+                        ]
+                    ],
+                    "latency_requirements": [
+                        {
+                            "user_id": "U1",
+                            "max_latency": 20
+                        },
+                        {
+                            "user_id": "U2",
+                            "max_latency": 15
+                        }
+                    ],
+                    "energy_consumption": [
+                        {
+                            "base_station_id": "BS1",
+                            "consumption": 50
+                        },
+                        {
+                            "base_station_id": "BS2",
+                            "consumption": 45
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Maximize the throughput T of the 5G network subject to the following constraints:\n1. Interference Constraint: I(i, j) <= I_max for all base stations i and j.\n2. Latency Constraint: L(u) <= L_max(u) for all users u.\n3. Energy Consumption Constraint: E(b) <= E_max(b) for all base stations b.\n4. Capacity Constraint: C(b) <= C_max(b) for all base stations b.\n5. Demand Constraint: D(u) >= D_min(u) for all users u.\nWhere:\n- T is the total throughput of the network.\n- I(i, j) is the interference between base stations i and j.\n- L(u) is the latency experienced by user u.\n- E(b) is the energy consumption of base station b.\n- C(b) is the capacity of base station b.\n- D(u) is the demand of user u.",
+            "ontology": {
+                "entities": [
+                    "5G network",
+                    "quantum algorithm",
+                    "base station",
+                    "user",
+                    "traffic pattern",
+                    "interference",
+                    "latency",
+                    "energy consumption",
+                    "throughput",
+                    "capacity",
+                    "demand"
+                ],
+                "relations": [
+                    "base station has capacity",
+                    "base station has energy consumption",
+                    "user has demand",
+                    "user has latency requirement",
+                    "network has throughput",
+                    "base station interferes with base station",
+                    "traffic pattern affects demand"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "13e18958-f21c-4509-8cb6-2fa0c0b32f4a",
+        "task_details": {
+            "task_instructions": "Design a scalable, fault-tolerant, and highly available microservices architecture for a real-time data processing system capable of handling 100,000 transactions per second with a latency of less than 50 milliseconds. The system should include load balancing, service discovery, circuit breaking, and distributed tracing. Additionally, provide a detailed deployment strategy using Kubernetes and a cost estimation for running the system on a cloud provider like AWS.",
+            "task_data": {
+                "data_points": {
+                    "transaction_volume": 100000,
+                    "latency_requirement": 0.05,
+                    "cloud_provider": "AWS",
+                    "services": [
+                        {
+                            "service_name": "OrderProcessingService",
+                            "dependencies": [
+                                "PaymentService",
+                                "InventoryService"
+                            ],
+                            "expected_load": 50000
+                        },
+                        {
+                            "service_name": "PaymentService",
+                            "dependencies": [
+                                "FraudDetectionService"
+                            ],
+                            "expected_load": 30000
+                        },
+                        {
+                            "service_name": "InventoryService",
+                            "dependencies": [],
+                            "expected_load": 20000
+                        },
+                        {
+                            "service_name": "FraudDetectionService",
+                            "dependencies": [],
+                            "expected_load": 10000
+                        }
+                    ],
+                    "kubernetes_cluster_specs": {
+                        "number_of_nodes": 50,
+                        "node_specs": {
+                            "cpu": "16",
+                            "memory": "64GB",
+                            "storage": "500GB"
+                        }
+                    },
+                    "cost_parameters": {
+                        "instance_type": "m5.4xlarge",
+                        "spot_instance_discount": 0.7,
+                        "data_transfer_cost": 0.09
+                    }
+                }
+            },
+            "mathematical_formulation": "Let T be the total number of transactions, L be the latency requirement, N be the number of nodes, C be the cost of running the system, and S be the spot instance discount. The system must satisfy the following constraints:\n1. T / N <= 2000 (transactions per node per second)\n2. L <= 0.05 seconds\n3. C <= Budget\nWhere C is calculated as:\nC = N * (InstanceCost * S + DataTransferCost)\nAnd the InstanceCost and DataTransferCost are derived from the cloud provider's pricing model.",
+            "ontology": {
+                "entities": [
+                    "Microservices Architecture",
+                    "Load Balancing",
+                    "Service Discovery",
+                    "Circuit Breaking",
+                    "Distributed Tracing",
+                    "Kubernetes",
+                    "AWS",
+                    "Transactions Per Second (TPS)",
+                    "Latency",
+                    "Fault Tolerance",
+                    "High Availability",
+                    "Scalability",
+                    "Cost Estimation"
+                ],
+                "relations": [
+                    "Microservices Architecture includes Load Balancing",
+                    "Microservices Architecture includes Service Discovery",
+                    "Microservices Architecture includes Circuit Breaking",
+                    "Microservices Architecture includes Distributed Tracing",
+                    "Kubernetes deploys Microservices Architecture",
+                    "AWS hosts Kubernetes",
+                    "Transactions Per Second affects Latency",
+                    "Fault Tolerance influences High Availability",
+                    "Scalability impacts Cost Estimation"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "0bd2a070-0f53-4b1e-9c4a-def63f91cef1",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive cybersecurity threat model for a hybrid cloud architecture that integrates on-premises data centers with multiple public cloud providers. The model should identify and quantify potential threats, vulnerabilities, and attack vectors, and propose mitigation strategies. The architecture includes 500 virtual machines, 200 microservices, and 100 databases distributed across three cloud providers and two on-premises data centers.",
+            "task_data": {
+                "data_points": {
+                    "cloud_providers": [
+                        "AWS",
+                        "Azure",
+                        "GCP"
+                    ],
+                    "on_premises_data_centers": [
+                        "DataCenter1",
+                        "DataCenter2"
+                    ],
+                    "virtual_machines": 500,
+                    "microservices": 200,
+                    "databases": 100,
+                    "network_architecture": [
+                        {
+                            "subnet": "SubnetA",
+                            "network_description": "CloudAWS",
+                            "security_groups": [
+                                "SG_AWS_1",
+                                "SG_AWS_2"
+                            ],
+                            "gateway": "GatewayX"
+                        },
+                        {
+                            "subnet": "SubnetB",
+                            "network_description": "AzureCloud",
+                            "security_groups": [
+                                "SG_Azure_1",
+                                "SG_Azure_2"
+                            ],
+                            "gateway": "GatewayX"
+                        },
+                        {
+                            "subnet": "SubnetC",
+                            "network_description": "DataCenter2",
+                            "security_groups": [
+                                "FG_AWS_1",
+                                "FG_AWS_2"
+                            ],
+                            "gateway": "GatewayX"
+                        },
+                        {
+                            "subnet": "SubnetD",
+                            "network_description": "GCPCloud",
+                            "security_groups": [
+                                "SG_GCP_1",
+                                "SG_GCP_2"
+                            ],
+                            "gateway": "GatewayX"
+                        }
+                    ],
+                    "data_traffic_statistics": [
+                        0.56,
+                        0.38,
+                        0.8,
+                        8.5,
+                        13.2
+                    ]
+                }
+            },
+            "mathematical_formulation": "The threat model should be formulated using the STRIDE threat modeling framework, where each threat is quantified using the Common Vulnerability Scoring System (CVSS). The overall risk R for each threat is calculated as R = P(E) * I, where P(E) is the probability of exploitation and I is the impact of the threat. The mitigation strategies should reduce the overall risk by at least 50%.",
+            "ontology": {
+                "entities": [
+                    "Hybrid Cloud Architecture",
+                    "On-Premises Data Center",
+                    "Public Cloud Provider",
+                    "Virtual Machine",
+                    "Microservice",
+                    "Database",
+                    "Subnet",
+                    "Security Group",
+                    "Gateway",
+                    "Threat",
+                    "Vulnerability",
+                    "Attack Vector",
+                    "Mitigation Strategy",
+                    "STRIDE",
+                    "CVSS"
+                ],
+                "relations": [
+                    "integratesWith",
+                    "distributedAcross",
+                    "identifies",
+                    "quantifies",
+                    "proposes",
+                    "includes",
+                    "reduces",
+                    "formulatedUsing",
+                    "quantifiedUsing"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "d3a770eb-9c3e-4da5-9054-43f1fc1638e3",
+        "task_details": {
+            "task_instructions": "Design a robust and scalable microservices architecture for a real-time data processing system that can handle 100,000 transactions per second with a latency of less than 50 milliseconds. The system should be fault-tolerant, highly available, and secure, utilizing containers for deployment and Kubernetes for orchestration. The architecture should include data ingestion, processing, storage, and retrieval components, with a focus on optimizing resource utilization and minimizing costs.",
+            "task_data": {
+                "data_points": {
+                    "transaction_rate": 100000,
+                    "max_latency": 50,
+                    "fault_tolerance_requirement": "high",
+                    "availability_requirement": "99.99%",
+                    "security_requirement": "high",
+                    "deployment_environment": "Kubernetes",
+                    "container_technology": "Docker",
+                    "data_ingestion_sources": [
+                        "IoT devices",
+                        "mobile applications",
+                        "web services"
+                    ],
+                    "data_processing_requirements": [
+                        "real-time analytics",
+                        "batch processing"
+                    ],
+                    "data_storage_requirements": [
+                        "relational database",
+                        "NoSQL database",
+                        "data lake"
+                    ],
+                    "data_retrieval_requirements": [
+                        "RESTful APIs",
+                        "GraphQL"
+                    ],
+                    "cost_optimization_requirements": [
+                        "auto-scaling",
+                        "resource monitoring"
+                    ]
+                }
+            },
+            "mathematical_formulation": "Let T be the transaction rate, L be the latency, F be the fault tolerance, A be the availability, and C be the cost. The system should satisfy the following constraints: T >= 100,000 transactions/second, L <= 50 milliseconds, F >= high, A >= 99.99%, and C should be minimized while meeting all other constraints.",
+            "ontology": {
+                "entities": [
+                    "microservices",
+                    "containers",
+                    "Kubernetes",
+                    "data ingestion",
+                    "data processing",
+                    "data storage",
+                    "data retrieval",
+                    "fault tolerance",
+                    "high availability",
+                    "security",
+                    "latency",
+                    "transaction rate",
+                    "cost optimization"
+                ],
+                "relations": [
+                    "deploys",
+                    "orchestrates",
+                    "ingests",
+                    "processes",
+                    "stores",
+                    "retrieves",
+                    "ensures",
+                    "maintains",
+                    "secures",
+                    "optimizes"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "94a5cc5c-7055-4adc-bb14-857609e8db4a",
+        "task_details": {
+            "task_instructions": "Design a distributed, fault-tolerant, real-time data processing system capable of handling 1 million events per second with a latency of less than 10 milliseconds. The system should be able to scale horizontally and vertically, support multiple data sources, and provide exactly-once processing semantics. Additionally, the system should integrate with a machine learning pipeline for real-time anomaly detection and prediction. Provide a detailed architectural blueprint, including data flow diagrams, component specifications, and a deployment strategy.",
+            "task_data": {
+                "data_points": {
+                    "event_sources": [
+                        "IoT sensors",
+                        "social media feeds",
+                        "financial transactions",
+                        "network logs"
+                    ],
+                    "event_rate": 1000000,
+                    "latency_requirement": 0.01,
+                    "processing_semantics": "exactly-once",
+                    "machine_learning_models": [
+                        "anomaly detection",
+                        "predictive analysis"
+                    ],
+                    "deployment_environments": [
+                        "on-premises",
+                        "cloud",
+                        "hybrid"
+                    ],
+                    "scaling_requirements": [
+                        "horizontal",
+                        "vertical"
+                    ],
+                    "fault_tolerance_metrics": {
+                        "uptime": 0.9999,
+                        "mean_time_to_recovery": 0.001
+                    }
+                }
+            },
+            "mathematical_formulation": "Let E be the set of events, where |E| = 1,000,000 events per second. The system must process each event e ∈ E such that the latency L(e) < 0.01 seconds. The system's throughput T must satisfy T ≥ |E|. The fault tolerance FT is defined by the uptime U and mean time to recovery MTR, where U ≥ 0.9999 and MTR ≤ 0.001 hours.",
+            "ontology": {
+                "entities": [
+                    "distributed system",
+                    "fault tolerance",
+                    "real-time processing",
+                    "event streams",
+                    "machine learning pipeline",
+                    "horizontal scaling",
+                    "vertical scaling",
+                    "exactly-once processing",
+                    "latency",
+                    "throughput",
+                    "uptime",
+                    "mean time to recovery"
+                ],
+                "relations": [
+                    "handles",
+                    "integrates",
+                    "supports",
+                    "provides",
+                    "satisfies",
+                    "defines"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "8b65b329-71bc-452a-8095-8b84744dff63",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive cybersecurity threat model for a hypothetical Internet of Things (IoT) ecosystem integrated with a 5G network, considering various attack vectors, potential vulnerabilities, and mitigation strategies. The model should include a detailed risk assessment, threat actor profiling, and a simulation of potential attack scenarios using advanced machine learning algorithms to predict and prevent cyber threats in real-time.",
+            "task_data": {
+                "data_points": {
+                    "IoT_devices": [
+                        "Smart Thermostat",
+                        "Security Camera",
+                        "Smart Lock",
+                        "Voice Assistant",
+                        "Health Monitor"
+                    ],
+                    "network_components": [
+                        "5G Base Station",
+                        "Edge Computing Server",
+                        "Cloud Server",
+                        "Router",
+                        "Switch"
+                    ],
+                    "threat_actors": [
+                        "Nation-State Actors",
+                        "Cybercriminals",
+                        "Hacktivists",
+                        "Insider Threats"
+                    ],
+                    "attack_vectors": [
+                        "DDoS",
+                        "Man-in-the-Middle",
+                        "SQL Injection",
+                        "Phishing",
+                        "Malware"
+                    ],
+                    "vulnerabilities": [
+                        "Weak Passwords",
+                        "Unpatched Software",
+                        "Insecure Communication Protocols",
+                        "Lack of Encryption",
+                        "Poor Access Control"
+                    ],
+                    "mitigation_strategies": [
+                        "Firewalls",
+                        "Intrusion Detection Systems",
+                        "Encryption",
+                        "Multi-Factor Authentication",
+                        "Regular Software Updates"
+                    ],
+                    "numeric_variables": {
+                        "device_count": 500,
+                        "network_traffic_GB_per_day": 1000,
+                        "average_response_time_ms": 50,
+                        "attack_probability": 0.05,
+                        "mitigation_effectiveness": 0.8
+                    }
+                }
+            },
+            "mathematical_formulation": "Let P(A) be the probability of an attack, P(M) be the probability of successful mitigation, and R be the risk level. The risk level R can be calculated as R = P(A) * (1 - P(M)). The total risk for the system is the sum of individual risks for each vulnerability and attack vector combination.",
+            "ontology": {
+                "entities": [
+                    "IoT Device",
+                    "Network Component",
+                    "Threat Actor",
+                    "Attack Vector",
+                    "Vulnerability",
+                    "Mitigation Strategy"
+                ],
+                "relations": [
+                    "hasVulnerability",
+                    "isTargetedBy",
+                    "usesAttackVector",
+                    "mitigatesWith",
+                    "communicatesWith",
+                    "monitors"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "1efab784-5fc3-444c-8c9e-4bbc05f2f263",
+        "task_details": {
+            "task_instructions": "Design a scalable, fault-tolerant, and secure distributed system architecture for a real-time analytics platform that can handle 10 million concurrent users, process 500,000 transactions per second, and ensure data consistency across multiple geographical locations. The system should integrate advanced machine learning models for predictive analytics and anomaly detection, leveraging both batch and stream processing paradigms.",
+            "task_data": {
+                "data_points": {
+                    "user_count": 10000000,
+                    "transactions_per_second": 500000,
+                    "geographical_locations": [
+                        "North America",
+                        "Europe",
+                        "Asia"
+                    ],
+                    "machine_learning_models": [
+                        "Gradient Boosting",
+                        "Neural Networks",
+                        "Random Forest"
+                    ],
+                    "processing_paradigms": [
+                        "Batch Processing",
+                        "Stream Processing"
+                    ],
+                    "data_centers": {
+                        "North_America": {
+                            "servers": 500,
+                            "bandwidth": "100 Gbps"
+                        },
+                        "Europe": {
+                            "servers": 400,
+                            "bandwidth": "80 Gbps"
+                        },
+                        "Asia": {
+                            "servers": 600,
+                            "bandwidth": "120 Gbps"
+                        }
+                    },
+                    "security_requirements": {
+                        "encryption_standards": [
+                            "AES-256",
+                            "TLS 1.3"
+                        ],
+                        "compliance_standards": [
+                            "GDPR",
+                            "HIPAA",
+                            "PCI-DSS"
+                        ]
+                    },
+                    "fault_tolerance_metrics": {
+                        "mean_time_to_recovery": "5 minutes",
+                        "availability": "99.999%"
+                    }
+                }
+            },
+            "mathematical_formulation": "The system should satisfy the following constraints:\n1. Latency (L) for real-time analytics should be less than or equal to 100 milliseconds: L ≤ 100 ms.\n2. Throughput (T) should be greater than or equal to 500,000 transactions per second: T ≥ 500,000 tx/s.\n3. Data consistency (C) across geographical locations should be maintained with a probability of at least 99.99%: P(C) ≥ 99.99%.\n4. The system should ensure fault tolerance (F) with a mean time to recovery (MTTR) of less than or equal to 5 minutes: MTTR ≤ 5 minutes.\n5. The system should ensure security (S) with encryption standards (E) meeting or exceeding AES-256 and TLS 1.3: E ≥ {AES-256, TLS 1.3}.",
+            "ontology": {
+                "entities": [
+                    "Distributed System",
+                    "Real-time Analytics",
+                    "Machine Learning Models",
+                    "Batch Processing",
+                    "Stream Processing",
+                    "Data Consistency",
+                    "Fault Tolerance",
+                    "Security",
+                    "Encryption Standards",
+                    "Compliance Standards",
+                    "Geographical Locations",
+                    "Data Centers",
+                    "Servers",
+                    "Bandwidth",
+                    "Latency",
+                    "Throughput",
+                    "Mean Time to Recovery",
+                    "Availability"
+                ],
+                "relations": [
+                    "Distributed System integrates Real-time Analytics",
+                    "Real-time Analytics utilizes Machine Learning Models",
+                    "Machine Learning Models operate in Batch Processing and Stream Processing",
+                    "Data Consistency is ensured across Geographical Locations",
+                    "Fault Tolerance is maintained in Distributed System",
+                    "Security is enforced through Encryption Standards and Compliance Standards",
+                    "Geographical Locations host Data Centers",
+                    "Data Centers contain Servers with specified Bandwidth",
+                    "Latency and Throughput are critical metrics for Real-time Analytics",
+                    "Mean Time to Recovery and Availability are metrics for Fault Tolerance"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "9581b88f-5015-4a71-bd4c-164729a652aa",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive cybersecurity threat model for a hypothetical Internet of Things (IoT) ecosystem integrated with a cloud-based analytics platform. The model should identify potential vulnerabilities, attack vectors, and mitigation strategies, considering both hardware and software components. Additionally, perform a quantitative risk assessment using the CVSS (Common Vulnerability Scoring System) framework to prioritize threats.",
+            "task_data": {
+                "data_points": {
+                    "IoT_devices": [
+                        {
+                            "device_id": "D001",
+                            "device_type": "Smart Thermostat",
+                            "firmware_version": "1.2.3",
+                            "communication_protocols": [
+                                "Zigbee",
+                                "WiFi"
+                            ],
+                            "data_transmitted": [
+                                "temperature",
+                                "humidity",
+                                "status"
+                            ]
+                        },
+                        {
+                            "device_id": "D002",
+                            "device_type": "Security Camera",
+                            "firmware_version": "2.1.0",
+                            "communication_protocols": [
+                                "WiFi",
+                                "Bluetooth"
+                            ],
+                            "data_transmitted": [
+                                "video_feed",
+                                "motion_detection",
+                                "status"
+                            ]
+                        }
+                    ],
+                    "cloud_platform": {
+                        "platform_name": "CloudAnalytics",
+                        "services": [
+                            "Data Ingestion",
+                            "Storage",
+                            "Analytics",
+                            "Dashboard"
+                        ],
+                        "API_endpoints": [
+                            "/ingest",
+                            "/query",
+                            "/report"
+                        ],
+                        "authentication_methods": [
+                            "OAuth2",
+                            "API_Key"
+                        ]
+                    },
+                    "network_topology": {
+                        "components": [
+                            "Router",
+                            "Switch",
+                            "Firewall"
+                        ],
+                        "connections": [
+                            {
+                                "source": "D001",
+                                "destination": "Router",
+                                "protocol": "Zigbee"
+                            },
+                            {
+                                "source": "D002",
+                                "destination": "Router",
+                                "protocol": "WiFi"
+                            },
+                            {
+                                "source": "Router",
+                                "destination": "Firewall",
+                                "protocol": "IP"
+                            },
+                            {
+                                "source": "Firewall",
+                                "destination": "CloudAnalytics",
+                                "protocol": "HTTPS"
+                            }
+                        ]
+                    },
+                    "historical_data": {
+                        "incidents": [
+                            {
+                                "incident_id": "I001",
+                                "device_id": "D001",
+                                "description": "Firmware vulnerability exploited",
+                                "impact": "Data leakage",
+                                "date": "2023-01-15"
+                            },
+                            {
+                                "incident_id": "I002",
+                                "device_id": "D002",
+                                "description": "Unauthorized access",
+                                "impact": "Video feed compromised",
+                                "date": "2023-02-20"
+                            }
+                        ],
+                        "vulnerabilities": [
+                            {
+                                "vulnerability_id": "V001",
+                                "device_id": "D001",
+                                "description": "Buffer overflow in firmware",
+                                "CVSS_score": 7.5
+                            },
+                            {
+                                "vulnerability_id": "V002",
+                                "device_id": "D002",
+                                "description": "Weak default credentials",
+                                "CVSS_score": 8.0
+                            }
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "The risk assessment should use the CVSS framework to calculate the risk score for each identified vulnerability. The CVSS score can be calculated using the formula:\n\nCVSS_base_score = (0.6 * Impact_subscore + 0.4 * Exploitability_subscore - 1.5) * f(Impact_subscore)\n\nwhere:\nImpact_subscore = 6.42 * Impact_base\nExploitability_subscore = 8.22 * Exploitability_base\n\nf(Impact_subscore) = 0 if Impact_subscore = 0, otherwise f(Impact_subscore) = 1.176",
+            "ontology": {
+                "entities": [
+                    "IoT Device",
+                    "Firmware",
+                    "Communication Protocol",
+                    "Cloud Platform",
+                    "API Endpoint",
+                    "Authentication Method",
+                    "Network Component",
+                    "Vulnerability",
+                    "Incident",
+                    "CVSS Score"
+                ],
+                "relations": [
+                    "IoT Device has Firmware",
+                    "IoT Device uses Communication Protocol",
+                    "IoT Device transmits Data",
+                    "Cloud Platform provides Service",
+                    "Cloud Platform exposes API Endpoint",
+                    "Cloud Platform uses Authentication Method",
+                    "Network Component connects to Network Component",
+                    "IoT Device experiences Incident",
+                    "IoT Device has Vulnerability",
+                    "Vulnerability has CVSS Score"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "1e126e6f-dc0c-4354-a1b0-1551ed1e1d2a",
+        "task_details": {
+            "task_instructions": "Design a highly optimized and scalable microservices architecture for a real-time data processing system that handles 10 million transactions per second with a latency of less than 10 milliseconds. The system should integrate with various data sources, including IoT devices, social media feeds, and financial transaction systems. The architecture should ensure high availability, fault tolerance, and security. Provide a detailed design, including the selection of appropriate technologies, protocols, and data storage solutions.",
+            "task_data": {
+                "data_points": {
+                    "transaction_rate": 10000000,
+                    "latency_requirement": 0.01,
+                    "data_sources": [
+                        {
+                            "source_type": "IoT",
+                            "data_format": "JSON",
+                            "throughput": 5000000
+                        },
+                        {
+                            "source_type": "Social Media",
+                            "data_format": "XML",
+                            "throughput": 3000000
+                        },
+                        {
+                            "source_type": "Financial Transactions",
+                            "data_format": "CSV",
+                            "throughput": 2000000
+                        }
+                    ],
+                    "availability_requirement": 0.99999,
+                    "fault_tolerance_requirement": "5 nines",
+                    "security_requirements": [
+                        "Encryption",
+                        "Authentication",
+                        "Authorization",
+                        "Data Integrity"
+                    ]
+                }
+            },
+            "mathematical_formulation": "The system must satisfy the following constraints:\n1. Throughput (T) >= 10,000,000 transactions/second\n2. Latency (L) <= 0.01 seconds\n3. Availability (A) >= 0.99999\n4. Fault Tolerance (F) >= 5 nines\n5. Security (S) must include encryption, authentication, authorization, and data integrity.\n6. The system must integrate with IoT devices, social media feeds, and financial transaction systems.",
+            "ontology": {
+                "entities": [
+                    "Microservices Architecture",
+                    "Real-time Data Processing",
+                    "IoT Devices",
+                    "Social Media Feeds",
+                    "Financial Transaction Systems",
+                    "High Availability",
+                    "Fault Tolerance",
+                    "Security",
+                    "Encryption",
+                    "Authentication",
+                    "Authorization",
+                    "Data Integrity",
+                    "Scalability",
+                    "Latency",
+                    "Throughput"
+                ],
+                "relations": [
+                    "Microservices Architecture ensures Real-time Data Processing",
+                    "Real-time Data Processing integrates with IoT Devices",
+                    "Real-time Data Processing integrates with Social Media Feeds",
+                    "Real-time Data Processing integrates with Financial Transaction Systems",
+                    "Microservices Architecture ensures High Availability",
+                    "Microservices Architecture ensures Fault Tolerance",
+                    "Microservices Architecture ensures Security",
+                    "Security includes Encryption",
+                    "Security includes Authentication",
+                    "Security includes Authorization",
+                    "Security includes Data Integrity",
+                    "Microservices Architecture ensures Scalability",
+                    "Real-time Data Processing requires low Latency",
+                    "Real-time Data Processing requires high Throughput"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "218d67ca-eaa6-4e5d-9461-a31c32de9751",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive cybersecurity threat model for a hypothetical IoT-based smart grid system that integrates renewable energy sources, traditional power plants, and consumer demand response mechanisms. The model should identify potential vulnerabilities, threat vectors, and mitigation strategies, considering the interdependencies between various components. Additionally, propose a real-time anomaly detection system using machine learning algorithms to enhance the security of the smart grid.",
+            "task_data": {
+                "data_points": {
+                    "IoT_devices": [
+                        "Smart Meters",
+                        "Sensor Nodes",
+                        "Actuators",
+                        "Gateway Devices"
+                    ],
+                    "renewable_energy_sources": [
+                        "Solar Panels",
+                        "Wind Turbines",
+                        "Hydroelectric Plants"
+                    ],
+                    "traditional_power_plants": [
+                        "Coal Plants",
+                        "Nuclear Plants",
+                        "Gas Plants"
+                    ],
+                    "consumer_demand_response_mechanisms": [
+                        "Dynamic Pricing",
+                        "Load Shedding",
+                        "Demand forecasting"
+                    ],
+                    "network_topology": [
+                        "Wired",
+                        "Wireless",
+                        "Hybrid"
+                    ],
+                    "communication_protocols": [
+                        "Zigbee",
+                        "Wi-Fi",
+                        "LoRaWAN",
+                        "Cellular"
+                    ],
+                    "historical_data": {
+                        "power_consumption": [
+                            {
+                                "timestamp": "2023-01-01T00:00:00Z",
+                                "value": 500
+                            },
+                            {
+                                "timestamp": "2023-01-01T01:00:00Z",
+                                "value": 550
+                            }
+                        ],
+                        "anomaly_events": [
+                            {
+                                "timestamp": "2023-01-01T02:00:00Z",
+                                "event": "DDOS Attack"
+                            },
+                            {
+                                "timestamp": "2023-01-01T03:00:00Z",
+                                "event": "Data Tampering"
+                            }
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "Let G = (V, E) represent the smart grid network, where V is the set of nodes (IoT devices, power plants, etc.) and E is the set of edges (communication links). The threat model can be formulated as a graph problem where each node v ∈ V has an associated risk value R(v) and each edge e ∈ E has an associated vulnerability value V(e). The total risk R_total in the network can be calculated as:\n\nR_total = ∑_(v∈V) R(v) + ∑_(e∈E) V(e)\n\nFor the anomaly detection system, let X = {x1, x2, ..., xn} be the feature vector representing network traffic and power consumption data. The goal is to train a machine learning model f(X) that predicts the probability of an anomaly P(anomaly|X). The model can be trained using a supervised learning approach with a labeled dataset D = {(X1, y1), (X2, y2), ..., (Xm, ym)}, where yi ∈ {0, 1} indicates the presence of an anomaly.",
+            "ontology": {
+                "entities": [
+                    "IoT Devices",
+                    "Renewable Energy Sources",
+                    "Traditional Power Plants",
+                    "Consumer Demand Response Mechanisms",
+                    "Network Topology",
+                    "Communication Protocols",
+                    "Historical Data",
+                    "Anomaly Events",
+                    "Risk Values",
+                    "Vulnerability Values",
+                    "Feature Vector",
+                    "Machine Learning Model"
+                ],
+                "relations": [
+                    "integrates",
+                    "identifies",
+                    "considers",
+                    "proposes",
+                    "enhances",
+                    "associated with",
+                    "represents",
+                    "predicts",
+                    "trained using"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "164cbf17-8b95-4ec5-9a02-4dbaf7970a55",
+        "task_details": {
+            "task_instructions": "Design a fault-tolerant, distributed system architecture for a real-time, large-scale IoT platform that can handle 10 million concurrent devices, ensuring high availability, low latency, and data consistency. The system should be capable of processing 100,000 transactions per second with a maximum end-to-end latency of 50 milliseconds. Include a detailed breakdown of the system components, their interactions, and the technologies employed.",
+            "task_data": {
+                "data_points": {
+                    "device_count": 10000000,
+                    "transactions_per_second": 100000,
+                    "max_latency_ms": 50,
+                    "data_centers": [
+                        {
+                            "location": "North America",
+                            "server_count": 500,
+                            "bandwidth_Gbps": 100
+                        },
+                        {
+                            "location": "Europe",
+                            "server_count": 400,
+                            "bandwidth_Gbps": 80
+                        },
+                        {
+                            "location": "Asia",
+                            "server_count": 600,
+                            "bandwidth_Gbps": 120
+                        }
+                    ],
+                    "device_types": [
+                        {
+                            "type": "sensor",
+                            "data_rate_Kbps": 5,
+                            "count": 8000000
+                        },
+                        {
+                            "type": "actuator",
+                            "data_rate_Kbps": 10,
+                            "count": 2000000
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Let T be the total number of transactions, D be the number of devices, and L be the maximum allowed latency. The system must satisfy the following constraints:\n1. T / L <= 100,000 transactions per second\n2. D * data_rate <= total_bandwidth\n3. Availability >= 99.99%\n4. Consistency must be ensured using a distributed consensus algorithm with a maximum consensus time <= 20 ms.",
+            "ontology": {
+                "entities": [
+                    "IoT Device",
+                    "Data Center",
+                    "Server",
+                    "Transaction",
+                    "Latency",
+                    "Bandwidth",
+                    "Consensus Algorithm",
+                    "Fault Tolerance",
+                    "High Availability",
+                    "Data Consistency"
+                ],
+                "relations": [
+                    "IoT Device generates Transaction",
+                    "Data Center hosts Server",
+                    "Server processes Transaction",
+                    "Consensus Algorithm ensures Data Consistency",
+                    "Fault Tolerance maintains High Availability",
+                    "Bandwidth affects Latency"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "910bca24-30c6-4357-bc8a-8f91471a795d",
+        "task_details": {
+            "task_instructions": "Design a distributed, fault-tolerant, real-time data processing system capable of handling 100,000 events per second with a latency of less than 50 milliseconds. The system should incorporate Apache Kafka for message brokering, Apache Flink for stream processing, and Apache Cassandra for data storage. Additionally, implement a machine learning model using TensorFlow to predict system failures based on real-time metrics. Ensure the system can scale horizontally and provide high availability with a minimum of 99.99% uptime.",
+            "task_data": {
+                "data_points": {
+                    "event_types": [
+                        "user_click",
+                        "page_view",
+                        "transaction",
+                        "error_log"
+                    ],
+                    "event_frequency": 100000,
+                    "latency_requirement": 0.05,
+                    "uptime_requirement": 0.9999,
+                    "system_metrics": [
+                        "CPU_usage",
+                        "memory_usage",
+                        "network_throughput",
+                        "disk_I/O"
+                    ],
+                    "failure_prediction_accuracy": 0.95
+                }
+            },
+            "mathematical_formulation": "Given the event frequency E = 100,000 events/second, the system must process each event within a latency L < 50 milliseconds. The uptime U must satisfy U >= 0.9999. The failure prediction model must achieve an accuracy A >= 0.95. The system's throughput T must satisfy T >= E, and the latency L must satisfy L < 0.05 seconds.",
+            "ontology": {
+                "entities": [
+                    "Apache Kafka",
+                    "Apache Flink",
+                    "Apache Cassandra",
+                    "TensorFlow",
+                    "real-time data processing",
+                    "fault-tolerance",
+                    "horizontal scaling",
+                    "high availability",
+                    "machine learning",
+                    "system metrics"
+                ],
+                "relations": [
+                    "Apache Kafka handles message brokering",
+                    "Apache Flink processes data streams",
+                    "Apache Cassandra stores data",
+                    "TensorFlow predicts system failures",
+                    "real-time data processing requires fault-tolerance",
+                    "horizontal scaling ensures high availability",
+                    "machine learning models use system metrics"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b242a80d-44ca-426e-9e71-c0924574d739",
+        "task_details": {
+            "task_instructions": "Design a fault-tolerant, distributed system for a real-time, high-frequency trading platform that ensures low-latency, high-throughput, and consistency across multiple geographically dispersed data centers. The system should be capable of handling 100,000 transactions per second with a latency of less than 1 millisecond. Implement a consensus algorithm to maintain data integrity and provide a detailed architecture diagram along with a performance analysis report.",
+            "task_data": {
+                "data_centers": [
+                    {
+                        "location": "New York",
+                        "latency": 0.5,
+                        "bandwidth": 1000,
+                        "servers": 50
+                    },
+                    {
+                        "location": "London",
+                        "latency": 0.6,
+                        "bandwidth": 1200,
+                        "servers": 60
+                    },
+                    {
+                        "location": "Tokyo",
+                        "latency": 0.7,
+                        "bandwidth": 1100,
+                        "servers": 55
+                    }
+                ],
+                "transactions": [
+                    {
+                        "id": 1,
+                        "type": "buy",
+                        "amount": 1000,
+                        "timestamp": 1620000000
+                    },
+                    {
+                        "id": 2,
+                        "type": "sell",
+                        "amount": 1500,
+                        "timestamp": 1620001011
+                    }
+                ],
+                "network_conditions": {
+                    "average_latency": 0.55,
+                    "packet_loss_rate": 0.01,
+                    "jitter": 0.02
+                }
+            },
+            "mathematical_formulation": "Let T be the set of transactions, D be the set of data centers, and L be the latency function. The system must satisfy the following constraints:\n1. ∀t ∈ T, ∀d ∈ D, L(t, d) < 1 ms\n2. Throughput(System) >= 100,000 transactions/second\n3. Consistency(System) = Strong\n4. Availability(System) >= 99.99%",
+            "ontology": {
+                "entities": [
+                    "distributed system",
+                    "data center",
+                    "transaction",
+                    "consensus algorithm",
+                    "latency",
+                    "throughput",
+                    "consistency",
+                    "availability",
+                    "fault tolerance",
+                    "geographical dispersion",
+                    "high-frequency trading",
+                    "real-time processing"
+                ],
+                "relations": [
+                    "data center hosts servers",
+                    "servers process transactions",
+                    "consensus algorithm ensures data integrity",
+                    "transactions require low latency",
+                    "system ensures high throughput",
+                    "data centers are geographically dispersed",
+                    "fault tolerance maintains system availability"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "1b2b7617-f7a8-46b7-8f43-a30cac5caed4",
+        "task_details": {
+            "task_instructions": "Design a fault-tolerant, scalable, and secure microservices architecture for a real-time, high-frequency trading platform that can handle 100,000 transactions per second with a latency of less than 1 millisecond. The architecture should include load balancing, service discovery, circuit breaking, and distributed tracing. Additionally, provide a detailed data flow diagram and sequence diagram for the order placement and execution process.",
+            "task_data": {
+                "data_points": {
+                    "transaction_volume": 100000,
+                    "latency_requirement": 0.001,
+                    "services": [
+                        "OrderManagementService",
+                        "MarketDataService",
+                        "RiskManagementService",
+                        "TradeExecutionService",
+                        "AccountingService",
+                        "ComplianceService"
+                    ],
+                    "technologies": [
+                        "Kubernetes",
+                        "Docker",
+                        "Istio",
+                        "Jaeger",
+                        "Kafka",
+                        "Cassandra",
+                        "Redis",
+                        "gRPC",
+                        "Prometheus",
+                        "Grafana"
+                    ],
+                    "security_requirements": [
+                        "TLS encryption",
+                        "OAuth 2.0",
+                        "JWT",
+                        "Data encryption at rest and in transit",
+                        "Multi-factor authentication",
+                        "Intrusion detection system"
+                    ]
+                }
+            },
+            "mathematical_formulation": "Let T be the transaction volume, L be the latency requirement, and S be the set of services. The architecture must satisfy the following constraints:\n1. Throughput: T <= 100,000 transactions/second\n2. Latency: L < 0.001 seconds\n3. Availability: A > 99.99%\n4. Service interactions: For every service S_i in S, there exists a sequence of interactions with other services S_j in S to complete a transaction.\n5. Fault tolerance: For every service S_i in S, there exists a backup service S_i' that can handle requests in case of failure.\n6. Security: All data transmissions must be encrypted, and access must be controlled using multi-factor authentication.",
+            "ontology": {
+                "entities": [
+                    "Microservices Architecture",
+                    "Fault Tolerance",
+                    "Scalability",
+                    "Security",
+                    "Load Balancing",
+                    "Service Discovery",
+                    "Circuit Breaking",
+                    "Distributed Tracing",
+                    "High-Frequency Trading",
+                    "Real-time Processing",
+                    "Latency",
+                    "Throughput",
+                    "Kubernetes",
+                    "Docker",
+                    "Istio",
+                    "Jaeger",
+                    "Kafka",
+                    "Cassandra",
+                    "Redis",
+                    "gRPC",
+                    "Prometheus",
+                    "Grafana",
+                    "TLS Encryption",
+                    "OAuth 2.0",
+                    "JWT",
+                    "Data Encryption",
+                    "Multi-factor Authentication",
+                    "Intrusion Detection System"
+                ],
+                "relations": [
+                    "depends_on",
+                    "interacts_with",
+                    "secures",
+                    "monitors",
+                    "load_balances",
+                    "discovers",
+                    "traces",
+                    "processes",
+                    "stores",
+                    "encrypts",
+                    "authenticates",
+                    "detects"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "a106c856-9023-4e02-9cd6-c1ed2f73697a",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive cybersecurity threat model for a hypothetical Internet of Things (IoT) ecosystem integrating heterogeneous devices, diverse communication protocols, and multi-cloud environments. The model should identify potential attack vectors, calculate risk probabilities, and propose mitigation strategies. The final output should be a detailed threat matrix and a resilience plan.",
+            "task_data": {
+                "data_points": {
+                    "IoT_devices": [
+                        {
+                            "device_id": "D1",
+                            "type": "smart_thermostat",
+                            "firmware_version": "1.2.3",
+                            "communication_protocol": "Zigbee"
+                        },
+                        {
+                            "device_id": "D2",
+                            "type": "security_camera",
+                            "firmware_version": "2.1.0",
+                            "communication_protocol": "Wi-Fi"
+                        },
+                        {
+                            "device_id": "D3",
+                            "type": "smart_lock",
+                            "firmware_version": "1.5.2",
+                            "communication_protocol": "Bluetooth"
+                        }
+                    ],
+                    "cloud_services": [
+                        {
+                            "service_id": "C1",
+                            "provider": "AWS",
+                            "region": "us-east-1"
+                        },
+                        {
+                            "service_id": "C2",
+                            "provider": "Azure",
+                            "region": "eu-west-1"
+                        }
+                    ],
+                    "network_topology": {
+                        "gateways": [
+                            "G1",
+                            "G2"
+                        ],
+                        "routers": [
+                            "R1",
+                            "R2"
+                        ],
+                        "switches": [
+                            "S1",
+                            "S2"
+                        ]
+                    },
+                    "historical_attack_data": [
+                        {
+                            "attack_id": "A1",
+                            "type": "DDoS",
+                            "frequency": 0.05,
+                            "impact": 0.7
+                        },
+                        {
+                            "attack_id": "A2",
+                            "type": "Man-in-the-Middle",
+                            "frequency": 0.02,
+                            "impact": 0.8
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Risk Probability (RP) for each attack vector can be calculated as RP = Frequency * Impact. The overall system risk (SR) is the sum of individual risk probabilities: SR = ∑(RP_i) for all attack vectors i. The resilience plan should aim to reduce SR below a threshold value of 0.5.",
+            "ontology": {
+                "entities": [
+                    "IoT Device",
+                    "Communication Protocol",
+                    "Cloud Service",
+                    "Network Topology",
+                    "Attack Vector",
+                    "Mitigation Strategy"
+                ],
+                "relations": [
+                    "connects_to",
+                    "communicates_via",
+                    "hosted_on",
+                    "vulnerable_to",
+                    "mitigates"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "5df9c19a-59be-476a-9911-065e843dc5e0",
+        "task_details": {
+            "task_instructions": "Design a scalable, fault-tolerant, and secure microservices architecture for a real-time analytics platform that processes and analyzes streaming data from IoT devices. The architecture should support low-latency data processing, high throughput, and dynamic scaling. Ensure the system can handle at least 100,000 concurrent connections and process 1 million events per second. Include a detailed component diagram, data flow diagram, and a description of each microservice's functionality, interactions, and deployment strategy.",
+            "task_data": {
+                "data_points": {
+                    "iot_devices": 500000,
+                    "concurrent_connections": 100000,
+                    "events_per_second": 1000000,
+                    "data_centers": 3,
+                    "microservices": [
+                        "ingestion_service",
+                        "processing_service",
+                        "storage_service",
+                        "analytics_service",
+                        "notification_service",
+                        "api_gateway",
+                        "authentication_service",
+                        "monitoring_service"
+                    ],
+                    "network_latency": 50,
+                    "available_bandwidth": 10000,
+                    "cpu_cores": 128,
+                    "memory_gb": 512,
+                    "storage_tb": 100
+                }
+            },
+            "mathematical_formulation": "Let E be the set of events, D be the set of IoT devices, and S be the set of microservices. The system must satisfy the following constraints:\n1. Throughput: |E| / t >= 1,000,000 events/second\n2. Concurrency: |D| >= 100,000\n3. Latency: L <= 50 ms\n4. Bandwidth: B >= 10,000 Mbps\n5. Resource allocation: R(cpu) >= 128 cores, R(memory) >= 512 GB, R(storage) >= 100 TB\n6. Fault tolerance: FT(S) >= 99.99%\n7. Scalability: SC(S) >= 10x\n8. Security: SEC(S) >= AES-256",
+            "ontology": {
+                "entities": [
+                    "Microservices Architecture",
+                    "IoT Devices",
+                    "Real-time Analytics",
+                    "Streaming Data",
+                    "Low-latency Processing",
+                    "High Throughput",
+                    "Dynamic Scaling",
+                    "Fault Tolerance",
+                    "Security",
+                    "API Gateway",
+                    "Authentication Service",
+                    "Monitoring Service"
+                ],
+                "relations": [
+                    "handles_events(ingestion_service, IoT Devices)",
+                    "processes_data(processing_service, ingestion_service)",
+                    "stores_data(storage_service, processing_service)",
+                    "analyzes_data(analytics_service, storage_service)",
+                    "sends_alerts(notification_service, analytics_service)",
+                    "provides_access(api_gateway, Client Applications)",
+                    "authenticates_users(authentication_service, Client Applications)",
+                    "monitors_system(monitoring_service, Microservices)",
+                    "scales_resources(dynamic_scaling, Microservices)",
+                    "ensures_security(security, Microservices)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "40996268-94b0-499c-b2b1-51943c8f0033",
+        "task_details": {
+            "task_instructions": "Design a robust, scalable, and secure microservices architecture for a real-time analytics platform capable of handling 10 million concurrent users. The architecture should include load balancing, fault tolerance, data consistency, and low-latency requirements. Provide a detailed component diagram, describe the communication protocols, and outline the deployment strategy.",
+            "task_data": {
+                "data_points": {
+                    "user_base": 10000000,
+                    "concurrent_users": 10000000,
+                    "data_throughput": 500000,
+                    "latency_requirement": 0.05,
+                    "availability_requirement": 0.99999,
+                    "services": [
+                        {
+                            "service_name": "UserAuthenticationService",
+                            "dependencies": [
+                                "DatabaseService",
+                                "NotificationService"
+                            ],
+                            "expected_load": 5000
+                        },
+                        {
+                            "service_name": "DataIngestionService",
+                            "dependencies": [
+                                "StreamProcessingService",
+                                "StorageService"
+                            ],
+                            "expected_load": 10000
+                        },
+                        {
+                            "service_name": "AnalyticsService",
+                            "dependencies": [
+                                "DataIngestionService",
+                                "MachineLearningService"
+                            ],
+                            "expected_load": 15000
+                        }
+                    ],
+                    "infrastructure": {
+                        "cloud_provider": "AWS",
+                        "regions": [
+                            "us-east-1",
+                            "us-west-2",
+                            "eu-central-1"
+                        ],
+                        "instance_types": [
+                            "m5.large",
+                            "c5.xlarge",
+                            "r5.2xlarge"
+                        ],
+                        "database_types": [
+                            "Amazon RDS",
+                            "Amazon DynamoDB",
+                            "Amazon Redshift"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "load_balancing_equation": "L(t) = ∑_(i=1)^n (zi * wi) / n",
+                "fault_tolerance_probability": "P(F) = 1 - ∏_(i=1)^n (1 - Pi)",
+                "data_consistency_constraint": "C(d) = ∑_(i=1)^n (di - di')^2 <= ε",
+                "latency_constraint": "L(t) <= 0.05",
+                "availability_constraint": "A(t) >= 0.99999"
+            },
+            "ontology": {
+                "entities": [
+                    "Microservices Architecture",
+                    "Load Balancing",
+                    "Fault Tolerance",
+                    "Data Consistency",
+                    "Low Latency",
+                    "Concurrent Users",
+                    "Data Throughput",
+                    "Cloud Provider",
+                    "Database Service",
+                    "Notification Service",
+                    "Stream Processing Service",
+                    "Storage Service",
+                    "Machine Learning Service"
+                ],
+                "relations": [
+                    "depends_on",
+                    "communicates_with",
+                    "deployed_on",
+                    "handles_load",
+                    "ensures_consistency",
+                    "maintains_latency",
+                    "provides_availability"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "df4cf75b-5cde-48ef-bd83-3870a6787476",
+        "task_details": {
+            "task_instructions": "Design a distributed, fault-tolerant, real-time data processing system capable of handling 100,000 transactions per second with a latency of less than 10 milliseconds. The system should include data ingestion, processing, storage, and querying components. Additionally, implement a dynamic load balancing mechanism and ensure data consistency across multiple geographically distributed data centers. Provide a detailed architecture diagram and justify the choice of technologies and algorithms used.",
+            "task_data": {
+                "data_points": {
+                    "transaction_volume": 100000,
+                    "latency_requirement": 0.01,
+                    "data_centers": [
+                        {
+                            "id": 1,
+                            "location": "North America",
+                            "capacity": 50000
+                        },
+                        {
+                            "id": 2,
+                            "location": "Europe",
+                            "capacity": 30000
+                        },
+                        {
+                            "id": 3,
+                            "location": "Asia",
+                            "capacity": 20000
+                        }
+                    ],
+                    "sample_transactions": [
+                        {
+                            "id": 1,
+                            "timestamp": 1622544000,
+                            "amount": 120.5,
+                            "type": "purchase"
+                        },
+                        {
+                            "id": 2,
+                            "timestamp": 1622544001,
+                            "amount": 230.75,
+                            "type": "refund"
+                        },
+                        {
+                            "id": 3,
+                            "timestamp": 1622544002,
+                            "amount": 50.0,
+                            "type": "purchase"
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Let T be the set of transactions, D be the set of data centers, and L be the latency requirement. For each transaction t in T, the system must process t within L seconds. The load balancing mechanism should distribute transactions across D such that the load on each data center d in D is proportional to its capacity c_d. The data consistency model should ensure that for any two transactions t1 and t2, if t1 is processed before t2, then t1 is reflected in the system state before t2.",
+            "ontology": {
+                "entities": [
+                    "distributed system",
+                    "fault tolerance",
+                    "real-time data processing",
+                    "data ingestion",
+                    "data processing",
+                    "data storage",
+                    "data querying",
+                    "load balancing",
+                    "data consistency",
+                    "data center",
+                    "transactions",
+                    "latency"
+                ],
+                "relations": [
+                    "data center handles transactions",
+                    "load balancing distributes transactions",
+                    "data consistency ensures transaction order",
+                    "real-time processing requires low latency"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "8bba2478-334b-4e4c-b3aa-1ad895e2eb32",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive cybersecurity threat mitigation plan for a multi-cloud environment leveraging zero-trust architecture, incorporating advanced threat detection mechanisms, and ensuring compliance with GDPR, HIPAA, and CCPA regulations. The plan should include a detailed risk assessment, incident response procedure, and a cost-benefit analysis of implementing various security controls.",
+            "task_data": {
+                "data_points": {
+                    "cloud_environments": [
+                        "AWS",
+                        "Azure",
+                        "Google Cloud"
+                    ],
+                    "regulations": [
+                        "GDPR",
+                        "HIPAA",
+                        "CCPA"
+                    ],
+                    "threat_vectors": [
+                        "phishing",
+                        "malware",
+                        "DDoS",
+                        "insider threats"
+                    ],
+                    "security_controls": [
+                        "firewalls",
+                        "IDS/IPS",
+                        "SIEM",
+                        "encryption",
+                        "MFA"
+                    ],
+                    "incident_response_team": [
+                        "SOAR",
+                        "graphing analysis"
+                    ],
+                    "cost_factors": {
+                        "implementation_costs": [
+                            50000,
+                            100000,
+                            150000
+                        ],
+                        "maintenance_costs": [
+                            20000,
+                            30000,
+                            40000
+                        ],
+                        "potential_losses": [
+                            500000,
+                            1000000,
+                            2000000
+                        ]
+                    },
+                    "risk_levels": [
+                        "low",
+                        "medium",
+                        "high"
+                    ],
+                    "probability_of_occurrence": [
+                        0.1,
+                        0.3,
+                        0.5
+                    ],
+                    "impact_levels": [
+                        "minor",
+                        "moderate",
+                        "severe"
+                    ]
+                }
+            },
+            "mathematical_formulation": "Risk Assessment: Risk = Probability of Occurrence * Impact\nCost-Benefit Analysis: Benefit = (Potential Losses * Probability of Occurrence) - (Implementation Costs + Maintenance Costs)\nCompliance Score: Compliance = Sum of (Regulation Weight * Compliance Level)",
+            "ontology": {
+                "entities": [
+                    "multi-cloud environment",
+                    "zero-trust architecture",
+                    "threat detection",
+                    "GDPR",
+                    "HIPAA",
+                    "CCPA",
+                    "risk assessment",
+                    "incident response",
+                    "security controls",
+                    "cost-benefit analysis"
+                ],
+                "relations": [
+                    "mitigates",
+                    "complies with",
+                    "detects",
+                    "responds to",
+                    "implements",
+                    "assesses",
+                    "analyzes"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "a4c871db-b0b4-44ba-ae09-133471ad991b",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive cybersecurity threatmodel for a multi-cloud environment incorporating real-time anomaly detection and predictive analytics. The model should integrate data from diverse sources, including network traffic logs, application performance metrics, and user behavior analytics. The threat model should identify potential vulnerabilities, quantify risks, and propose mitigation strategies. Additionally, simulate a zero-day attack scenario and evaluate the model's effectiveness in detecting and responding to the threat.",
+            "task_data": {
+                "data_points": {
+                    "network_traffic_logs": [
+                        "72.1MB logs per hour"
+                    ],
+                    "application_performance_metrics": {
+                        "CPU_usage": "5 GHz requirements",
+                        "memory_consumption": "6 GB requirements",
+                        "latency": [
+                            "100 ms"
+                        ]
+                    },
+                    "user_behavior_analytics": {
+                        "login_attempts": [
+                            "1000 attempts per hour"
+                        ],
+                        "failed_logins": [
+                            "3 per hour on average"
+                        ],
+                        "session_duration": [
+                            "30 minutes on average"
+                        ]
+                    },
+                    "cloud_providers": [
+                        "AWS",
+                        "Azure",
+                        "GCP"
+                    ],
+                    "virtual_machines": [
+                        "200 VMs"
+                    ],
+                    "containers": [
+                        "500 containers"
+                    ],
+                    "microservices": [
+                        "100 microservices"
+                    ],
+                    "zero_day_attack_vector": [
+                        "SQL Injection",
+                        "Remote Code Execution"
+                    ]
+                }
+            },
+            "mathematical_formulation": "Let V be the set of vulnerabilities, R be the set of risks, and M be the set of mitigation strategies. For each vulnerability v in V, calculate the risk r in R as a function of the likelihood L(v) and impact I(v): r = L(v) * I(v). The total risk R_total is the sum of all individual risks: R_total = ∑ r for all r in R. The effectiveness E of the threat model in detecting a zero-day attack is given by E = (D / T) * 100, where D is the number of detected anomalies and T is the total number of anomalies.",
+            "ontology": {
+                "entities": [
+                    "vulnerability",
+                    "risk",
+                    "mitigation strategy",
+                    "anomaly",
+                    "network traffic log",
+                    "application performance metric",
+                    "user behavior analytics",
+                    "cloud provider",
+                    "virtual machine",
+                    "container",
+                    "microservice",
+                    "zero-day attack",
+                    "monitoring alert"
+                ],
+                "relations": [
+                    "identifies",
+                    "quantifies",
+                    "proposes",
+                    "detects",
+                    "responds to",
+                    "integrates",
+                    "simulates",
+                    "evaluates"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "19a484f7-4541-48ef-a4e8-ab4214345ecc",
+        "task_details": {
+            "task_instructions": "Design a robust, scalable, and fault-tolerant microservices architecture for a real-time data processing system that can handle 1 million transactions per second with a latency of less than 10 milliseconds. The architecture should include load balancing, data consistency, and disaster recovery mechanisms. Additionally, provide a detailed deployment strategy using Kubernetes, including pod configurations, service meshes, and monitoring tools.",
+            "task_data": {
+                "data_points": {
+                    "transaction_rate": 1000000,
+                    "latency_requirement": 0.01,
+                    "services": [
+                        {
+                            "service_name": "TransactionProcessor",
+                            "instance_count": 500,
+                            "Resource": [
+                                {
+                                    "cpu": "2",
+                                    "memory": "4Gi"
+                                },
+                                {
+                                    "disk": "10Gi"
+                                }
+                            ]
+                        },
+                        {
+                            "service_name": "DataStore",
+                            "instance_count": 200,
+                            "Resource": [
+                                {
+                                    "cpu": "4",
+                                    "memory": "8Gi"
+                                },
+                                {
+                                    "disk": "50Gi"
+                                }
+                            ]
+                        },
+                        {
+                            "service_name": "LoadBalancer",
+                            "instance_count": 50,
+                            "Resource": [
+                                {
+                                    "cpu": "1",
+                                    "memory": "2Gi"
+                                },
+                                {
+                                    "disk": "5Gi"
+                                }
+                            ]
+                        }
+                    ],
+                    "data_centers": [
+                        {
+                            "name": "DC1",
+                            "location": "New York",
+                            "capacity": 1000
+                        },
+                        {
+                            "name": "DC2",
+                            "location": "San Francisco",
+                            "capacity": 1000
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Let T be the total number of transactions, L be the latency, and N be the number of microservices instances. The system must satisfy the following constraints:\n1. T / N <= 2000 (transactions per instance per second)\n2. L <= 0.01 seconds\n3. Availability >= 99.99%\n4. Data consistency must be eventually consistent with a maximum staleness of 5 seconds.",
+            "ontology": {
+                "entities": [
+                    "Microservices",
+                    "Load Balancing",
+                    "Data Consistency",
+                    "Disaster Recovery",
+                    "Kubernetes",
+                    "Pod Configurations",
+                    "Service Meshes",
+                    "Monitoring Tools",
+                    "Transaction Processing",
+                    "Data Store",
+                    "Latency",
+                    "Throughput",
+                    "Fault Tolerance",
+                    "Scalability",
+                    "High Availability"
+                ],
+                "relations": [
+                    "Microservices communicate through Service Meshes",
+                    "Load Balancing distributes requests among Microservices instances",
+                    "Data Consistency is maintained across Data Stores",
+                    "Disaster Recovery ensures high availability of Microservices",
+                    "Kubernetes manages Pod Configurations for Microservices",
+                    "Monitoring Tools track the performance of Microservices",
+                    "Transaction Processing requires low Latency and high Throughput",
+                    "Fault Tolerance is achieved through redundancy in Microservices",
+                    "Scalability is ensured by horizontal scaling of Microservices instances",
+                    "High Availability is maintained through Disaster Recovery mechanisms"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "936c247b-a03d-4e43-9ca1-4e0bdfa0a2f6",
+        "task_details": {
+            "task_instructions": "Design a distributed, fault-tolerant, real-time data processing system capable of handling 10 million events per second with a latency of less than 10 milliseconds. The system should support dynamic scalability, ensure data consistency, and provide mechanisms for automated failover and recovery. Additionally, implement a machine learning model for anomaly detection on the processed data stream.",
+            "task_data": {
+                "data_points": {
+                    "event_types": [
+                        "sensor_data",
+                        "user_activity",
+                        "network_traffic"
+                    ],
+                    "event_schema": {
+                        "sensor_data": {
+                            "timestamp": "ISO_8601",
+                            "sensor_id": "string",
+                            "value": "float"
+                        },
+                        "user_activity": {
+                            "timestamp": "ISO_8601",
+                            "user_id": "string",
+                            "activity_type": "string"
+                        },
+                        "network_traffic": {
+                            "timestamp": "ISO_8601",
+                            "source_ip": "string",
+                            "destination_ip": "string",
+                            "packet_size": "int"
+                        }
+                    },
+                    "event_volume": 10000000,
+                    "latency_requirement": 0.01,
+                    "scalability_factor": 2.0,
+                    "consistency_model": "strong",
+                    "failover_mechanism": "automated",
+                    "recovery_time_objective": 0.05
+                }
+            },
+            "mathematical_formulation": "Let E be the set of events, where each event e ∈ E is characterized by a tuple (t, i, v) representing the timestamp, identifier, and value, respectively. The system must process events such that the throughput T(E) ≥ 10^7 events/second and the latency L(E) ≤ 0.01 seconds. The scalability function S(n) should satisfy S(n) ≥ 2n, where n is the number of processing nodes. The consistency model C(E) must ensure strong consistency, and the failover mechanism F(E) must guarantee automated failover with a recovery time objective RTO ≤ 0.05 seconds. The anomaly detection model A(E) should identify anomalies based on a threshold θ, where A(E) = {e ∈ E | score(e) > θ}.",
+            "ontology": {
+                "entities": [
+                    "distributed_system",
+                    "fault_tolerance",
+                    "real_time_processing",
+                    "scalability",
+                    "data_consistency",
+                    "failover",
+                    "recovery",
+                    "anomaly_detection",
+                    "machine_learning_model",
+                    "event_stream"
+                ],
+                "relations": [
+                    "processes",
+                    "ensures",
+                    "provides",
+                    "supports",
+                    "implements",
+                    "identifies",
+                    "characterized_by",
+                    "satisfies",
+                    "guarantees"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "1c48a617-0813-46dd-ab40-570e68aeff89",
+        "task_details": {
+            "task_instructions": "Design a complex, fault-tolerant, distributed system architecture for a real-time, large-scale social media platform. The system should support high availability, low latency, and scalability to handle millions of users concurrently. The architecture should include components for user authentication, content delivery, real-time messaging, data storage, and analytics. Additionally, incorporate advanced security measures to protect user data and ensure compliance with GDPR and CCPA regulations.",
+            "task_data": {
+                "data_points": {
+                    "user_base": 10000000,
+                    "concurrent_users": 5000000,
+                    "data_centers": [
+                        "US-East",
+                        "US-West",
+                        "Europe",
+                        "Asia"
+                    ],
+                    "response_time_requirement": 200,
+                    "storage_requirement": 500000,
+                    "security_standards": [
+                        "GDPR",
+                        "CCPA"
+                    ],
+                    "technology_stack": {
+                        "programming_languages": [
+                            "Java",
+                            "Python",
+                            "Go"
+                        ],
+                        "databases": [
+                            "Cassandra",
+                            "MongoDB",
+                            "Redis"
+                        ],
+                        "messaging_queues": [
+                            "Kafka",
+                            "RabbitMQ"
+                        ],
+                        "containerization": [
+                            "Docker",
+                            "Kubernetes"
+                        ],
+                        "cloud_providers": [
+                            "AWS",
+                            "GCP",
+                            "Azure"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "The system should achieve a response time of less than or equal to 200 ms for 99.9% of requests. The storage requirement should be optimized to handle at least 500,000 GB of data with a redundancy factor of 3. The system should ensure a minimum uptime of 99.99%.",
+            "ontology": {
+                "entities": [
+                    "distributed_system",
+                    "fault_tolerance",
+                    "high_availability",
+                    "low_latency",
+                    "scalability",
+                    "user_authentication",
+                    "content_delivery",
+                    "real_time_messaging",
+                    "data_storage",
+                    "analytics",
+                    "security_measures",
+                    "GDPR",
+                    "CCPA"
+                ],
+                "relations": [
+                    "distributed_system has fault_tolerance",
+                    "distributed_system ensures high_availability",
+                    "distributed_system provides low_latency",
+                    "distributed_system supports scalability",
+                    "distributed_system includes user_authentication",
+                    "distributed_system includes content_delivery",
+                    "distributed_system includes real_time_messaging",
+                    "distributed_system includes data_storage",
+                    "distributed_system includes analytics",
+                    "distributed_system implements security_measures",
+                    "security_measures comply with GDPR",
+                    "security_measures comply with CCPA"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "91e43d1c-db11-4fdd-85cf-b683aeeb955d",
+        "task_details": {
+            "task_instructions": "Develop a real-time, distributed, fault-tolerant system for processing and analyzing streaming data from IoT devices deployed in a smart city. The system should integrate advanced machine learning models for anomaly detection and predictive maintenance, utilizing edge computing for low-latency processing and cloud computing for scalable storage and analytics. Ensure the system supports dynamic scaling, data privacy, and security protocols.",
+            "task_data": {
+                "data_points": {
+                    "iot_devices": [
+                        {
+                            "device_id": "D001",
+                            "type": "sensor",
+                            "location": "traffic_light_1",
+                            "data_rate": "10 Hz",
+                            "data_type": "vehicle_count"
+                        },
+                        {
+                            "device_id": "D002",
+                            "type": "actuator",
+                            "location": "water_pump_1",
+                            "data_rate": "5 Hz",
+                            "data_type": "flow_rate"
+                        },
+                        {
+                            "device_id": "D003",
+                            "type": "sensor",
+                            "location": "air_quality_1",
+                            "data_rate": "2 Hz",
+                            "data_type": "pollution_level"
+                        }
+                    ],
+                    "network_topology": {
+                        "edge_nodes": [
+                            "EN001",
+                            "EN002"
+                        ],
+                        "cloud_servers": [
+                            "CS001",
+                            "CS002"
+                        ],
+                        "connections": [
+                            {
+                                "source": "D001",
+                                "destination": "EN001",
+                                "latency": "10 ms"
+                            },
+                            {
+                                "source": "D002",
+                                "destination": "EN002",
+                                "latency": "15 ms"
+                            },
+                            {
+                                "source": "D003",
+                                "destination": "EN001",
+                                "latency": "8 ms"
+                            },
+                            {
+                                "source": "EN001",
+                                "destination": "CS001",
+                                "latency": "50 ms"
+                            },
+                            {
+                                "source": "EN002",
+                                "destination": "CS002",
+                                "latency": "60 ms"
+                            }
+                        ]
+                    },
+                    "machine_learning_models": [
+                        {
+                            "model_id": "ML001",
+                            "type": "anomaly_detection",
+                            "algorithm": "LSTM",
+                            "accuracy": "95%"
+                        },
+                        {
+                            "model_id": "ML002",
+                            "type": "predictive_maintenance",
+                            "algorithm": "RandomForest",
+                            "accuracy": "92%"
+                        }
+                    ],
+                    "security_protocols": [
+                        {
+                            "protocol_id": "SP001",
+                            "type": "encryption",
+                            "algorithm": "AES-256"
+                        },
+                        {
+                            "protocol_id": "SP002",
+                            "type": "authentication",
+                            "algorithm": "OAuth2.0"
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "The system should minimize the overall latency L, defined as L = Σ(li * fi), where li is the latency of the ith connection and fi is the frequency of data transmission over the ith connection. The system should also maximize the accuracy A of the machine learning models, defined as A = Σ(ai * wi), where ai is the accuracy of the ith model and wi is the weight assigned to the ith model based on its importance.",
+            "ontology": {
+                "entities": [
+                    "IoT Device",
+                    "Edge Node",
+                    "Cloud Server",
+                    "Machine Learning Model",
+                    "Security Protocol",
+                    "Data Stream",
+                    "Anomaly Detection",
+                    "Predictive Maintenance",
+                    "Latency",
+                    "Accuracy"
+                ],
+                "relations": [
+                    "IoT Device transmits Data Stream to Edge Node",
+                    "Edge Node processes Data Stream using Machine Learning Model",
+                    "Edge Node forwards processed Data Stream to Cloud Server",
+                    "Cloud Server stores and analyzes Data Stream",
+                    "Security Protocol protects Data Stream",
+                    "Machine Learning Model detects Anomaly",
+                    "Machine Learning Model predicts Maintenance"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "276d9150-00f5-4e9e-9332-76bf4a020de6",
+        "task_details": {
+            "task_instructions": "Design a fault-tolerant, scalable, and secure microservices architecture for a real-time analytics platform that processes high-velocity data streams from IoT devices. The architecture should support low-latency query processing, dynamic scaling, and ensure data consistency across distributed services. Additionally, incorporate machine learning models for predictive analytics and anomaly detection. Provide a detailed design including service decomposition, data flow diagrams, API specifications, and a disaster recovery plan. Ensure compliance with GDPR and other relevant data protection regulations.",
+            "task_data": {
+                "data_points": {
+                    "iot_devices": [
+                        {
+                            "device_id": "D1",
+                            "device_type": "sensor",
+                            "data_frequency": 10,
+                            "data_points_per_second": 500
+                        },
+                        {
+                            "device_id": "D2",
+                            "device_type": "actuator",
+                            "data_frequency": 5,
+                            "data_points_per_second": 300
+                        }
+                    ],
+                    "data_centers": [
+                        {
+                            "dc_id": "DC1",
+                            "location": "New York",
+                            "capacity": 10000,
+                            "latency": 20
+                        },
+                        {
+                            "dc_id": "DC2",
+                            "location": "London",
+                            "capacity": 15000,
+                            "latency": 30
+                        }
+                    ],
+                    "service_requirements": {
+                        "latency": {
+                            "min": 10,
+                            "max": 50
+                        },
+                        "throughput": {
+                            "min": 1000,
+                            "max": 5000
+                        },
+                        "availability": 0.9999
+                    },
+                    "compliance_requirements": [
+                        "GDPR",
+                        "HIPAA",
+                        "ISO 27001"
+                    ]
+                }
+            },
+            "mathematical_formulation": "Let S be the set of microservices, D be the set of data centers, and I be the set of IoT devices. The objective is to minimize the overall latency L and maximize the throughput T while ensuring data consistency C and compliance P.\n\nObjective Function:\nMinimize L = Σ_(i∈I) Σ_(s∈S) Σ_(d∈D) (latency(i, s, d))\nMaximize T = Σ_(i∈I) Σ_(s∈S) Σ_(d∈D) (throughput(i, s, d))\n\nConstraints:\nC(i, s, d) ≥ threshold_consistency\nP(i, s, d) ≥ threshold_compliance\nAvailability(S) ≥ 0.9999",
+            "ontology": {
+                "entities": [
+                    "Microservices",
+                    "IoT Devices",
+                    "Data Centers",
+                    "API",
+                    "Machine Learning Models",
+                    "Predictive Analytics",
+                    "Anomaly Detection",
+                    "Data Consistency",
+                    "Scalability",
+                    "Fault Tolerance",
+                    "Disaster Recovery",
+                    "GDPR",
+                    "HIPAA",
+                    "ISO 27001"
+                ],
+                "relations": [
+                    "processes",
+                    "supports",
+                    "ensures",
+                    "incorporates",
+                    "provides",
+                    "complies with",
+                    "minimizes",
+                    "maximizes"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "c432b725-ae63-4d09-a78d-89e2f08f05cb",
+        "task_details": {
+            "task_instructions": "Design a scalable, fault-tolerant, and highly available distributed system architecture for a real-time analytics platform that can handle at least 100,000 queries per second with a latency of no more than 50 milliseconds. The system should be able to process and store large volumes of data, providing real-time insights and supporting complex queries. The architecture should include load balancing, data replication, sharding, and failover mechanisms. Additionally, provide a detailed analysis of the system's throughput, latency, and fault tolerance characteristics, including a comparison with existing industry standards and benchmarks.",
+            "task_data": {
+                "data_points": {
+                    "query_rate": 100000,
+                    "max_latency": 0.05,
+                    "data_volume": 1000000000,
+                    "nodes": [
+                        {
+                            "node_id": "node1",
+                            "cpu": 32,
+                            "memory": 128,
+                            "storage": 1000,
+                            "bandwidth": 10
+                        },
+                        {
+                            "node_id": "node2",
+                            "cpu": 32,
+                            "memory": 128,
+                            "storage": 1000,
+                            "bandwidth": 10
+                        }
+                    ],
+                    "network_topology": {
+                        "topology_type": "mesh",
+                        "link_capacity": 10
+                    },
+                    "workload_characteristics": {
+                        "read_heavy": 0.7,
+                        "write_heavy": 0.3
+                    }
+                }
+            },
+            "mathematical_formulation": "Throughput (T) is defined as the number of queries processed per second. Latency (L) is the time taken to process a query. Fault tolerance (F) is the ability of the system to continue operating in the event of a failure. The system should satisfy the following constraints: T >= 100,000 queries/second, L <= 0.05 seconds, F >= 99.99% uptime. The system's performance can be modeled using queuing theory and little's law, where the average number of queries in the system (N) is given by N = L * T.",
+            "ontology": {
+                "entities": [
+                    "distributed system",
+                    "real-time analytics",
+                    "load balancing",
+                    "data replication",
+                    "sharding",
+                    "failover",
+                    "throughput",
+                    "latency",
+                    "fault tolerance",
+                    "queries per second",
+                    "mesh network",
+                    "read-heavy workload",
+                    "write-heavy workload"
+                ],
+                "relations": [
+                    "distributed system handles real-time analytics",
+                    "load balancing distributes queries across nodes",
+                    "data replication ensures data availability",
+                    "sharding partitions data across nodes",
+                    "failover mechanisms provide fault tolerance",
+                    "throughput measures query processing rate",
+                    "latency measures query processing time",
+                    "fault tolerance measures system uptime",
+                    "mesh network connects nodes",
+                    "read-heavy workload prioritizes read operations",
+                    "write-heavy workload prioritizes write operations"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "741b5571-95c6-43e9-be40-cb7946f7df21",
+        "task_details": {
+            "task_instructions": "Design a scalable, fault-tolerant, and secure distributed system architecture for a real-time data processing pipeline that can handle at least 100,000 transactions per second with a latency of no more than 50 milliseconds. The system should be capable of horizontal scaling and should include mechanisms for data replication, load balancing, and failover. Additionally, the system should ensure data consistency and provide robust security measures to protect against common cyber threats.",
+            "task_data": {
+                "data_points": {
+                    "transaction_volume": 100000,
+                    "latency_requirement": 0.05,
+                    "data_centers": [
+                        {
+                            "name": "DC1",
+                            "location": "New York",
+                            "capacity": 50000
+                        },
+                        {
+                            "name": "DC2",
+                            "location": "San Francisco",
+                            "capacity": 50000
+                        }
+                    ],
+                    "security_threats": [
+                        "DDoS attacks",
+                        "SQL injection",
+                        "Cross-site scripting (XSS)",
+                        "Man-in-the-middle attacks"
+                    ],
+                    "technology_stack": [
+                        "Kafka",
+                        "Apache Flink",
+                        "Cassandra",
+                        "Kubernetes",
+                        "Istio",
+                        "Prometheus",
+                        "Grafana"
+                    ]
+                }
+            },
+            "mathematical_formulation": "Let T be the total number of transactions, L be the latency, and C be the capacity of each data center. The system should satisfy the following constraints:\n1. T <= 100,000 transactions per second\n2. L <= 0.05 seconds\n3. Sum(C_i) >= T, where C_i is the capacity of the ith data center\n4. The system should ensure eventual consistency with a maximum staleness of 1 second.\n5. The probability of a successful cyber attack, P(A), should be minimized such that P(A) < 0.01.",
+            "ontology": {
+                "entities": [
+                    "Distributed System",
+                    "Real-time Data Processing",
+                    "Transactions",
+                    "Latency",
+                    "Data Replication",
+                    "Load Balancing",
+                    "Failover",
+                    "Data Consistency",
+                    "Cyber Threats",
+                    "Horizontal Scaling",
+                    "Kafka",
+                    "Apache Flink",
+                    "Cassandra",
+                    "Kubernetes",
+                    "Istio",
+                    "Prometheus",
+                    "Grafana"
+                ],
+                "relations": [
+                    "Distributed System handles Real-time Data Processing",
+                    "Real-time Data Processing includes Transactions",
+                    "Transactions have Latency",
+                    "Distributed System ensures Data Replication",
+                    "Distributed System implements Load Balancing",
+                    "Distributed System supports Failover",
+                    "Distributed System maintains Data Consistency",
+                    "Distributed System protects against Cyber Threats",
+                    "Distributed System allows Horizontal Scaling",
+                    "Kafka used for messaging",
+                    "Apache Flink used for stream processing",
+                    "Cassandra used for data storage",
+                    "Kubernetes used for orchestration",
+                    "Istio used for service mesh",
+                    "Prometheus used for monitoring",
+                    "Grafana used for visualization"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "c1c9a8fc-84d1-47d8-91fb-009b8b023ef7",
+        "task_details": {
+            "task_instructions": "Design a comprehensive fault-tolerant network architecture for a global enterprise with 500,000 employees, ensuring high availability, low latency, and robust security measures. The architecture should include redundancy mechanisms, failover strategies, and disaster recovery plans. Additionally, optimize the network for minimum packet loss and maximum throughput.",
+            "task_data": {
+                "data_points": {
+                    "employee_count": 500000,
+                    "global_locations": [
+                        "North America",
+                        "Europe",
+                        "Asia",
+                        "South America",
+                        "Africa",
+                        "Australia"
+                    ],
+                    "network_requirements": {
+                        "availability": 0.99999,
+                        "latency": {
+                            "maximum": 50,
+                            "unit": "ms"
+                        },
+                        "packet_loss": {
+                            "maximum": 0.1,
+                            "unit": "%"
+                        },
+                        "throughput": {
+                            "minimum": 10,
+                            "unit": "Gbps"
+                        }
+                    },
+                    "security_requirements": {
+                        "encryption_standards": [
+                            "AES-256",
+                            "TLS 1.3"
+                        ],
+                        "authentication_methods": [
+                            "Multi-Factor Authentication",
+                            "Biometric Authentication"
+                        ],
+                        "intrusion_detection_systems": [
+                            "IDS",
+                            "IPS"
+                        ]
+                    },
+                    "redundancy_mechanisms": [
+                        "Active-Active",
+                        "Active-Passive"
+                    ],
+                    "failover_strategies": [
+                        "Automatic Failover",
+                        "Manual Failover"
+                    ],
+                    "disaster_recovery_plans": [
+                        "Hot Site",
+                        "Warm Site",
+                        "Cold Site"
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "availability_equation": "A = 1 - (MTBF / (MTBF + MTTR))",
+                "latency_constraint": "L ≤ 50 ms",
+                "packet_loss_constraint": "PL ≤ 0.1%",
+                "throughput_constraint": "T ≥ 10 Gbps",
+                "encryption_strength": "ES = 2^256 for AES-256",
+                "authentication_probability": "P(Auth) = P(MFA) + P(Biometric)",
+                "failover_time": "FT = t_detect + t_switch",
+                "recovery_time_objective": "RTO ≤ 4 hours for Hot Site"
+            },
+            "ontology": {
+                "entities": [
+                    "Fault-Tolerant Network",
+                    "High Availability",
+                    "Low Latency",
+                    "Robust Security",
+                    "Redundancy Mechanisms",
+                    "Failover Strategies",
+                    "Disaster Recovery Plans",
+                    "Packet Loss",
+                    "Throughput",
+                    "Encryption Standards",
+                    "Authentication Methods",
+                    "Intrusion Detection Systems"
+                ],
+                "relations": [
+                    "Fault-Tolerant Network ensures High Availability",
+                    "High Availability requires Redundancy Mechanisms",
+                    "Low Latency is achieved through optimized network paths",
+                    "Robust Security includes Encryption Standards and Authentication Methods",
+                    "Failover Strategies are part of Disaster Recovery Plans",
+                    "Packet Loss and Throughput are key performance indicators",
+                    "Intrusion Detection Systems enhance Robust Security"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "8043a9d2-9994-427e-bb5e-d13b1612c8a8",
+        "task_details": {
+            "task_instructions": "Design a distributed, fault-tolerant, real-time data processing system capable of handling at least 1 million events per second with a latency of less than 10 milliseconds. The system should be able to scale horizontally and vertically, support exactly-once processing semantics, and ensure high availability with a minimum uptime of 99.999%. The system should integrate with various data sources including IoT devices, social media streams, and financial transaction systems. Provide a detailed architecture diagram, component descriptions, and a comparison of suitable technologies for each component.",
+            "task_data": {
+                "data_points": {
+                    "iot_devices": [
+                        {
+                            "device_id": "IoT_001",
+                            "data_rate": 500,
+                            "data_format": "JSON"
+                        },
+                        {
+                            "device_id": "IoT_002",
+                            "data_rate": 700,
+                            "data_format": "XML"
+                        }
+                    ],
+                    "social_media_streams": [
+                        {
+                            "platform": "Twitter",
+                            "data_rate": 10000,
+                            "data_format": "JSON"
+                        },
+                        {
+                            "platform": "Facebook",
+                            "data_rate": 8000,
+                            "data_format": "JSON"
+                        }
+                    ],
+                    "financial_transactions": [
+                        {
+                            "source": "Bank_A",
+                            "data_rate": 5000,
+                            "data_format": "CSV"
+                        },
+                        {
+                            "source": "Bank_B",
+                            "data_rate": 6000,
+                            "data_format": "XML"
+                        }
+                    ],
+                    "system_requirements": {
+                        "throughput": 1000000,
+                        "latency": 0.01,
+                        "availability": 0.99999
+                    }
+                }
+            },
+            "mathematical_formulation": "Let S be the set of data sources, where each source s_i ∈ S generates data at a rate r_i. The total data rate R is given by R = ∑(r_i for all s_i ∈ S). The system must satisfy the constraints: R ≤ 1,000,000 events/second and latency L ≤ 0.01 seconds. The system availability A must be A ≥ 0.99999.",
+            "ontology": {
+                "entities": [
+                    "distributed system",
+                    "fault-tolerance",
+                    "real-time data processing",
+                    "horizontal scaling",
+                    "vertical scaling",
+                    "exactly-once processing",
+                    "high availability",
+                    "IoT devices",
+                    "social media streams",
+                    "financial transaction systems",
+                    "throughput",
+                    "latency",
+                    "uptime"
+                ],
+                "relations": [
+                    "integrates_with(distributed_system, data_source)",
+                    "supports(distributed_system, processing_semantics)",
+                    "ensures(distributed_system, availability)",
+                    "generates(data_source, data_rate)",
+                    "satisfies(system, constraints)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "5b767e32-76c8-4b4b-b205-2ffd4e27be1a",
+        "task_details": {
+            "task_instructions": "Design a fault-tolerant, distributed system architecture for a real-time, large-scale social media platform capable of handling 10 billion daily active users with an average latency of less than 100 milliseconds for 99.999% of requests. The architecture should include detailed specifications for data storage, caching, load balancing, and failure recovery mechanisms. Additionally, provide a comprehensive security framework to protect against common vulnerabilities such as DDoS attacks, data breaches, and unauthorized access.",
+            "task_data": {
+                "data_points": {
+                    "daily_active_users": 10000000000,
+                    "max_acceptable_latency_ms": 100,
+                    "required_availability_percentage": 99.999,
+                    " Peak_requests_per_second": 5000000,
+                    "data_centers": [
+                        "North America",
+                        "Europe",
+                        "Asia",
+                        "Australia"
+                    ],
+                    "storage_requirements_PB": 500,
+                    "cache_hit_rate_percentage": 95,
+                    "security_threats": [
+                        "DDoS",
+                        "Data Breach",
+                        "Unauthorized Access"
+                    ]
+                }
+            },
+            "mathematical_formulation": "Let L be the average latency, A be the availability, and R be the request rate. The system must satisfy the following constraints:\n1. L < 100 ms for 99.999% of requests.\n2. A ≥ 99.999%.\n3. R ≤ 5,000,000 requests/second.\nThe probability of a cache hit (P_cache_hit) should be:\nP_cache_hit ≥ 0.95.\nThe total storage capacity (S_total) should be:\nS_total ≥ 500 PB.\nThe system should be designed to minimize the probability of failure (P_failure) under various threat scenarios.",
+            "ontology": {
+                "entities": [
+                    "Distributed System",
+                    "Fault Tolerance",
+                    "Load Balancing",
+                    "Data Storage",
+                    "Caching",
+                    "Failure Recovery",
+                    "Security Framework",
+                    "DDoS Attacks",
+                    "Data Breaches",
+                    "Unauthorized Access",
+                    "Latency",
+                    "Availability",
+                    "Request Rate",
+                    "Cache Hit Rate",
+                    "Storage Capacity"
+                ],
+                "relations": [
+                    "Distributed System implements Fault Tolerance",
+                    "Distributed System includes Load Balancing",
+                    "Distributed System requires Data Storage",
+                    "Distributed System utilizes Caching",
+                    "Distributed System ensures Failure Recovery",
+                    "Distributed System integrates Security Framework",
+                    "Security Framework mitigates DDoS Attacks",
+                    "Security Framework prevents Data Breaches",
+                    "Security Framework protects against Unauthorized Access",
+                    "Distributed System maintains Latency",
+                    "Distributed System guarantees Availability",
+                    "Distributed System handles Request Rate",
+                    "Caching improves Cache Hit Rate",
+                    "Data Storage provides Storage Capacity"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "a2ade60c-f2c2-42f8-b17f-58009edad3fd",
+        "task_details": {
+            "task_instructions": "Design an optimal network architecture for a distributed cloud computing system that minimizes latency and maximizes throughput, considering constraints such as bandwidth, processing power, and geographical distribution of data centers. The system should support real-time data processing and analytics for a global e-commerce platform with 10 million daily active users.",
+            "task_data": {
+                "data_centers": [
+                    {
+                        "id": 1,
+                        "location": "New York",
+                        "bandwidth": 1000,
+                        "processing_power": 500
+                    },
+                    {
+                        "id": 2,
+                        "location": "London",
+                        "bandwidth": 1200,
+                        "processing_power": 600
+                    },
+                    {
+                        "id": 3,
+                        "location": "Tokyo",
+                        "bandwidth": 1500,
+                        "processing_power": 700
+                    },
+                    {
+                        "id": 4,
+                        "location": "Sydney",
+                        "bandwidth": 1100,
+                        "processing_power": 550
+                    },
+                    {
+                        "id": 5,
+                        "location": "San Francisco",
+                        "bandwidth": 1300,
+                        "processing_power": 650
+                    }
+                ],
+                "user_distribution": [
+                    {
+                        "region": "North America",
+                        "users": 4000000
+                    },
+                    {
+                        "region": "Europe",
+                        "users": 3000000
+                    },
+                    {
+                        "region": "Asia",
+                        "users": 2000000
+                    },
+                    {
+                        "region": "Australia",
+                        "users": 1000000
+                    }
+                ],
+                "network_latency": [
+                    {
+                        "from": 1,
+                        "to": 2,
+                        "latency": 80
+                    },
+                    {
+                        "from": 1,
+                        "to": 3,
+                        "latency": 120
+                    },
+                    {
+                        "from": 1,
+                        "to": 4,
+                        "latency": 150
+                    },
+                    {
+                        "from": 1,
+                        "to": 5,
+                        "latency": 60
+                    },
+                    {
+                        "from": 2,
+                        "to": 3,
+                        "latency": 100
+                    },
+                    {
+                        "from": 2,
+                        "to": 4,
+                        "latency": 140
+                    },
+                    {
+                        "from": 2,
+                        "to": 5,
+                        "latency": 90
+                    },
+                    {
+                        "from": 3,
+                        "to": 4,
+                        "latency": 110
+                    },
+                    {
+                        "from": 3,
+                        "to": 5,
+                        "latency": 130
+                    },
+                    {
+                        "from": 4,
+                        "to": 5,
+                        "latency": 160
+                    }
+                ]
+            },
+            "mathematical_formulation": "Minimize the total latency L and maximize the throughput T subject to the constraints:\n\nL = ∑_(i,j) (latency_ij * flow_ij)\nT = ∑_i (processing_power_i * utilization_i)\n\nConstraints:\n∑_(j) flow_ij ≤ bandwidth_i, ∀ i\nutilization_i ≤ 1, ∀ i\nflow_ij ≥ 0, ∀ i, j",
+            "ontology": {
+                "entities": [
+                    "data_center",
+                    "bandwidth",
+                    "processing_power",
+                    "latency",
+                    "throughput",
+                    "user_distribution",
+                    "network_architecture",
+                    "real-time_data_processing",
+                    "global_e-commerce_platform"
+                ],
+                "relations": [
+                    "data_center_located_in(data_center, location)",
+                    "has_bandwidth(data_center, bandwidth)",
+                    "has_processing_power(data_center, processing_power)",
+                    "network_latency_between(data_center, data_center, latency)",
+                    "supports_real-time_processing(network_architecture, real-time_data_processing)",
+                    "serves_users(global_e-commerce_platform, user_distribution)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "bf228169-3390-4d26-9049-eef9289086a2",
+        "task_details": {
+            "task_instructions": "Design a scalable, fault-tolerant, and secure distributed system architecture for a real-time data processing pipeline that can handle at least 1 million transactions per second with a latency of less than 10 milliseconds. The system should be able to scale horizontally and vertically, ensure data consistency, and provide high availability. The architecture should include detailed specifications for data ingestion, processing, storage, and retrieval components, along with a disaster recovery plan.",
+            "task_data": {
+                "data_points": {
+                    "transaction_volume": 1000000,
+                    "latency_requirement": 0.01,
+                    "data_centers": [
+                        {
+                            "name": "DC1",
+                            "location": "New York",
+                            "servers": 500,
+                            "bandwidth": 10000
+                        },
+                        {
+                            "name": "DC2",
+                            "location": "London",
+                            "servers": 300,
+                            "bandwidth": 8000
+                        },
+                        {
+                            "name": "DC3",
+                            "location": "Tokyo",
+                            "servers": 200,
+                            "bandwidth": 6000
+                        }
+                    ],
+                    "processing_nodes": [
+                        {
+                            "id": "PN1",
+                            "type": "CPU",
+                            "cores": 64,
+                            "memory": 256
+                        },
+                        {
+                            "id": "PN2",
+                            "type": "GPU",
+                            "cores": 128,
+                            "memory": 512
+                        }
+                    ],
+                    "storage_nodes": [
+                        {
+                            "id": "SN1",
+                            "type": "HDD",
+                            "capacity": 10000,
+                            "IOPS": 500
+                        },
+                        {
+                            "id": "SN2",
+                            "type": "SSD",
+                            "capacity": 5000,
+                            "IOPS": 2000
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "The system must satisfy the following constraints:\n1. Throughput (T) >= 1,000,000 transactions per second.\n2. Latency (L) <= 0.01 seconds.\n3. Data consistency must be ensured using a consensus algorithm such as Paxos or Raft.\n4. The system must provide high availability with a minimum uptime of 99.99%.\n5. The disaster recovery plan must ensure a Recovery Time Objective (RTO) of less than 1 hour and a Recovery Point Objective (RPO) of less than 5 minutes.",
+            "ontology": {
+                "entities": [
+                    "distributed system",
+                    "real-time data processing",
+                    "transaction",
+                    "latency",
+                    "data ingestion",
+                    "data processing",
+                    "data storage",
+                    "data retrieval",
+                    "horizontal scaling",
+                    "vertical scaling",
+                    "data consistency",
+                    "high availability",
+                    "disaster recovery",
+                    "data center",
+                    "server",
+                    "bandwidth",
+                    "processing node",
+                    "storage node",
+                    "consensus algorithm",
+                    "Paxos",
+                    "Raft",
+                    "Recovery Time Objective (RTO)",
+                    "Recovery Point Objective (RPO)"
+                ],
+                "relations": [
+                    "distributed system handles real-time data processing",
+                    "real-time data processing involves data ingestion, data processing, data storage, and data retrieval",
+                    "transactions are processed with a specified latency",
+                    "data centers contain servers with specified bandwidth",
+                    "processing nodes handle data processing",
+                    "storage nodes handle data storage",
+                    "consensus algorithms ensure data consistency",
+                    "disaster recovery plan includes RTO and RPO",
+                    "system provides high availability with minimal downtime"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "55fbd621-ccae-4c26-9e3b-d52ef524482f",
+        "task_details": {
+            "task_instructions": "Design a scalable, fault-tolerant, and secure distributed computing system for real-time processing of large-scale IoT data streams, ensuring low latency and high throughput. The system should integrate heterogeneous data sources, support complex event processing, and provide robust data analytics capabilities. Additionally, the system should comply with GDPR regulations for data privacy and security.",
+            "task_data": {
+                "data_points": {
+                    "IoT_devices": [
+                        {
+                            "device_id": "D1",
+                            "device_type": "sensor",
+                            "data_rate": 100,
+                            "location": "New York"
+                        },
+                        {
+                            "device_id": "D2",
+                            "device_type": "actuator",
+                            "data_rate": 50,
+                            "location": "Los Angeles"
+                        },
+                        {
+                            "device_id": "D3",
+                            "device_type": "sensor",
+                            "data_rate": 200,
+                            "location": "Chicago"
+                        }
+                    ],
+                    "data_streams": [
+                        {
+                            "stream_id": "S1",
+                            "source_device": "D1",
+                            "data_format": "JSON",
+                            "frequency": "1Hz"
+                        },
+                        {
+                            "stream_id": "S2",
+                            "source_device": "D2",
+                            "data_format": "XML",
+                            "frequency": "0.5Hz"
+                        },
+                        {
+                            "stream_id": "S3",
+                            "source_device": "D3",
+                            "data_format": "CSV",
+                            "frequency": "2Hz"
+                        }
+                    ],
+                    "network_parameters": {
+                        "bandwidth": 1000,
+                        "latency": 0.05,
+                        "packet_loss": 0.01
+                    },
+                    "security_requirements": {
+                        "encryption": "AES-256",
+                        "authentication": "OAuth2",
+                        "compliance": "GDPR"
+                    },
+                    "processing_requirements": {
+                        "throughput": 10000,
+                        "latency": 0.01,
+                        "fault_tolerance": 0.99
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "throughput_requirement": "T >= 10000",
+                "latency_requirement": "L <= 0.01",
+                "fault_tolerance_requirement": "F >= 0.99",
+                "data_rate_constraint": "sum(data_rate_i) <= bandwidth",
+                "packet_loss_probability": "P(loss) <= 0.01",
+                "encryption_strength": "E = AES-256",
+                "authentication_protocol": "A = OAuth2",
+                "compliance_requirement": "C = GDPR"
+            },
+            "ontology": {
+                "entities": [
+                    "IoT_device",
+                    "data_stream",
+                    "network_parameter",
+                    "security_requirement",
+                    "processing_requirement",
+                    "encryption",
+                    "authentication",
+                    "compliance"
+                ],
+                "relations": [
+                    "device_generates_stream",
+                    "stream_transmitted_over_network",
+                    "network_supports_security",
+                    "security_ensures_compliance",
+                    "processing_handles_data_stream",
+                    "encryption_protects_data",
+                    "authentication_verifies_access"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "2dcc0238-67e7-40ad-8245-e68b337f04f3",
+        "task_details": {
+            "task_instructions": "Design a scalable, fault-tolerant, and secure distributed system architecture for a real-time data processing pipeline that can handle at least 1 million transactions per second with a latency of no more than 10 milliseconds. The system should be capable of horizontal scaling and should include components for data ingestion, processing, storage, and retrieval. The architecture should also incorporate mechanisms for data consistency, disaster recovery, and security measures to prevent unauthorized access and data breaches. Provide a detailed diagram and description of each component, including the technologies and protocols used.",
+            "task_data": {
+                "data_points": {
+                    "transaction_rate": 1000000,
+                    "max_latency": 0.01,
+                    "data_centers": [
+                        "DC1",
+                        "DC2",
+                        "DC3"
+                    ],
+                    "regions": [
+                        "North America",
+                        "Europe",
+                        "Asia"
+                    ],
+                    "technologies": [
+                        "Kafka",
+                        "Spark",
+                        "Cassandra",
+                        "Zookeeper",
+                        "Consul",
+                        "Vault"
+                    ],
+                    "security_protocols": [
+                        "TLS",
+                        "OAuth2",
+                        "JWT"
+                    ],
+                    "network_topology": [
+                        "mesh",
+                        "star",
+                        "hybrid"
+                    ],
+                    "failure_modes": [
+                        "node failure",
+                        "network partition",
+                        "data corruption"
+                    ],
+                    "recovery_metrics": [
+                        "RTO",
+                        "RPO"
+                    ],
+                    "compliance_standards": [
+                        "GDPR",
+                        "HIPAA",
+                        "PCI-DSS"
+                    ]
+                }
+            },
+            "mathematical_formulation": "Let T be the throughput in transactions per second, L be the latency in seconds, N be the number of nodes, and R be the recovery time objective (RTO) in seconds. The system should satisfy the following constraints:\n1. T >= 1,000,000\n2. L <= 0.01\n3. N >= 3 (for fault tolerance)\n4. R <= 10 (seconds)\nThe probability of data loss P(DL) should be minimized, and the probability of unauthorized access P(UA) should be less than 0.001.\nThe system should also maintain data consistency such that the probability of inconsistent data P(ID) is less than 0.0001.",
+            "ontology": {
+                "entities": [
+                    "distributed system",
+                    "data processing pipeline",
+                    "transaction",
+                    "latency",
+                    "throughput",
+                    "data consistency",
+                    "disaster recovery",
+                    "security measures",
+                    "horizontal scaling",
+                    "data ingestion",
+                    "data processing",
+                    "data storage",
+                    "data retrieval",
+                    "fault tolerance",
+                    "compliance standards"
+                ],
+                "relations": [
+                    "handles",
+                    "incorporates",
+                    "includes",
+                    "uses",
+                    "satisfies",
+                    "maintains",
+                    "prevents",
+                    "scales",
+                    "processes",
+                    "stores",
+                    "retrieves",
+                    "ensures",
+                    "complies with"
+                ]
+            }
+        }
+    }
+]

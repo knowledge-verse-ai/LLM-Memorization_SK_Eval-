@@ -1,0 +1,2418 @@
+[
+    {
+        "task_id": "4292f3d8-1ea9-45d8-8d34-bd5934cca6d8",
+        "task_details": {
+            "task_instructions": "Develop an algorithm to predict the progression probability of Chronic Kidney Disease (CKD) based on longitudinal patient data, including demographic information, laboratory results, and clinical history. The algorithm should account for different stages of the disease and adjust predictions based on the presence of comorbidities.",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "patient_id": "001",
+                            "age": 65,
+                            "sex": "male",
+                            "ethnicity": "Caucasian",
+                            "medical_history": {
+                                "hypertension": true,
+                                "diabetes_mellitus": true,
+                                "cardiovascular_disease": false
+                            },
+                            "laboratory_results": [
+                                {
+                                    "date": "2023-01-01",
+                                    "creatinine_mg_dl": 2.1,
+                                    "gfr_ml_min": 45
+                                },
+                                {
+                                    "date": "2023-06-01",
+                                    "creatinine_mg_dl": 2.3,
+                                    "gfr_ml_min": 40
+                                }
+                            ],
+                            "medications": [
+                                "ACE inhibitors"
+                            ],
+                            "current_ckd_stage": 3
+                        },
+                        {
+                            "patient_id": "002",
+                            "age": 58,
+                            "sex": "female",
+                            "ethnicity": "Hispanic",
+                            "medical_history": {
+                                "hypertension": false,
+                                "diabetes_mellitus": false,
+                                "cardiovascular_disease": true
+                            },
+                            "laboratory_results": [
+                                {
+                                    "date": "2023-01-01",
+                                    "creatinine_mg_dl": 1.8,
+                                    "gfr_ml_min": 50
+                                },
+                                {
+                                    "date": "2023-06-01",
+                                    "creatinine_mg_dl": 1.9,
+                                    "gfr_ml_min": 48
+                                }
+                            ],
+                            "medications": [],
+                            "current_ckd_stage": 2
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(CKD_Progression) = f(GFR_rate_of_change, comorbidities, medication_effectiveness, demographic_factors). If GFR_rate_of_change > threshold, increase probability. Incorporate logistic regression to adjust for comorbidities."
+        }
+    },
+    {
+        "task_id": "0f8905be-9013-4282-a9b0-fff33310143d",
+        "task_details": {
+            "task_instructions": "Using the provided clinical dataset comprising various patient records, develop a predictive model to estimate the risk of cardiovascular events within five years based on patients' historical and current clinical measurements. The model should be created using logistic regression and incorporate multiple covariates such as age, cholesterol levels, blood pressure, smoking status, and diabetes. Additionally, perform a sensitivity analysis on the covariates to determine their impact on the model's predictions.",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "patient_id": 1,
+                            "age": 52,
+                            "cholesterol_level": 220,
+                            "blood_pressure_systolic": 130,
+                            "blood_pressure_diastolic": 85,
+                            "smoking_status": true,
+                            "diabetes": false,
+                            "previous_cardiovascular_event": false
+                        },
+                        {
+                            "patient_id": 2,
+                            "age": 60,
+                            "cholesterol_level": 180,
+                            "blood_pressure_systolic": 145,
+                            "blood_pressure_diastolic": 90,
+                            "smoking_status": false,
+                            "diabetes": true,
+                            "previous_cardiovascular_event": true
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(Y=1) = 1 / (1 + exp(-(β0 + β1*age + β2*cholesterol_level + β3*blood_pressure_systolic + β4*blood_pressure_diastolic + β5*smoking_status + β6*diabetes)))"
+        }
+    },
+    {
+        "task_id": "394ac055-698c-43e4-9a5a-00901805b347",
+        "task_details": {
+            "task_instructions": "Predict the likelihood of Type 2 Diabetes Mellitus (T2DM) diagnosis within the next 5 years based on a patient's clinical, biochemical, and lifestyle data using logistic regression. Include feature selection, model training, evaluation using AUC-ROC, and providing recommendations for lifestyle adjustment based on the risk score.",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "id": 1,
+                            "age": 54,
+                            "gender": "Female",
+                            "BMI": 28.4,
+                            "family_history": "Yes",
+                            "systolic_BP": 130,
+                            "diastolic_BP": 85,
+                            "fasting_glucose": 110,
+                            "HBA1c": 5.6,
+                            "physical_activity": "Moderate",
+                            "smoking_status": "Non-smoker",
+                            "cholesterol_levels": 220
+                        },
+                        {
+                            "id": 2,
+                            "age": 63,
+                            "gender": "Male",
+                            "BMI": 31.2,
+                            "family_history": "No",
+                            "systolic_BP": 140,
+                            "diastolic_BP": 90,
+                            "fasting_glucose": 126,
+                            "HBA1c": 6.4,
+                            "physical_activity": "Low",
+                            "smoking_status": "Former smoker",
+                            "cholesterol_levels": 240
+                        }
+                    ],
+                    "outcome": {
+                        "id_1": "No",
+                        "id_2": "Yes"
+                    }
+                }
+            },
+            "mathematical_formulation": "P(T2DM) = 1 / (1 + exp(-(β0 + β1*age + β2*BMI + β3*family_history + β4*systolic_BP + β5*diastolic_BP + β6*fasting_glucose + β7*HBA1c + β8*physical_activity + β9*smoking_status + β10*cholesterol_levels)))"
+        }
+    },
+    {
+        "task_id": "a9bd2cd9-fca7-4d3d-8a36-861da4122b75",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive diagnostic evaluation to predict the probability of cardiovascular disease (CVD) onset within the next 10 years for a given patient utilizing a dataset that includes various clinical parameters, demographic information, and lifestyle habits. Calculate and interpret the Framingham Risk Score (FRS) based on provided patient data, and then refine the prediction using a machine learning model that incorporates additional variables such as inflammatory markers and genetic predispositions.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_id": 12345,
+                    "age": 54,
+                    "sex": "male",
+                    "total_cholesterol_mg_dl": 230,
+                    "hdl_cholesterol_mg_dl": 45,
+                    "systolic_blood_pressure_mm_hg": 138,
+                    "treatment_for_hypertension": true,
+                    "smoking_status": "current smoker",
+                    "diabetes_status": false,
+                    "family_history_cvd": true,
+                    "c-reactive_protein_mg_l": 3.5,
+                    "bmi": 29.8,
+                    "genetic_risk_score": 1.18
+                }
+            },
+            "mathematical_formulation": "FRS = 52.00961 * log10(age) - 20.40254 * log10(total_cholesterol_mg_dl + 1) + 1.494 * log10(hdl_cholesterol_mg_dl) + 0.661 * log10(systolic_blood_pressure_mm_hg) + (some coefficients for smoking, diabetes, etc). Extended ML model P(CVD) = e^(b0 + b1*x1 + b2*x2 + ...) / (1 + e^(b0 + b1*x1 + b2*x2 + ...))"
+        }
+    },
+    {
+        "task_id": "a43048cc-4cc0-404c-b93c-1ab1b7ac74bd",
+        "task_details": {
+            "task_instructions": "Using the provided dataset of patient profiles with various cardiovascular parameters, predict the risk of myocardial infarction within the next 5 years using clinical and demographic variables. Identify key predictors and provide a statistical interpretation of their significance.",
+            "task_data": {
+                "clinical_data": [
+                    {
+                        "patient_id": "001",
+                        "age": 54,
+                        "gender": "male",
+                        "blood_pressure": 140,
+                        "cholesterol_level": 240,
+                        "smoking_status": "current",
+                        "diabetes_status": "type 2",
+                        "family_history_mi": true,
+                        "bmi": 28.5
+                    },
+                    {
+                        "patient_id": "002",
+                        "age": 47,
+                        "gender": "female",
+                        "blood_pressure": 130,
+                        "cholesterol_level": 220,
+                        "smoking_status": "former",
+                        "diabetes_status": "none",
+                        "family_history_mi": false,
+                        "bmi": 23.4
+                    }
+                ]
+            },
+            "mathematical_formulation": "Logistic Regression Model: logit(P(MI)) = β0 + β1 * Age + β2 * BloodPressure + β3 * CholesterolLevel + β4 * SmokingStatus + β5 * DiabetesStatus + β6 * FamilyHistoryMI + β7 * BMI; where P(MI) represents the probability of myocardial infarction and β coefficients represent the effect size of each predictor."
+        }
+    },
+    {
+        "task_id": "3668be07-d61a-4fa5-a2db-0bff5a359e77",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive analysis of the potential correlation between the expression levels of five specific oncogenes and the progression of a distinctly defined form of adenocarcinoma. The analysis should include data pre-processing, calculating statistical correlations, and generating a predictive model of disease progression stage from gene expression levels.",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "patient_id": 1,
+                            "age": 52,
+                            "tumor_stage": "II",
+                            "oncogene_A": 15.2,
+                            "oncogene_B": 27.1,
+                            "oncogene_C": 35.0,
+                            "oncogene_D": 22.3,
+                            "oncogene_E": 18.7
+                        },
+                        {
+                            "patient_id": 2,
+                            "age": 63,
+                            "tumor_stage": "III",
+                            "oncogene_A": 20.0,
+                            "oncogene_B": 32.5,
+                            "oncogene_C": 40.1,
+                            "oncogene_D": 26.7,
+                            "oncogene_E": 21.9
+                        },
+                        {
+                            "patient_id": 3,
+                            "age": 45,
+                            "tumor_stage": "I",
+                            "oncogene_A": 12.5,
+                            "oncogene_B": 24.3,
+                            "oncogene_C": 28.5,
+                            "oncogene_D": 19.8,
+                            "oncogene_E": 16.4
+                        },
+                        {
+                            "patient_id": 4,
+                            "age": 60,
+                            "tumor_stage": "II",
+                            "oncogene_A": 17.1,
+                            "oncogene_B": 29.5,
+                            "oncogene_C": 37.6,
+                            "oncogene_D": 23.9,
+                            "oncogene_E": 20.3
+                        },
+                        {
+                            "patient_id": 5,
+                            "age": 58,
+                            "tumor_stage": "IV",
+                            "oncogene_A": 26.4,
+                            "oncogene_B": 38.5,
+                            "oncogene_C": 45.2,
+                            "oncogene_D": 30.1,
+                            "oncogene_E": 25.6
+                        }
+                    ],
+                    "gene_expression_reference": {
+                        "normal_range": {
+                            "oncogene_A": [
+                                10,
+                                20
+                            ],
+                            "oncogene_B": [
+                                20,
+                                30
+                            ],
+                            "oncogene_C": [
+                                25,
+                                35
+                            ],
+                            "oncogene_D": [
+                                18,
+                                28
+                            ],
+                            "oncogene_E": [
+                                15,
+                                23
+                            ]
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": "Calculate the Pearson correlation coefficient \\( r \\) for each oncogene's expression level against the ordinal tumor stage. Then, use logistic regression to predict tumor stage progression given the expression levels \\( X \\) of the oncogenes."
+        }
+    },
+    {
+        "task_id": "7d0925f2-320e-468e-9bc1-c5671d047ca6",
+        "task_details": {
+            "task_instructions": "Analyze a dataset of patients with chronic diseases to predict the probability of developing a secondary disease using logistic regression. Identify key risk factors and compute the probability for a subset of patients based on specific clinical attributes.",
+            "task_data": {
+                "clinical_data": [
+                    {
+                        "patient_id": 1,
+                        "age": 65,
+                        "BMI": 28,
+                        "cholesterol_level": 220,
+                        "blood_pressure": 140,
+                        "diabetes_status": true,
+                        "current_medication": [
+                            "Metformin"
+                        ],
+                        "primary_disease": "Type 2 Diabetes",
+                        "secondary_disease": "Hypertension"
+                    },
+                    {
+                        "patient_id": 2,
+                        "age": 54,
+                        "BMI": 31,
+                        "cholesterol_level": 190,
+                        "blood_pressure": 135,
+                        "diabetes_status": false,
+                        "current_medication": [
+                            "Atorvastatin"
+                        ],
+                        "primary_disease": "Hyperlipidemia",
+                        "secondary_disease": "Cardiovascular Disease"
+                    },
+                    {
+                        "patient_id": 3,
+                        "age": 70,
+                        "BMI": 26,
+                        "cholesterol_level": 240,
+                        "blood_pressure": 150,
+                        "diabetes_status": true,
+                        "current_medication": [
+                            "Insulin",
+                            "Lisinopril"
+                        ],
+                        "primary_disease": "Type 2 Diabetes",
+                        "secondary_disease": "Nephropathy"
+                    }
+                ],
+                "risk_factors": [
+                    "age",
+                    "BMI",
+                    "cholesterol_level",
+                    "blood_pressure",
+                    "diabetes_status"
+                ]
+            },
+            "mathematical_formulation": "P(SD=1|X) = 1 / (1 + e^-(β0 + β1*age + β2*BMI + β3*cholesterol_level + β4*blood_pressure + β5*diabetes_status))"
+        }
+    },
+    {
+        "task_id": "22f4d905-00d9-4303-a3eb-439d3ec1fdf6",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for hospital admission due to cardiovascular events within the next year, based on patient historical clinical and demographic data.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_records": [
+                        {
+                            "patient_id": "001",
+                            "age": 68,
+                            "gender": "male",
+                            "blood_pressure": 140,
+                            "cholesterol_level": 230,
+                            "smoking_status": "former smoker",
+                            "diabetes_status": "type 2",
+                            "previous_cardiovascular_event": "yes",
+                            "medication_adherence": "high",
+                            "physical_activity_level": "low",
+                            "diet_quality": "poor",
+                            "BMI": 29.5,
+                            "family_history_cardiovascular_disease": "yes"
+                        },
+                        {
+                            "patient_id": "002",
+                            "age": 55,
+                            "gender": "female",
+                            "blood_pressure": 120,
+                            "cholesterol_level": 190,
+                            "smoking_status": "never smoked",
+                            "diabetes_status": "no",
+                            "previous_cardiovascular_event": "no",
+                            "medication_adherence": "medium",
+                            "physical_activity_level": "medium",
+                            "diet_quality": "average",
+                            "BMI": 22.3,
+                            "family_history_cardiovascular_disease": "no"
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Probability(Patient Admission) = f(Age, Blood Pressure, Cholesterol Level, Smoking Status, Diabetes Status, Previous Cardiovascular Event, Medication Adherence, Physical Activity Level, Diet Quality, BMI, Family History)"
+        }
+    },
+    {
+        "task_id": "e003879c-49b8-43af-919d-afbd07bd5ea7",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive analysis and prediction of the progression of Chronic Kidney Disease (CKD) using patient clinical data. The task includes identifying the stages of CKD, estimating the Glomerular Filtration Rate (GFR) over time, and assessing the impact of various risk factors such as hypertension, diabetes, and proteinuria. Utilize machine learning techniques to predict the transition between CKD stages and evaluate the treatment efficacy based on given clinical data.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_id": [
+                        101,
+                        102,
+                        103,
+                        104,
+                        105
+                    ],
+                    "age": [
+                        45,
+                        66,
+                        72,
+                        58,
+                        49
+                    ],
+                    "gender": [
+                        "Male",
+                        "Female",
+                        "Female",
+                        "Male",
+                        "Female"
+                    ],
+                    "blood_pressure": [
+                        "140/90",
+                        "160/100",
+                        "155/95",
+                        "130/85",
+                        "145/92"
+                    ],
+                    "diabetes": [
+                        true,
+                        true,
+                        false,
+                        false,
+                        true
+                    ],
+                    "serum_creatinine": [
+                        1.6,
+                        2.1,
+                        1.8,
+                        2.3,
+                        1.9
+                    ],
+                    "proteinuria": [
+                        "Positive",
+                        "Negative",
+                        "Positive",
+                        "Negative",
+                        "Positive"
+                    ],
+                    "GFR_baseline": [
+                        60,
+                        45,
+                        50,
+                        38,
+                        52
+                    ],
+                    "follow_up_period_months": [
+                        12,
+                        24,
+                        18,
+                        24,
+                        12
+                    ],
+                    "treatment_regimen": [
+                        "ACE inhibitors",
+                        "Diuretics",
+                        "Dietary Sodium Restriction",
+                        "ACE inhibitors",
+                        "Diuretics"
+                    ],
+                    "CKD_stage_initial": [
+                        "Stage 3a",
+                        "Stage 3b",
+                        "Stage 3a",
+                        "Stage 4",
+                        "Stage 3a"
+                    ],
+                    "CKD_stage_final": [
+                        "Stage 3a",
+                        "Stage 4",
+                        "Stage 3b",
+                        "Stage 4",
+                        "Stage 3b"
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "gfr_calculation": "GFR = 186 * (Serum_creatinine^-1.154) * (Age^-0.203) * (0.742 if Female) * (1.212 if African American)",
+                "probability_transition_model": "P(Transition to Next CKD Stage | Risk Factors) = P1 * (Exp(Beta1 * Hypertension) + Exp(Beta2 * Diabetes) + Exp(Beta3 * Proteinuria))",
+                "accuracy_measurement": "Accuracy = (Number of Correct Stage Predictions) / (Total Predictions)"
+            }
+        }
+    },
+    {
+        "task_id": "e3e19618-ed17-4552-b9f9-fd3e080a1599",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the likelihood of developing cardiovascular disease (CVD) within the next 10 years for individuals based on specific clinical and lifestyle parameters. The model should incorporate both traditional risk factors and emerging biomarkers. Provide detailed reasoning behind each component of the model and validate its accuracy using the provided dataset.",
+            "task_data": {
+                "clinical_data": {
+                    "participants": [
+                        {
+                            "id": 1,
+                            "age": 54,
+                            "gender": "male",
+                            "smoking_status": "former",
+                            "blood_pressure": 130,
+                            "cholesterol": 5.7,
+                            "hdl_cholesterol": 1.3,
+                            "diabetes_status": "no",
+                            "biomarkers": {
+                                "C-reactive protein": 2.1,
+                                "Apolipoprotein B": 1.2
+                            },
+                            "family_history_CVD": "yes",
+                            "physical_activity": "moderate",
+                            "diet_quality": "average"
+                        },
+                        {
+                            "id": 2,
+                            "age": 60,
+                            "gender": "female",
+                            "smoking_status": "never",
+                            "blood_pressure": 145,
+                            "cholesterol": 6.3,
+                            "hdl_cholesterol": 1.6,
+                            "diabetes_status": "yes",
+                            "biomarkers": {
+                                "C-reactive protein": 3.5,
+                                "Apolipoprotein B": 1.1
+                            },
+                            "family_history_CVD": "no",
+                            "physical_activity": "low",
+                            "diet_quality": "poor"
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(CVD) = 1 / (1 + e^(-(β0 + β1*age + β2*gender + β3*smoking_status + β4*blood_pressure + β5*cholesterol + β6*hdl_cholesterol + β7*diabetes_status + β8*C-reactive_protein + β9*Apolipoprotein_B + β10*family_history_CVD + β11*physical_activity + β12*diet_quality)))"
+        }
+    },
+    {
+        "task_id": "113f6a8e-4a9b-456f-b84c-f525f30fb769",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of myocardial infarction (MI) within the next 10 years based on patient clinical and demographic data. The model should use logistic regression with selected clinical predictors.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_001": {
+                        "age": 55,
+                        "gender": "male",
+                        "systolic_blood_pressure": 140,
+                        "diastolic_blood_pressure": 90,
+                        "total_cholesterol": 220,
+                        "hdl_cholesterol": 45,
+                        "smoking_status": "current",
+                        "diabetes_status": "yes",
+                        "family_history_of_mi": "no"
+                    },
+                    "patient_002": {
+                        "age": 62,
+                        "gender": "female",
+                        "systolic_blood_pressure": 130,
+                        "diastolic_blood_pressure": 85,
+                        "total_cholesterol": 180,
+                        "hdl_cholesterol": 50,
+                        "smoking_status": "former",
+                        "diabetes_status": "no",
+                        "family_history_of_mi": "yes"
+                    }
+                }
+            },
+            "mathematical_formulation": "The logistic regression model is represented as: log(p/(1-p)) = β0 + β1*age + β2*systolic_blood_pressure + β3*total_cholesterol + β4*hdl_cholesterol + β5*gender + β6*smoking_status + β7*diabetes_status + β8*family_history_of_mi, where p is the probability of experiencing an MI within the next 10 years."
+        }
+    },
+    {
+        "task_id": "d921dcc9-a99f-441f-af62-d79a86470025",
+        "task_details": {
+            "task_instructions": "Predict the progression of chronic kidney disease (CKD) using patient clinical data over a time span and calculate the probability of reaching end-stage renal disease (ESRD) within five years. Analyze longitudinal data to identify key predictors and use logistic regression for probability estimation.",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "patient_id": "A001",
+                            "age": 55,
+                            "sex": "Male",
+                            "baseline_GFR": 58,
+                            "blood_pressure": 140,
+                            "albuminuria": true,
+                            "diabetes": true,
+                            "follow_up": [
+                                {
+                                    "year": 1,
+                                    "GFR": 52
+                                },
+                                {
+                                    "year": 2,
+                                    "GFR": 49
+                                },
+                                {
+                                    "year": 3,
+                                    "GFR": 45
+                                }
+                            ]
+                        },
+                        {
+                            "patient_id": "A002",
+                            "age": 65,
+                            "sex": "Female",
+                            "baseline_GFR": 60,
+                            "blood_pressure": 130,
+                            "albuminuria": false,
+                            "diabetes": false,
+                            "follow_up": [
+                                {
+                                    "year": 1,
+                                    "GFR": 58
+                                },
+                                {
+                                    "year": 2,
+                                    "GFR": 54
+                                },
+                                {
+                                    "year": 3,
+                                    "GFR": 51
+                                }
+                            ]
+                        }
+                    ],
+                    "measurement_intervals": "Annual",
+                    "duration_of_observation": 5,
+                    "outcome_variable": "ESRD"
+                }
+            },
+            "mathematical_formulation": "P(ESRD) = 1 / (1 + e^-(β0 + β1*age + β2*baseline_GFR + β3*blood_pressure + β4*albuminuria + β5*diabetes))"
+        }
+    },
+    {
+        "task_id": "bfb04003-b9a2-4c3c-a847-aa65796a71a1",
+        "task_details": {
+            "task_instructions": "Develop a model to predict individual patient survival probability over 5 years post-diagnosis for patients with Stage II colorectal cancer, using a provided dataset of clinical variables and treatment histories. Carefully analyze and interpret the impacts of different treatment regimens, patient demographics, and genetic markers on survival rates, considering statistical correlations and potential confounders.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_id": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "age": [
+                        55,
+                        60,
+                        65,
+                        70,
+                        75
+                    ],
+                    "gender": [
+                        "Male",
+                        "Female",
+                        "Male",
+                        "Female",
+                        "Male"
+                    ],
+                    "tumor_location": [
+                        "Rectum",
+                        "Colon",
+                        "Colon",
+                        "Rectum",
+                        "Colon"
+                    ],
+                    "treatment_type": [
+                        "Surgery",
+                        "Surgery+Chemotherapy",
+                        "Surgery+Radiation",
+                        "Surgery+Chemotherapy",
+                        "Surgery"
+                    ],
+                    "genetic_marker_present": [
+                        true,
+                        false,
+                        true,
+                        false,
+                        true
+                    ],
+                    "5_year_survival": [
+                        1,
+                        0,
+                        1,
+                        0,
+                        1
+                    ]
+                }
+            },
+            "mathematical_formulation": "For each patient, calculate the survival probability P(S=1) = 1 / (1 + e^(-z)), where z = β0 + β1*age + β2*I(gender='Male') + β3*I(treatment_type='Surgery+Chemotherapy') + β4*I(genetic_marker_present) + ... , and β coefficients are determined through logistic regression."
+        }
+    },
+    {
+        "task_id": "40930d4a-133d-4453-82ce-a11cb8d418a0",
+        "task_details": {
+            "task_instructions": "Assess the risk of myocardial infarction (MI) in a cohort of patients based on their clinical data by integrating various cardiovascular risk factors and employing a predictive algorithm to categorize them into low, medium, and high risk. Utilize logistic regression for the prediction model, and validate the model using cross-validation techniques.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_id": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    "age": [
+                        57,
+                        65,
+                        48,
+                        74,
+                        60
+                    ],
+                    "gender": [
+                        "male",
+                        "female",
+                        "male",
+                        "female",
+                        "male"
+                    ],
+                    "cholesterol": [
+                        240,
+                        210,
+                        180,
+                        260,
+                        230
+                    ],
+                    "systolic_bp": [
+                        130,
+                        145,
+                        120,
+                        150,
+                        140
+                    ],
+                    "smoking_status": [
+                        "non-smoker",
+                        "former smoker",
+                        "smoker",
+                        "non-smoker",
+                        "smoker"
+                    ],
+                    "family_history": [
+                        "yes",
+                        "no",
+                        "yes",
+                        "yes",
+                        "no"
+                    ],
+                    "diabetes": [
+                        "no",
+                        "yes",
+                        "no",
+                        "no",
+                        "yes"
+                    ],
+                    "body_mass_index": [
+                        29.1,
+                        28.4,
+                        26.7,
+                        30.5,
+                        27.8
+                    ],
+                    "physical_activity": [
+                        "high",
+                        "medium",
+                        "low",
+                        "medium",
+                        "high"
+                    ],
+                    "history_of_cardiovascular_disease": [
+                        "yes",
+                        "no",
+                        "no",
+                        "yes",
+                        "no"
+                    ],
+                    "mi_occurred": [
+                        1,
+                        0,
+                        0,
+                        1,
+                        0
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "logistic_regression_model": "logit(p) = β0 + β1*age + β2*cholesterol + β3*systolic_bp + β4*smoking_status + β5*family_history + β6*diabetes + β7*body_mass_index + β8*physical_activity + β9*history_of_cardiovascular_disease",
+                "probability_thresholds": {
+                    "low_risk": "p < 0.2",
+                    "medium_risk": "0.2 <= p < 0.5",
+                    "high_risk": "p >= 0.5"
+                },
+                "cross_validation": {
+                    "method": "k-fold",
+                    "k_value": 5
+                }
+            }
+        }
+    },
+    {
+        "task_id": "966b1c98-f1b7-41dd-ac4a-f119a1068ce2",
+        "task_details": {
+            "task_instructions": "Given a set of anonymized patient electronic health records (EHRs), identify patterns or correlations between demographic and clinical variables that could indicate a predisposition to develop atherosclerotic cardiovascular disease (ASCVD). Use statistical analysis and machine learning techniques to generate a predictive model. Additionally, identify potential confounding factors and validate the model's accuracy and robustness.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_records": [
+                        {
+                            "patient_id": "001",
+                            "age": 54,
+                            "gender": "male",
+                            "blood_pressure_systolic": 140,
+                            "blood_pressure_diastolic": 85,
+                            "cholesterol_total": 235,
+                            "hdl_cholesterol": 50,
+                            "ldl_cholesterol": 160,
+                            "triglycerides": 140,
+                            "smoking_status": true,
+                            "diabetes": false,
+                            "family_history_cv_disease": true,
+                            "ethnicity": "Caucasian",
+                            "exercise_frequency": 2,
+                            "ascvd_event": true
+                        },
+                        {
+                            "patient_id": "002",
+                            "age": 61,
+                            "gender": "female",
+                            "blood_pressure_systolic": 125,
+                            "blood_pressure_diastolic": 79,
+                            "cholesterol_total": 195,
+                            "hdl_cholesterol": 70,
+                            "ldl_cholesterol": 110,
+                            "triglycerides": 115,
+                            "smoking_status": false,
+                            "diabetes": true,
+                            "family_history_cv_disease": false,
+                            "ethnicity": "Hispanic",
+                            "exercise_frequency": 5,
+                            "ascvd_event": false
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(ASCVD | X) = 1 / (1 + exp(-(β0 + β1*age + β2*blood_pressure_systolic + β3*cholesterol_total + β4*smoking_status + β5*diabetes + β6*family_history_cv_disease + ε)))",
+            "ontology": {
+                "entities": [
+                    "Atherosclerotic Cardiovascular Disease (ASCVD)",
+                    "Blood Pressure",
+                    "Cholesterol",
+                    "Diabetes",
+                    "Smoking Status",
+                    "Family History",
+                    "Ethnicity",
+                    "Exercise Frequency",
+                    "Predictive Model"
+                ],
+                "relations": [
+                    "ASCVD is influenced by Blood Pressure",
+                    "ASCVD is influenced by Cholesterol",
+                    "ASCVD is influenced by Smoking Status",
+                    "ASCVD is influenced by Diabetes",
+                    "ASCVD is influenced by Family History",
+                    "Cholesterol has subtypes: HDL, LDL",
+                    "Exercise Frequency modifies cardiovascular risk",
+                    "Ethnicity correlates with disease predisposition"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e3da7add-8288-438a-996d-ec8c04f84953",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the early diagnosis of Type 2 Diabetes Mellitus (T2DM) using a given clinical dataset. The model should employ logistic regression, account for confounding variables, and validate its predictive power using statistical measures such as sensitivity, specificity, and area under the Receiver Operating Characteristic (ROC) curve. The model must be interpretable with a clear explanation of how each variable impacts the risk of developing T2DM.",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "id": 1,
+                            "age": 45,
+                            "bmi": 28.4,
+                            "fasting_glucose_level": 110,
+                            "systolic_bp": 130,
+                            "diastolic_bp": 85,
+                            "hba1c": 6.1,
+                            "family_history": 1,
+                            "physical_activity_level": "low",
+                            "smoking_status": "non-smoker",
+                            "alcohol_consumption": "moderate",
+                            "diagnosis": 0
+                        },
+                        {
+                            "id": 2,
+                            "age": 54,
+                            "bmi": 32.1,
+                            "fasting_glucose_level": 120,
+                            "systolic_bp": 140,
+                            "diastolic_bp": 90,
+                            "hba1c": 7.0,
+                            "family_history": 1,
+                            "physical_activity_level": "none",
+                            "smoking_status": "smoker",
+                            "alcohol_consumption": "high",
+                            "diagnosis": 1
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "logit(P(T2DM)) = β0 + β1*Age + β2*BMI + β3*FastingGlucoseLevel + β4*SystolicBP + β5*DiastolicBP + β6*HbA1c + β7*FamilyHistory + β8*PhysicalActivityLevel + β9*SmokingStatus + β10*AlcoholConsumption",
+            "ontology": {
+                "entities": [
+                    "Type 2 Diabetes Mellitus",
+                    "BMI",
+                    "Fasting Glucose Level",
+                    "Systolic Blood Pressure",
+                    "Diastolic Blood Pressure",
+                    "HbA1c",
+                    "Family History",
+                    "Physical Activity Level",
+                    "Smoking Status",
+                    "Alcohol Consumption"
+                ],
+                "relations": [
+                    "BMI influences risk of T2DM",
+                    "Fasting Glucose Level indicates prediabetes state",
+                    "Systolic and Diastolic BP impact cardiovascular risk",
+                    "HbA1c provides long-term glucose level indication",
+                    "Family History increases genetic predisposition",
+                    "Physical Activity Level decreases T2DM risk",
+                    "Smoking Status exacerbates insulin resistance",
+                    "Alcohol Consumption affects liver function and insulin sensitivity"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "17d8a9c9-42f1-4147-abc9-3f56fb60b342",
+        "task_details": {
+            "task_instructions": "Perform a detailed differential diagnosis for a set of patients presenting with polyuria, polydipsia, and fatigue. The task requires analyzing provided clinical data to determine the most probable underlying condition(s), considering Type 1 Diabetes Mellitus, Type 2 Diabetes Mellitus, Diabetes Insipidus, or Addison's Disease. The task demands synthesizing clinical, laboratory, and diagnostic imaging data to arrive at an evidence-based conclusion for each patient.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_1": {
+                        "age": 16,
+                        "gender": "Male",
+                        "symptoms": [
+                            "polyuria",
+                            "polydipsia",
+                            "fatigue"
+                        ],
+                        "lab_results": {
+                            "blood_glucose_level": "190 mg/dL",
+                            "serum_osmolality": "280 mOsm/kg",
+                            "urine_osmolality": "100 mOsm/kg",
+                            "HbA1c": "8.5%"
+                        },
+                        "family_history": [
+                            "Type 1 Diabetes"
+                        ]
+                    },
+                    "patient_2": {
+                        "age": 45,
+                        "gender": "Female",
+                        "symptoms": [
+                            "polyuria",
+                            "polydipsia",
+                            "fatigue",
+                            "weight loss"
+                        ],
+                        "lab_results": {
+                            "blood_glucose_level": "240 mg/dL",
+                            "serum_osmolality": "290 mOsm/kg",
+                            "urine_osmolality": "600 mOsm/kg",
+                            "serum_cortisol": "5 mcg/dL"
+                        },
+                        "family_history": [
+                            "Type 2 Diabetes",
+                            "Hypertension"
+                        ]
+                    },
+                    "patient_3": {
+                        "age": 35,
+                        "gender": "Male",
+                        "symptoms": [
+                            "polyuria",
+                            "polydipsia",
+                            "nocturia"
+                        ],
+                        "lab_results": {
+                            "blood_glucose_level": "105 mg/dL",
+                            "serum_osmolality": "260 mOsm/kg",
+                            "urine_osmolality": "50 mOsm/kg",
+                            "desmopressin_response": "positive"
+                        },
+                        "family_history": []
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "probability_of_type_1_diabetes": "P(T1D) = (glucose > 126 mg/dL) ∩ (HbA1c > 6.5%) ∩ (age < 20 )",
+                "probability_of_type_2_diabetes": "P(T2D) = (glucose > 126 mg/dL) ∩ (HbA1c > 6.5%) ∩ (family_history.includes('Type 2 Diabetes'))",
+                "probability_of_diabetes_insipidus": "P(DI) = (serum_osmolality < 275 mOsm/kg) ∩ (urine_osmolality < 300 mOsm/kg) ∩ (desmopressin_response == 'positive')",
+                "probability_of_addisons_disease": "P(AD) = (serum_cortisol < 6 mcg/dL) ∩ (symptoms.includes('fatigue'))"
+            },
+            "ontology": {
+                "entities": [
+                    "Type 1 Diabetes Mellitus",
+                    "Type 2 Diabetes Mellitus",
+                    "Diabetes Insipidus",
+                    "Addison's Disease",
+                    "polyuria",
+                    "polydipsia",
+                    "fatigue",
+                    "blood glucose level",
+                    "serum osmolality",
+                    "urine osmolality",
+                    "HbA1c",
+                    "serum cortisol"
+                ],
+                "relations": [
+                    "causes(Type 1 Diabetes Mellitus, polyuria)",
+                    "causes(Type 2 Diabetes Mellitus, polyuria)",
+                    "causes(Diabetes Insipidus, polyuria)",
+                    "causes(Addison's Disease, fatigue)",
+                    "is_indicated_by(high blood glucose level, Type 1 Diabetes Mellitus)",
+                    "is_indicated_by(high blood glucose level, Type 2 Diabetes Mellitus)",
+                    "is_indicated_by(low urine osmolality, Diabetes Insipidus)",
+                    "is_indicated_by(low serum cortisol, Addison's Disease)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e04120d5-621b-439f-9fd0-cfe785f06e57",
+        "task_details": {
+            "task_instructions": "Using the provided clinical dataset, perform a multivariate regression analysis to identify potential predictors of adverse cardiovascular events in patients with Type 2 Diabetes Mellitus. Consider a comprehensive set of variables including demographic factors, clinical measures, and lifestyle factors. Ensure to address multicollinearity issues, validate the model using appropriate statistical methods, and present the findings with relevant statistical metrics.",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "patient_id": 1,
+                            "age": 62,
+                            "gender": "Female",
+                            "bmi": 29.4,
+                            "smoking_status": "Former",
+                            "hba1c": 8.2,
+                            "serum_creatinine": 1.1,
+                            "ldl_cholesterol": 130,
+                            "systolic_bp": 140,
+                            "adverse_event": true
+                        },
+                        {
+                            "patient_id": 2,
+                            "age": 54,
+                            "gender": "Male",
+                            "bmi": 32.0,
+                            "smoking_status": "Current",
+                            "hba1c": 7.5,
+                            "serum_creatinine": 1.3,
+                            "ldl_cholesterol": 145,
+                            "systolic_bp": 150,
+                            "adverse_event": false
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Y = β0 + β1Χ1 + β2Χ2 + ... + βnΧn + ε, where Y is the log-odds of experiencing an adverse cardiovascular event, Χ1...Χn are the predictor variables (age, gender, BMI, smoking status, HbA1c, serum creatinine, LDL cholesterol, systolic BP), β0...βn are the coefficients to be estimated, and ε is the error term.",
+            "ontology": {
+                "entities": [
+                    "Type 2 Diabetes Mellitus",
+                    "Adverse Cardiovascular Events",
+                    "HbA1c",
+                    "Serum Creatinine",
+                    "LDL Cholesterol",
+                    "Systolic Blood Pressure",
+                    "Multivariate Regression Analysis"
+                ],
+                "relations": [
+                    "predicts",
+                    "is measured by",
+                    "affects",
+                    "correlates with",
+                    "influences"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "8a603c4e-afdb-43e4-99db-2fbf251f26c9",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to identify the likelihood of progression from stage 1 to stage 4 chronic kidney disease (CKD) in patients with type 2 diabetes mellitus within a 5-year period based on patient demographic, clinical, and laboratory data. The model should take into account a variety of patient attributes and produce a probability score for each patient.",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "patient_id": "001",
+                            "age": 55,
+                            "sex": "male",
+                            "ethnicity": "Caucasian",
+                            "BMI": 28.7,
+                            "blood_pressure": {
+                                "systolic": 130,
+                                "diastolic": 85
+                            },
+                            "HbA1c": 7.2,
+                            "eGFR": 60,
+                            "albuminuria": "moderate",
+                            "smoking_status": "former",
+                            "cholesterol_levels": {
+                                "LDL": 100,
+                                "HDL": 45,
+                                "Triglycerides": 150
+                            },
+                            "medications": [
+                                "metformin",
+                                "lisinopril"
+                            ]
+                        },
+                        {
+                            "patient_id": "002",
+                            "age": 63,
+                            "sex": "female",
+                            "ethnicity": "Asian",
+                            "BMI": 31.5,
+                            "blood_pressure": {
+                                "systolic": 140,
+                                "diastolic": 90
+                            },
+                            "HbA1c": 8.0,
+                            "eGFR": 55,
+                            "albuminuria": "severe",
+                            "smoking_status": "never",
+                            "cholesterol_levels": {
+                                "LDL": 120,
+                                "HDL": 50,
+                                "Triglycerides": 180
+                            },
+                            "medications": [
+                                "metformin",
+                                "atorvastatin"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(Progression to Stage 4|X) = 1 / (1 + exp(- (b0 + b1*Age + b2*Sex + b3*BMI + b4*Systolic_BP + b5*Diastolic_BP + b6*HbA1c + b7*eGFR + b8*Albuminuria + b9*Smoking_Status + b10*LDL + b11*HDL + b12*Triglycerides + b13*Medication_Metformin + b14*Medication_Lisinopril + ...)))",
+            "ontology": {
+                "entities": [
+                    "Chronic Kidney Disease",
+                    "Type 2 Diabetes Mellitus",
+                    "Age",
+                    "Sex",
+                    "BMI",
+                    "Blood Pressure",
+                    "HbA1c",
+                    "eGFR",
+                    "Albuminuria",
+                    "Smoking Status",
+                    "Cholesterol Levels",
+                    "Medications"
+                ],
+                "relations": [
+                    "Age impacts the likelihood of CKD progression",
+                    "Higher BMI is associated with increased CKD risk",
+                    "Blood Pressure influences kidney function",
+                    "HbA1c level is a marker for diabetes control",
+                    "eGFR is an indicator of kidney function",
+                    "Albuminuria signifies kidney damage",
+                    "Smoking status affects cardiovascular health",
+                    "Cholesterol management influences diabetic complications",
+                    "Medications can modify risk factors for CKD progression"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "bd3eb55e-d482-4233-98eb-43d2be269aed",
+        "task_details": {
+            "task_instructions": "Predict the risk of developing Type 2 Diabetes Mellitus (T2DM) in a cohort based on a combination of genetic polymorphisms, lifestyle factors, and biochemical markers. Provide a stratified risk profile utilizing logistic regression analysis and ensure validation with cross-validation techniques.",
+            "task_data": {
+                "clinical_data": [
+                    {
+                        "patient_id": "001",
+                        "age": 45,
+                        "BMI": 27.5,
+                        "HbA1c": 5.6,
+                        "family_history": true,
+                        "physical_activity_level": "moderate",
+                        "diet": "high-sugar",
+                        "genetic_polymorphisms": {
+                            "FTO": "rs9939609 A/A",
+                            "TCF7L2": "rs7903146 T/T"
+                        }
+                    },
+                    {
+                        "patient_id": "002",
+                        "age": 38,
+                        "BMI": 30.2,
+                        "HbA1c": 6.1,
+                        "family_history": false,
+                        "physical_activity_level": "low",
+                        "diet": "high-fiber",
+                        "genetic_polymorphisms": {
+                            "FTO": "rs9939609 T/T",
+                            "TCF7L2": "rs7903146 C/T"
+                        }
+                    }
+                ]
+            },
+            "mathematical_formulation": "P(T2DM) = 1 / (1 + e^-(β0 + β1*Age + β2*BMI + β3*HbA1c + β4*Family_History + β5*Physical_Activity + β6*Diet + β7*Genetic_Polymorphism_FTO + β8*Genetic_Polymorphism_TCF7L2))",
+            "ontology": {
+                "entities": [
+                    "Type 2 Diabetes Mellitus",
+                    "Genetic Polymorphism",
+                    "Biochemical Marker",
+                    "BMI",
+                    "HbA1c",
+                    "Family History",
+                    "Physical Activity Level",
+                    "Diet"
+                ],
+                "relations": [
+                    "has_risk_factor",
+                    "is_associated_with",
+                    "correlates_with",
+                    "contains_data"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "5a9e2286-5267-4ade-9b28-55501d7bcc9e",
+        "task_details": {
+            "task_instructions": "Predict the 5-year survival probability for patients with stage IIIB non-small cell lung cancer (NSCLC) using comprehensive clinical data, and identify the key prognostic factors based on statistical models and machine learning techniques.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_records": [
+                        {
+                            "patient_id": 1,
+                            "age": 65,
+                            "gender": "Female",
+                            "smoking_status": "Former smoker",
+                            "performance_status": "ECOG 1",
+                            "tumor_size_cm": 4.2,
+                            "tumor_location": "Right upper lobe",
+                            "histology": "Adenocarcinoma",
+                            "genetic_mutations": [
+                                "EGFR+",
+                                "KRAS-"
+                            ],
+                            "treatment_protocol": "Chemotherapy and radiotherapy",
+                            "follow_up_years": 5,
+                            "survival_status": "Deceased"
+                        },
+                        {
+                            "patient_id": 2,
+                            "age": 70,
+                            "gender": "Male",
+                            "smoking_status": "Current smoker",
+                            "performance_status": "ECOG 2",
+                            "tumor_size_cm": 6.5,
+                            "tumor_location": "Left lower lobe",
+                            "histology": "Squamous cell carcinoma",
+                            "genetic_mutations": [
+                                "EGFR-",
+                                "ALK+"
+                            ],
+                            "treatment_protocol": "Chemotherapy only",
+                            "follow_up_years": 5,
+                            "survival_status": "Alive"
+                        }
+                    ],
+                    "clinical_trials": {
+                        "trial_id": 101,
+                        "treatment_arms": [
+                            "ChemoRadiation",
+                            "Immunotherapy"
+                        ],
+                        "eligibility_criteria": [
+                            "Stage IIIB",
+                            "ECOG 0-2"
+                        ],
+                        "primary_endpoint": "Overall survival",
+                        "secondary_endpoints": [
+                            "Progression-free survival",
+                            "Quality of life"
+                        ],
+                        "results": {
+                            "ChemoRadiation": {
+                                "5-year survival rate": 0.25
+                            },
+                            "Immunotherapy": {
+                                "5-year survival rate": 0.35
+                            }
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": "P(Survival | X) = 1 / (1 + exp(- (β0 + β1 * Age + β2 * TumorSize + β3 * PerformanceStatus + ... + βn * TreatmentProtocol)))",
+            "ontology": {
+                "entities": [
+                    "Non-small cell lung cancer",
+                    "Stage IIIB",
+                    "Survival probability",
+                    "Prognostic factors",
+                    "ECOG performance status",
+                    "Tumor size",
+                    "Histology",
+                    "Genetic mutations",
+                    "Treatment protocol"
+                ],
+                "relations": [
+                    "affects",
+                    "correlates_with",
+                    "predicts",
+                    "treated_with"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e1691637-4abf-4a69-89b0-c4b7d71bfc85",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the 5-year survival probability of patients diagnosed with Stage III colorectal cancer using their clinical and genetic data.",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "id": 1,
+                            "age": 65,
+                            "gender": "male",
+                            "tumor_location": "descending colon",
+                            "tumor_size_cm": 5.2,
+                            "lymph_nodes_examined": 15,
+                            "lymph_nodes_positive": 5,
+                            "treatment_protocol": "FOLFOX",
+                            "microsatellite_status": "MSI-High",
+                            "KRAS_mutation_status": "wild-type",
+                            "BRAF_mutation_status": "mutant",
+                            "CEA_level_ng_ml": 7.1,
+                            "5_year_survival": 1
+                        },
+                        {
+                            "id": 2,
+                            "age": 52,
+                            "gender": "female",
+                            "tumor_location": "sigmoid colon",
+                            "tumor_size_cm": 4.7,
+                            "lymph_nodes_examined": 22,
+                            "lymph_nodes_positive": 3,
+                            "treatment_protocol": "CAPOX",
+                            "microsatellite_status": "MSS",
+                            "KRAS_mutation_status": "mutant",
+                            "BRAF_mutation_status": "wild-type",
+                            "CEA_level_ng_ml": 4.3,
+                            "5_year_survival": 0
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(Survival_5yr | X) = 1 / (1 + exp(-(β0 + β1Age + β2Gender + β3TumorSize + β4LymphNodesPositive + β5TreatmentProtocol + β6MicrosatelliteStatus + β7KRASMutationStatus + β8BRAFMutationStatus + β9CEALevel)))",
+            "ontology": {
+                "entities": [
+                    "Stage III colorectal cancer",
+                    "5-year survival",
+                    "age",
+                    "gender",
+                    "tumor location",
+                    "tumor size",
+                    "lymph nodes",
+                    "lymph nodes positive",
+                    "treatment protocol",
+                    "FOLFOX",
+                    "CAPOX",
+                    "microsatellite status",
+                    "MSI-High",
+                    "MSS",
+                    "KRAS mutation status",
+                    "BRAF mutation status",
+                    "CEA level"
+                ],
+                "relations": [
+                    "affects survival probability",
+                    "correlates with treatment response",
+                    "depends on genetic markers",
+                    "linked to clinical outcomes"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "5cab6e05-b129-4d5c-8c88-750fb1b0b679",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to determine the risk of developing ischemic heart disease (IHD) within 10 years for a cohort using multiple risk factors, then evaluate the model's performance using specific statistical metrics.",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "patient_id": 101,
+                            "age": 55,
+                            "gender": "male",
+                            "blood_pressure": 140,
+                            "cholesterol": 220,
+                            "smoking_status": "former",
+                            "diabetes_history": "no",
+                            "family_history": "yes",
+                            "exercise_frequency": 2,
+                            "diet_score": 4,
+                            "outcome_IHD": 1
+                        },
+                        {
+                            "patient_id": 102,
+                            "age": 60,
+                            "gender": "female",
+                            "blood_pressure": 130,
+                            "cholesterol": 190,
+                            "smoking_status": "never",
+                            "diabetes_history": "yes",
+                            "family_history": "no",
+                            "exercise_frequency": 3,
+                            "diet_score": 5,
+                            "outcome_IHD": 0
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(IHD) = 1 / (1 + exp(-(β0 + β1*age + β2*gender + β3*blood_pressure + β4*cholesterol + β5*smoking_status + β6*diabetes_history + β7*family_history + β8*exercise_frequency + β9*diet_score)))",
+            "ontology": {
+                "entities": [
+                    "Ischemic Heart Disease",
+                    "Blood Pressure",
+                    "Cholesterol Level",
+                    "Smoking Status",
+                    "Diabetes History",
+                    "Family History of IHD",
+                    "Exercise Frequency",
+                    "Diet Score",
+                    "Predictive Model",
+                    "Risk Factor"
+                ],
+                "relations": [
+                    "increased by",
+                    "decreased by",
+                    "influenced by",
+                    "associated with"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "25b779ba-0558-4b0b-be3c-aeb00a87b57c",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of Type 2 Diabetes Mellitus (T2DM) in a patient using a dataset of patient health metrics and historical data. The model should account for comorbidities, lifestyle factors, and genetic predispositions, using logistic regression analysis. Include considerations of drug interactions and side effects on glucose metabolism to refine the risk assessment. Provide a comprehensive risk assessment for a sample patient using the developed model.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_id": "12345",
+                    "age": 55,
+                    "sex": "Female",
+                    "BMI": 31.4,
+                    "family_history_diabetes": true,
+                    "smoking_status": "Former",
+                    "physical_activity_level": "Moderate",
+                    "blood_pressure_systolic": 135,
+                    "blood_pressure_diastolic": 85,
+                    "fasting_glucose": 110,
+                    "HbA1c": 6.1,
+                    "total_cholesterol": 210,
+                    "HDL_cholesterol": 55,
+                    "triglycerides": 150,
+                    "medications": [
+                        "Metformin",
+                        "Lisinopril"
+                    ],
+                    "comorbidities": [
+                        "Hypertension",
+                        "Hyperlipidemia"
+                    ],
+                    "genetic_marker_presence": [
+                        "TCF7L2",
+                        "KCNJ11"
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(T2DM) = 1 / (1 + exp(-(β0 + β1*Age + β2*BMI + β3*FastingGlucose + β4*HbA1c + β5*GeneticMarkerScore + β6*FamilyHistory + β7*PhysicalActivityLevel - β8*MedicationInteractionEffect)))",
+            "ontology": {
+                "entities": [
+                    "Type 2 Diabetes Mellitus",
+                    "Body Mass Index",
+                    "HbA1c",
+                    "Fasting glucose",
+                    "Genetic marker",
+                    "Family history",
+                    "Physical activity level",
+                    "Medication",
+                    "Comorbidity",
+                    "Blood pressure",
+                    "Cholesterol"
+                ],
+                "relations": [
+                    "increases risk of",
+                    "modifies effect of",
+                    "correlated with",
+                    "predisposes to",
+                    "interacts with"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "3fc41d6d-83d4-4cde-84dc-fad9ae228264",
+        "task_details": {
+            "task_instructions": "Analyze the potential risk factors and develop a predictive model for the onset of Type 2 Diabetes Mellitus (T2DM) using a provided set of patient data and feature variables. The model should incorporate both statistical and machine learning methodologies to accurately stratify high-risk individuals. Validate the model's effectiveness through statistical tests and provide results in terms of sensitivity, specificity, and predictive values.",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "patient_id": 1,
+                            "age": 45,
+                            "bmi": 28.4,
+                            "blood_pressure": 130,
+                            "hdlc": 40,
+                            "ldlc": 130,
+                            "triglycerides": 150,
+                            "fasting_glucose": 105,
+                            "hba1c": 5.7,
+                            "family_history_t2dm": true,
+                            "physical_activity_level": "low",
+                            "smoking_status": "non-smoker",
+                            "diagnosed_t2dm": false
+                        },
+                        {
+                            "patient_id": 2,
+                            "age": 60,
+                            "bmi": 32.1,
+                            "blood_pressure": 145,
+                            "hdlc": 35,
+                            "ldlc": 160,
+                            "triglycerides": 180,
+                            "fasting_glucose": 120,
+                            "hba1c": 6.1,
+                            "family_history_t2dm": false,
+                            "physical_activity_level": "moderate",
+                            "smoking_status": "former smoker",
+                            "diagnosed_t2dm": true
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "The probability of T2DM onset, P(T2DM|X), can be modeled using logistic regression: P(T2DM|X) = 1 / (1 + exp(-Z)), where Z = β0 + β1*age + β2*bmi + β3*blood_pressure + β4*hdlc + β5*ldlc + β6*triglycerides + β7*fasting_glucose + β8*hba1c + β9*family_history_t2dm + β10*physical_activity_level + β11*smoking_status. Machine learning models like SVM, XGBoost, or Random Forest can also be employed, and their performance can be measured using ROC curves and confusion matrices.",
+            "ontology": {
+                "entities": [
+                    "Type 2 Diabetes Mellitus",
+                    "patient",
+                    "age",
+                    "BMI",
+                    "blood pressure",
+                    "HDL Cholesterol (HDLC)",
+                    "LDL Cholesterol (LDLC)",
+                    "triglycerides",
+                    "fasting glucose",
+                    "HbA1c",
+                    "family history of T2DM",
+                    "physical activity level",
+                    "smoking status",
+                    "logistic regression model",
+                    "machine learning models",
+                    "ROC curve",
+                    "confusion matrix"
+                ],
+                "relations": [
+                    "has risk factor",
+                    "measured by",
+                    "predicted by",
+                    "influences",
+                    "classified by",
+                    "evaluated by",
+                    "associated with"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "99bd47e4-cbac-4499-a818-968c21ad6ec3",
+        "task_details": {
+            "task_instructions": "Using an extensive dataset of patient records, predict the probability of development of Type 2 Diabetes Mellitus (T2DM) given various risk factors and clinical indicators. The model should also provide a personalized set of recommendations for lifestyle and medical interventions to delay or prevent the onset based on current clinical guidelines.",
+            "task_data": {
+                "clinical_data_points": {
+                    "patients": [
+                        {
+                            "age": 45,
+                            "BMI": 28.4,
+                            "fasting_glucose_level": 102,
+                            "HbA1c": 5.8,
+                            "blood_pressure": [
+                                120,
+                                80
+                            ],
+                            "family_history": true,
+                            "physical_activity_level": "moderate",
+                            "dietary_pattern": "balanced",
+                            "smoking_status": "never",
+                            "alcohol_intake": "low"
+                        },
+                        {
+                            "age": 52,
+                            "BMI": 31.2,
+                            "fasting_glucose_level": 110,
+                            "HbA1c": 6.1,
+                            "blood_pressure": [
+                                135,
+                                85
+                            ],
+                            "family_history": false,
+                            "physical_activity_level": "low",
+                            "dietary_pattern": "high-sugar",
+                            "smoking_status": "former",
+                            "alcohol_intake": "moderate"
+                        }
+                    ],
+                    "risk_factors": [
+                        "age",
+                        "BMI",
+                        "fasting_glucose_level",
+                        "HbA1c",
+                        "blood_pressure",
+                        "family_history",
+                        "physical_activity_level",
+                        "dietary_pattern",
+                        "smoking_status",
+                        "alcohol_intake"
+                    ],
+                    "recommendations": {
+                        "lifestyle": [
+                            "increase physical activity",
+                            "adopt a balanced diet",
+                            "maintain a healthy weight",
+                            "quit smoking",
+                            "limit alcohol intake"
+                        ],
+                        "medical": [
+                            "regular glucose monitoring",
+                            "consultation with endocrinologist"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "P(T2DM|Risk Factors) = sigmoid(W0 + W1*age + W2*BMI + W3*fasting_glucose_level + W4*HbA1c + W5*blood_pressure_systolic + W6*family_history + W7*physical_activity) where W are weights derived from logistic regression models or machine learning algorithms modeling the effect of each risk factor.",
+            "ontology": {
+                "entities": [
+                    "Type 2 Diabetes Mellitus",
+                    "Risk Factor",
+                    "Clinical Indicator",
+                    "Patient Record",
+                    "Recommendation",
+                    "Lifestyle Intervention",
+                    "Medical Intervention",
+                    "Family History",
+                    "Physical Activity Level"
+                ],
+                "relations": [
+                    "associates_with",
+                    "predicts",
+                    "prevents",
+                    "monitored_by",
+                    "measured_by",
+                    "influenced_by"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "5ffc385c-08ad-4b06-8f05-1eb95cb7c97a",
+        "task_details": {
+            "task_instructions": "Accurately predict the risk of developing Type 2 Diabetes Mellitus (T2DM) in a cohort of 10,000 individuals over a 10-year period, based on an exhaustive dataset of demographic, biometric, and lifestyle factors. Utilize logistic regression analysis and incorporate genetic predisposition where relevant. Consider how multiple variables interact and contribute to the likelihood of T2DM onset.",
+            "task_data": {
+                "clinical_data_points": {
+                    "demographic_factors": {
+                        "age": [
+                            18,
+                            85
+                        ],
+                        "sex": [
+                            "male",
+                            "female"
+                        ],
+                        "ethnicity": [
+                            "Caucasian",
+                            "African American",
+                            "Asian",
+                            "Hispanic",
+                            "Other"
+                        ]
+                    },
+                    "biometric_factors": {
+                        "body_mass_index": [
+                            15.0,
+                            50.0
+                        ],
+                        "waist_circumference": [
+                            60,
+                            150
+                        ],
+                        "fasting_glucose_level": [
+                            70,
+                            126
+                        ],
+                        "hypertension": [
+                            true,
+                            false
+                        ]
+                    },
+                    "lifestyle_factors": {
+                        "physical_activity_level": [
+                            "inactive",
+                            "moderately active",
+                            "very active"
+                        ],
+                        "diet_score": [
+                            1,
+                            10
+                        ],
+                        "smoking_status": [
+                            "never",
+                            "former",
+                            "current"
+                        ],
+                        "alcohol_intake": [
+                            "none",
+                            "moderate",
+                            "heavy"
+                        ]
+                    },
+                    "genetic_factors": {
+                        "T2DM_family_history": [
+                            0,
+                            1
+                        ],
+                        "genetic_risk_score": [
+                            0,
+                            100
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "Risk(T2DM) = 1 / (1 + exp(- (B0 + B1*Age + B2*BMI + B3*Waist + B4*GlucoseLevel + B5*Hypertension + B6*Activity + B7*Diet + B8*Smoking + B9*Alcohol + B10*FamilyHistory + B11*GeneticScore)))",
+            "ontology": {
+                "entities": [
+                    "Type 2 Diabetes Mellitus",
+                    "age",
+                    "sex",
+                    "ethnicity",
+                    "body mass index",
+                    "waist circumference",
+                    "fasting glucose level",
+                    "hypertension",
+                    "physical activity level",
+                    "diet score",
+                    "smoking status",
+                    "alcohol intake",
+                    "family history",
+                    "genetic risk score"
+                ],
+                "relations": [
+                    "is influenced by",
+                    "interacts with",
+                    "modifies risk of"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f962c929-a84b-4907-989c-534aa6cbdefe",
+        "task_details": {
+            "task_instructions": "Analyze an extensive database of clinical patient records to predict the progression timeline of chronic kidney disease (CKD) from Stage 3 to Stage 5 under varying treatment protocols. This requires the integration of patient demographics, biochemical markers, treatment regimens, and genetic predispositions. The challenge is to accurately model the non-linear dynamics of disease progression using all available data points while considering individual patient variability and potential confounding variables.",
+            "task_data": {
+                "clinical_data_points": {
+                    "patients": [
+                        {
+                            "id": "P001",
+                            "age": 57,
+                            "gender": "Male",
+                            "ethnicity": "Caucasian",
+                            "biomarkers": {
+                                "creatinine": 2.1,
+                                "eGFR": 35,
+                                "proteinuria": 300
+                            },
+                            "treatment": {
+                                "antihypertensives": true,
+                                "ACE_inhibitors": true,
+                                "dialysis": false
+                            },
+                            "genetic_profile": [
+                                "APOL1",
+                                "NPHS2"
+                            ],
+                            "follow_up_periods": [
+                                {
+                                    "year": 2020,
+                                    "creatinine": 2.2,
+                                    "eGFR": 32
+                                },
+                                {
+                                    "year": 2021,
+                                    "creatinine": 2.5,
+                                    "eGFR": 30
+                                }
+                            ]
+                        },
+                        {
+                            "id": "P002",
+                            "age": 63,
+                            "gender": "Female",
+                            "ethnicity": "Asian",
+                            "biomarkers": {
+                                "creatinine": 1.8,
+                                "eGFR": 40,
+                                "proteinuria": 150
+                            },
+                            "treatment": {
+                                "antihypertensives": true,
+                                "ACE_inhibitors": false,
+                                "dialysis": false
+                            },
+                            "genetic_profile": [
+                                "CFH",
+                                "UMOD"
+                            ],
+                            "follow_up_periods": [
+                                {
+                                    "year": 2020,
+                                    "creatinine": 1.9,
+                                    "eGFR": 38
+                                },
+                                {
+                                    "year": 2021,
+                                    "creatinine": 2.0,
+                                    "eGFR": 35
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "p(Stage_5_t | x_1, x_2, ..., x_n, T) = 1 - exp(-λ * T), where λ = f(age, gender, biomarkers, treatment, genetic_profile)",
+            "ontology": {
+                "entities": [
+                    "Chronic Kidney Disease (CKD)",
+                    "Biomarkers",
+                    "eGFR (Estimated Glomerular Filtration Rate)",
+                    "Proteinuria",
+                    "Creatinine",
+                    "Antihypertensives",
+                    "ACE inhibitors",
+                    "Dialysis",
+                    "Genetic predisposition"
+                ],
+                "relations": [
+                    "progresses_to",
+                    "affected_by",
+                    "treated_with",
+                    "modifiable_through"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "7e20b0e8-c97b-4928-9d76-1930ef5fd456",
+        "task_details": {
+            "task_instructions": "Perform a predictive analysis on the progression of Type 2 Diabetes Mellitus (T2DM) in a cohort of patients based on their initial clinical presentations, demographic information, and treatment regimen. Use the given data to build a model that estimates the probability of significant disease progression (indicated by HbA1c values exceeding 8.5% within 5 years) and identify key factors contributing to this progression. Validate the model using statistical metrics.",
+            "task_data": {
+                "patients": [
+                    {
+                        "patient_id": 101,
+                        "age": 45,
+                        "sex": "male",
+                        "bmi": 27.5,
+                        "initial_hba1c": 6.8,
+                        "treatment_regimen": "metformin",
+                        "blood_pressure": "140/90",
+                        "cholesterol_level": 180,
+                        "exercise_minutes_per_week": 120
+                    },
+                    {
+                        "patient_id": 102,
+                        "age": 57,
+                        "sex": "female",
+                        "bmi": 32.0,
+                        "initial_hba1c": 7.2,
+                        "treatment_regimen": "sulfonylurea",
+                        "blood_pressure": "150/95",
+                        "cholesterol_level": 210,
+                        "exercise_minutes_per_week": 60
+                    },
+                    {
+                        "patient_id": 103,
+                        "age": 39,
+                        "sex": "male",
+                        "bmi": 30.5,
+                        "initial_hba1c": 6.5,
+                        "treatment_regimen": "insulin",
+                        "blood_pressure": "130/85",
+                        "cholesterol_level": 190,
+                        "exercise_minutes_per_week": 90
+                    }
+                ],
+                "additional_parameters": {
+                    "follow_up_years": 5,
+                    "significant_progression_hba1c_threshold": 8.5
+                },
+                "clinical_data_points": {
+                    "age_factor": 0.01,
+                    "bmi_factor": 0.02,
+                    "exercise_factor": -0.005,
+                    "treatment_effectiveness": {
+                        "metformin": -0.1,
+                        "sulfonylurea": 0.1,
+                        "insulin": -0.2
+                    }
+                }
+            },
+            "mathematical_formulation": "P(progression) = baseline_risk + (age_factor * age) + (bmi_factor * BMI) + (treatment_effectiveness[treatment_regimen]) + (exercise_factor * exercise_minutes_per_week); where progression is defined as final_hba1c > significant_progression_hba1c_threshold within follow_up_years.",
+            "ontology": {
+                "entities": [
+                    "Type 2 Diabetes Mellitus (T2DM)",
+                    "HbA1c",
+                    "patients",
+                    "age",
+                    "BMI",
+                    "treatment regimen",
+                    "blood pressure",
+                    "cholesterol level",
+                    "exercise minutes per week"
+                ],
+                "relations": [
+                    "progression is influenced by patient's age",
+                    "progression is influenced by BMI",
+                    "treatment regimen affects HbA1c progression",
+                    "exercise reduces risk of progression",
+                    "HbA1c level determines diabetes control"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b566958f-5c4f-459e-9e1a-c924e886d913",
+        "task_details": {
+            "task_instructions": "Perform a differential diagnosis of a complex patient presenting with multifactorial symptoms affecting multiple organ systems. Synthesize the provided clinical data, draw upon relevant medical knowledge ontologies, and propose a step-by-step diagnostic plan outlining potential diseases and diagnostic tests. The task must be completed using structured reasoning based on the provided dataset and must conclude with a plausible diagnosis that explains all symptoms.",
+            "task_data": {
+                "clinical_data_points": {
+                    "patient_history": {
+                        "age": 45,
+                        "sex": "Female",
+                        "presenting_complaints": [
+                            "Fatigue",
+                            "Dyspnea",
+                            "Palpitations",
+                            "Weight Loss",
+                            "Arthralgia"
+                        ],
+                        "past_medical_history": [
+                            "Hypertension",
+                            "Type 2 Diabetes Mellitus"
+                        ],
+                        "family_history": [
+                            "Coronary Artery Disease"
+                        ],
+                        "social_history": [
+                            "Non-smoker",
+                            "Occasional alcohol consumption"
+                        ]
+                    },
+                    "current_medication": [
+                        "Metformin",
+                        "Lisinopril"
+                    ],
+                    "vital_signs": {
+                        "blood_pressure": "135/85 mmHg",
+                        "heart_rate": "95 bpm",
+                        "respiratory_rate": "20 breaths/min",
+                        "temperature": "98.6 F"
+                    },
+                    "laboratory_results": {
+                        "CBC": {
+                            "WBC": "10.5 x10^9/L",
+                            "Hb": "12.0 g/dL",
+                            "Platelets": "250 x10^9/L"
+                        },
+                        "CMP": {
+                            "Glucose": "105 mg/dL",
+                            "BUN": "15 mg/dL",
+                            "Creatinine": "1.0 mg/dL",
+                            "AST": "25 U/L",
+                            "ALT": "28 U/L"
+                        },
+                        "Thyroid_Panel": {
+                            "TSH": "0.8 mIU/L",
+                            "Free T4": "1.1 ng/dL"
+                        },
+                        "Specific_tests": {
+                            "ANA": "Positive",
+                            "RF": "Negative"
+                        }
+                    },
+                    "imaging_results": {
+                        "chest_x_ray": "Clear lung fields, no cardiomegaly",
+                        "echocardiogram": "LVEF 55%, normal ventricular function"
+                    }
+                }
+            },
+            "mathematical_formulation": "Use Bayesian inference to evaluate the probability of differential diagnoses given the symptoms and test results, considering conditional probabilities of diseases based on prevalence and specific lab findings.",
+            "ontology": {
+                "entities": [
+                    "Fatigue",
+                    "Dyspnea",
+                    "Palpitations",
+                    "Weight Loss",
+                    "Arthralgia",
+                    "Hypertension",
+                    "Type 2 Diabetes Mellitus",
+                    "Lisinopril",
+                    "Metformin",
+                    "CBC",
+                    "CMP",
+                    "Thyroid Panel",
+                    "ANA",
+                    "RF",
+                    "Chest X-ray",
+                    "Echocardiogram"
+                ],
+                "relations": [
+                    "causes",
+                    "affects",
+                    "prescribes",
+                    "administers",
+                    "indicates",
+                    "confirms",
+                    "contradicts"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "675042ef-a4c3-4ee1-9cbe-c11b2ac06eb3",
+        "task_details": {
+            "task_instructions": "Develop and validate a predictive model for estimating the risk of developing Type 2 Diabetes Mellitus within 10 years, using a dataset that includes genetic, lifestyle, and biochemical variables. The model should be able to provide a personalized risk score and identify the most influential risk factors for each individual, while ensuring interpretability and clinical relevance.",
+            "task_data": {
+                "clinical_data_points": {
+                    "age": [
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45
+                    ],
+                    "body_mass_index": [
+                        22.5,
+                        25.0,
+                        27.3,
+                        30.1,
+                        31.5,
+                        29.4
+                    ],
+                    "fasting_glucose_level": [
+                        85,
+                        90,
+                        95,
+                        100,
+                        105,
+                        110
+                    ],
+                    "family_history_diabetes": [
+                        true,
+                        false,
+                        true,
+                        true,
+                        false,
+                        true
+                    ],
+                    "physical_activity_hours_per_week": [
+                        2,
+                        0,
+                        4,
+                        3,
+                        1,
+                        5
+                    ],
+                    "dietary_fiber_intake_grams_per_day": [
+                        25,
+                        15,
+                        12,
+                        19,
+                        22,
+                        28
+                    ],
+                    "systolic_blood_pressure": [
+                        120,
+                        130,
+                        125,
+                        140,
+                        135,
+                        128
+                    ],
+                    "genetic_markers": {
+                        "rs7903146": [
+                            1,
+                            0,
+                            1,
+                            1,
+                            0,
+                            1
+                        ],
+                        "rs12255372": [
+                            0,
+                            0,
+                            1,
+                            1,
+                            1,
+                            0
+                        ]
+                    },
+                    "hba1c_level": [
+                        5.4,
+                        5.9,
+                        6.1,
+                        5.7,
+                        6.3,
+                        5.6
+                    ],
+                    "c_peptide_levels": [
+                        0.8,
+                        0.9,
+                        0.7,
+                        0.6,
+                        0.85,
+                        1.0
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(T2DM) = 1 / (1 + exp(- (b0 + b1*age + b2*BMI + b3*glucose + b4*family_history + b5*activity + b6*dietary_fiber + b7*blood_pressure + b8*genetic_rs7903146 + b9*genetic_rs12255372 + b10*Hba1c + b11*C_peptide)))",
+            "ontology": {
+                "entities": [
+                    "Type 2 Diabetes Mellitus",
+                    "Body Mass Index",
+                    "Fasting Glucose Level",
+                    "Family History",
+                    "Physical Activity",
+                    "Dietary Fiber Intake",
+                    "Systolic Blood Pressure",
+                    "Genetic Markers",
+                    "HbA1c Level",
+                    "C-peptide Levels"
+                ],
+                "relations": [
+                    "increases_risk_of",
+                    "is_independent_risk_factor_for",
+                    "is_correlated_with",
+                    "modifies_effect_of"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "fe689c0f-c426-44b8-83d6-ecca891a07fd",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to assess the risk of progression from mild cognitive impairment to Alzheimer's disease using a combination of genetic, biochemical, and lifestyle factors. The model should incorporate interactions between these variables and estimate the probability of conversion within a 5-year period.",
+            "task_data": {
+                "clinical_data_points": {
+                    "patients": [
+                        {
+                            "id": "P001",
+                            "age": 72,
+                            "gender": "F",
+                            "APOE_e4_status": 1,
+                            "CSF_amyloid_beta": 850,
+                            "CSF_tau": 350,
+                            "MRI_brain_vol": 1100,
+                            "cognitive_score": 22,
+                            "physical_activity_level": "moderate",
+                            "dietary_habits": "balanced",
+                            "conversion_within_5_years": "Yes"
+                        },
+                        {
+                            "id": "P002",
+                            "age": 68,
+                            "gender": "M",
+                            "APOE_e4_status": 0,
+                            "CSF_amyloid_beta": 1000,
+                            "CSF_tau": 280,
+                            "MRI_brain_vol": 1400,
+                            "cognitive_score": 27,
+                            "physical_activity_level": "active",
+                            "dietary_habits": "unbalanced",
+                            "conversion_within_5_years": "No"
+                        },
+                        "... (more patient data)"
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(conversion) = 1 / (1 + e^-(β0 + β1*age + β2*gender + β3*APOE_e4_status + β4*CSF_amyloid_beta + β5*CSF_tau + β6*MRI_brain_vol + β7*cognitive_score + β8*physical_activity_level + β9*dietary_habits)) where βi are coefficients derived from statistical learning methods (e.g., logistic regression).",
+            "ontology": {
+                "entities": [
+                    "Mild Cognitive Impairment",
+                    "Alzheimer's Disease",
+                    "APOE e4 status",
+                    "CSF Amyloid Beta",
+                    "CSF Tau",
+                    "MRI brain volume",
+                    "Cognitive Score",
+                    "Physical Activity Level",
+                    "Dietary Habits",
+                    "Conversion within 5 years"
+                ],
+                "relations": [
+                    "is a risk factor for",
+                    "is measured by",
+                    "affects",
+                    "is related to"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "d3a8b121-74fd-4298-bc3b-0c481eee4fb5",
+        "task_details": {
+            "task_instructions": "Using the provided clinical dataset, perform a multi-variate regression analysis to predict the progression of chronic kidney disease (CKD) over a five-year period, taking into account patient demographics, lifestyle factors, comorbidities, and genetic markers. Analyze the significance of each predictor variable and construct a predictive model that identifies high-risk individuals. Provide an interpretation of results and discuss the clinical implications for patient management.",
+            "task_data": {
+                "clinical_data_points": {
+                    "patient_id": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "age": [
+                        45,
+                        60,
+                        50
+                    ],
+                    "gender": [
+                        "male",
+                        "female",
+                        "female"
+                    ],
+                    "ethnicity": [
+                        "Caucasian",
+                        "Asian",
+                        "Hispanic"
+                    ],
+                    "bmi": [
+                        28.0,
+                        24.5,
+                        30.1
+                    ],
+                    "smoking_status": [
+                        "never",
+                        "current",
+                        "former"
+                    ],
+                    "alcohol_use": [
+                        "moderate",
+                        "none",
+                        "heavy"
+                    ],
+                    "systolic_bp": [
+                        140,
+                        120,
+                        135
+                    ],
+                    "diastolic_bp": [
+                        90,
+                        80,
+                        85
+                    ],
+                    "comorbidities": [
+                        "hypertension, diabetes",
+                        "none",
+                        "diabetes"
+                    ],
+                    "genetic_marker_1": [
+                        0.45,
+                        0.22,
+                        0.15
+                    ],
+                    "genetic_marker_2": [
+                        0.11,
+                        0.08,
+                        0.13
+                    ],
+                    "baseline_gfr": [
+                        60,
+                        90,
+                        55
+                    ],
+                    "five_year_gfr": [
+                        40,
+                        85,
+                        50
+                    ]
+                }
+            },
+            "mathematical_formulation": "Let Y = GFR (glomerular filtration rate) at five years, X1 = age, X2 = BMI, X3 = systolic_bp, ..., Xn = genetic_marker_2. The regression model is Y = β0 + β1*X1 + β2*X2 + ... + βn*Xn + ε, where ε is the error term with a normal distribution N(0, σ^2).",
+            "ontology": {
+                "entities": [
+                    "Chronic Kidney Disease",
+                    "Age",
+                    "Gender",
+                    "Body Mass Index",
+                    "Smoking Status",
+                    "Alcohol Use",
+                    "Systolic Blood Pressure",
+                    "Diastolic Blood Pressure",
+                    "Comorbidities",
+                    "Genetic Marker",
+                    "Glomerular Filtration Rate",
+                    "Predictive Model"
+                ],
+                "relations": [
+                    "Age affects progression of Chronic Kidney Disease",
+                    "Body Mass Index is associated with Glomerular Filtration Rate",
+                    "Smoking Status is a risk factor for Chronic Kidney Disease",
+                    "Genetic Marker influences progression of Chronic Kidney Disease",
+                    "Predictive Model estimates Glomerular Filtration Rate"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f903d676-5217-4560-a768-a56d812ec379",
+        "task_details": {
+            "task_instructions": "Predict the 5-year survival probability for patients diagnosed with Stage IIIA non-small cell lung cancer (NSCLC) based on a dataset of clinical metrics, treatment regimens, and genetic markers. Utilize multiple predictive modeling techniques, cross-validate the results, and report the model with the highest predictive accuracy.",
+            "task_data": {
+                "clinical_data_points": {
+                    "patients": [
+                        {
+                            "patient_id": "P001",
+                            "age": 65,
+                            "gender": "Male",
+                            "smoking_status": "Former smoker",
+                            "comorbidities": [
+                                "Hypertension",
+                                "Diabetes"
+                            ],
+                            "stage": "IIIA",
+                            "histology": "Adenocarcinoma",
+                            "genetic_markers": {
+                                "EGFR": "Mutated",
+                                "ALK": "Negative"
+                            },
+                            "treatment": {
+                                "surgery": "Yes",
+                                "chemotherapy": "Yes",
+                                "radiotherapy": "Yes",
+                                "targeted_therapy": "No"
+                            },
+                            "follow_up_time": 60,
+                            "survival_status": "Alive"
+                        },
+                        {
+                            "patient_id": "P002",
+                            "age": 70,
+                            "gender": "Female",
+                            "smoking_status": "Non-smoker",
+                            "comorbidities": [
+                                "None"
+                            ],
+                            "stage": "IIIA",
+                            "histology": "Squamous cell carcinoma",
+                            "genetic_markers": {
+                                "EGFR": "Negative",
+                                "ALK": "Negative"
+                            },
+                            "treatment": {
+                                "surgery": "No",
+                                "chemotherapy": "Yes",
+                                "radiotherapy": "Yes",
+                                "targeted_therapy": "No"
+                            },
+                            "follow_up_time": 45,
+                            "survival_status": "Deceased"
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Let S(t) be the survival probability at time t. Use Cox proportional hazards model: h(t|X) = h0(t) * exp(beta1*X1 + beta2*X2 + ... + betan*Xn). Perform Kaplan-Meier survival analysis: S(t_i) = S(t_{i-1}) * (1 - d_i/n_i), where d_i is the number of events and n_i is the number at risk at time t_i. Ensure proportional hazards assumption holds.",
+            "ontology": {
+                "entities": [
+                    "non-small cell lung cancer",
+                    "Stage IIIA",
+                    "survival probability",
+                    "Cox proportional hazards model",
+                    "Kaplan-Meier survival analysis",
+                    "genetic markers",
+                    "chemotherapy",
+                    "radiotherapy",
+                    "hazard ratio"
+                ],
+                "relations": [
+                    {
+                        "entity1": "non-small cell lung cancer",
+                        "relationship": "classified as",
+                        "entity2": "Stage IIIA"
+                    },
+                    {
+                        "entity1": "survival probability",
+                        "relationship": "predicted by",
+                        "entity2": "Cox proportional hazards model"
+                    },
+                    {
+                        "entity1": "genetic markers",
+                        "relationship": "include",
+                        "entity2": "EGFR and ALK"
+                    },
+                    {
+                        "entity1": "treatment",
+                        "relationship": "comprises",
+                        "entity2": "surgery, chemotherapy, radiotherapy, and targeted therapy"
+                    }
+                ]
+            }
+        }
+    }
+]

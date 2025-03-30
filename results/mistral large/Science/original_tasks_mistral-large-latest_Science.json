@@ -1,0 +1,2588 @@
+[
+    {
+        "task_id": "1c51367e-7057-48c8-8994-0c73e9ef0af7",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive analysis of the dynamical stability of the exoplanetary system TRAPPIST-1, considering the gravitational interactions between all seven planets and the star. Determine the long-term stability of the system over a period of 1 million years, accounting for orbital resonances and tidal effects. Provide a detailed report on the chaotic indicators and the Lyapunov exponents for each planet.",
+            "task_data": {
+                "data_points": {
+                    "star": {
+                        "name": "TRAPPIST-1",
+                        "mass": 0.089,
+                        "radius": 0.117,
+                        "effective_temperature": 2511
+                    },
+                    "planets": [
+                        {
+                            "name": "TRAPPIST-1b",
+                            "semi_major_axis": 0.01154,
+                            "eccentricity": 0.0063,
+                            "orbital_period": 1.510833,
+                            "mass": 1.374
+                        },
+                        {
+                            "name": "TRAPPIST-1c",
+                            "semi_major_axis": 0.01581,
+                            "eccentricity": 0.0066,
+                            "orbital_period": 2.421807,
+                            "mass": 1.308
+                        },
+                        {
+                            "name": "TRAPPIST-1d",
+                            "semi_major_axis": 0.02228,
+                            "eccentricity": 0.0084,
+                            "orbital_period": 4.049957,
+                            "mass": 0.388
+                        },
+                        {
+                            "name": "TRAPPIST-1e",
+                            "semi_major_axis": 0.02928,
+                            "eccentricity": 0.0051,
+                            "orbital_period": 6.099577,
+                            "mass": 0.692
+                        },
+                        {
+                            "name": "TRAPPIST-1f",
+                            "semi_major_axis": 0.03853,
+                            "eccentricity": 0.0101,
+                            "orbital_period": 9.206398,
+                            "mass": 1.039
+                        },
+                        {
+                            "name": "TRAPPIST-1g",
+                            "semi_major_axis": 0.04688,
+                            "eccentricity": 0.0021,
+                            "orbital_period": 12.35279,
+                            "mass": 1.321
+                        },
+                        {
+                            "name": "TRAPPIST-1h",
+                            "semi_major_axis": 0.06193,
+                            "eccentricity": 0.0056,
+                            "orbital_period": 18.76616,
+                            "mass": 0.326
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "The equations of motion for the n-body problem are given by:\n\n    \\frac{d^2\\mathbf{r}_i}{dt^2} = G \\sum_{j\\neq i} \\frac{m_j (\\mathbf{r}_j - \\mathbf{r}_i)}{|\\mathbf{r}_j - \\mathbf{r}_i|^3}, \n\nwhere \\mathbf{r}_i is the position vector of the ith body, m_j is the mass of the jth body, and G is the gravitational constant. The Lyapunov exponent \\lambda is defined as:\n\n    \\lambda = \\lim_{t \\to \\infty} \\frac{1}{t} \\log\\left(\\frac{|\\mathbf{\\delta r}(t)|}{|\\mathbf{\\delta r}(0)|}\\right), \n\nwhere \\mathbf{\\delta r}(t) is the separation vector between two nearby trajectories at time t.",
+            "ontology": {
+                "entities": [
+                    "exoplanetary system",
+                    "TRAPPIST-1",
+                    "gravitational interactions",
+                    "orbital resonances",
+                    "tidal effects",
+                    "dynamical stability",
+                    "chaotic indicators",
+                    "Lyapunov exponents",
+                    "n-body problem",
+                    "equations of motion",
+                    "position vector",
+                    "mass",
+                    "gravitational constant",
+                    "separation vector",
+                    "nearby trajectories"
+                ],
+                "relations": [
+                    "planet orbits star",
+                    "planet has semi-major axis",
+                    "planet has eccentricity",
+                    "planet has orbital period",
+                    "planet has mass",
+                    "star has mass",
+                    "star has radius",
+                    "star has effective temperature",
+                    "gravitational interactions between planets",
+                    "orbital resonances affect stability",
+                    "tidal effects affect stability",
+                    "Lyapunov exponents indicate chaos"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "0ad96877-d28c-451c-b5ac-bc96164137af",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive analysis of the atmospheric dynamics on Jupiter, focusing on the Great Red Spot (GRS) and its interaction with adjacent zonal jets. The analysis should include a detailed study of the vorticity dynamics, potential vorticity conservation, and the role of baroclinic instabilities in maintaining the GRS. Additionally, provide a predictive model for the long-term behavior of the GRS, considering the observed shrinkage in its size over the past century.",
+            "task_data": {
+                "data_points": {
+                    "jupiter_atmospheric_data": {
+                        "wind_speeds": [
+                            {
+                                "latitude": -22.0,
+                                "longitude": 100.0,
+                                "speed": 120.0
+                            },
+                            {
+                                "latitude": -22.5,
+                                "longitude": 100.5,
+                                "speed": 125.0
+                            },
+                            {
+                                "latitude": -23.0,
+                                "longitude": 101.0,
+                                "speed": 130.0
+                            }
+                        ],
+                        "temperature_profiles": [
+                            {
+                                "altitude": 0.1,
+                                "temperature": 130.0
+                            },
+                            {
+                                "altitude": 0.2,
+                                "temperature": 125.0
+                            },
+                            {
+                                "altitude": 0.3,
+                                "temperature": 120.0
+                            }
+                        ],
+                        "pressure_profiles": [
+                            {
+                                "altitude": 0.1,
+                                "pressure": 0.2
+                            },
+                            {
+                                "altitude": 0.2,
+                                "pressure": 0.15
+                            },
+                            {
+                                "altitude": 0.3,
+                                "pressure": 0.1
+                            }
+                        ],
+                        "grs_size_data": [
+                            {
+                                "year": 1900,
+                                "size": 40000.0
+                            },
+                            {
+                                "year": 1950,
+                                "size": 35000.0
+                            },
+                            {
+                                "year": 2000,
+                                "size": 30000.0
+                            },
+                            {
+                                "year": 2023,
+                                "size": 16350.0
+                            }
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "The vorticity equation for a two-dimensional flow on Jupiter can be expressed as:\\\n\\\\frac{D\\zeta}{Dt} = -(\\zeta + f)\\\\nabla\\cdot\\vec{u} + \\vec{k}\\cdot(\\\\nabla\\times\\vec{F}),\\\\\nwhere \\\\zeta is the relative vorticity, f is the Coriolis parameter, \\\\vec{u} is the velocity vector, and \\\\vec{F} represents external forces. The potential vorticity (PV) conservation is given by:\\\\\\\\frac{D}{Dt}(\\frac{\\zeta + f}{h}) = 0,\\\\\nwhere h is the fluid depth. Baroclinic instability can be analyzed using the quasi-geostrophic potential vorticity equation.",
+            "ontology": {
+                "entities": [
+                    "Great Red Spot (GRS)",
+                    "Zonal Jets",
+                    "Vorticity",
+                    "Potential Vorticity",
+                    "Baroclinic Instabilities",
+                    "Wind Speeds",
+                    "Temperature Profiles",
+                    "Pressure Profiles",
+                    "Altitude",
+                    "Coriolis Parameter",
+                    "Fluid Depth",
+                    "Quasi-Geostrophic Potential Vorticity"
+                ],
+                "relations": [
+                    "interaction_between(GRS, Zonal Jets)",
+                    "influenced_by(GRS, Vorticity)",
+                    "conserved_by(Potential Vorticity, Fluid Depth)",
+                    "maintained_by(GRS, Baroclinic Instabilities)",
+                    "measured_by(Wind Speeds, Temperature Profiles, Pressure Profiles)",
+                    "described_by(Altitude, Coriolis Parameter)",
+                    "analyzed_using(Quasi-Geostrophic Potential Vorticity)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "a8a5a0fd-297b-4bad-8800-fcf94361bf44",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive analysis of the dynamical stability of the Solar System's planetary orbits over the next 5 billion years, considering gravitational perturbations, general relativistic effects, and potential chaotic behavior.",
+            "task_data": {
+                "data_points": {
+                    "planetary_data": {
+                        "Mercury": {
+                            "mass": 3.3011e+23,
+                            "semi_major_axis": 57910000000.0,
+                            "eccentricity": 0.2056,
+                            "inclination": 7.005,
+                            "ascending_node": 48.331,
+                            "perihelion": 77.456,
+                            "mean_anomaly": 174.796
+                        },
+                        "Venus": {
+                            "mass": 4.8675e+24,
+                            "semi_major_axis": 108210000000.0,
+                            "eccentricity": 0.0067,
+                            "inclination": 3.39458,
+                            "ascending_node": 76.68069,
+                            "perihelion": 131.53298,
+                            "mean_anomaly": 48.0052
+                        },
+                        "Earth": {
+                            "mass": 5.9722e+24,
+                            "semi_major_axis": 149600000000.0,
+                            "eccentricity": 0.0167,
+                            "inclination": 5e-05,
+                            "ascending_node": -11.26064,
+                            "perihelion": 102.94719,
+                            "mean_anomaly": 356.6447
+                        },
+                        "Mars": {
+                            "mass": 6.4171e+23,
+                            "semi_major_axis": 227920000000.0,
+                            "eccentricity": 0.0934,
+                            "inclination": 1.85061,
+                            "ascending_node": 49.57854,
+                            "perihelion": 336.04084,
+                            "mean_anomaly": 19.4125
+                        },
+                        "Jupiter": {
+                            "mass": 1.8982e+27,
+                            "semi_major_axis": 778330000000.0,
+                            "eccentricity": 0.0489,
+                            "inclination": 1.30327,
+                            "ascending_node": 100.55615,
+                            "perihelion": 14.75385,
+                            "mean_anomaly": 20.0202
+                        },
+                        "Saturn": {
+                            "mass": 5.6834e+26,
+                            "semi_major_axis": 1429400000000.0,
+                            "eccentricity": 0.0565,
+                            "inclination": 2.48599,
+                            "ascending_node": 113.71504,
+                            "perihelion": 92.43194,
+                            "mean_anomaly": 317.0253
+                        },
+                        "Uranus": {
+                            "mass": 8.681e+25,
+                            "semi_major_axis": 2870972000000.0,
+                            "eccentricity": 0.0444,
+                            "inclination": 0.77334,
+                            "ascending_node": 74.22988,
+                            "perihelion": 170.96424,
+                            "mean_anomaly": 142.2376
+                        },
+                        "Neptune": {
+                            "mass": 1.02413e+26,
+                            "semi_major_axis": 4495060000000.0,
+                            "eccentricity": 0.0113,
+                            "inclination": 1.76995,
+                            "ascending_node": 131.72169,
+                            "perihelion": 44.97135,
+                            "mean_anomaly": 266.6654
+                        }
+                    },
+                    "constants": {
+                        "G": 6.6743e-11,
+                        "c": 299792458.0
+                    }
+                }
+            },
+            "mathematical_formulation": "The equations of motion for the planets can be described by the n-body problem in Newtonian mechanics, supplemented by general relativistic corrections. The governing equations are:\n\n1. Newtonian gravitational force: F_ij = G * m_i * m_j / r_ij^2\n\n2. General relativistic corrections (post-Newtonian terms):\n   a_GR = (G * m_j / (c^2 * r_ij^2)) * [(4G * m_j / r_ij - v_i^2) * r_ij + 4(r_ij . v_i) * v_i]\n\n3. Chaotic behavior can be analyzed using Lyapunov exponents and Poincaré maps.\n\nThe stability analysis should consider the long-term evolution of the orbital elements (semi-major axis, eccentricity, inclination, etc.) and assess the potential for orbital resonances and close encounters.",
+            "ontology": {
+                "entities": [
+                    "planetary_data",
+                    "mass",
+                    "semi_major_axis",
+                    "eccentricity",
+                    "inclination",
+                    "ascending_node",
+                    "perihelion",
+                    "mean_anomaly",
+                    "gravitational_force",
+                    "general_relativistic_effects",
+                    "chaotic_behavior",
+                    "orbital_resonances",
+                    "close_encounters"
+                ],
+                "relations": [
+                    "affects",
+                    "perturbs",
+                    "interacts_with",
+                    "influences",
+                    "causes",
+                    "results_in"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "ff21e410-20dc-4168-a555-429b2bb61982",
+        "task_details": {
+            "task_instructions": "Develop a predictive model for the trajectory of a multi-stage rocket launch, accounting for atmospheric drag, gravitational forces, and stage separation events. The model should predict the rocket's altitude, velocity, and acceleration at each time step until it reaches orbit. Use the provided data on rocket specifications, atmospheric conditions, and launch parameters.",
+            "task_data": {
+                "data_points": {
+                    "rocket_specifications": {
+                        "stage_1": {
+                            "mass": 420000,
+                            "thrust": 7607000,
+                            "burn_time": 162
+                        },
+                        "stage_2": {
+                            "mass": 120000,
+                            "thrust": 934000,
+                            "burn_time": 373
+                        },
+                        "payload": {
+                            "mass": 20000
+                        }
+                    },
+                    "atmospheric_conditions": {
+                        "pressure": [
+                            {
+                                "altitude": 0,
+                                "value": 101325
+                            },
+                            {
+                                "altitude": 11000,
+                                "value": 22632.1
+                            },
+                            {
+                                "altitude": 20000,
+                                "value": 5474.89
+                            }
+                        ],
+                        "temperature": [
+                            {
+                                "altitude": 0,
+                                "value": 288.15
+                            },
+                            {
+                                "altitude": 11000,
+                                "value": 216.65
+                            },
+                            {
+                                "altitude": 20000,
+                                "value": 216.65
+                            }
+                        ]
+                    },
+                    "launch_parameters": {
+                        "launch_site_altitude": 0,
+                        "launch_angle": 90,
+                        "initial_velocity": 0
+                    }
+                }
+            },
+            "mathematical_formulation": "The trajectory of the rocket can be modeled using the following equations:\n\n1. Force balance:\n   m(t) * a(t) = T(t) - D(t) - m(t) * g\n   where:\n     m(t) is the mass of the rocket at time t,\n     a(t) is the acceleration at time t,\n     T(t) is the thrust at time t,\n     D(t) is the drag force at time t,\n     g is the acceleration due to gravity.\n\n2. Drag force:\n   D(t) = 0.5 * Cd * A * ρ(h(t)) * v(t)^2\n   where:\n     Cd is the drag coefficient,\n     A is the cross-sectional area,\n     ρ(h(t)) is the air density at altitude h(t),\n     v(t) is the velocity at time t.\n\n3. Kinematic equations:\n   v(t) = ∫a(t) dt\n   h(t) = ∫v(t) dt\n\n4. Mass variation:\n   m(t) = m0 - ∫mdot(t) dt\n   where:\n     m0 is the initial mass,\n     mdot(t) is the mass flow rate at time t.\n\n5. Stage separation:\n   At stage separation events, the mass and thrust characteristics change instantaneously according to the stage specifications.",
+            "ontology": {
+                "entities": [
+                    "rocket",
+                    "stage_1",
+                    "stage_2",
+                    "payload",
+                    "atmospheric_conditions",
+                    "pressure",
+                    "temperature",
+                    "launch_parameters",
+                    "launch_site_altitude",
+                    "launch_angle",
+                    "initial_velocity",
+                    "force_balance",
+                    "drag_force",
+                    "kinematic_equations",
+                    "mass_variation",
+                    "stage_separation"
+                ],
+                "relations": [
+                    "rocket composedOf stage_1",
+                    "rocket composedOf stage_2",
+                    "rocket carries payload",
+                    "atmospheric_conditions affectedBy pressure",
+                    "atmospheric_conditions affectedBy temperature",
+                    "launch_parameters includes launch_site_altitude",
+                    "launch_parameters includes launch_angle",
+                    "launch_parameters includes initial_velocity",
+                    "force_balance affects acceleration",
+                    "drag_force affects force_balance",
+                    "kinematic_equations describe motion",
+                    "mass_variation affects rocket mass",
+                    "stage_separation changes rocket characteristics"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "599ed1af-a8e3-4788-8981-5278516673fd",
+        "task_details": {
+            "task_instructions": "Predict the gravitational waveform generated by a binary black hole merger using numerical relativity simulations. The task involves solving the Einstein field equations for a binary black hole system with specified initial conditions and extracting the gravitational waveform at future null infinity. Provide the waveform in terms of the plus (h_+) and cross (h_×) polarizations as functions of time.",
+            "task_data": {
+                "data_points": {
+                    "initial_conditions": {
+                        "mass_1": 35,
+                        "mass_2": 30,
+                        "spin_1": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "spin_2": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "initial_separation": 15.0,
+                        "initial_orbital_frequency": 0.02
+                    },
+                    "simulation_parameters": {
+                        "grid_size": [
+                            512,
+                            512,
+                            256
+                        ],
+                        "time_step": 0.01,
+                        "total_time": 500.0
+                    }
+                }
+            },
+            "mathematical_formulation": "The Einstein field equations are given by G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}, where G_{\\mu\\nu} is the Einstein tensor and T_{\\mu\\nu} is the stress-energy tensor. For a vacuum spacetime, T_{\\mu\\nu} = 0. The gravitational waveform is extracted using the Newman-Penrose formalism, where the waveform is given by \\Psi_4 = \\ddot{h}_+ - i\\ddot{h}_\\times, with h_+ and h_\\times being the plus and cross polarizations, respectively.",
+            "ontology": {
+                "entities": [
+                    "binary black hole",
+                    "gravitational waveform",
+                    "Einstein field equations",
+                    "numerical relativity",
+                    "plus polarization (h_+)",
+                    "cross polarization (h_×)",
+                    "Newman-Penrose formalism",
+                    "vacuum spacetime"
+                ],
+                "relations": [
+                    "binary black hole systems generate gravitational waveforms",
+                    "Einstein field equations describe the curvature of spacetime",
+                    "numerical relativity solves the Einstein field equations for complex systems",
+                    "gravitational waveforms are extracted using the Newman-Penrose formalism",
+                    "plus and cross polarizations describe the gravitational waveform"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "ad86fd5e-3a4a-4bea-88ac-b5dcf58993ab",
+        "task_details": {
+            "task_instructions": "Determine the most efficient configuration of a quantum computer to solve a specific instance of the Max-Cut problem, given a set of qubits, their connectivity, and gate fidelities. The configuration should maximize the probability of finding the optimal solution within a fixed number of trials.",
+            "task_data": {
+                "data_points": {
+                    "qubits": [
+                        "Q1",
+                        "Q2",
+                        "Q3",
+                        "Q4",
+                        "Q5"
+                    ],
+                    "connectivity": [
+                        {
+                            "Q1": [
+                                "Q2",
+                                "Q3"
+                            ]
+                        },
+                        {
+                            "Q2": [
+                                "Q1",
+                                "Q3",
+                                "Q4"
+                            ]
+                        },
+                        {
+                            "Q3": [
+                                "Q1",
+                                "Q2",
+                                "Q4",
+                                "Q5"
+                            ]
+                        },
+                        {
+                            "Q4": [
+                                "Q2",
+                                "Q3",
+                                "Q5"
+                            ]
+                        },
+                        {
+                            "Q5": [
+                                "Q3",
+                                "Q4"
+                            ]
+                        }
+                    ],
+                    "gate_fidelities": {
+                        " single_qubit_gate": 0.999,
+                        "two_qubit_gate": 0.99
+                    },
+                    "max_cut_instance": {
+                        "vertices": [
+                            "V1",
+                            "V2",
+                            "V3",
+                            "V4",
+                            "V5"
+                        ],
+                        "edges": [
+                            {
+                                "V1": [
+                                    "V2",
+                                    "V3"
+                                ]
+                            },
+                            {
+                                "V2": [
+                                    "V1",
+                                    "V3",
+                                    "V4"
+                                ]
+                            },
+                            {
+                                "V3": [
+                                    "V1",
+                                    "V2",
+                                    "V4",
+                                    "V5"
+                                ]
+                            },
+                            {
+                                "V4": [
+                                    "V2",
+                                    "V3",
+                                    "V5"
+                                ]
+                            },
+                            {
+                                "V5": [
+                                    "V3",
+                                    "V4"
+                                ]
+                            }
+                        ],
+                        "edge_weights": [
+                            {
+                                "V1-V2": 1.0
+                            },
+                            {
+                                "V1-V3": 1.5
+                            },
+                            {
+                                "V2-V3": 2.0
+                            },
+                            {
+                                "V2-V4": 1.0
+                            },
+                            {
+                                "V3-V4": 1.5
+                            },
+                            {
+                                "V3-V5": 2.0
+                            },
+                            {
+                                "V4-V5": 1.0
+                            }
+                        ]
+                    },
+                    "max_trials": 1000
+                }
+            },
+            "mathematical_formulation": "Maximize the expected value of the cut size, represented as E[C(S)], where S is a subset of vertices, and C(S) is the sum of weights of edges between S and its complement. The probability of finding the optimal solution is given by P(S_opt) = (1 - e)^n, where e is the error rate per gate operation, and n is the number of gate operations required to implement the quantum algorithm.",
+            "ontology": {
+                "entities": [
+                    "qubits",
+                    "connectivity",
+                    "gate fidelities",
+                    "Max-Cut problem",
+                    "vertices",
+                    "edges",
+                    "edge weights",
+                    "quantum algorithm"
+                ],
+                "relations": [
+                    "qubit connectivity",
+                    "edge weights",
+                    "gate operations",
+                    "probability of optimal solution"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "1b02403e-5c83-457d-804e-7cbd37991bf9",
+        "task_details": {
+            "task_instructions": "Determine the optimal trajectory for a spacecraft to perform a gravity assist maneuver around Jupiter, considering the gravitational influences of the Sun, Jupiter, and its four Galilean moons (Io, Europa, Ganymede, Callisto). The trajectory should minimize fuel consumption and optimize the spacecraft's velocity change (Δv) for a subsequent mission to Saturn. Provide the trajectory parameters, including the perijove altitude, the approach and departure velocities, and the total Δv required.",
+            "task_data": {
+                "data_points": {
+                    "spacecraft_mass": 1500,
+                    "initial_position": {
+                        "x": -520000000.0,
+                        "y": 553000000.0,
+                        "z": 15800000.0
+                    },
+                    "initial_velocity": {
+                        "vx": -12.4,
+                        "vy": -9.42,
+                        "vz": -0.156
+                    },
+                    "jupiter_mass": 1.898e+27,
+                    "jupiter_radius": 71492000.0,
+                    "galilean_moons_data": [
+                        {
+                            "name": "Io",
+                            "mass": 8.93e+22,
+                            "radius": 1821600.0,
+                            "position": {
+                                "x": 422000000.0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "name": "Europa",
+                            "mass": 4.8e+22,
+                            "radius": 1560800.0,
+                            "position": {
+                                "x": 671000000.0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "name": "Ganymede",
+                            "mass": 1.48e+23,
+                            "radius": 2634100.0,
+                            "position": {
+                                "x": 1070000000.0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "name": "Callisto",
+                            "mass": 1.08e+23,
+                            "radius": 2410300.0,
+                            "position": {
+                                "x": 1880000000.0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        }
+                    ],
+                    "sun_mass": 1.989e+30,
+                    "sun_position": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "saturn_position": {
+                        "x": 1430000000.0,
+                        "y": -761000000.0,
+                        "z": -26500000.0
+                    }
+                }
+            },
+            "mathematical_formulation": "The trajectory optimization problem can be formulated as minimizing the cost function J = Δv_total, subject to the equations of motion given by the n-body problem:\\newline  d^2r_i/dt^2 = G * Σ[(m_j * (r_j - r_i)) / |r_j - r_i|^3], for i ≠ j, where G is the gravitational constant, r_i is the position vector of the spacecraft, m_j is the mass of the gravitational body j, and r_j is the position vector of body j. The Δv_total is the sum of the velocity changes required for the gravity assist maneuver and the subsequent transfer to Saturn.",
+            "ontology": {
+                "entities": [
+                    "spacecraft",
+                    "Jupiter",
+                    "Io",
+                    "Europa",
+                    "Ganymede",
+                    "Callisto",
+                    "Sun",
+                    "Saturn",
+                    "gravity assist maneuver",
+                    "trajectory",
+                    "perijove altitude",
+                    "approach velocity",
+                    "departure velocity",
+                    "Δv"
+                ],
+                "relations": [
+                    "gravitational influence",
+                    "position vector",
+                    "velocity vector",
+                    "mass",
+                    "radius",
+                    "optimization",
+                    "cost function",
+                    "equations of motion"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e65e8e1d-88d5-4af9-9030-7c7737181145",
+        "task_details": {
+            "task_instructions": "Predict the long-term climatic impacts of varying solar radiation fluxes on global ocean currents using a coupled atmosphere-ocean general circulation model (AOGCM). The task involves simulating different scenarios of solar radiation fluxes and analyzing the resulting changes in ocean currents, sea surface temperatures, and global climate patterns over a century.",
+            "task_data": {
+                "data_points": {
+                    "solar_radiation_fluxes": [
+                        1361,
+                        1365,
+                        1370,
+                        1375,
+                        1380
+                    ],
+                    "initial_conditions": {
+                        "sea_surface_temperature": 288.15,
+                        "ocean_salinity": 35,
+                        "atmospheric_pressure": 1013.25,
+                        "wind_speed": 5
+                    },
+                    "geographical_parameters": {
+                        "latitudes": [
+                            -90,
+                            -60,
+                            -30,
+                            0,
+                            30,
+                            60,
+                            90
+                        ],
+                        "longitudes": [
+                            -180,
+                            -120,
+                            -60,
+                            0,
+                            60,
+                            120,
+                            180
+                        ]
+                    },
+                    "time_series": {
+                        "start_year": 2023,
+                        "end_year": 2123,
+                        "time_step": 1
+                    }
+                }
+            },
+            "mathematical_formulation": "The AOGCM will use the Navier-Stokes equations for fluid motion, the thermodynamic equation for heat transfer, and the continuity equation for mass conservation. The solar radiation flux (F) will be varied as per the data points, and the resulting changes in ocean currents (U, V) and sea surface temperatures (T) will be calculated using the following equations:\n\n1. Navier-Stokes equations:\n  ∂U/∂t + U · ∇U = -∇P + ν∇²U + F\n  ∂V/∂t + V · ∇V = -∇P + ν∇²V + F\n\n2. Thermodynamic equation:\n  ∂T/∂t + U · ∇T = κ∇²T + Q\n\n3. Continuity equation:\n  ∇ · U = 0\n\nWhere:\n  U and V are the velocity components,\n  P is the pressure,\n  ν is the kinematic viscosity,\n  κ is the thermal diffusivity,\n  Q is the heat source term,\n  F is the solar radiation flux.",
+            "ontology": {
+                "entities": [
+                    "solar radiation flux",
+                    "ocean currents",
+                    "sea surface temperature",
+                    "global climate patterns",
+                    "atmosphere-ocean general circulation model (AOGCM)",
+                    "Navier-Stokes equations",
+                    "thermodynamic equation",
+                    "continuity equation",
+                    "kinematic viscosity",
+                    "thermal diffusivity",
+                    "heat source term"
+                ],
+                "relations": [
+                    "solar radiation flux affects ocean currents",
+                    "ocean currents influence sea surface temperature",
+                    "sea surface temperature impacts global climate patterns",
+                    "AOGCM simulates ocean currents and sea surface temperature",
+                    "Navier-Stokes equations govern fluid motion",
+                    "thermodynamic equation governs heat transfer",
+                    "continuity equation governs mass conservation"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "a7ac814c-d9ca-462e-abdf-bd5f48f3537f",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive analysis of the atmospheric dynamics on Jupiter, focusing on the Great Red Spot (GRS) and its interaction with neighboring зonal jets. Utilize observational data from the Juno mission to model the temporal evolution of the GRS, predicting its future trajectory and potential mergers with smaller vortices. Incorporate the effects of stratospheric winds, thermal profiles, and gravitational perturbations from Jupiter's moons.",
+            "task_data": {
+                "data_points": {
+                    "Juno_observations": {
+                        "GRS_latitude": [
+                            -22.3,
+                            -22.5,
+                            -22.7
+                        ],
+                        "GRS_longitude": [
+                            270.1,
+                            270.3,
+                            270.5
+                        ],
+                        "GRS_wind_speeds": [
+                            120,
+                            125,
+                            130
+                        ],
+                        "zonal_jet_speeds": [
+                            50,
+                            55,
+                            60
+                        ],
+                        "temperature_profiles": [
+                            110,
+                            115,
+                            120
+                        ],
+                        "gravitational_perturbations": [
+                            0.01,
+                            0.02,
+                            0.03
+                        ]
+                    },
+                    "time_series": [
+                        "2020-01-01",
+                        "2020-02-01",
+                        "2020-03-01"
+                    ],
+                    "moon_positions": {
+                        "Io": [
+                            "2020-01-01",
+                            "2020-02-01",
+                            "2020-03-01"
+                        ],
+                        "Europa": [
+                            "2020-01-01",
+                            "2020-02-01",
+                            "2020-03-01"
+                        ],
+                        "Ganymede": [
+                            "2020-01-01",
+                            "2020-02-01",
+                            "2020-03-01"
+                        ],
+                        "Callisto": [
+                            "2020-01-01",
+                            "2020-02-01",
+                            "2020-03-01"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "GRS_velocity_equation": "v_GRS = f(latitude, longitude, zonal_jet_speeds, temperature_profiles, gravitational_perturbations)",
+                "zonal_jet_interaction": "dv_GRS/dt = k1 * v_zonal_jet + k2 * grad(temperature) + k3 * g_perturb",
+                "future_trajectory_prediction": " GRSTraj(t) = Integrate(v_GRS(t)) dt"
+            },
+            "ontology": {
+                "entities": [
+                    "Great Red Spot (GRS)",
+                    "zonal jets",
+                    "stratospheric winds",
+                    "thermal profiles",
+                    "gravitational perturbations",
+                    "Juno mission",
+                    "Jupiter's moons"
+                ],
+                "relations": [
+                    "GRS interacts with zonal jets",
+                    "zonal jets influenced by stratospheric winds",
+                    "thermal profiles affect GRS dynamics",
+                    "gravitational perturbations from Jupiter's moons impact GRS",
+                    "Juno mission provides observational data"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f3951cc5-fada-46fe-aa14-71dafab5b5b3",
+        "task_details": {
+            "task_instructions": "Design a sustainable energy grid for a small city with a population of 50,000, ensuring a minimum of 80% renewable energy sources. Optimize the grid for cost-effectiveness, reliability, and minimal environmental impact. Provide a detailed plan including the types of renewable energy sources, their capacities, locations, and interconnections.",
+            "task_data": {
+                "data_points": {
+                    "population": 50000,
+                    "average_energy_consumption_per_capita": 12000,
+                    "available_renewable_sources": [
+                        "solar",
+                        "wind",
+                        "hydro",
+                        "geothermal"
+                    ],
+                    "geographical_data": {
+                        "total_area": 150,
+                        "solar_irradiance": 5.5,
+                        "wind_speed": 7.2,
+                        "hydro_potential": 20000,
+                        "geothermal_potential": 15000
+                    },
+                    "cost_data": {
+                        "solar_cost_per_kw": 1000,
+                        "wind_cost_per_kw": 1200,
+                        "hydro_cost_per_kw": 1500,
+                        "geothermal_cost_per_kw": 2000
+                    },
+                    "reliability_factors": {
+                        "solar_reliability": 0.85,
+                        "wind_reliability": 0.75,
+                        "hydro_reliability": 0.9,
+                        "geothermal_reliability": 0.95
+                    },
+                    "environmental_impact_factors": {
+                        "solar_impact": 0.1,
+                        "wind_impact": 0.2,
+                        "hydro_impact": 0.3,
+                        "geothermal_impact": 0.25
+                    }
+                }
+            },
+            "mathematical_formulation": "Optimize the energy grid to minimize the total cost C, maximize reliability R, and minimize environmental impact E, subject to the constraint that at least 80% of the energy comes from renewable sources. The objective function can be formulated as:\n\nMinimize: C = ∑(ci * xi)\nMaximize: R = ∑(ri * xi)\nMinimize: E = ∑(ei * xi)\n\nSubject to: ∑(xi) ≥ 0.8 * Total Energy Demand\nwhere ci is the cost per kW for each renewable source i, ri is the reliability factor for each renewable source i, ei is the environmental impact factor for each renewable source i, and xi is the capacity of each renewable source i.",
+            "ontology": {
+                "entities": [
+                    "renewable energy sources",
+                    "energy grid",
+                    "solar energy",
+                    "wind energy",
+                    "hydro energy",
+                    "geothermal energy",
+                    "cost-effectiveness",
+                    "reliability",
+                    "environmental impact"
+                ],
+                "relations": [
+                    "generates",
+                    "interconnected with",
+                    "located in",
+                    "optimizes",
+                    "minimizes",
+                    "maximizes"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "4806bc7a-4e99-43d8-bd58-ad15044d4833",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive model to predict the long-term climatic impacts of varying concentrations of atmospheric aerosols on global temperature anomalies, accounting for feedback mechanisms and regional variabilities. The model should integrate data from multiple satellite observations, ground-based measurements, and climatic simulations to provide a high-resolution spatial and temporal analysis.",
+            "task_data": {
+                "data_points": {
+                    "satellite_observations": {
+                        "MODIS": [
+                            "Aerosol Optical Depth (AOD)",
+                            "Cloud Fraction",
+                            "Sea Surface Temperature (SST)"
+                        ],
+                        "CALIPSO": [
+                            "Vertical Aerosol Distribution",
+                            "Aerosol Type"
+                        ],
+                        "AQUA": [
+                            "Precipitation Rate",
+                            "Evaporation Rate"
+                        ]
+                    },
+                    "ground_based_measurements": {
+                        "AERONET": [
+                            "Aerosol Optical Depth (AOD)",
+                            "Aerosol Size Distribution"
+                        ],
+                        "GHCN": [
+                            "Surface Temperature Anomalies",
+                            "Precipitation Anomalies"
+                        ]
+                    },
+                    "climatic_simulations": {
+                        "CMIP6": [
+                            "Global Temperature Anomalies",
+                            "Regional Temperature Anomalies",
+                            "Aerosol Forcing"
+                        ]
+                    },
+                    "numeric_variables": {
+                        "aerosol_concentrations": [
+                            "SO2",
+                            "NO2",
+                            "PM2.5",
+                            "PM10"
+                        ],
+                        "temporal_range": [
+                            "2000-2020"
+                        ],
+                        "spatial_resolution": [
+                            "0.5° x 0.5°"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "The model should be based on the following equations and constraints:\n1. Radiative Forcing (RF) due to aerosols: RF = ΔF = -Δα * S / 4, where Δα is the change in planetary albedo and S is the solar constant.\n2. Temperature Anomaly (TA) response to radiative forcing: ΔT = λ * RF, where λ is the climate sensitivity parameter.\n3. Feedback mechanisms: ΔT_feedback = ∑(f_i * ΔT), where f_i are the feedback factors for different climatic processes.\n4. Spatial and temporal variability: ΔT(x, y, t) = ΔT_global + ΔT_regional(x, y) + ΔT_seasonal(t).",
+            "ontology": {
+                "entities": [
+                    "Aerosol Optical Depth (AOD)",
+                    "Cloud Fraction",
+                    "Sea Surface Temperature (SST)",
+                    "Vertical Aerosol Distribution",
+                    "Aerosol Type",
+                    "Precipitation Rate",
+                    "Evaporation Rate",
+                    "Surface Temperature Anomalies",
+                    "Precipitation Anomalies",
+                    "Global Temperature Anomalies",
+                    "Regional Temperature Anomalies",
+                    "Aerosol Forcing",
+                    "Radiative Forcing",
+                    "Climate Sensitivity",
+                    "Feedback Mechanisms",
+                    "Spatial and Temporal Variability"
+                ],
+                "relations": [
+                    "Aerosols influence Radiative Forcing",
+                    "Radiative Forcing affects Temperature Anomalies",
+                    "Feedback Mechanisms modify Temperature Anomalies",
+                    "Spatial and Temporal Variability impacts Regional Temperature Anomalies"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "01ea699f-f935-4b35-8086-12fabf0c3089",
+        "task_details": {
+            "task_instructions": "Design a quantum computing algorithm to simulate the molecular dynamics of a water molecule (H2O) in its ground state, considering all electron-electron interactions and nuclear-electron interactions. The algorithm should be optimized for a superconducting qubit architecture with a maximum of 100 qubits. Provide a detailed step-by-step outline of the algorithm, including the initialization, gate operations, and measurement protocols. Include a complexity analysis of the algorithm in terms of qubit count and gate depth.",
+            "task_data": {
+                "data_points": {
+                    "molecular_structure": {
+                        "atoms": [
+                            "O",
+                            "H",
+                            "H"
+                        ],
+                        "coordinates": [
+                            [
+                                0.0,
+                                0.0,
+                                0.0
+                            ],
+                            [
+                                0.757,
+                                0.586,
+                                0.0
+                            ],
+                            [
+                                -0.757,
+                                0.586,
+                                0.0
+                            ]
+                        ]
+                    },
+                    "electronic_structure": {
+                        "electrons": 10,
+                        "orbitals": [
+                            "1s",
+                            "2s",
+                            "2px",
+                            "2py",
+                            "2pz"
+                        ]
+                    },
+                    "qubit_architecture": {
+                        "type": "superconducting",
+                        "max_qubits": 100
+                    },
+                    "hamiltonian_parameters": {
+                        "electron_mass": 9.10938356e-31,
+                        "elementary_charge": 1.60217662e-19,
+                        "planck_constant": 6.62607004e-34,
+                        "vacuum_permittivity": 8.854187817e-12
+                    }
+                }
+            },
+            "mathematical_formulation": "The Hamiltonian for the molecular dynamics simulation can be expressed as:\n\nH = T_e + V_ee + V_ne\n\nwhere:\n- T_e is the kinetic energy of the electrons,\n- V_ee is the potential energy due to electron-electron interactions,\n- V_ne is the potential energy due to nuclear-electron interactions.\n\nThe kinetic energy term T_e is given by:\n\nT_e = -ℏ²/(2m_e) ∇²\n\nThe potential energy terms V_ee and V_ne are given by:\n\nV_ee = (1/4πε₀) ∑_(i<j) e²/|r_i - r_j|\nV_ne = -(1/4πε₀) ∑_(i,I) Z_I e²/|r_i - R_I|\n\nwhere:\n- ℏ is the reduced Planck constant,\n- m_e is the electron mass,\n- e is the elementary charge,\n- ε₀ is the vacuum permittivity,\n- r_i is the position of the i-th electron,\n- R_I is the position of the I-th nucleus,\n- Z_I is the atomic number of the I-th nucleus.",
+            "ontology": {
+                "entities": [
+                    "Quantum Computing",
+                    "Molecular Dynamics",
+                    "Water Molecule",
+                    "Electron-Electron Interactions",
+                    "Nuclear-Electron Interactions",
+                    "Superconducting Qubit",
+                    "Hamiltonian",
+                    "Kinetic Energy",
+                    "Potential Energy"
+                ],
+                "relations": [
+                    "simulates",
+                    "considers",
+                    "optimized for",
+                    "includes",
+                    "interacts with"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "0295ed36-408a-41a5-8b8b-617c60a591d4",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive analysis of the atmospheric dynamics on Jupiter, focusing on the interaction between the Great Red Spot and adjacent zonal jets. Provide a detailed prediction of the spot's trajectory over the next 50 Earth years, considering the influence of internal heat flux, solar radiation, and atmospheric composition. Include a sensitivity analysis to determine the impact of varying heat flux and radiation levels on the spot's stability and size.",
+            "task_data": {
+                "data_points": {
+                    "planetary_parameters": {
+                        "jupiter_radius": 69911000,
+                        "jupiter_mass": 1.898e+27,
+                        "jupiter_day_length": 9.925,
+                        "great_red_spot_latitude": -22.0,
+                        "great_red_spot_longitude": -64.0,
+                        "great_red_spot_size": 12000
+                    },
+                    "atmospheric_parameters": {
+                        "internal_heat_flux": 5.4,
+                        "solar_radiation_flux": 50.2,
+                        "atmospheric_composition": {
+                            "hydrogen": 88.8,
+                            "helium": 10.2,
+                            "methane": 0.3,
+                            "ammonia": 0.026,
+                            "other": 0.674
+                        }
+                    },
+                    "zonal_jets_speeds": {
+                        "jet_1": 100,
+                        "jet_2": -50,
+                        "jet_3": 150,
+                        "jet_4": -75
+                    }
+                }
+            },
+            "mathematical_formulation": "The trajectory of the Great Red Spot can be modeled using the shallow water equations on a rotating sphere:\n\nΓρ[(∂u/∂t) + u⋅∇u + f×u] = -∇p + F\n\nwhere:\n- u is the horizontal velocity vector,\n- ρ is the density,\n- p is the pressure,\n- f is the Coriolis parameter,\n- F represents external forces including heat flux and solar radiation.\n\nThe sensitivity analysis involves perturbing the internal heat flux (Q_int) and solar radiation flux (Q_sol) and observing the changes in the spot's stability and size using the following relationship:\n\nΔS = αΔQ_int + βΔQ_sol\n\nwhere α and β are sensitivity coefficients.",
+            "ontology": {
+                "entities": [
+                    "Jupiter",
+                    "Great Red Spot",
+                    "zonal jets",
+                    "internal heat flux",
+                    "solar radiation",
+                    "atmospheric composition",
+                    "shallow water equations",
+                    "Coriolis parameter",
+                    "sensitivity analysis"
+                ],
+                "relations": [
+                    "influences",
+                    "interacts with",
+                    "affects",
+                    "perturbs",
+                    "models",
+                    "predicts",
+                    "includes"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "3df687af-6c9f-4952-aaca-61e439b41125",
+        "task_details": {
+            "task_instructions": "Design a sustainable energy grid for a hypothetical smart city with a population of 500,000 inhabitants, optimizing for minimal carbon footprint and maximal renewable energy integration. The grid should include solar, wind, hydro, and geothermal energy sources, along with energy storage systems. The design must ensure a reliable power supply with a minimum of 99.9% uptime, considering variables such as weather patterns, energy demand fluctuations, and technological constraints.",
+            "task_data": {
+                "data_points": {
+                    "population": 500000,
+                    "energy_demand": {
+                        "peak_load": 500000000,
+                        "average_load": 300000000,
+                        "minimum_load": 100000000
+                    },
+                    "weather_patterns": {
+                        "solar_irradiance": {
+                            "average": 5.5,
+                            "peak": 10.0,
+                            "minimum": 1.0
+                        },
+                        "wind_speed": {
+                            "average": 6.0,
+                            "peak": 12.0,
+                            "minimum": 2.0
+                        },
+                        "rainfall": {
+                            "average": 1000,
+                            "peak": 1500,
+                            "minimum": 500
+                        }
+                    },
+                    "technological_constraints": {
+                        "solar_panel_efficiency": 0.2,
+                        "wind_turbine_efficiency": 0.4,
+                        "hydro_turbine_efficiency": 0.9,
+                        "geothermal_efficiency": 0.15,
+                        "battery_storage_capacity": 100000000,
+                        "battery_efficiency": 0.9
+                    }
+                }
+            },
+            "mathematical_formulation": "Optimize the energy mix to minimize the carbon footprint (C) and maximize renewable energy integration (R) subject to the constraints of energy demand (D), weather patterns (W), and technological constraints (T). The objective function can be formulated as:\n\nminimize C = f(solar, wind, hydro, geothermal)\nmaximize R = g(solar, wind, hydro, geothermal)\n\nsubject to:\nD = h(solar, wind, hydro, geothermal, storage)\nW = i(solar, wind, hydro, geothermal)\nT = j(solar, wind, hydro, geothermal, storage)",
+            "ontology": {
+                "entities": [
+                    "sustainable energy grid",
+                    "smart city",
+                    "population",
+                    "carbon footprint",
+                    "renewable energy integration",
+                    "solar energy",
+                    "wind energy",
+                    "hydro energy",
+                    "geothermal energy",
+                    "energy storage systems",
+                    "reliable power supply",
+                    "weather patterns",
+                    "energy demand fluctuations",
+                    "technological constraints"
+                ],
+                "relations": [
+                    "optimizes",
+                    "includes",
+                    "ensures",
+                    "considers",
+                    "subject to",
+                    "minimize",
+                    "maximize"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "39c092ab-ad10-4f81-8816-115e73b5791a",
+        "task_details": {
+            "task_instructions": "Predict the gravitational waveform generated by a binary black hole merger with specific initial conditions using numerical relativity. The task involves solving the Einstein field equations for a given pair of black holes with specified masses, spins, and initial separation. The output should be the gravitational wave strain as a function of time.",
+            "task_data": {
+                "data_points": {
+                    "black_hole_1": {
+                        "mass": 30,
+                        "spin": [
+                            0.0,
+                            0.0,
+                            0.6
+                        ],
+                        "initial_position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "black_hole_2": {
+                        "mass": 25,
+                        "spin": [
+                            0.0,
+                            0.0,
+                            -0.5
+                        ],
+                        "initial_position": [
+                            10.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "initial_separation": 10.0,
+                    "time_steps": 1000,
+                    "time_interval": 0.1
+                }
+            },
+            "mathematical_formulation": "The Einstein field equations are given by: G_{\\mu\\nu} = 8\\pi T_{\\mu\\nu}, where G_{\\mu\\nu} is the Einstein tensor and T_{\\mu\\nu} is the stress-energy tensor. For vacuum solutions, T_{\\mu\\nu} = 0. The gravitational wave strain h(t) is extracted from the metric perturbation.",
+            "ontology": {
+                "entities": [
+                    "binary black hole",
+                    "gravitational wave",
+                    "Einstein field equations",
+                    "black hole mass",
+                    "black hole spin",
+                    "initial separation",
+                    "gravitational wave strain"
+                ],
+                "relations": [
+                    "black hole merger event",
+                    "spacetime curvature",
+                    "waveform extraction",
+                    "orbital evolution",
+                    "metric perturbation"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "5fcce991-3390-44aa-837e-275af4fbefe5",
+        "task_details": {
+            "task_instructions": "Predict the gravitational wave signals from a binary black hole merger using numerical relativity simulations. The task involves solving the Einstein field equations for a given set of initial conditions and extracting the waveform data. The waveform should be compared with the observed data from LIGO/Virgo detectors to validate the predictions.",
+            "task_data": {
+                "data_points": {
+                    "black_hole_ masses": [
+                        "30 M☉",
+                        "25 M☉"
+                    ],
+                    "initial_separation": "100 km",
+                    "initial_velocities": [
+                        "0.1c",
+                        "0.1c"
+                    ],
+                    "spin_magnitudes": [
+                        "0.5",
+                        "0.3"
+                    ],
+                    "spin_orientations": [
+                        "aligned",
+                        "anti-aligned"
+                    ],
+                    "eccentricity": "0.01",
+                    "observed_waveform_data": "LIGO/Virgo data from GW150914 event"
+                }
+            },
+            "mathematical_formulation": "The Einstein field equations: Gμν = (8πG/c⁴) Tμν, where Gμν is the Einstein tensor, Tμν is the stress-energy tensor, G is the gravitational constant, and c is the speed of light. The waveform h(t) can be extracted from the metric perturbation hμν = gμν - ημν, where gμν is the metric tensor and ημν is the Minkowski metric.",
+            "ontology": {
+                "entities": [
+                    "binary black hole",
+                    "gravitational wave",
+                    "numerical relativity",
+                    "Einstein field equations",
+                    "waveform",
+                    "LIGO",
+                    "Virgo",
+                    "black hole masses",
+                    "initial separation",
+                    "initial velocities",
+                    "spin magnitudes",
+                    "spin orientations",
+                    "eccentricity"
+                ],
+                "relations": [
+                    "solves",
+                    "extracts",
+                    "compares",
+                    "validates",
+                    "predicts"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "6c47031b-fa61-425b-9e37-773edd0c435f",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive analysis of the atmospheric dynamics on Jupiter, specifically focusing on the Great Red Spot (GRS) and its interaction with adjacent zonal jets. The analysis should include a detailed examination of the vorticity, potential vorticity, and the role of turbulence in maintaining the stability of the GRS. Additionally, predict the long-term behavior of the GRS over the next 50 years, considering the effects of climate change and solar radiation.",
+            "task_data": {
+                "data_points": {
+                    "planetary_parameters": {
+                        "jupiter_radius": 71492000,
+                        "jupiter_mass": 1.89813e+27,
+                        "jupiter_rotation_period": 9.925
+                    },
+                    "atmospheric_parameters": {
+                        "average_temperature": 124,
+                        "average_pressure": 0.18,
+                        "wind_speeds": {
+                            "zonal_jets": [
+                                100,
+                                150,
+                                200
+                            ],
+                            "GRS_wind_speed": 400
+                        },
+                        "vorticity_data": [
+                            0.001,
+                            0.002,
+                            0.003
+                        ],
+                        "potential_vorticity_data": [
+                            0.005,
+                            0.006,
+                            0.007
+                        ],
+                        "turbulence_intensity": [
+                            0.01,
+                            0.02,
+                            0.03
+                        ]
+                    },
+                    "climate_parameters": {
+                        "solar_radiation_flux": 50.2,
+                        "albedo": 0.343,
+                        "greenhouse_gas_concentrations": {
+                            "methane": 0.003,
+                            "ammonia": 0.0002
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": "The vorticity (ω) is given by ω = ∇ × u, where u is the velocity field. The potential vorticity (q) is defined as q = (ζ + f)/h, where ζ is the relative vorticity, f is the Coriolis parameter, and h is the fluid depth. The turbulence kinetic energy (TKE) is given by TKE = 0.5(u'² + v'² + w'²), where u', v', and w' are the fluctuating components of the velocity field. The long-term behavior of the GRS can be modeled using the Navier-Stokes equations with additional terms for solar radiation and climate change effects.",
+            "ontology": {
+                "entities": [
+                    "Jupiter",
+                    "Great Red Spot (GRS)",
+                    "zonal jets",
+                    "vorticity",
+                    "potential vorticity",
+                    "turbulence",
+                    "climate change",
+                    "solar radiation",
+                    "Navier-Stokes equations"
+                ],
+                "relations": [
+                    "interaction_between(GRS, zonal_jets)",
+                    "maintains_stability(turbulence, GRS)",
+                    "affects_long_term_behavior(climate_change, GRS)",
+                    "affects_long_term_behavior(solar_radiation, GRS)",
+                    "modeled_by(GRS_behavior, Navier-Stokes_equations)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "070df700-1715-470b-812f-6a94d54821b7",
+        "task_details": {
+            "task_instructions": "Predict the gravitational wave signal from a binary black hole merger using numerical relativity simulations. The task involves solving the Einstein field equations for a given set of initial conditions and extracting the gravitational waveform. The waveform should be compared with the observed data from LIGO/Virgo detectors to validate the prediction.",
+            "task_data": {
+                "data_points": {
+                    "black_hole_masses": [
+                        30,
+                        35
+                    ],
+                    "black_hole_spins": [
+                        0.5,
+                        0.3
+                    ],
+                    "initial_separation": 100,
+                    "eccentricity": 0.01,
+                    "observed_ waveform": "LIGO/Virgo data file"
+                }
+            },
+            "mathematical_formulation": "The Einstein field equations: G_μν = 8πG/c^4 * T_μν, where G_μν is the Einstein tensor, T_μν is the stress-energy tensor, G is the gravitational constant, and c is the speed of light. The waveform h(t) is extracted from the numerical simulation and compared with the observed data using a match filtering technique.",
+            "ontology": {
+                "entities": [
+                    "Binary Black Hole",
+                    "Gravitational Wave",
+                    "Numerical Relativity",
+                    "Einstein Field Equations",
+                    "LIGO/Virgo Detectors",
+                    "Waveform",
+                    "Black Hole Mass",
+                    "Black Hole Spin",
+                    "Initial Separation",
+                    "Eccentricity"
+                ],
+                "relations": [
+                    "Binary Black Hole merger produces Gravitational Wave",
+                    "Numerical Relativity solves Einstein Field Equations",
+                    "Waveform is extracted from Numerical Relativity simulations",
+                    "LIGO/Virgo Detectors observe Gravitational Wave",
+                    "Black Hole Mass and Black Hole Spin affect Waveform",
+                    "Initial Separation and Eccentricity determine orbit of Binary Black Hole"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "33fc7aba-55e3-4b42-afd1-5472e95e23eb",
+        "task_details": {
+            "task_instructions": "Determine the optimal configuration of a tokamak fusion reactor to achieve a sustained plasma confinement with a triple product (nτT) exceeding the Lawson criterion for ignition. Provide a detailed analysis of the plasma stability, including the prediction of MHD instabilities and their mitigation strategies. Additionally, calculate the expected neutron flux and corresponding power output.",
+            "task_data": {
+                "data_points": {
+                    "major_radius": 6.2,
+                    "minor_radius": 2.0,
+                    "toroidal_field": 5.3,
+                    "plasma_current": 15,
+                    "electron_density": 1e+20,
+                    "electron_temperature": 10,
+                    "ion_temperature": 10,
+                    "fusion_fuel": "DT",
+                    "neutron_flux_target": 1e+18,
+                    "power_output_target": 500
+                }
+            },
+            "mathematical_formulation": "Maximize nτT such that:\n\n nτT > 5.0e21 keV s m^-3 (Lawson criterion for DT fuel)\n\nwhere:\n n is the plasma density,\n τ is the energy confinement time,\n T is the plasma temperature.\n\nMHD stability analysis should include calculation of safety factor (q) and consideration of kink and tearing modes.\n\nNeutron flux (Γ_n) and power output (P_out) should be calculated as:\n\n Γ_n = ∬n_D n_T <σv>/4  dV\n P_out = Γ_n * E_n\n\nwhere:\n n_D and n_T are the deuterium and tritium densities,\n <σv> is the fusion reactivity,\n E_n is the neutron energy (14.1 MeV for DT fusion).",
+            "ontology": {
+                "entities": [
+                    "tokamak",
+                    "plasma confinement",
+                    "Lawson criterion",
+                    "MHD instabilities",
+                    "neutron flux",
+                    "power output",
+                    "major radius",
+                    "minor radius",
+                    "toroidal field",
+                    "plasma current",
+                    "electron density",
+                    "electron temperature",
+                    "ion temperature",
+                    "fusion fuel",
+                    "energy confinement time",
+                    "safety factor",
+                    "kink modes",
+                    "tearing modes",
+                    "fusion reactivity",
+                    "neutron energy"
+                ],
+                "relations": [
+                    "major_radius(tokamak)",
+                    "minor_radius(tokamak)",
+                    "toroidal_field(tokamak)",
+                    "plasma_current(tokamak)",
+                    "electron_density(plasma)",
+                    "electron_temperature(plasma)",
+                    "ion_temperature(plasma)",
+                    "fusion_fuel(tokamak)",
+                    "neutron_flux(fusion_reaction)",
+                    "power_output(fusion_reaction)",
+                    "Lawson_criterion(plasma_confinement)",
+                    "MHD_instabilities(plasma)",
+                    "energy_confinement_time(plasma)",
+                    "safety_factor(plasma)",
+                    "kink_modes(MHD_instabilities)",
+                    "tearing_modes(MHD_instabilities)",
+                    "fusion_reactivity(fusion_fuel)",
+                    "neutron_energy(fusion_reaction)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "516bfd9d-e44a-4b35-98e6-795f6e116ce8",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive analysis of the dynamical systems and related quantum phenomenon in The Ising Model applied to Tantalum (Ta) and Niobium (Nb) compounds at various temperatures, using a Hamiltonian Quantum Monte Carlo Approach.",
+            "task_data": {
+                "ta_nb_compounds_data": {
+                    "comp_1": {
+                        "average_lattice_constant": {
+                            "value": 3.3,
+                            "units": "angstroms"
+                        },
+                        "Neel_temperature": 13.6,
+                        "density": {
+                            "value": 16.6,
+                            "units": "g/cm**2"
+                        },
+                        "specific_heat": {
+                            "value": 0.24,
+                            "units": "kg**-1K**-1"
+                        }
+                    },
+                    "comp_2": {
+                        "average_lattice_constant": {
+                            "value": 2.98,
+                            "units": "angstroms"
+                        },
+                        "Curie_temperature": 36.4,
+                        "density": {
+                            "value": 8.57,
+                            "units": "g/cm**3"
+                        },
+                        "ionisation energies": {
+                            "value": [
+                                6.8,
+                                14.3,
+                                29.1,
+                                50.0,
+                                80.0
+                            ],
+                            "units": "eV"
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": "The Ising Model is represented by the Hamiltonian:  H = -J Σ<i,j> σ_i σ_j  - h Σ σ_i . Where J is the coupling constant, The kronnecker delta σ_i and σ_j are the pauli spin matrices, Develop an approach for implementing the partition function when Z = Σ [exp-(β H)] and where β = 1 / Kt  where k is the boltzmann constant and t is the temperature. Next apply this understood dynamical system to the elemental compounds with the dataset provided.",
+            "ontology": {
+                "entities": [
+                    "coupling constants",
+                    "lattice topologies",
+                    "pauli spin matrices",
+                    "specific heat",
+                    "jahn – teller effect",
+                    "hamiltonian quantum monte carlo",
+                    "fukushima boundary conditions",
+                    "tantalum compounds",
+                    "niobium compounds",
+                    "neel temperature",
+                    "mean field theory",
+                    "bethe’s ansatz",
+                    "ising model",
+                    "neural networks",
+                    "bethe lattice",
+                    "currie temprature",
+                    "lattice spin"
+                ],
+                "relations": [
+                    "influences",
+                    "affected_by",
+                    "constrains",
+                    "solves_for",
+                    "approximated_by",
+                    "characterized_by",
+                    "related_to",
+                    "dynamic mechanism",
+                    "observable"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "45da66e5-4379-4f49-9e12-2a4556cc31ba",
+        "task_details": {
+            "task_instructions": "Design a hypervelocity impact simulation to determine the cratering dynamics on a hypothetical lunar surface using Smoothed Particle Hydrodynamics (SPH) method. The simulation should accurately model the impact of a high-velocity asteroid with specific physical properties on a lunar regolith layer with varying thickness and composition. The primary objective is to predict the crater diameter, depth, and ejecta distribution post-impact.",
+            "task_data": {
+                "data_points": {
+                    "asteroid_properties": {
+                        "density": 3000,
+                        "diameter": 50,
+                        "velocity": 15000,
+                        "impact_angle": 45
+                    },
+                    "lunar_surface_properties": {
+                        "regolith_thickness": [
+                            10,
+                            20,
+                            30
+                        ],
+                        "regolith_composition": {
+                            "silica": 0.45,
+                            "alumina": 0.15,
+                            "iron_oxide": 0.1,
+                            "calcium_oxide": 0.1,
+                            "magnesium_oxide": 0.2
+                        },
+                        "bedrock_density": 2800
+                    },
+                    "simulation_parameters": {
+                        "time_step": 0.001,
+                        "total_time": 10,
+                        "particle_number": 100000
+                    }
+                }
+            },
+            "mathematical_formulation": "The impact dynamics can be described by the Navier-Stokes equations in the SPH framework:\n\n\\(\\frac{D\\rho}{Dt} = -\\rho \\nabla \\cdot \\mathbf{v}\\)\n\n\\(\\rho \\frac{D\\mathbf{v}}{Dt} = -\\nabla P + \\mu \\nabla^2 \\mathbf{v} + \\mathbf{F}_{\\text{body}}\\)\n\n\\(\\frac{DE}{Dt} = -\\frac{P}{\\rho} \\nabla \\cdot \\mathbf{v} + \\kappa \\nabla^2 T + \\Phi\\)\n\nwhere \\(\\rho\\) is the density, \\(\\mathbf{v}\\) is the velocity vector, \\(P\\) is the pressure, \\(\\mu\\) is the dynamic viscosity, \\(\\mathbf{F}_{\\text{body}}\\) is the body force, \\(E\\) is the total energy, \\(T\\) is the temperature, \\(\\kappa\\) is the thermal conductivity, and \\(\\Phi\\) is the viscous dissipation function.\n\nThe crater dimensions can be estimated using the Pi-group scaling laws:\n\n\\(D = K_1 \\cdot E^{0.22} \\cdot \\rho_t^{-0.33} \\cdot g^{-0.17} \\cdot \\sin^{0.33}(\\theta)\\)\n\n\\(d = K_2 \\cdot E^{0.29} \\cdot \\rho_t^{-0.41} \\cdot g^{-0.17} \\cdot \\sin^{0.41}(\\theta)\\)\n\nwhere \\(D\\) is the crater diameter, \\(d\\) is the crater depth, \\(E\\) is the impact energy, \\(\\rho_t\\) is the target density, \\(g\\) is the gravitational acceleration, \\(\\theta\\) is the impact angle, and \\(K_1\\), \\(K_2\\) are empirical constants.",
+            "ontology": {
+                "entities": [
+                    "Smoothed Particle Hydrodynamics (SPH)",
+                    "Hypervelocity Impact",
+                    "Cratering Dynamics",
+                    "Lunar Regolith",
+                    "Asteroid Impact",
+                    "Navier-Stokes Equations",
+                    "Pi-group Scaling Laws",
+                    "Crater Dimensions",
+                    "Ejecta Distribution"
+                ],
+                "relations": [
+                    "SPH method models hypervelocity impact",
+                    "Hypervelocity impact causes cratering dynamics",
+                    "Cratering dynamics affects lunar regolith",
+                    "Asteroid impact results in crater dimensions and ejecta distribution",
+                    "Navier-Stokes equations govern impact dynamics",
+                    "Pi-group scaling laws estimate crater dimensions"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "c699a338-994d-49bd-b6e8-f4ad0c3683c1",
+        "task_details": {
+            "task_instructions": "Predict the long-term climatic impacts of varying concentrations of atmospheric carbon dioxide (CO2) on global temperature anomalies over the next century, taking into account feedback mechanisms such as cloud cover, ocean currents, and albedo effects. Utilize a coupled atmosphere-ocean general circulation model (AOGCM) and incorporate uncertainties in model parameters and initial conditions.",
+            "task_data": {
+                "data_points": {
+                    "atmospheric_co2_concentrations": [
+                        400,
+                        450,
+                        500,
+                        550,
+                        600,
+                        650,
+                        700,
+                        750,
+                        800,
+                        850,
+                        900,
+                        950,
+                        1000
+                    ],
+                    "initial_global_temperature_anomaly": 0.8,
+                    "ocean_current_data": {
+                        "Atlantic Meridional Overturning Circulation (AMOC)": 18.7,
+                        "Pacific Decadal Oscillation (PDO)": 0.5
+                    },
+                    "cloud_cover_data": {
+                        "mean_cloud_fraction": 0.6,
+                        "cloud_albedo": 0.4
+                    },
+                    "albedo_effects": {
+                        "ice_albedo": 0.8,
+                        "land_albedo": 0.2,
+                        "ocean_albedo": 0.06
+                    },
+                    "uncertainty_parameters": {
+                        "model_parameter_uncertainty": 0.05,
+                        "initial_condition_uncertainty": 0.03
+                    }
+                }
+            },
+            "mathematical_formulation": "The change in global temperature anomaly (ΔT) over time (t) can be approximated by the energy balance equation:\n\nΔT(t) = λ * ln(C(t) / C0) + ∑Fi(t)\n\nwhere:\n- λ is the climate sensitivity parameter,\n- C(t) is the atmospheric CO2 concentration at time t,\n- C0 is the pre-industrial CO2 concentration,\n- Fi(t) represents the feedback mechanisms (cloud cover, ocean currents, albedo effects).\n\nThe coupled AOGCM should solve the Navier-Stokes equations for atmospheric and oceanic dynamics, along with thermodynamic equations for energy transfer and conservation of mass.",
+            "ontology": {
+                "entities": [
+                    "atmospheric carbon dioxide (CO2)",
+                    "global temperature anomaly",
+                    "cloud cover",
+                    "ocean currents",
+                    "albedo effects",
+                    "Atlantic Meridional Overturning Circulation (AMOC)",
+                    "Pacific Decadal Oscillation (PDO)",
+                    "climate sensitivity parameter",
+                    "Navier-Stokes equations",
+                    "coupled atmosphere-ocean general circulation model (AOGCM)"
+                ],
+                "relations": [
+                    "influences",
+                    "affects",
+                    "depends on",
+                    "interacts with",
+                    "is modeled by",
+                    "is measured by",
+                    "is governed by"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "807d2286-1524-485d-a4c6-04bdae211b94",
+        "task_details": {
+            "task_instructions": "Predict the long-term climatic impacts of varying concentrations of atmospheric aerosols on global temperature anomalies over the next century, considering feedback mechanisms and non-linear interactions within the Earth's climate system.",
+            "task_data": {
+                "data_points": {
+                    "aerosol_types": [
+                        "sulfate",
+                        "black carbon",
+                        "organic carbon",
+                        "dust",
+                        "sea salt"
+                    ],
+                    "concentrations": [
+                        0.1,
+                        0.5,
+                        1.0,
+                        5.0,
+                        10.0
+                    ],
+                    "global_temperature_anomalies": [
+                        -0.5,
+                        0.0,
+                        0.5,
+                        1.0,
+                        1.5,
+                        2.0
+                    ],
+                    "feedback_mechanisms": [
+                        "cloud albedo",
+                        "ice-albedo",
+                        "water vapor",
+                        "lapse rate"
+                    ],
+                    "non_linear_interactions": [
+                        "atmospheric circulation",
+                        "ocean currents",
+                        "vegetation cover"
+                    ],
+                    "time_series": [
+                        "2023-01-01",
+                        "2033-01-01",
+                        "2043-01-01",
+                        "2053-01-01",
+                        "2063-01-01",
+                        "2073-01-01",
+                        "2083-01-01",
+                        "2093-01-01",
+                        "2103-01-01",
+                        "2113-01-01"
+                    ]
+                }
+            },
+            "mathematical_formulation": "The prediction model should incorporate the radiative forcing (RF) due to aerosols, which can be expressed as RF = α * ln(C/C0), where α is the forcing efficiency, C is the aerosol concentration, and C0 is the baseline concentration. The global temperature anomaly (GTA) can be modeled using a energy balance model: GTA = λ * RF, where λ is the climate sensitivity parameter. Feedback mechanisms and non-linear interactions should be integrated using coupled differential equations that represent the dynamic responses of the climate system.",
+            "ontology": {
+                "entities": [
+                    "aerosols",
+                    "radiative forcing",
+                    "global temperature anomalies",
+                    "feedback mechanisms",
+                    "non-linear interactions",
+                    "climate sensitivity",
+                    "atmospheric circulation",
+                    "ocean currents",
+                    "vegetation cover"
+                ],
+                "relations": [
+                    "influences",
+                    "modifies",
+                    "interacts with",
+                    "depends on",
+                    "affects",
+                    "responds to"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "d39edc4f-8e06-46ee-a832-7da3430a43a5",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive climate model to predict global temperature anomalies over the next century, incorporating detailed atmospheric chemistry, oceanic circulation patterns, and anthropogenic influences. The model should account for feedback mechanisms, greenhouse gas emissions scenarios, and potential tipping points in the Earth's climate system.",
+            "task_data": {
+                "data_points": {
+                    "atmospheric_chemistry": {
+                        "greenhouse_gases": [
+                            "CO2",
+                            "CH4",
+                            "N2O"
+                        ],
+                        "concentrations": [
+                            410,
+                            1.8,
+                            0.33
+                        ],
+                        "emission_scenarios": [
+                            "RCP2.6",
+                            "RCP4.5",
+                            "RCP8.5"
+                        ]
+                    },
+                    "oceanic_circulation": {
+                        "currents": [
+                            "Gulf Stream",
+                            "Humboldt Current",
+                            "Kuroshio Current"
+                        ],
+                        "temperature_profiles": [
+                            15,
+                            10,
+                            20
+                        ],
+                        "salinity_profiles": [
+                            35,
+                            34,
+                            35.5
+                        ]
+                    },
+                    "anthropogenic_influences": {
+                        "industrial_emissions": [
+                            500,
+                            700,
+                            900
+                        ],
+                        "deforestation_rates": [
+                            0.1,
+                            0.2,
+                            0.3
+                        ],
+                        "urban_heat_islands": [
+                            2,
+                            3,
+                            4
+                        ]
+                    },
+                    "feedback_mechanisms": {
+                        "albedo_effect": [
+                            0.3,
+                            0.4,
+                            0.5
+                        ],
+                        "cloud_cover": [
+                            0.5,
+                            0.6,
+                            0.7
+                        ],
+                        "ice_melt": [
+                            0.01,
+                            0.02,
+                            0.03
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "The climate model should be based on the Navier-Stokes equations for fluid dynamics, coupled with the radiative transfer equation for atmospheric radiation. The model should include the following equations:\n\n1. Navier-Stokes equations:\n  ρ(∂v/∂t + v · ∇v) = -∇p + μ∇²v + (μ/3)∇(∇ · v) + F\n\n2. Radiative transfer equation:\n  dI(ν,θ,φ)/ds = -κ(ν)ρI(ν,θ,φ) + j(ν,θ,φ)\n\n3. Energy balance equation:\n  C(dT/dt) = R_in - R_out + Q\n\nWhere:\n- ρ is the fluid density,\n- v is the fluid velocity,\n- p is the pressure,\n- μ is the dynamic viscosity,\n- F is the body force,\n- I(ν,θ,φ) is the specific intensity of radiation,\n- κ(ν) is the absorption coefficient,\n- j(ν,θ,φ) is the emission coefficient,\n- C is the heat capacity,\n- T is the temperature,\n- R_in and R_out are the incoming and outgoing radiation,\n- Q is the heat flux.",
+            "ontology": {
+                "entities": [
+                    "atmospheric chemistry",
+                    "greenhouse gases",
+                    "oceanic circulation",
+                    "anthropogenic influences",
+                    "feedback mechanisms",
+                    "climate model",
+                    "Navier-Stokes equations",
+                    "radiative transfer equation",
+                    "energy balance equation"
+                ],
+                "relations": [
+                    "atmospheric chemistry influences greenhouse gas concentrations",
+                    "greenhouse gas concentrations affect radiative transfer",
+                    "oceanic circulation impacts temperature profiles",
+                    "anthropogenic influences alter atmospheric chemistry and oceanic circulation",
+                    "feedback mechanisms modify albedo effect and cloud cover",
+                    "climate model integrates Navier-Stokes equations and radiative transfer equation",
+                    "energy balance equation governs temperature anomalies"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "88de4ad1-da45-44fc-8dbf-4bf67e00fe8d",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive analysis of the gravitationalwave signals detected by the LIGO and Virgo interferometers from the GWTC-3 catalog. The analysis should include the estimation of the source parameters, such as the masses and spins of the compact objects, the luminosity distance, and the sky localization. Additionally, compute the signal-to-noise ratio (SNR) for each event and provide a Bayesian posterior distribution for the source parameters. The analysis should use the Bayesian inference framework and the IMRPhenomPv2 waveform model.",
+            "task_data": {
+                "data_points": {
+                    "GW_events": [
+                        "GW190403_051519",
+                        "GW190408_181802",
+                        "GW190412",
+                        "GW190413_052954",
+                        "GW190413_134308",
+                        "GW190421_213856",
+                        "GW190424_180648",
+                        "GW190425",
+                        "GW190426_152155",
+                        "GW190503_185404",
+                        "GW190512_180714",
+                        "GW190513_205428",
+                        "GW190514_065416",
+                        "GW190517_055101",
+                        "GW190519_153544",
+                        "GW190521",
+                        "GW190521_074359",
+                        "GW190527_092055",
+                        "GW190602_175927",
+                        "GW190620_030421",
+                        "GW190630_185205",
+                        "GW190701_203306",
+                        "GW190706_222641",
+                        "GW190707_093326",
+                        "GW190708_232457",
+                        "GW190719_215514",
+                        "GW190720_000836",
+                        "GW190725_174728",
+                        "GW190727_060333",
+                        "GW190728_064510",
+                        "GW190731_140936",
+                        "GW190803_022701",
+                        "GW190814",
+                        "GW190828_063405",
+                        "GW190828_065509",
+                        "GW190909_114149",
+                        "GW190910_112807",
+                        "GW190915_235702",
+                        "GW190916_200658",
+                        "GW190924_021846",
+                        "GW190925_232845",
+                        "GW190926_050336",
+                        "GW190929_012149",
+                        "GW190930_133541"
+                    ],
+                    "detector_data": {
+                        "LIGO_Hanford": {
+                            "strain_data": "LIGO_Hanford_strain_data.hdf5",
+                            "PSD": "LIGO_Hanford_PSD.txt"
+                        },
+                        "LIGO_Livingston": {
+                            "strain_data": "LIGO_Livingston_strain_data.hdf5",
+                            "PSD": "LIGO_Livingston_PSD.txt"
+                        },
+                        "Virgo": {
+                            "strain_data": "Virgo_strain_data.hdf5",
+                            "PSD": "Virgo_PSD.txt"
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": "The posterior distribution for the source parameters θ given the data d can be computed using Bayes' theorem:\n\nP(θ|d) = P(d|θ)P(θ) / P(d)\n\nwhere P(d|θ) is the likelihood of the data given the parameters, P(θ) is the prior distribution of the parameters, and P(d) is the evidence. The likelihood function for the gravitational wave signal h(θ) is given by:\n\nP(d|θ) ∝ exp(-0.5 * <d - h(θ)|d - h(θ)>)\n\nwhere <·|·> denotes the noise-weighted inner product. The signal-to-noise ratio (SNR) is defined as:\n\nSNR = <h(θ)|d> / sqrt(<h(θ)|h(θ)>)",
+            "ontology": {
+                "entities": [
+                    "Gravitational Wave",
+                    "LIGO",
+                    "Virgo",
+                    "IMRPhenomPv2",
+                    "Bayesian Inference",
+                    "Posterior Distribution",
+                    "Signal-to-Noise Ratio",
+                    "Compact Objects",
+                    "Mass",
+                    "Spin",
+                    "Luminosity Distance",
+                    "Sky Localization"
+                ],
+                "relations": [
+                    "detected_by",
+                    "analyzed_using",
+                    "estimated_parameter",
+                    "computed_using",
+                    "described_by"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "c4474b46-a728-4e05-b4f2-200f69baf276",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive model to predict the gravitational waveforms generated by the inspiral, merger, and ringdown phases of binary black hole coalescence, taking into account general relativistic effects, spin-orbit coupling, and tidal deformabilities. The model should be validated against existing LIGO and Virgo detector data and provide predictions for future detectors like LISA and the Einstein Telescope.",
+            "task_data": {
+                "data_points": {
+                    "binary_systems": [
+                        {
+                            "name": "GW150914",
+                            "mass1": 36,
+                            "mass2": 29,
+                            "spin1": [
+                                0.67,
+                                0.05,
+                                0.03
+                            ],
+                            "spin2": [
+                                0.66,
+                                0.04,
+                                0.02
+                            ],
+                            "distance": 410
+                        },
+                        {
+                            "name": "GW170817",
+                            "mass1": 1.46,
+                            "mass2": 1.27,
+                            "spin1": [
+                                0.02,
+                                0.01,
+                                0.01
+                            ],
+                            "spin2": [
+                                0.02,
+                                0.01,
+                                0.01
+                            ],
+                            "distance": 40
+                        },
+                        {
+                            "name": "GW190521",
+                            "mass1": 85,
+                            "mass2": 66,
+                            "spin1": [
+                                0.69,
+                                0.06,
+                                0.04
+                            ],
+                            "spin2": [
+                                0.71,
+                                0.05,
+                                0.03
+                            ],
+                            "distance": 5240
+                        }
+                    ],
+                    "detector_sensitivities": {
+                        "LIGO": {
+                            "frequency_range": [
+                                10,
+                                2000
+                            ],
+                            "sensitivity": 1e-23
+                        },
+                        "Virgo": {
+                            "frequency_range": [
+                                10,
+                                2000
+                            ],
+                            "sensitivity": 1.2e-23
+                        },
+                        "LISA": {
+                            "frequency_range": [
+                                0.0001,
+                                0.1
+                            ],
+                            "sensitivity": 1e-21
+                        },
+                        "Einstein_Telescope": {
+                            "frequency_range": [
+                                1,
+                                10000
+                            ],
+                            "sensitivity": 1e-24
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": "The gravitational waveform h(t) can be modeled using the post-Newtonian formalism for the inspiral phase, numerical relativity for the merger phase, and perturbation theory for the ringdown phase. The waveform is given by:\n\nh(t) = h_inspiral(t) + h_merger(t) + h_ringdown(t)\n\nwhere:\n\nh_inspiral(t) = A(t) * exp(iΦ(t)),\n\nh_merger(t) is obtained from numerical relativity simulations,\n\nh_ringdown(t) = Σ[A_lm * exp(-σ_lm * t) * exp(iω_lm * t) * Y_lm(θ, ϕ)].\n\nThe parameters A(t), Φ(t), A_lm, σ_lm, and ω_lm depend on the masses, spins, and tidal deformabilities of the binary components.",
+            "ontology": {
+                "entities": [
+                    "binary black hole",
+                    "coalescence",
+                    "inspiral phase",
+                    "merger phase",
+                    "ringdown phase",
+                    "gravitational waveform",
+                    "post-Newtonian formalism",
+                    "numerical relativity",
+                    "perturbation theory",
+                    "LIGO",
+                    "Virgo",
+                    "LISA",
+                    "Einstein Telescope"
+                ],
+                "relations": [
+                    "generates",
+                    "depends on",
+                    "validated against",
+                    "provides predictions for",
+                    "modeled using",
+                    "obtained from"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "7709363f-1f2d-43df-9b8f-92c62d9ffac9",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive analysis of the stability and dynamics of a multi-planetary system consisting of a star and four exoplanets. Determine the long-term orbital stability of the system, taking into account gravitational perturbations, tidal forces, and general relativistic effects. Provide a detailed report on the chaotic zones, mean motion resonances, and the likelihood of planetary collisions or ejections over a timescale of 10^9 years.",
+            "task_data": {
+                "data_points": {
+                    "star": {
+                        "mass": "1.2 * 10^30 kg",
+                        "radius": "7.0 * 10^8 m",
+                        "luminosity": "3.846 * 10^26 W"
+                    },
+                    "planet1": {
+                        "semi_major_axis": "0.3 AU",
+                        "eccentricity": "0.05",
+                        "mass": "5.972 * 10^24 kg",
+                        "inclination": "2.0 degrees"
+                    },
+                    "planet2": {
+                        "semi_major_axis": "0.7 AU",
+                        "eccentricity": "0.1",
+                        "mass": "8.681 * 10^25 kg",
+                        "inclination": "1.5 degrees"
+                    },
+                    "planet3": {
+                        "semi_major_axis": "1.5 AU",
+                        "eccentricity": "0.02",
+                        "mass": "1.898 * 10^27 kg",
+                        "inclination": "3.0 degrees"
+                    },
+                    "planet4": {
+                        "semi_major_axis": "3.0 AU",
+                        "eccentricity": "0.07",
+                        "mass": "5.684 * 10^26 kg",
+                        "inclination": "2.5 degrees"
+                    }
+                }
+            },
+            "mathematical_formulation": "The equations governing the motion of the planets are given by the n-body problem in celestial mechanics. The acceleration of the ith planet is given by:\n\n a_i = G * ∑[(m_j * (r_j - r_i)) / |r_j - r_i|^3], for j ≠ i\n\nwhere G is the gravitational constant, m_j is the mass of the jth body, and r_i and r_j are the position vectors of the ith and jth bodies, respectively. The long-term stability can be analyzed using the Lyapunov characteristic exponent to determine chaotic behavior.\n\nThe general relativistic effects can be incorporated using the post-Newtonian approximation, where the potential is given by:\n\n Φ = -(G * m) / r + (G * m) / (c^2 * r) * [(3 * v^2) / (2a - (a * r) / (2 * v^2))]\n\nwhere v is the velocity of the planet and c is the speed of light.",
+            "ontology": {
+                "entities": [
+                    "star",
+                    "exoplanet",
+                    "semi-major axis",
+                    "eccentricity",
+                    "mass",
+                    "inclination",
+                    "gravitational perturbation",
+                    "tidal force",
+                    "general relativistic effect",
+                    "chaotic zone",
+                    "mean motion resonance",
+                    "planetary collision",
+                    "planetary ejection"
+                ],
+                "relations": [
+                    "orbits",
+                    "perturbs",
+                    "influences",
+                    "causes",
+                    "interacts with",
+                    "results in",
+                    "affects",
+                    "determines"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "3b4dc132-d9dc-4dab-ae74-b941d27c0f10",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive analysis of the atmospheric dynamics on Jupiter, focusing on the Great Red Spot (GRS) and its interaction with surrounding zonal jets. The analysis should include a detailed study of the vorticity dynamics, potential vorticity conservation, and the role of turbulence in maintaining the GRS. Additionally, provide a predictive model for the long-term behavior of the GRS, considering the observed shrinkage in its size over the past century.",
+            "task_data": {
+                "data_points": {
+                    "planet": "Jupiter",
+                    "feature": "Great Red Spot",
+                    "zonal_jets": [
+                        "Equatorial Jet",
+                        "Temperate Jets",
+                        "Polar Jets"
+                    ],
+                    "observational_data": {
+                        "wind_speeds": [
+                            "Equatorial: 100 m/s",
+                            "Temperate: 150 m/s",
+                            "Polar: 50 m/s"
+                        ],
+                        "temperature_profiles": [
+                            "Equatorial: 120 K",
+                            "Temperate: 110 K",
+                            "Polar: 100 K"
+                        ],
+                        "vorticity_values": [
+                            "GRS: 3.5 x 10^-5 s^-1",
+                            "Surrounding Zonal Jets: 2.0 x 10^-5 s^-1"
+                        ]
+                    },
+                    "historical_size_data": {
+                        "1879": "40,000 km",
+                        "1979": "23,000 km",
+                        "2019": "16,000 km"
+                    }
+                }
+            },
+            "mathematical_formulation": "The governing equations for the analysis include the primitive equations of atmospheric motion, which are:\n\n1. Momentum Equation: du/dt + u*∇u + f x u = -∇Φ + F\n2. Continuity Equation: ∇*u = 0\n3. Thermodynamic Equation: dΘ/dt = Q\n4. Potential Vorticity Conservation: D(ζ + f)/Dt = 0\n\nWhere:\n- u is the velocity vector\n- f is the Coriolis parameter\n- Φ is the geopotential\n- F represents frictional forces\n- Θ is the potential temperature\n- Q is the diabatic heating\n- ζ is the relative vorticity\n\nThe predictive model for the GRS size should be based on a differential equation considering the observed shrinkage rate and turbulent interactions.",
+            "ontology": {
+                "entities": [
+                    "Jupiter",
+                    "Great Red Spot (GRS)",
+                    "Zonal Jets",
+                    "Vorticity",
+                    "Potential Vorticity",
+                    "Turbulence",
+                    "Wind Speed",
+                    "Temperature Profile",
+                    "Primitive Equations",
+                    "Coriolis Parameter",
+                    "Geopotential",
+                    "Frictional Forces",
+                    "Potential Temperature",
+                    "Diabatic Heating",
+                    "Relative Vorticity"
+                ],
+                "relations": [
+                    "GRS interacts with Zonal Jets",
+                    "Vorticity dynamics influence GRS",
+                    "Potential Vorticity is conserved",
+                    "Turbulence maintains GRS",
+                    "Wind Speed and Temperature Profile are observational data",
+                    "Primitive Equations govern atmospheric motion",
+                    "Coriolis Parameter affects momentum",
+                    "Geopotential and Frictional Forces influence momentum",
+                    "Potential Temperature and Diabatic Heating relate to thermodynamics",
+                    "Relative Vorticity is a component of Potential Vorticity"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "d022b721-21cd-46e1-bee0-9509999e630b",
+        "task_details": {
+            "task_instructions": "Predict the gravitational waveform generated by a binary black hole merger using numerical relativitty and post-Newtonian approximations. Provide the waveform for the last 10 cycles before merger, including the amplitude and phase evolution. Assume the black holes are non-spinning and have a mass ratio of 0.8.",
+            "task_data": {
+                "data_points": {
+                    "mass_1": 35,
+                    "mass_2": 28,
+                    "initial_separation": 150,
+                    "initial_eccentricity": 0.01,
+                    "observation_time": 0.2,
+                    "sampling_rate": 4096
+                }
+            },
+            "mathematical_formulation": "The gravitational waveform h(t) = h_+(t) - i h_×(t) can be modeled using post-Newtonian expansions for the amplitude and phase. The phase evolution is given by: Φ(t) = 2π ∫(f(t') dt'), where f(t) is the instantaneous gravitational wave frequency. The amplitude can be approximated by: A(t) ∝ (ν v^2)^(1/2), where ν is the symmetric mass ratio and v is the relative velocity. The waveform should satisfy the Einstein field equations in the strong-field regime, and the post-Newtonian expansion should be carried out to at least 3.5PN order.",
+            "ontology": {
+                "entities": [
+                    "Binary Black Hole",
+                    "Gravitational Waveform",
+                    "Numerical Relativity",
+                    "Post-Newtonian Approximations",
+                    "Mass Ratio",
+                    "Amplitude Evolution",
+                    "Phase Evolution",
+                    "Einstein Field Equations"
+                ],
+                "relations": [
+                    "generates",
+                    "is modeled by",
+                    "has attribute",
+                    "satisfies",
+                    "is expanded to"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "652f72bf-23be-4f88-b459-c768181e6950",
+        "task_details": {
+            "task_instructions": "Predict the quantum entanglement fidelity for a system of 10 qubits undergoing decoherence due to interaction with a bosonic bath at finite temperature. Utilize the Lindblad master equation to model the open quantum system dynamics and estimate the entanglement fidelity over a time interval of 100 picoseconds.",
+            "task_data": {
+                "data_points": {
+                    "qubits": 10,
+                    "bath_temperature": 300,
+                    "time_interval": 100,
+                    "initial_state": "GHZ state",
+                    "coupling_strength": 0.05,
+                    "bath_frequency": 1000000000000.0
+                }
+            },
+            "mathematical_formulation": "The Lindblad master equation is given by: dρ/dt = -i[H, ρ] + ∑_k (L_k ρ L_k^† - {L_k^† L_k, ρ}/2), where ρ is the density matrix, H is the Hamiltonian, and L_k are the Lindblad operators. The entanglement fidelity F(t) is defined as F(t) = Tr(ρ(t) |ψ_0><ψ_0|), where |ψ_0> is the initial entangled state.",
+            "ontology": {
+                "entities": [
+                    "quantum entanglement",
+                    "decoherence",
+                    "bosonic bath",
+                    "Lindblad master equation",
+                    "entanglement fidelity",
+                    "density matrix",
+                    "Hamiltonian",
+                    "Lindblad operators",
+                    "GHZ state",
+                    "coupling strength",
+                    "bath frequency"
+                ],
+                "relations": [
+                    "decoherence affects quantum entanglement",
+                    "bosonic bath causes decoherence",
+                    "Lindblad master equation models open quantum system dynamics",
+                    "entanglement fidelity measures the preservation of entanglement",
+                    "density matrix describes the state of the quantum system",
+                    "Hamiltonian governs the system's energy",
+                    "Lindblad operators represent the system-bath interaction",
+                    "GHZ state is the initial entangled state",
+                    "coupling strength determines the interaction intensity",
+                    "bath frequency characterizes the bosonic bath"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "8d416b97-d3ea-4b60-9a83-1903dd6a807e",
+        "task_details": {
+            "task_instructions": "Predict the orbital stability of a three-body system over a period of 100,000 years, given the initial positions, velocities, and masses of the three bodies. Provide a detailed analysis of the system's dynamics, including any potential chaotic behaviors and the likelihood of ejection or collision events.",
+            "task_data": {
+                "data_points": {
+                    "body_1": {
+                        "mass": 1.989e+30,
+                        "initial_position": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "initial_velocity": [
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    "body_2": {
+                        "mass": 5.972e+24,
+                        "initial_position": [
+                            149600000000.0,
+                            0,
+                            0
+                        ],
+                        "initial_velocity": [
+                            0,
+                            29780.0,
+                            0
+                        ]
+                    },
+                    "body_3": {
+                        "mass": 7.348e+22,
+                        "initial_position": [
+                            -149600000000.0,
+                            0,
+                            0
+                        ],
+                        "initial_velocity": [
+                            0,
+                            -29780.0,
+                            0
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "The equations of motion for the three-body system can be described by Newton's laws of motion and gravitation:\n\nFor each body i (i = 1, 2, 3),\nmi * (d^2ri/dt^2) = G * ∑_(j≠i) [mj * (rj - ri) / |rj - ri|^3]\n\nwhere:\n- mi is the mass of body i,\n- ri is the position vector of body i,\n- G is the gravitational constant (6.67430e-11 m^3 kg^-1 s^-2),\n- t is time.\n\nThe system's stability can be analyzed using the Lyapunov exponent to quantify chaotic behavior.",
+            "ontology": {
+                "entities": [
+                    "Three-body system",
+                    "Orbital stability",
+                    "Chaotic behavior",
+                    "Ejection event",
+                    "Collision event",
+                    "Lyapunov exponent",
+                    "Newton's laws of motion",
+                    "Gravitation"
+                ],
+                "relations": [
+                    "Body i affects Body j through gravitational interaction",
+                    "Orbital stability is influenced by chaotic behavior",
+                    "Lyapunov exponent quantifies chaotic behavior",
+                    "Ejection and collision events are potential outcomes of the three-body system"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "02136a37-3f8f-400d-b476-459f854091c5",
+        "task_details": {
+            "task_instructions": "Determine the most efficient trajectory for a spacecraft to visit all known exoplanets in the TRAPPIST-1 system, minimize fuel consumption, and return to Earth, considering gravitational assists and the Pioneer anomaly.",
+            "task_data": {
+                "data_points": {
+                    "exoplanets": [
+                        {
+                            "name": "TRAPPIST-1b",
+                            "mass": 0.85,
+                            "radius": 1.116,
+                            "semi_major_axis": 0.01154
+                        },
+                        {
+                            "name": "TRAPPIST-1c",
+                            "mass": 1.38,
+                            "radius": 1.097,
+                            "semi_major_axis": 0.0158
+                        },
+                        {
+                            "name": "TRAPPIST-1d",
+                            "mass": 0.41,
+                            "radius": 0.788,
+                            "semi_major_axis": 0.02227
+                        },
+                        {
+                            "name": "TRAPPIST-1e",
+                            "mass": 0.62,
+                            "radius": 0.92,
+                            "semi_major_axis": 0.02925
+                        },
+                        {
+                            "name": "TRAPPIST-1f",
+                            "mass": 0.68,
+                            "radius": 1.045,
+                            "semi_major_axis": 0.03849
+                        },
+                        {
+                            "name": "TRAPPIST-1g",
+                            "mass": 1.34,
+                            "radius": 1.129,
+                            "semi_major_axis": 0.04683
+                        },
+                        {
+                            "name": "TRAPPIST-1h",
+                            "mass": 0.33,
+                            "radius": 0.755,
+                            "semi_major_axis": 0.06189
+                        }
+                    ],
+                    "spacecraft": {
+                        "mass": 1000,
+                        "fuel_capacity": 500,
+                        "specific_impulse": 300
+                    },
+                    "earth": {
+                        "mass": 5.972e+24,
+                        "radius": 6371,
+                        "distance_to_trappist_1": 39.6
+                    },
+                    "trappist_1": {
+                        "mass": 0.089,
+                        "radius": 0.117,
+                        "distance_to_earth": 39.6
+                    }
+                }
+            },
+            "mathematical_formulation": "Minimize the total fuel consumption F, subject to the constraints of the equations of motion, gravitational assists, and the Pioneer anomaly. The total fuel consumption is given by F = ∫(dm/dt) dt, where dm/dt is the rate of fuel consumption, which is a function of the spacecraft's thrust and specific impulse. The equations of motion are given by the n-body problem, and the Pioneer anomaly is modeled as a constant acceleration of a0 = (8.74 ± 1.33) × 10−10 m/s2 directed towards the Sun.",
+            "ontology": {
+                "entities": [
+                    "spacecraft",
+                    "exoplanets",
+                    "TRAPPIST-1",
+                    "Earth",
+                    "fuel consumption",
+                    "gravitational assist",
+                    "Pioneer anomaly",
+                    "trajectory"
+                ],
+                "relations": [
+                    "visit exoplanets",
+                    "traverses distance",
+                    "minimise consumption",
+                    "influences by gravity",
+                    "analyze trajectory"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "03873282-e088-4412-b48b-4b125deae3d6",
+        "task_details": {
+            "task_instructions": "Design a sustainable energy grid for a hypothetical smart city with a population of 500,000 residents, optimizing for minimal carbon footprint and maximum reliability. The grid should integrate renewable energy sources such as solar, wind, and hydroelectric power, along with conventional sources like natural gas and nuclear energy. Provide a detailed analysis of the energy mix, storage solutions, and grid management strategies, including demand response and load balancing.",
+            "task_data": {
+                "data_points": {
+                    "population": 500000,
+                    "average_energy_consumption_per_capita": 12000,
+                    "solar_irradiance": 5.5,
+                    "wind_speed_average": 7.2,
+                    "hydroelectric_potential": 300000000,
+                    "natural_gas_reserves": 1000000000,
+                    "nuclear_capacity": 2000000000,
+                    "energy_storage_efficiency": 0.85,
+                    "grid_reliability_target": 0.999,
+                    "carbon_emission_target": 50000
+                }
+            },
+            "mathematical_formulation": "Minimize: CO2_emissions = ∑ (E_i * C_i) \n Subject to: ∑ E_i ≥ Total_Energy_Demand \n Reliability ≥ 0.999 \n Where E_i is the energy generated from source i, C_i is the carbon emission factor for source i, and Total_Energy_Demand is the total energy demand of the city.",
+            "ontology": {
+                "entities": [
+                    "Sustainable Energy Grid",
+                    "Smart City",
+                    "Renewable Energy Sources",
+                    "Solar Power",
+                    "Wind Power",
+                    "Hydroelectric Power",
+                    "Natural Gas",
+                    "Nuclear Energy",
+                    "Energy Storage Solutions",
+                    "Grid Management Strategies",
+                    "Demand Response",
+                    "Load Balancing",
+                    "Carbon Footprint",
+                    "Reliability"
+                ],
+                "relations": [
+                    "integrates",
+                    "optimizes",
+                    "generates",
+                    "stores",
+                    "manages",
+                    "balances",
+                    "emits",
+                    "meets",
+                    "includes"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "5a52accb-35be-4c46-b113-adf4648b04b3",
+        "task_details": {
+            "task_instructions": "Design a modular spacecraft capable of transporting a minimum of 1000 kg payload to Mars, ensuring the craft can withstand the Martian environment and successfully return to Earth. The design must include detailed specifications for propulsion systems, structural integrity, thermal control, and radiation shielding. Additionally, perform a comprehensive analysis of the trajectory, including necessary delta-v calculations for departure, Mars orbit insertion, descent, ascent, and Earth return. Ensure all calculations are grounded in real-world constraints and current technological capabilities.",
+            "task_data": {
+                "data_points": {
+                    "payload_mass": 1000,
+                    "martian_atmospheric_pressure": 0.00636,
+                    "martian_surface_gravity": 3.711,
+                    "earth_surface_gravity": 9.80665,
+                    "mars_orbit_insertion_velocity": 5.6,
+                    "earth_escape_velocity": 11.186,
+                    "mars_escape_velocity": 5.027,
+                    "specific_impulse_chemical_rocket": 450,
+                    "specific_impulse_ion_drive": 3000,
+                    "solar_radiation_intensity_mars": 589,
+                    "solar_radiation_intensity_earth": 1361
+                }
+            },
+            "mathematical_formulation": "Delta-v budget calculation: Δv_total = Δv_launch + Δv_MOI + Δv_descent + Δv_ascent + Δv_TEI + Δv_reentry, where Δv represents the change in velocity required for each phase of the mission. Structural integrity must satisfy: σ_max ≤ σ_yield, where σ_max is the maximum stress and σ_yield is the yield strength of the material. Thermal control must ensure: Q_absorbed ≤ Q_dissipated, where Q represents heat flux.",
+            "ontology": {
+                "entities": [
+                    "Spacecraft",
+                    "Payload",
+                    "Propulsion System",
+                    "Structural Integrity",
+                    "Thermal Control",
+                    "Radiation Shielding",
+                    "Trajectory",
+                    "Delta-v",
+                    "Martian Environment",
+                    "Earth"
+                ],
+                "relations": [
+                    "has_propulsion_system",
+                    "carries_payload",
+                    "withstands_environment",
+                    "follows_trajectory",
+                    "requires_delta-v",
+                    "ensures_structural_integrity",
+                    "maintains_thermal_control",
+                    "provides_radiation_shielding"
+                ]
+            }
+        }
+    }
+]

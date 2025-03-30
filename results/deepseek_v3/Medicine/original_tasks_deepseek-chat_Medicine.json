@@ -1,0 +1,3501 @@
+[
+    {
+        "task_id": "9be557b6-2990-49e9-9648-cdb07750075b",
+        "task_details": {
+            "task_instructions": "Given a dataset of clinical trial results for a novel immunotherapeutic agent targeting metastatic melanoma, perform a multi-objective optimization to determine the optimal dosing regimen that maximizes progression-free survival (PFS) while minimizing adverse events (AEs) of grade 3 or higher. The optimization must consider patient-specific covariates such as age, baseline tumor burden, and genetic markers (e.g., BRAF mutation status). Additionally, provide a probabilistic risk assessment for the likelihood of severe AEs under the proposed dosing regimen.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_cohort": [
+                        {
+                            "patient_id": 1,
+                            "age": 58,
+                            "baseline_tumor_burden_mm": 120,
+                            "BRAF_mutation_status": "V600E",
+                            "dosing_regimen_mg_kg": [
+                                2.0,
+                                1.5,
+                                1.0
+                            ],
+                            "PFS_days": 210,
+                            "AE_grade_3_or_higher": true
+                        },
+                        {
+                            "patient_id": 2,
+                            "age": 62,
+                            "baseline_tumor_burden_mm": 95,
+                            "BRAF_mutation_status": "wildtype",
+                            "dosing_regimen_mg_kg": [
+                                1.5,
+                                1.5,
+                                1.5
+                            ],
+                            "PFS_days": 180,
+                            "AE_grade_3_or_higher": false
+                        },
+                        {
+                            "patient_id": 3,
+                            "age": 45,
+                            "baseline_tumor_burden_mm": 150,
+                            "BRAF_mutation_status": "V600K",
+                            "dosing_regimen_mg_kg": [
+                                2.5,
+                                2.0,
+                                1.5
+                            ],
+                            "PFS_days": 240,
+                            "AE_grade_3_or_higher": true
+                        }
+                    ],
+                    "dosing_regimens": [
+                        {
+                            "regimen_id": 1,
+                            "doses_mg_kg": [
+                                2.0,
+                                1.5,
+                                1.0
+                            ],
+                            "mean_PFS_days": 210,
+                            "AE_incidence_rate": 0.35
+                        },
+                        {
+                            "regimen_id": 2,
+                            "doses_mg_kg": [
+                                1.5,
+                                1.5,
+                                1.5
+                            ],
+                            "mean_PFS_days": 180,
+                            "AE_incidence_rate": 0.2
+                        },
+                        {
+                            "regimen_id": 3,
+                            "doses_mg_kg": [
+                                2.5,
+                                2.0,
+                                1.5
+                            ],
+                            "mean_PFS_days": 240,
+                            "AE_incidence_rate": 0.45
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "objective_function": "Maximize: PFS = f(dose, age, tumor_burden, BRAF_status); Minimize: AE_risk = g(dose, age, tumor_burden, BRAF_status)",
+                "constraints": [
+                    "dose_min ≤ dose ≤ dose_max",
+                    "PFS ≥ PFS_threshold",
+                    "AE_risk ≤ AE_risk_threshold"
+                ],
+                "probabilistic_model": "AE_risk = logistic_regression(dose, age, tumor_burden, BRAF_status)"
+            },
+            "ontology": {
+                "entities": [
+                    "metastatic_melanoma",
+                    "immunotherapeutic_agent",
+                    "progression_free_survival",
+                    "adverse_events",
+                    "dosing_regimen",
+                    "BRAF_mutation",
+                    "tumor_burden",
+                    "logistic_regression"
+                ],
+                "relations": [
+                    "dosing_regimen_affects_PFS",
+                    "dosing_regimen_increases_AE_risk",
+                    "BRAF_mutation_influences_response",
+                    "age_modulates_AE_risk",
+                    "tumor_burden_correlates_with_PFS"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "3bc7aefe-9543-4cda-8a81-554f9ce8a2c6",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model should incorporate time-series data, account for missing data, and provide probabilistic risk scores at 24-hour intervals for the first 72 hours post-surgery. The output should include a detailed explanation of the model's decision-making process, including feature importance and interaction effects.",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "sex",
+                            "BMI",
+                            "comorbidities"
+                        ],
+                        "baseline_lab_values": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin",
+                            "albumin"
+                        ],
+                        "medication_history": [
+                            "ACE_inhibitors",
+                            "NSAIDs",
+                            "diuretics"
+                        ],
+                        "cardiac_function": [
+                            "ejection_fraction",
+                            "NYHA_class"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgical_duration": "minutes",
+                        "cardiopulmonary_bypass_time": "minutes",
+                        "blood_loss": "mL",
+                        "intraoperative_medications": [
+                            "vasopressors",
+                            "inotropes"
+                        ]
+                    },
+                    "post_operative": {
+                        "vital_signs": [
+                            "blood_pressure",
+                            "heart_rate",
+                            "oxygen_saturation"
+                        ],
+                        "lab_values": [
+                            "serum_creatinine",
+                            "urine_output",
+                            "lactate"
+                        ],
+                        "mechanical_ventilation": "hours",
+                        "vasopressor_use": "hours"
+                    }
+                },
+                "outcome_data": {
+                    "AKI_incidence": "binary (0/1)",
+                    "AKI_stage": [
+                        "1",
+                        "2",
+                        "3"
+                    ],
+                    "time_to_AKI": "hours"
+                }
+            },
+            "mathematical_formulation": {
+                "risk_score": "P(AKI|X) = 1 / (1 + exp(-(β0 + β1X1 + β2X2 + ... + βnXn)))",
+                "time_series_model": "Xt = α + β1Xt-1 + β2Xt-2 + ... + εt",
+                "missing_data_handling": "Multiple Imputation by Chained Equations (MICE)",
+                "feature_importance": "SHAP values (Shapley Additive Explanations)"
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "cardiac_surgery",
+                    "serum_creatinine",
+                    "eGFR",
+                    "hemoglobin",
+                    "albumin",
+                    "ACE_inhibitors",
+                    "NSAIDs",
+                    "diuretics",
+                    "ejection_fraction",
+                    "NYHA_class",
+                    "cardiopulmonary_bypass",
+                    "vasopressors",
+                    "inotropes",
+                    "mechanical_ventilation",
+                    "lactate",
+                    "urine_output"
+                ],
+                "relations": [
+                    "serum_creatinine -> AKI_risk",
+                    "eGFR -> AKI_risk",
+                    "cardiopulmonary_bypass_time -> AKI_risk",
+                    "vasopressor_use -> AKI_risk",
+                    "urine_output -> AKI_risk",
+                    "lactate -> AKI_risk"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "9d6c050a-ab62-411b-a967-f4c59549f58b",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate temporal dynamics of lab values, hemodynamic parameters, and medication administration. Validate the model using a time-split validation approach and provide a detailed explanation of feature importance.",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "demographics": [
+                            "age",
+                            "gender",
+                            "BMI"
+                        ],
+                        "comorbidities": [
+                            "hypertension",
+                            "diabetes",
+                            "chronic_kidney_disease"
+                        ],
+                        "baseline_labs": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "diuretics",
+                            "beta_blockers"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgical_duration": "minutes",
+                        "blood_loss": "mL",
+                        "hemodynamic_parameters": [
+                            "mean_arterial_pressure",
+                            "cardiac_output"
+                        ],
+                        "fluid_administration": [
+                            "crystalloids",
+                            "colloids"
+                        ],
+                        "vasopressors": [
+                            "norepinephrine",
+                            "vasopressin"
+                        ]
+                    },
+                    "post_operative": {
+                        "lab_trends": {
+                            "serum_creatinine": [
+                                "time_series_data"
+                            ],
+                            "urine_output": [
+                                "time_series_data"
+                            ]
+                        },
+                        "vital_signs": {
+                            "mean_arterial_pressure": [
+                                "time_series_data"
+                            ],
+                            "heart_rate": [
+                                "time_series_data"
+                            ]
+                        },
+                        "medications": [
+                            "post_op_diuretics",
+                            "post_op_vasopressors"
+                        ]
+                    },
+                    "outcome": {
+                        "AKI_incidence": [
+                            "KDIGO_stage_1",
+                            "KDIGO_stage_2",
+                            "KDIGO_stage_3"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "P(AKI|X) = 1 / (1 + exp(-(β0 + β1X1 + β2X2 + ... + βnXn))), where X represents the feature vector including pre-operative, intra-operative, and post-operative variables. Temporal dynamics are modeled using recurrent neural networks (RNNs) or time-dependent Cox proportional hazards models.",
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "cardiac_surgery",
+                    "serum_creatinine",
+                    "eGFR",
+                    "hemodynamic_parameters",
+                    "vasopressors",
+                    "KDIGO_stages",
+                    "time_series_data"
+                ],
+                "relations": [
+                    "pre_operative_factors_affect_AKI_risk",
+                    "intra_operative_factors_affect_AKI_risk",
+                    "post_operative_factors_affect_AKI_risk",
+                    "temporal_dynamics_influence_AKI_risk"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "cd1d4768-f794-43b7-8092-6662f5d5d55c",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must account for temporal dynamics and interactions between variables, and provide a probabilistic output for AKI risk within 72 hours post-surgery. Validate the model using a hold-out dataset and report its sensitivity, specificity, and area under the ROC curve (AUC).",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_age": [
+                            65,
+                            72,
+                            58,
+                            81,
+                            69
+                        ],
+                        "baseline_creatinine": [
+                            1.2,
+                            1.5,
+                            0.9,
+                            1.8,
+                            1.1
+                        ],
+                        "eGFR": [
+                            55,
+                            45,
+                            90,
+                            35,
+                            60
+                        ],
+                        "diabetes_status": [
+                            1,
+                            0,
+                            1,
+                            1,
+                            0
+                        ],
+                        "hypertension_status": [
+                            1,
+                            1,
+                            0,
+                            1,
+                            1
+                        ]
+                    },
+                    "intra_operative": {
+                        "cardiopulmonary_bypass_time_min": [
+                            120,
+                            95,
+                            150,
+                            180,
+                            110
+                        ],
+                        "cross_clamp_time_min": [
+                            80,
+                            60,
+                            100,
+                            120,
+                            70
+                        ],
+                        "intraoperative_hypotension_episodes": [
+                            2,
+                            1,
+                            3,
+                            4,
+                            1
+                        ]
+                    },
+                    "post_operative": {
+                        "post_op_creatinine_24h": [
+                            1.5,
+                            1.7,
+                            1.0,
+                            2.0,
+                            1.3
+                        ],
+                        "post_op_creatinine_48h": [
+                            1.6,
+                            1.8,
+                            1.1,
+                            2.2,
+                            1.4
+                        ],
+                        "urine_output_24h_ml": [
+                            800,
+                            600,
+                            1200,
+                            500,
+                            900
+                        ],
+                        "vasopressor_use": [
+                            1,
+                            0,
+                            1,
+                            1,
+                            0
+                        ]
+                    },
+                    "outcome": {
+                        "AKI_72h": [
+                            1,
+                            0,
+                            0,
+                            1,
+                            0
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "logistic_regression": "P(AKI) = 1 / (1 + exp(-(β0 + β1*X1 + β2*X2 + ... + βn*Xn)))",
+                "temporal_interaction": "Interaction terms between intraoperative hypotension episodes and post-operative creatinine levels are included as X1*X2.",
+                "probability_threshold": "AKI risk is classified as high if P(AKI) ≥ 0.5."
+            },
+            "ontology": {
+                "entities": [
+                    "acute kidney injury (AKI)",
+                    "cardiac surgery",
+                    "creatinine",
+                    "eGFR",
+                    "diabetes",
+                    "hypertension",
+                    "cardiopulmonary bypass",
+                    "cross-clamp time",
+                    "hypotension",
+                    "vasopressor",
+                    "urine output",
+                    "ROC curve",
+                    "sensitivity",
+                    "specificity"
+                ],
+                "relations": [
+                    "patient_age → baseline_creatinine",
+                    "baseline_creatinine → eGFR",
+                    "diabetes_status → AKI risk",
+                    "hypertension_status → AKI risk",
+                    "cardiopulmonary_bypass_time → AKI risk",
+                    "cross_clamp_time → AKI risk",
+                    "intraoperative_hypotension → AKI risk",
+                    "post_op_creatinine → AKI risk",
+                    "urine_output → AKI risk",
+                    "vasopressor_use → AKI risk"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "8accc56a-ef65-4a39-b978-f20c3d6a6a02",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate time-series data, account for missing data, and provide a probabilistic output. Validate the model using a 10-fold cross-validation approach and report the area under the receiver operating characteristic curve (AUC-ROC), sensitivity, specificity, and calibration metrics.",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "sex",
+                            "BMI",
+                            "comorbidities"
+                        ],
+                        "laboratory_values": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin",
+                            "albumin"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "NSAIDs",
+                            "diuretics"
+                        ],
+                        "clinical_history": [
+                            "prior_AKI",
+                            "diabetes",
+                            "hypertension",
+                            "heart_failure"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgical_duration": "minutes",
+                        "cardiopulmonary_bypass_time": "minutes",
+                        "blood_loss": "mL",
+                        "intraoperative_medications": [
+                            "vasopressors",
+                            "inotropes"
+                        ]
+                    },
+                    "post_operative": {
+                        "vital_signs": [
+                            "mean_arterial_pressure",
+                            "heart_rate",
+                            "urine_output"
+                        ],
+                        "laboratory_values": [
+                            "serum_creatinine",
+                            "lactate",
+                            "blood_urea_nitrogen"
+                        ],
+                        "complications": [
+                            "sepsis",
+                            "hypotension",
+                            "arrhythmias"
+                        ]
+                    }
+                },
+                "outcome": {
+                    "AKI_definition": "KDIGO criteria (increase in serum creatinine by ≥0.3 mg/dL within 48 hours or ≥1.5 times baseline within 7 days)",
+                    "AKI_stages": [
+                        "stage_1",
+                        "stage_2",
+                        "stage_3"
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "logistic_regression": "P(AKI) = 1 / (1 + exp(-(β0 + β1X1 + β2X2 + ... + βnXn)))",
+                "time_series_analysis": "X(t) = {X1(t), X2(t), ..., Xn(t)} where t represents time points",
+                "missing_data_imputation": "Multiple Imputation by Chained Equations (MICE)",
+                "validation_metrics": {
+                    "AUC-ROC": "∫(TPR(FPR^-1(x)))dx",
+                    "sensitivity": "TP / (TP + FN)",
+                    "specificity": "TN / (TN + FP)",
+                    "calibration": "Hosmer-Lemeshow test"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "serum_creatinine",
+                    "eGFR",
+                    "cardiopulmonary_bypass",
+                    "vasopressors",
+                    "inotropes",
+                    "KDIGO_criteria",
+                    "time_series_data",
+                    "logistic_regression",
+                    "AUC-ROC"
+                ],
+                "relations": [
+                    "serum_creatinine → acute_kidney_injury",
+                    "eGFR → acute_kidney_injury",
+                    "cardiopulmonary_bypass → intraoperative_risk",
+                    "vasopressors → hemodynamic_instability",
+                    "inotropes → cardiac_output",
+                    "KDIGO_criteria → AKI_stages",
+                    "time_series_data → predictive_model",
+                    "logistic_regression → probabilistic_output",
+                    "AUC-ROC → model_performance"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "0b05b639-25d1-4049-8159-98b422049d02",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate time-series data for vital signs, laboratory results, and medication administration. The output should be a probability score for AKI within 72 hours post-surgery, stratified by KDIGO stages (1, 2, 3). Validate the model using a 10-fold cross-validation approach and report the area under the receiver operating characteristic curve (AUC-ROC), sensitivity, specificity, and positive predictive value (PPV).",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "sex",
+                            "BMI",
+                            "comorbidities"
+                        ],
+                        "baseline_lab_results": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin",
+                            "albumin"
+                        ],
+                        "medication_history": [
+                            "ACE_inhibitors",
+                            "NSAIDs",
+                            "diuretics"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgical_duration": "minutes",
+                        "blood_loss": "mL",
+                        "fluid_administration": [
+                            "crystalloids",
+                            "colloids"
+                        ],
+                        "vasopressor_use": [
+                            "norepinephrine",
+                            "epinephrine"
+                        ]
+                    },
+                    "post_operative": {
+                        "vital_signs": [
+                            "heart_rate",
+                            "blood_pressure",
+                            "oxygen_saturation"
+                        ],
+                        "lab_results": [
+                            "serum_creatinine",
+                            "urine_output",
+                            "BUN"
+                        ],
+                        "medication_administration": [
+                            "antibiotics",
+                            "analgesics",
+                            "vasopressors"
+                        ]
+                    },
+                    "outcome": {
+                        "AKI_incidence": [
+                            "KDIGO_stage_1",
+                            "KDIGO_stage_2",
+                            "KDIGO_stage_3"
+                        ],
+                        "time_to_AKI": "hours"
+                    }
+                },
+                "dataset_size": 5000,
+                "missing_data_percentage": 15
+            },
+            "mathematical_formulation": {
+                "logistic_regression": "P(AKI) = 1 / (1 + e^-(β0 + β1X1 + β2X2 + ... + βnXn))",
+                "time_series_analysis": "Xt = μ + Σ(φi * Xt-i) + εt",
+                "performance_metrics": {
+                    "AUC-ROC": "∫(TPR(FPR^-1(x)))dx",
+                    "sensitivity": "TP / (TP + FN)",
+                    "specificity": "TN / (TN + FP)",
+                    "PPV": "TP / (TP + FP)"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "KDIGO_stages",
+                    "serum_creatinine",
+                    "eGFR",
+                    "vasopressors",
+                    "fluid_administration",
+                    "time_series_analysis",
+                    "logistic_regression"
+                ],
+                "relations": [
+                    "serum_creatinine_influences_AKI_risk",
+                    "vasopressors_affect_renal_perfusion",
+                    "fluid_administration_impacts_renal_function",
+                    "time_series_data_predicts_AKI"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "742a804b-42d0-47e7-9cdb-c20824ed06cc",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model should incorporate time-series data, account for missing data, and provide a probabilistic output for AKI risk within 72 hours post-surgery. The model must be validated using a hold-out dataset and evaluated using area under the receiver operating characteristic curve (AUC-ROC), sensitivity, and specificity.",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "age": [
+                            65,
+                            72,
+                            58,
+                            69,
+                            74
+                        ],
+                        "gender": [
+                            "Male",
+                            "Female",
+                            "Male",
+                            "Female",
+                            "Male"
+                        ],
+                        "baseline_creatinine": [
+                            1.2,
+                            1.5,
+                            1.1,
+                            1.3,
+                            1.4
+                        ],
+                        "eGFR": [
+                            60,
+                            45,
+                            70,
+                            55,
+                            50
+                        ],
+                        "diabetes": [
+                            true,
+                            false,
+                            true,
+                            false,
+                            true
+                        ],
+                        "hypertension": [
+                            true,
+                            true,
+                            false,
+                            true,
+                            false
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgery_duration_min": [
+                            240,
+                            210,
+                            300,
+                            270,
+                            330
+                        ],
+                        "cardiopulmonary_bypass_time_min": [
+                            120,
+                            90,
+                            150,
+                            110,
+                            140
+                        ],
+                        "blood_loss_ml": [
+                            800,
+                            600,
+                            1000,
+                            700,
+                            900
+                        ],
+                        "lowest_mean_arterial_pressure_mmHg": [
+                            55,
+                            60,
+                            50,
+                            58,
+                            52
+                        ]
+                    },
+                    "post_operative": {
+                        "creatinine_24h": [
+                            1.3,
+                            1.6,
+                            1.2,
+                            1.4,
+                            1.5
+                        ],
+                        "creatinine_48h": [
+                            1.4,
+                            1.7,
+                            1.3,
+                            1.5,
+                            1.6
+                        ],
+                        "creatinine_72h": [
+                            1.5,
+                            1.8,
+                            1.4,
+                            1.6,
+                            1.7
+                        ],
+                        "urine_output_24h_ml": [
+                            1200,
+                            1000,
+                            1300,
+                            1100,
+                            900
+                        ],
+                        "vasopressor_use": [
+                            true,
+                            false,
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    "outcome": {
+                        "aki_72h": [
+                            false,
+                            true,
+                            false,
+                            true,
+                            false
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "logistic_regression": "P(AKI) = 1 / (1 + exp(-(β0 + β1*X1 + β2*X2 + ... + βn*Xn)))",
+                "missing_data_imputation": "X_missing = mean(X_observed) or X_missing = f(X_observed, time)",
+                "time_series_analysis": "X_t = f(X_t-1, X_t-2, ..., X_t-n)",
+                "evaluation_metrics": {
+                    "AUC-ROC": "∫(TPR(FPR))dFPR",
+                    "sensitivity": "TP / (TP + FN)",
+                    "specificity": "TN / (TN + FP)"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "acute kidney injury",
+                    "creatinine",
+                    "eGFR",
+                    "cardiopulmonary bypass",
+                    "mean arterial pressure",
+                    "vasopressor",
+                    "diabetes",
+                    "hypertension",
+                    "urine output"
+                ],
+                "relations": [
+                    "baseline_creatinine → AKI risk",
+                    "eGFR → AKI risk",
+                    "cardiopulmonary bypass time → AKI risk",
+                    "mean arterial pressure → AKI risk",
+                    "vasopressor use → AKI risk",
+                    "urine output → AKI risk",
+                    "diabetes → AKI risk",
+                    "hypertension → AKI risk"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "6f6c311c-24ac-46d9-8099-0620ff30a0ca",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate time-series data, account for missing data, and provide a probabilistic output for AKI risk within 72 hours post-surgery. Validate the model using a separate dataset and report its sensitivity, specificity, and area under the ROC curve (AUC).",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "gender",
+                            "BMI",
+                            "race"
+                        ],
+                        "comorbidities": [
+                            "hypertension",
+                            "diabetes",
+                            "chronic_kidney_disease",
+                            "heart_failure"
+                        ],
+                        "baseline_lab_values": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin",
+                            "albumin"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "diuretics",
+                            "NSAIDs"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgery_type": [
+                            "CABG",
+                            "valve_replacement",
+                            "combined_procedures"
+                        ],
+                        "cardiopulmonary_bypass_time": "minutes",
+                        "cross_clamp_time": "minutes",
+                        "intraoperative_hypotension": "binary",
+                        "blood_loss": "mL"
+                    },
+                    "post_operative": {
+                        "vital_signs": [
+                            "mean_arterial_pressure",
+                            "heart_rate",
+                            "urine_output"
+                        ],
+                        "lab_values": [
+                            "serum_creatinine",
+                            "BUN",
+                            "potassium",
+                            "lactate"
+                        ],
+                        "medications": [
+                            "vasopressors",
+                            "diuretics",
+                            "antibiotics"
+                        ],
+                        "complications": [
+                            "sepsis",
+                            "bleeding",
+                            "arrhythmias"
+                        ]
+                    },
+                    "outcome": {
+                        "AKI_occurrence": "binary",
+                        "AKI_stage": [
+                            "1",
+                            "2",
+                            "3"
+                        ]
+                    }
+                },
+                "time_series_data": {
+                    "vital_signs": [
+                        "mean_arterial_pressure",
+                        "heart_rate",
+                        "urine_output"
+                    ],
+                    "lab_values": [
+                        "serum_creatinine",
+                        "BUN",
+                        "potassium",
+                        "lactate"
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "logistic_regression": "P(AKI) = 1 / (1 + e^-(β0 + β1X1 + β2X2 + ... + βnXn))",
+                "time_series_analysis": "X(t) = f(X(t-1), X(t-2), ..., X(t-n))",
+                "missing_data_imputation": "X_missing = mean(X_observed) or X_missing = f(X_observed)",
+                "ROC_curve": "AUC = ∫(TPR(FPR^-1(x)))dx"
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "cardiac_surgery",
+                    "serum_creatinine",
+                    "eGFR",
+                    "cardiopulmonary_bypass",
+                    "mean_arterial_pressure",
+                    "urine_output",
+                    "vasopressors",
+                    "diuretics",
+                    "sepsis",
+                    "arrhythmias"
+                ],
+                "relations": [
+                    "acute_kidney_injury caused_by cardiac_surgery",
+                    "serum_creatinine indicates kidney_function",
+                    "eGFR estimates kidney_function",
+                    "cardiopulmonary_bypass affects kidney_function",
+                    "mean_arterial_pressure affects urine_output",
+                    "vasopressors affect mean_arterial_pressure",
+                    "diuretics affect urine_output",
+                    "sepsis increases AKI_risk",
+                    "arrhythmias increase AKI_risk"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "099eecbd-b02d-4b6a-9f64-a2be3f211aca",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate time-series data, account for missing data, and provide a probability score for AKI within 48 hours post-surgery. The output should include a risk stratification (low, moderate, high) based on the predicted probability.",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "sex",
+                            "BMI",
+                            "ethnicity"
+                        ],
+                        "comorbidities": [
+                            "hypertension",
+                            "diabetes",
+                            "chronic_kidney_disease",
+                            "heart_failure"
+                        ],
+                        "baseline_lab_values": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin",
+                            "albumin"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "diuretics",
+                            "beta_blockers"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgical_duration": "minutes",
+                        "cardiopulmonary_bypass_time": "minutes",
+                        "blood_loss": "mL",
+                        "intraoperative_hypotension": "binary",
+                        "vasopressor_use": "binary"
+                    },
+                    "post_operative": {
+                        "vital_signs": [
+                            "heart_rate",
+                            "blood_pressure",
+                            "oxygen_saturation"
+                        ],
+                        "lab_values": [
+                            "serum_creatinine",
+                            "urine_output",
+                            "BUN",
+                            "potassium"
+                        ],
+                        "medications": [
+                            "vasopressors",
+                            "diuretics",
+                            "antibiotics"
+                        ],
+                        "complications": [
+                            "sepsis",
+                            "bleeding",
+                            "arrhythmias"
+                        ]
+                    }
+                },
+                "time_series_data": {
+                    "vital_signs": "hourly for 48 hours",
+                    "urine_output": "hourly for 48 hours",
+                    "serum_creatinine": "every 6 hours for 48 hours"
+                }
+            },
+            "mathematical_formulation": {
+                "logistic_regression": "P(AKI) = 1 / (1 + e^-(β0 + β1X1 + β2X2 + ... + βnXn))",
+                "missing_data_handling": "Multiple Imputation by Chained Equations (MICE)",
+                "risk_stratification": {
+                    "low_risk": "P(AKI) < 0.1",
+                    "moderate_risk": "0.1 ≤ P(AKI) < 0.3",
+                    "high_risk": "P(AKI) ≥ 0.3"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "cardiac_surgery",
+                    "serum_creatinine",
+                    "eGFR",
+                    "vasopressors",
+                    "diuretics",
+                    "cardiopulmonary_bypass",
+                    "hypotension",
+                    "sepsis",
+                    "arrhythmias"
+                ],
+                "relations": [
+                    "patient_undergoes_surgery",
+                    "surgery_causes_AKI",
+                    "medication_affects_AKI_risk",
+                    "lab_value_indicates_AKI",
+                    "comorbidity_increases_AKI_risk"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f1f9ff4b-f5af-41ba-b110-a06f1bc60d7c",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model should incorporate time-series data, account for missing data, and provide a probability score for AKI development within 72 hours post-surgery. Validate the model using a separate dataset and report its sensitivity, specificity, and area under the ROC curve (AUC).",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "gender",
+                            "BMI",
+                            "comorbidities"
+                        ],
+                        "baseline_lab_values": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin",
+                            "albumin"
+                        ],
+                        "medication_history": [
+                            "ACE_inhibitors",
+                            "NSAIDs",
+                            "diuretics"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgical_duration": "minutes",
+                        "cardiopulmonary_bypass_time": "minutes",
+                        "blood_loss": "mL",
+                        "intraoperative_medications": [
+                            "vasopressors",
+                            "inotropes"
+                        ]
+                    },
+                    "post_operative": {
+                        "vital_signs": [
+                            "blood_pressure",
+                            "heart_rate",
+                            "oxygen_saturation"
+                        ],
+                        "lab_values": [
+                            "serum_creatinine",
+                            "urine_output",
+                            "BUN"
+                        ],
+                        "complications": [
+                            "hypotension",
+                            "sepsis",
+                            "bleeding"
+                        ]
+                    }
+                },
+                "outcome": {
+                    "AKI_development": "binary (0 = no AKI, 1 = AKI within 72 hours)"
+                }
+            },
+            "mathematical_formulation": "P(AKI|X) = 1 / (1 + exp(-(β0 + β1X1 + β2X2 + ... + βnXn))), where X represents the feature vector including pre-operative, intra-operative, and post-operative variables, and β represents the coefficients derived from logistic regression. Missing data imputation is performed using multiple imputation by chained equations (MICE). Model performance is evaluated using sensitivity = TP/(TP+FN), specificity = TN/(TN+FP), and AUC = ∫ROC curve.",
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "cardiac_surgery",
+                    "serum_creatinine",
+                    "eGFR",
+                    "hemoglobin",
+                    "albumin",
+                    "ACE_inhibitors",
+                    "NSAIDs",
+                    "diuretics",
+                    "cardiopulmonary_bypass",
+                    "vasopressors",
+                    "inotropes",
+                    "hypotension",
+                    "sepsis",
+                    "bleeding"
+                ],
+                "relations": [
+                    "increases_risk_of",
+                    "decreases_risk_of",
+                    "associated_with",
+                    "measured_by",
+                    "administered_during",
+                    "causes",
+                    "predicts"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "4037195d-f611-4256-b234-4f251e12c0f3",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate temporal dynamics of lab values, hemodynamic parameters, and medication administration. The output should be a probability score for AKI within 72 hours post-surgery, stratified by KDIGO stages (1, 2, 3). Validate the model using a time-split cohort and report AUC-ROC, sensitivity, specificity, and calibration metrics.",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "demographics": [
+                            "age",
+                            "sex",
+                            "BMI"
+                        ],
+                        "comorbidities": [
+                            "diabetes",
+                            "hypertension",
+                            "chronic_kidney_disease"
+                        ],
+                        "baseline_labs": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "NSAIDs",
+                            "diuretics"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgery_type": [
+                            "CABG",
+                            "valve_replacement",
+                            "combined_procedures"
+                        ],
+                        "duration": "minutes",
+                        "hemodynamics": [
+                            "mean_arterial_pressure",
+                            "cardiac_output"
+                        ],
+                        "fluid_balance": [
+                            "crystalloids",
+                            "colloids",
+                            "blood_transfusion"
+                        ]
+                    },
+                    "post_operative": {
+                        "vitals": [
+                            "heart_rate",
+                            "blood_pressure",
+                            "oxygen_saturation"
+                        ],
+                        "labs": [
+                            "serum_creatinine",
+                            "BUN",
+                            "potassium"
+                        ],
+                        "medications": [
+                            "vasopressors",
+                            "nephrotoxic_drugs"
+                        ],
+                        "output": [
+                            "urine_output"
+                        ]
+                    }
+                },
+                "outcome": {
+                    "AKI_incidence": "binary",
+                    "KDIGO_stage": [
+                        "1",
+                        "2",
+                        "3"
+                    ],
+                    "time_to_AKI": "hours"
+                }
+            },
+            "mathematical_formulation": {
+                "risk_score": "P(AKI|X) = 1 / (1 + exp(-(β0 + β1X1 + β2X2 + ... + βnXn)))",
+                "temporal_dynamics": "dX/dt = f(X, t, θ)",
+                "validation_metrics": {
+                    "AUC-ROC": "area under the receiver operating characteristic curve",
+                    "sensitivity": "TP / (TP + FN)",
+                    "specificity": "TN / (TN + FP)",
+                    "calibration": "Hosmer-Lemeshow test"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "KDIGO_stages",
+                    "serum_creatinine",
+                    "eGFR",
+                    "hemodynamics",
+                    "vasopressors",
+                    "nephrotoxic_drugs",
+                    "urine_output",
+                    "CABG",
+                    "valve_replacement",
+                    "time_to_AKI"
+                ],
+                "relations": [
+                    "serum_creatinine → AKI_risk",
+                    "eGFR → chronic_kidney_disease",
+                    "vasopressors → hemodynamic_instability",
+                    "nephrotoxic_drugs → AKI_risk",
+                    "urine_output → AKI_diagnosis",
+                    "CABG → post_operative_complications",
+                    "time_to_AKI → KDIGO_stage"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "7682f29a-56bd-4c56-b2fd-2953fe185cde",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate temporal dynamics of lab results, hemodynamic parameters, and medication administration. The output should be a risk score (0-100) for AKI within 72 hours post-surgery, stratified by AKI stages (Stage 1, Stage 2, Stage 3) as per KDIGO criteria.",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "demographics": [
+                            "age",
+                            "gender",
+                            "BMI"
+                        ],
+                        "comorbidities": [
+                            "diabetes",
+                            "hypertension",
+                            "chronic_kidney_disease"
+                        ],
+                        "baseline_labs": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "albumin"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "NSAIDs",
+                            "diuretics"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgical_duration": "minutes",
+                        "blood_loss": "mL",
+                        "hemodynamic_parameters": [
+                            "mean_arterial_pressure",
+                            "cardiac_output"
+                        ],
+                        "fluid_administration": [
+                            "crystalloids",
+                            "colloids"
+                        ],
+                        "vasopressors": [
+                            "norepinephrine",
+                            "vasopressin"
+                        ]
+                    },
+                    "post_operative": {
+                        "lab_results": {
+                            "serum_creatinine": [
+                                "6h",
+                                "12h",
+                                "24h",
+                                "48h",
+                                "72h"
+                            ],
+                            "urine_output": [
+                                "6h",
+                                "12h",
+                                "24h",
+                                "48h",
+                                "72h"
+                            ]
+                        },
+                        "hemodynamic_parameters": [
+                            "mean_arterial_pressure",
+                            "cardiac_output"
+                        ],
+                        "medications": [
+                            "norepinephrine",
+                            "furosemide",
+                            "antibiotics"
+                        ]
+                    }
+                },
+                "outcome": {
+                    "AKI_stages": [
+                        "Stage_1",
+                        "Stage_2",
+                        "Stage_3"
+                    ],
+                    "time_to_AKI": "hours"
+                }
+            },
+            "mathematical_formulation": {
+                "risk_score": "P(AKI) = 1 / (1 + exp(-(β0 + β1*X1 + β2*X2 + ... + βn*Xn)))",
+                "temporal_dynamics": "dX/dt = f(X, t, θ)",
+                "constraints": [
+                    "P(AKI_Stage_1) < P(AKI_Stage_2) < P(AKI_Stage_3)",
+                    "eGFR < 60 mL/min/1.73m² increases risk",
+                    "urine_output < 0.5 mL/kg/h for 6h increases risk"
+                ]
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "KDIGO_criteria",
+                    "serum_creatinine",
+                    "eGFR",
+                    "mean_arterial_pressure",
+                    "cardiac_output",
+                    "vasopressors",
+                    "norepinephrine",
+                    "furosemide",
+                    "diuretics",
+                    "ACE_inhibitors",
+                    "NSAIDs",
+                    "chronic_kidney_disease",
+                    "diabetes",
+                    "hypertension"
+                ],
+                "relations": [
+                    "serum_creatinine → AKI_stage",
+                    "eGFR → chronic_kidney_disease",
+                    "mean_arterial_pressure → hemodynamic_stability",
+                    "vasopressors → hemodynamic_support",
+                    "urine_output → AKI_risk",
+                    "diuretics → fluid_balance"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "125d1447-0968-419a-afd2-587dc451cbe4",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model should incorporate time-series data, account for missing data, and provide a probability score for AKI onset within 72 hours post-surgery. Validate the model using a separate cohort and report sensitivity, specificity, and area under the ROC curve (AUC).",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_age": [
+                            65,
+                            72,
+                            58,
+                            81
+                        ],
+                        "baseline_creatinine": [
+                            1.2,
+                            1.5,
+                            0.9,
+                            1.8
+                        ],
+                        "eGFR": [
+                            55,
+                            45,
+                            70,
+                            30
+                        ],
+                        "comorbidities": [
+                            "hypertension",
+                            "diabetes",
+                            "chronic_kidney_disease",
+                            "none"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgery_duration_min": [
+                            240,
+                            180,
+                            300,
+                            210
+                        ],
+                        "blood_loss_ml": [
+                            500,
+                            300,
+                            800,
+                            400
+                        ],
+                        "cardiopulmonary_bypass_time_min": [
+                            120,
+                            90,
+                            150,
+                            100
+                        ]
+                    },
+                    "post_operative": {
+                        "creatinine_levels_24h": [
+                            1.5,
+                            1.8,
+                            1.2,
+                            2.0
+                        ],
+                        "creatinine_levels_48h": [
+                            1.6,
+                            2.0,
+                            1.3,
+                            2.5
+                        ],
+                        "urine_output_24h_ml": [
+                            800,
+                            600,
+                            900,
+                            500
+                        ],
+                        "vasopressor_use": [
+                            "yes",
+                            "no",
+                            "yes",
+                            "no"
+                        ]
+                    },
+                    "outcome": {
+                        "AKI_onset_72h": [
+                            "yes",
+                            "no",
+                            "yes",
+                            "yes"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "P(AKI|X) = 1 / (1 + exp(-(β0 + β1*X1 + β2*X2 + ... + βn*Xn))), where X represents the feature vector including pre-operative, intra-operative, and post-operative variables. Missing data is handled using multiple imputation. Model performance is evaluated using AUC = ∫(TPR(FPR^-1(x))dx, where TPR is true positive rate and FPR is false positive rate.",
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "creatinine",
+                    "eGFR",
+                    "cardiopulmonary_bypass",
+                    "vasopressor",
+                    "hypertension",
+                    "diabetes",
+                    "chronic_kidney_disease"
+                ],
+                "relations": [
+                    "patient_has_comorbidity",
+                    "surgery_causes_blood_loss",
+                    "creatinine_level_indicates_AKI",
+                    "vasopressor_use_affects_AKI_risk"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "689ec878-73ee-40d6-bf0b-4416ea9b0f9c",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model should incorporate time-series data, account for missing data, and provide a probabilistic output for AKI risk within 72 hours post-surgery. Validate the model using a separate cohort and report sensitivity, specificity, and area under the ROC curve (AUC).",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "sex",
+                            "BMI",
+                            "race"
+                        ],
+                        "comorbidities": [
+                            "diabetes",
+                            "hypertension",
+                            "chronic_kidney_disease",
+                            "heart_failure"
+                        ],
+                        "baseline_lab_values": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin",
+                            "albumin"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "ARBs",
+                            "diuretics",
+                            "NSAIDs"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgery_type": [
+                            "CABG",
+                            "valve_replacement",
+                            "combined_procedures"
+                        ],
+                        "cardiopulmonary_bypass_time": "minutes",
+                        "cross_clamp_time": "minutes",
+                        "intraoperative_hypotension": "binary",
+                        "blood_transfusion": "units"
+                    },
+                    "post_operative": {
+                        "vital_signs": [
+                            "mean_arterial_pressure",
+                            "heart_rate",
+                            "oxygen_saturation"
+                        ],
+                        "lab_values": [
+                            "serum_creatinine",
+                            "urine_output",
+                            "BUN",
+                            "potassium"
+                        ],
+                        "complications": [
+                            "sepsis",
+                            "bleeding",
+                            "arrhythmias"
+                        ]
+                    }
+                },
+                "outcome": {
+                    "AKI_definition": [
+                        "KDIGO_criteria"
+                    ],
+                    "time_to_AKI": "hours"
+                }
+            },
+            "mathematical_formulation": {
+                "risk_score": "P(AKI) = 1 / (1 + exp(-(β0 + β1*X1 + β2*X2 + ... + βn*Xn)))",
+                "missing_data_handling": "Multiple Imputation by Chained Equations (MICE)",
+                "validation_metrics": [
+                    "sensitivity",
+                    "specificity",
+                    "AUC"
+                ]
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "cardiac_surgery",
+                    "serum_creatinine",
+                    "eGFR",
+                    "KDIGO_criteria",
+                    "cardiopulmonary_bypass",
+                    "hypotension",
+                    "sepsis",
+                    "arrhythmias"
+                ],
+                "relations": [
+                    "patient_undergoes_surgery",
+                    "surgery_leads_to_complications",
+                    "complications_increase_AKI_risk",
+                    "lab_values_indicate_kidney_function"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "2aafde0c-c56c-4100-88c5-ae0aa27ca572",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate temporal dynamics of lab results, vital signs, and medication administration. The output should be a probability score for AKI within 72 hours post-surgery, stratified by KDIGO stages (1, 2, 3). Validate the model using a hold-out dataset and report sensitivity, specificity, and area under the ROC curve (AUC).",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "demographics": [
+                            "age",
+                            "gender",
+                            "BMI"
+                        ],
+                        "comorbidities": [
+                            "hypertension",
+                            "diabetes",
+                            "chronic_kidney_disease"
+                        ],
+                        "baseline_labs": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "NSAIDs",
+                            "diuretics"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgery_duration": "minutes",
+                        "blood_loss": "mL",
+                        "fluid_administration": [
+                            "crystalloids",
+                            "colloids"
+                        ],
+                        "vasopressor_use": [
+                            "norepinephrine",
+                            "vasopressin"
+                        ]
+                    },
+                    "post_operative": {
+                        "vital_signs": [
+                            "blood_pressure",
+                            "heart_rate",
+                            "oxygen_saturation"
+                        ],
+                        "lab_results": [
+                            "serum_creatinine",
+                            "urine_output",
+                            "BUN"
+                        ],
+                        "medications": [
+                            "contrast_agents",
+                            "antibiotics",
+                            "analgesics"
+                        ]
+                    }
+                },
+                "outcome": {
+                    "AKI_incidence": [
+                        "KDIGO_stage_1",
+                        "KDIGO_stage_2",
+                        "KDIGO_stage_3"
+                    ],
+                    "time_to_AKI": "hours"
+                }
+            },
+            "mathematical_formulation": {
+                "logistic_regression": "P(AKI) = 1 / (1 + e^-(β0 + β1X1 + β2X2 + ... + βnXn))",
+                "temporal_dynamics": "dX/dt = f(X, t, θ)",
+                "ROC_curve": "AUC = ∫(TPR(FPR^-1(x)) dx)",
+                "sensitivity_specificity": "Sensitivity = TP / (TP + FN), Specificity = TN / (TN + FP)"
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "KDIGO_stages",
+                    "serum_creatinine",
+                    "eGFR",
+                    "vasopressors",
+                    "contrast_agents",
+                    "ROC_curve",
+                    "logistic_regression"
+                ],
+                "relations": [
+                    "serum_creatinine → acute_kidney_injury",
+                    "vasopressors → hemodynamic_instability",
+                    "contrast_agents → nephrotoxicity",
+                    "logistic_regression → probability_estimation",
+                    "ROC_curve → model_performance"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e1479faa-e1f1-4687-9216-c9d35ef8e00d",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model should incorporate time-series data and account for interactions between variables. The output should be a probability score for AKI development within 72 hours post-surgery, stratified by severity (Stage 1, Stage 2, Stage 3 as per KDIGO criteria).",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "gender",
+                            "BMI",
+                            "race"
+                        ],
+                        "comorbidities": [
+                            "hypertension",
+                            "diabetes_mellitus",
+                            "chronic_kidney_disease",
+                            "heart_failure"
+                        ],
+                        "baseline_lab_values": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin",
+                            "albumin"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "NSAIDs",
+                            "diuretics"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgical_duration": "minutes",
+                        "cardiopulmonary_bypass_time": "minutes",
+                        "blood_loss": "mL",
+                        "intraoperative_hypotension_episodes": "count",
+                        "vasopressor_use": [
+                            "yes",
+                            "no"
+                        ]
+                    },
+                    "post_operative": {
+                        "vital_signs": [
+                            "mean_arterial_pressure",
+                            "heart_rate",
+                            "urine_output"
+                        ],
+                        "lab_values": [
+                            "serum_creatinine",
+                            "blood_urea_nitrogen",
+                            "potassium"
+                        ],
+                        "complications": [
+                            "sepsis",
+                            "hemorrhage",
+                            "arrhythmias"
+                        ]
+                    }
+                },
+                "outcome": {
+                    "AKI_incidence": [
+                        "yes",
+                        "no"
+                    ],
+                    "AKI_stage": [
+                        "Stage_1",
+                        "Stage_2",
+                        "Stage_3"
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(AKI|X) = 1 / (1 + exp(-(β0 + β1X1 + β2X2 + ... + βnXn + Σ(γi * interaction_terms))) where X represents the input variables, β represents coefficients, and γ represents interaction terms. The model should incorporate time-dependent covariates using a Cox proportional hazards framework for longitudinal data.",
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "cardiac_surgery",
+                    "KDIGO_criteria",
+                    "serum_creatinine",
+                    "eGFR",
+                    "cardiopulmonary_bypass",
+                    "vasopressors",
+                    "hypotension",
+                    "sepsis",
+                    "hemorrhage",
+                    "arrhythmias"
+                ],
+                "relations": [
+                    "acute_kidney_injury is_staged_by KDIGO_criteria",
+                    "cardiac_surgery involves cardiopulmonary_bypass",
+                    "vasopressors used_for hypotension",
+                    "sepsis may_cause acute_kidney_injury",
+                    "hemorrhage may_cause hypotension",
+                    "arrhythmias may_cause hemodynamic_instability"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "1d9245ec-2639-495b-a86e-18f0f0c58f23",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model should incorporate time-series data, laboratory results, and patient demographics. The output should be a probability score for AKI within 72 hours post-surgery, along with a confidence interval. Validate the model using a separate dataset and provide performance metrics including AUC-ROC, sensitivity, specificity, and calibration plots.",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "sex",
+                            "BMI",
+                            "comorbidities"
+                        ],
+                        "baseline_labs": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "serum_electrolytes"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "NSAIDs",
+                            "diuretics"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgical_duration": "minutes",
+                        "blood_loss": "mL",
+                        "fluid_administration": [
+                            "crystalloids",
+                            "colloids"
+                        ],
+                        "hemodynamic_parameters": [
+                            "mean_arterial_pressure",
+                            "heart_rate"
+                        ]
+                    },
+                    "post_operative": {
+                        "time_series_labs": [
+                            "serum_creatinine",
+                            "urine_output",
+                            "BUN"
+                        ],
+                        "vital_signs": [
+                            "blood_pressure",
+                            "heart_rate",
+                            "oxygen_saturation"
+                        ],
+                        "complications": [
+                            "hypotension",
+                            "sepsis",
+                            "transfusion_requirement"
+                        ]
+                    }
+                },
+                "outcome": {
+                    "AKI_definition": "KDIGO criteria",
+                    "time_to_AKI": "hours post-surgery"
+                }
+            },
+            "mathematical_formulation": "P(AKI|X) = 1 / (1 + exp(-(β0 + β1X1 + β2X2 + ... + βnXn)) where X represents the feature vector including pre-operative, intra-operative, and post-operative variables. The model should minimize the cross-entropy loss function: L = -Σ [y_i log(P(AKI|X_i)) + (1 - y_i) log(1 - P(AKI|X_i))].",
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "serum_creatinine",
+                    "eGFR",
+                    "hemodynamic_parameters",
+                    "KDIGO_criteria",
+                    "AUC-ROC",
+                    "sensitivity",
+                    "specificity"
+                ],
+                "relations": [
+                    "serum_creatinine -> AKI_risk",
+                    "eGFR -> AKI_risk",
+                    "hemodynamic_parameters -> AKI_risk",
+                    "KDIGO_criteria -> AKI_diagnosis"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "140dc943-71c8-40bd-8be0-90a0109e160d",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate time-series data, account for missing data, and provide a probabilistic output for AKI risk within 72 hours post-surgery. The model should be validated using a stratified k-fold cross-validation approach and evaluated using metrics such as AUC-ROC, sensitivity, specificity, and calibration plots.",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "gender",
+                            "BMI",
+                            "comorbidities"
+                        ],
+                        "lab_results": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin",
+                            "albumin"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "NSAIDs",
+                            "diuretics"
+                        ],
+                        "clinical_history": [
+                            "prior_AKI",
+                            "diabetes",
+                            "hypertension",
+                            "heart_failure"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgical_details": [
+                            "surgery_duration",
+                            "cardiopulmonary_bypass_time",
+                            "cross_clamp_time"
+                        ],
+                        "hemodynamics": [
+                            "mean_arterial_pressure",
+                            "cardiac_output",
+                            "blood_loss"
+                        ],
+                        "anesthesia": [
+                            "anesthetic_agents",
+                            "fluid_administration",
+                            "vasopressor_use"
+                        ]
+                    },
+                    "post_operative": {
+                        "vital_signs": [
+                            "heart_rate",
+                            "blood_pressure",
+                            "oxygen_saturation"
+                        ],
+                        "lab_results": [
+                            "serum_creatinine",
+                            "urine_output",
+                            "lactate"
+                        ],
+                        "complications": [
+                            "hypotension",
+                            "sepsis",
+                            "transfusion_requirements"
+                        ]
+                    }
+                },
+                "time_series_data": {
+                    "vital_signs": [
+                        "heart_rate",
+                        "blood_pressure",
+                        "oxygen_saturation"
+                    ],
+                    "lab_results": [
+                        "serum_creatinine",
+                        "urine_output",
+                        "lactate"
+                    ],
+                    "interventions": [
+                        "fluid_administration",
+                        "vasopressor_use",
+                        "mechanical_ventilation"
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "risk_score": "P(AKI|X) = 1 / (1 + exp(-(β0 + β1X1 + β2X2 + ... + βnXn)))",
+                "missing_data_handling": "X_missing = E[X|X_observed]",
+                "time_series_analysis": "X_t = f(X_t-1, X_t-2, ..., X_t-n) + ε_t",
+                "validation_metrics": {
+                    "AUC_ROC": "∫(TPR(FPR^-1(x)))dx",
+                    "sensitivity": "TP / (TP + FN)",
+                    "specificity": "TN / (TN + FP)",
+                    "calibration": "∑(observed_probability - predicted_probability)^2"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "serum_creatinine",
+                    "eGFR",
+                    "cardiopulmonary_bypass",
+                    "vasopressor",
+                    "mechanical_ventilation",
+                    "hypotension",
+                    "sepsis",
+                    "transfusion",
+                    "ACE_inhibitors",
+                    "NSAIDs",
+                    "diuretics",
+                    "diabetes",
+                    "hypertension",
+                    "heart_failure"
+                ],
+                "relations": [
+                    "serum_creatinine → acute_kidney_injury",
+                    "eGFR → acute_kidney_injury",
+                    "cardiopulmonary_bypass → acute_kidney_injury",
+                    "vasopressor → hypotension",
+                    "hypotension → acute_kidney_injury",
+                    "sepsis → acute_kidney_injury",
+                    "transfusion → acute_kidney_injury",
+                    "ACE_inhibitors → serum_creatinine",
+                    "NSAIDs → serum_creatinine",
+                    "diuretics → serum_creatinine",
+                    "diabetes → acute_kidney_injury",
+                    "hypertension → acute_kidney_injury",
+                    "heart_failure → acute_kidney_injury"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "3ce0e862-8198-4652-8b33-a3d86941c2fe",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the probability of acute kidney injury (AKI) progression to chronic kidney disease (CKD) within 12 months post-diagnosis, based on a combination of clinical, laboratory, and demographic data. The model must account for interactions between variables such as baseline glomerular filtration rate (GFR), serum creatinine levels, comorbidities (e.g., diabetes, hypertension), and medication history (e.g., NSAID use). Validate the model using a hold-out dataset and report its sensitivity, specificity, and area under the ROC curve (AUC).",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "patient_id": 1,
+                            "age": 65,
+                            "gender": "male",
+                            "baseline_GFR": 45,
+                            "serum_creatinine": 2.1,
+                            "comorbidities": [
+                                "diabetes",
+                                "hypertension"
+                            ],
+                            "medication_history": [
+                                "NSAIDs",
+                                "ACE inhibitors"
+                            ],
+                            "AKI_stage": 2,
+                            "CKD_progression": 1
+                        },
+                        {
+                            "patient_id": 2,
+                            "age": 72,
+                            "gender": "female",
+                            "baseline_GFR": 38,
+                            "serum_creatinine": 2.8,
+                            "comorbidities": [
+                                "hypertension"
+                            ],
+                            "medication_history": [
+                                "NSAIDs"
+                            ],
+                            "AKI_stage": 3,
+                            "CKD_progression": 1
+                        },
+                        {
+                            "patient_id": 3,
+                            "age": 58,
+                            "gender": "male",
+                            "baseline_GFR": 60,
+                            "serum_creatinine": 1.5,
+                            "comorbidities": [],
+                            "medication_history": [],
+                            "AKI_stage": 1,
+                            "CKD_progression": 0
+                        }
+                    ]
+                },
+                "validation_data": {
+                    "patients": [
+                        {
+                            "patient_id": 4,
+                            "age": 70,
+                            "gender": "female",
+                            "baseline_GFR": 40,
+                            "serum_creatinine": 2.3,
+                            "comorbidities": [
+                                "diabetes"
+                            ],
+                            "medication_history": [
+                                "ACE inhibitors"
+                            ],
+                            "AKI_stage": 2,
+                            "CKD_progression": 1
+                        },
+                        {
+                            "patient_id": 5,
+                            "age": 64,
+                            "gender": "male",
+                            "baseline_GFR": 50,
+                            "serum_creatinine": 1.9,
+                            "comorbidities": [
+                                "hypertension"
+                            ],
+                            "medication_history": [
+                                "NSAIDs"
+                            ],
+                            "AKI_stage": 1,
+                            "CKD_progression": 0
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "logistic_regression": "P(CKD_progression) = 1 / (1 + e^-(β0 + β1*GFR + β2*creatinine + β3*age + β4*diabetes + β5*hypertension + β6*NSAID_use))",
+                "ROC_curve": "AUC = ∫[TPR(FPR^-1(x))]dx",
+                "sensitivity": "TP / (TP + FN)",
+                "specificity": "TN / (TN + FP)"
+            },
+            "ontology": {
+                "entities": [
+                    "acute kidney injury (AKI)",
+                    "chronic kidney disease (CKD)",
+                    "glomerular filtration rate (GFR)",
+                    "serum creatinine",
+                    "diabetes",
+                    "hypertension",
+                    "NSAIDs",
+                    "ACE inhibitors",
+                    "sensitivity",
+                    "specificity",
+                    "ROC curve",
+                    "AUC"
+                ],
+                "relations": [
+                    "AKI may progress to CKD",
+                    "GFR is inversely related to serum creatinine",
+                    "Diabetes and hypertension are risk factors for CKD",
+                    "NSAID use increases risk of AKI",
+                    "ACE inhibitors may protect against CKD progression"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "42089005-7548-46b8-a63e-72c8d17de353",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of Acute Kidney Injury (AKI) in post-operative patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate time-series data, account for missing data, and provide a probabilistic output for AKI risk within 72 hours post-surgery. Validate the model using a separate dataset and report its sensitivity, specificity, and area under the ROC curve (AUC).",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "sex",
+                            "BMI",
+                            "comorbidities"
+                        ],
+                        "baseline_lab_values": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "serum_electrolytes"
+                        ],
+                        "medication_history": [
+                            "ACE_inhibitors",
+                            "NSAIDs",
+                            "diuretics"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgical_duration": "minutes",
+                        "blood_loss": "mL",
+                        "hypotension_episodes": "count",
+                        "fluid_administration": [
+                            "crystalloids",
+                            "colloids",
+                            "blood_products"
+                        ]
+                    },
+                    "post_operative": {
+                        "vital_signs": [
+                            "blood_pressure",
+                            "heart_rate",
+                            "urine_output"
+                        ],
+                        "lab_values": [
+                            "serum_creatinine",
+                            "BUN",
+                            "serum_electrolytes"
+                        ],
+                        "medications": [
+                            "vasopressors",
+                            "analgesics",
+                            "antibiotics"
+                        ]
+                    },
+                    "outcome": {
+                        "AKI_incidence": "binary (0/1)",
+                        "time_to_AKI": "hours"
+                    }
+                },
+                "validation_dataset": {
+                    "sample_size": 5000,
+                    "AKI_prevalence": 0.15
+                }
+            },
+            "mathematical_formulation": {
+                "logistic_regression": "P(AKI) = 1 / (1 + e^-(β0 + β1X1 + β2X2 + ... + βnXn))",
+                "time_series_analysis": "Xt = μ + Σ(φi * Xt-i) + εt",
+                "missing_data_imputation": "X_missing = f(X_observed, θ)",
+                "performance_metrics": {
+                    "sensitivity": "TP / (TP + FN)",
+                    "specificity": "TN / (TN + FP)",
+                    "AUC": "∫(TPR(FPR))dFPR"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "Acute Kidney Injury (AKI)",
+                    "serum_creatinine",
+                    "eGFR",
+                    "hypotension",
+                    "vasopressors",
+                    "urine_output",
+                    "logistic_regression",
+                    "time_series_analysis",
+                    "ROC_curve"
+                ],
+                "relations": [
+                    "serum_creatinine → AKI",
+                    "hypotension → AKI",
+                    "vasopressors → hypotension",
+                    "urine_output → AKI",
+                    "logistic_regression → AKI_risk_prediction",
+                    "time_series_analysis → AKI_risk_trend"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "7f44bb56-ae0d-4e42-b55f-23303c9be801",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate time-dependent covariates and account for competing risks such as mortality. The output should include a risk score for AKI at 48 hours post-surgery, stratified by patient demographics and comorbidities.",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "age": [
+                            45,
+                            67,
+                            72,
+                            58,
+                            63
+                        ],
+                        "gender": [
+                            "M",
+                            "F",
+                            "M",
+                            "F",
+                            "M"
+                        ],
+                        "comorbidities": [
+                            "diabetes",
+                            "hypertension",
+                            "chronic_kidney_disease",
+                            "none",
+                            "diabetes"
+                        ],
+                        "baseline_creatinine": [
+                            1.2,
+                            1.5,
+                            1.8,
+                            1.1,
+                            1.4
+                        ],
+                        "eGFR": [
+                            65,
+                            50,
+                            40,
+                            70,
+                            55
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgery_duration_min": [
+                            240,
+                            180,
+                            210,
+                            190,
+                            220
+                        ],
+                        "cardiopulmonary_bypass_time_min": [
+                            120,
+                            90,
+                            110,
+                            100,
+                            130
+                        ],
+                        "blood_loss_ml": [
+                            800,
+                            600,
+                            700,
+                            500,
+                            900
+                        ],
+                        "hypotension_episodes": [
+                            2,
+                            1,
+                            3,
+                            0,
+                            2
+                        ]
+                    },
+                    "post_operative": {
+                        "creatinine_24h": [
+                            1.5,
+                            1.7,
+                            2.0,
+                            1.3,
+                            1.6
+                        ],
+                        "urine_output_24h_ml": [
+                            1200,
+                            1000,
+                            800,
+                            1500,
+                            900
+                        ],
+                        "vasopressor_use": [
+                            "yes",
+                            "no",
+                            "yes",
+                            "no",
+                            "yes"
+                        ],
+                        "mortality_48h": [
+                            "no",
+                            "no",
+                            "yes",
+                            "no",
+                            "no"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "risk_score": "P(AKI|X) = 1 / (1 + exp(-(β0 + β1*X1 + β2*X2 + ... + βn*Xn)))",
+                "competing_risk": "P(mortality|X) = 1 - exp(-∫λ(t|X)dt)",
+                "time_dependency": "λ(t|X) = λ0(t) * exp(γ1*X1 + γ2*X2 + ... + γn*Xn)"
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "cardiac_surgery",
+                    "creatinine",
+                    "eGFR",
+                    "diabetes",
+                    "hypertension",
+                    "chronic_kidney_disease",
+                    "cardiopulmonary_bypass",
+                    "hypotension",
+                    "vasopressor",
+                    "mortality"
+                ],
+                "relations": [
+                    "increases_risk_of",
+                    "associated_with",
+                    "causes",
+                    "measured_by",
+                    "treated_with"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "bb7477be-bcaf-4fa7-a07c-dbf39cc624ce",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate time-series data, account for missing data, and provide a probabilistic output for AKI risk within 72 hours post-surgery. The model should be validated using a hold-out dataset and evaluated using metrics such as AUC-ROC, sensitivity, specificity, and calibration plots.",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "gender",
+                            "BMI",
+                            "race"
+                        ],
+                        "comorbidities": [
+                            "hypertension",
+                            "diabetes",
+                            "chronic_kidney_disease",
+                            "heart_failure"
+                        ],
+                        "baseline_lab_values": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin",
+                            "albumin"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "diuretics",
+                            "NSAIDs"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgery_type": [
+                            "CABG",
+                            "valve_replacement",
+                            "combined_procedures"
+                        ],
+                        "cardiopulmonary_bypass_time": "minutes",
+                        "cross_clamp_time": "minutes",
+                        "intraoperative_hypotension": "binary",
+                        "blood_transfusion": "units"
+                    },
+                    "post_operative": {
+                        "vital_signs": [
+                            "mean_arterial_pressure",
+                            "heart_rate",
+                            "urine_output"
+                        ],
+                        "lab_values": [
+                            "serum_creatinine",
+                            "lactate",
+                            "BUN"
+                        ],
+                        "vasopressor_use": "binary",
+                        "mechanical_ventilation": "hours"
+                    }
+                },
+                "outcome": {
+                    "AKI_definition": [
+                        "KDIGO_criteria_stage_1",
+                        "KDIGO_criteria_stage_2",
+                        "KDIGO_criteria_stage_3"
+                    ],
+                    "time_to_AKI": "hours"
+                }
+            },
+            "mathematical_formulation": {
+                "risk_score": "P(AKI|X) = 1 / (1 + exp(-(β0 + β1X1 + β2X2 + ... + βnXn)))",
+                "missing_data_handling": "Multiple Imputation by Chained Equations (MICE)",
+                "time_series_analysis": "Generalized Estimating Equations (GEE) for repeated measures",
+                "validation": "10-fold cross-validation with hold-out testing"
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "cardiac_surgery",
+                    "KDIGO_criteria",
+                    "serum_creatinine",
+                    "eGFR",
+                    "cardiopulmonary_bypass",
+                    "vasopressor",
+                    "mechanical_ventilation",
+                    "hypotension",
+                    "blood_transfusion"
+                ],
+                "relations": [
+                    "acute_kidney_injury is_diagnosed_by KDIGO_criteria",
+                    "cardiac_surgery involves cardiopulmonary_bypass",
+                    "serum_creatinine is_indicative_of kidney_function",
+                    "vasopressor use_increases risk_of hypotension",
+                    "mechanical_ventilation is_associated_with post_operative_complications"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "773608c0-ab0c-479c-89a5-cf266722dd26",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-operative cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate time-series data, account for missing data, and provide a probabilistic output for AKI risk within 48 hours post-surgery. The model should be validated using a 10-fold cross-validation approach and evaluated using AUC-ROC, sensitivity, and specificity metrics.",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "sex",
+                            "BMI",
+                            "comorbidities"
+                        ],
+                        "lab_results": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin",
+                            "albumin"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "diuretics",
+                            "NSAIDs"
+                        ],
+                        "clinical_history": [
+                            "prior_AKI",
+                            "diabetes",
+                            "hypertension",
+                            "heart_failure"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgical_details": [
+                            "surgery_type",
+                            "cardiopulmonary_bypass_time",
+                            "cross_clamp_time"
+                        ],
+                        "hemodynamics": [
+                            "mean_arterial_pressure",
+                            "cardiac_output",
+                            "blood_loss"
+                        ],
+                        "fluids_administered": [
+                            "crystalloids",
+                            "colloids",
+                            "blood_products"
+                        ]
+                    },
+                    "post_operative": {
+                        "vitals": [
+                            "heart_rate",
+                            "blood_pressure",
+                            "oxygen_saturation"
+                        ],
+                        "lab_results": [
+                            "serum_creatinine",
+                            "urine_output",
+                            "lactate"
+                        ],
+                        "medications": [
+                            "vasopressors",
+                            "analgesics",
+                            "antibiotics"
+                        ]
+                    }
+                },
+                "outcome": {
+                    "AKI_incidence": [
+                        "AKI_stage_1",
+                        "AKI_stage_2",
+                        "AKI_stage_3"
+                    ],
+                    "time_to_AKI": "hours_post_surgery"
+                }
+            },
+            "mathematical_formulation": {
+                "logistic_regression": "P(AKI|X) = 1 / (1 + exp(-(β0 + β1X1 + β2X2 + ... + βnXn)))",
+                "time_series_analysis": "X(t) = {X1(t), X2(t), ..., Xn(t)} where t represents time in hours post-surgery",
+                "missing_data_imputation": "X_missing = f(X_observed, θ) where θ represents imputation parameters",
+                "performance_metrics": {
+                    "AUC-ROC": "∫(TPR(FPR))dFPR",
+                    "sensitivity": "TP / (TP + FN)",
+                    "specificity": "TN / (TN + FP)"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "serum_creatinine",
+                    "eGFR",
+                    "cardiopulmonary_bypass_time",
+                    "mean_arterial_pressure",
+                    "vasopressors",
+                    "AKI_stage_1",
+                    "AKI_stage_2",
+                    "AKI_stage_3"
+                ],
+                "relations": [
+                    "serum_creatinine → acute_kidney_injury",
+                    "eGFR → acute_kidney_injury",
+                    "cardiopulmonary_bypass_time → acute_kidney_injury",
+                    "mean_arterial_pressure → acute_kidney_injury",
+                    "vasopressors → acute_kidney_injury",
+                    "AKI_stage_1 → AKI_stage_2",
+                    "AKI_stage_2 → AKI_stage_3"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "bf52b065-d0c4-4f25-8cc2-ebb3a8cbec72",
+        "task_details": {
+            "task_instructions": "Given a dataset of patient records with clinical, genetic, and pharmacological data, develop a predictive model to estimate the likelihood of adverse drug reactions (ADRs) for a new patient based on their genetic profile, comorbidities, and concurrent medications. The model must account for drug-drug interactions, pharmacogenomic variability, and patient-specific factors such as age, gender, and renal function. The output should include a risk score for each potential ADR, along with a confidence interval.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_records": [
+                        {
+                            "patient_id": "P001",
+                            "age": 45,
+                            "gender": "Male",
+                            "weight_kg": 78,
+                            "height_cm": 175,
+                            "renal_function_ml_min": 85,
+                            "comorbidities": [
+                                "Hypertension",
+                                "Type 2 Diabetes"
+                            ],
+                            "current_medications": [
+                                "Metformin",
+                                "Lisinopril"
+                            ],
+                            "genetic_profile": {
+                                "CYP2C9": "*1/*2",
+                                "VKORC1": "GG",
+                                "SLCO1B1": "TT"
+                            },
+                            "adverse_drug_reactions": [
+                                {
+                                    "drug": "Warfarin",
+                                    "reaction": "Bleeding",
+                                    "severity": "Severe"
+                                }
+                            ]
+                        },
+                        {
+                            "patient_id": "P002",
+                            "age": 60,
+                            "gender": "Female",
+                            "weight_kg": 65,
+                            "height_cm": 160,
+                            "renal_function_ml_min": 45,
+                            "comorbidities": [
+                                "Chronic Kidney Disease"
+                            ],
+                            "current_medications": [
+                                "Atorvastatin",
+                                "Furosemide"
+                            ],
+                            "genetic_profile": {
+                                "CYP2C9": "*3/*3",
+                                "VKORC1": "AA",
+                                "SLCO1B1": "CC"
+                            },
+                            "adverse_drug_reactions": [
+                                {
+                                    "drug": "Simvastatin",
+                                    "reaction": "Myopathy",
+                                    "severity": "Moderate"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "drug_interaction_data": {
+                    "interactions": [
+                        {
+                            "drug_1": "Warfarin",
+                            "drug_2": "Metformin",
+                            "interaction_type": "Pharmacokinetic",
+                            "severity": "Moderate"
+                        },
+                        {
+                            "drug_1": "Atorvastatin",
+                            "drug_2": "Furosemide",
+                            "interaction_type": "Pharmacodynamic",
+                            "severity": "Low"
+                        }
+                    ]
+                },
+                "pharmacogenomic_data": {
+                    "genes": [
+                        "CYP2C9",
+                        "VKORC1",
+                        "SLCO1B1"
+                    ],
+                    "variants": {
+                        "CYP2C9": [
+                            "*1/*1",
+                            "*1/*2",
+                            "*1/*3",
+                            "*2/*2",
+                            "*2/*3",
+                            "*3/*3"
+                        ],
+                        "VKORC1": [
+                            "GG",
+                            "GA",
+                            "AA"
+                        ],
+                        "SLCO1B1": [
+                            "TT",
+                            "TC",
+                            "CC"
+                        ]
+                    },
+                    "effects": {
+                        "CYP2C9": {
+                            "*1/*1": "Normal metabolism",
+                            "*1/*2": "Reduced metabolism",
+                            "*3/*3": "Poor metabolism"
+                        },
+                        "VKORC1": {
+                            "GG": "High warfarin sensitivity",
+                            "AA": "Low warfarin sensitivity"
+                        },
+                        "SLCO1B1": {
+                            "TT": "Normal statin transport",
+                            "CC": "Reduced statin transport"
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "risk_score": "P(ADR|X) = 1 / (1 + exp(-(β0 + β1*X1 + β2*X2 + ... + βn*Xn)))",
+                "confidence_interval": "CI = β ± Z * SE(β)",
+                "constraints": [
+                    "β0, β1, ..., βn are coefficients derived from logistic regression.",
+                    "Z is the Z-score corresponding to the desired confidence level.",
+                    "SE(β) is the standard error of the coefficient."
+                ]
+            },
+            "ontology": {
+                "entities": [
+                    "Adverse Drug Reaction (ADR)",
+                    "Pharmacogenomics",
+                    "Drug-Drug Interaction",
+                    "Comorbidity",
+                    "Renal Function",
+                    "Genetic Variant",
+                    "CYP2C9",
+                    "VKORC1",
+                    "SLCO1B1"
+                ],
+                "relations": [
+                    "ADR is caused by Drug",
+                    "Drug interacts with Drug",
+                    "Genetic Variant affects Drug Metabolism",
+                    "Comorbidity influences ADR Risk",
+                    "Renal Function affects Drug Clearance"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "30910775-9766-498d-aec2-56c6636aba57",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the risk of acute kidney injury (AKI) in post-cardiac surgery patients using a combination of pre-operative, intra-operative, and post-operative clinical variables. The model must incorporate time-series data, account for missing data, and provide a probabilistic output for AKI risk within 72 hours post-surgery. The model should be validated using a hold-out dataset and evaluated using metrics such as AUC-ROC, sensitivity, specificity, and calibration plots.",
+            "task_data": {
+                "clinical_data": {
+                    "pre_operative": {
+                        "patient_demographics": [
+                            "age",
+                            "gender",
+                            "BMI",
+                            "ethnicity"
+                        ],
+                        "comorbidities": [
+                            "hypertension",
+                            "diabetes",
+                            "chronic_kidney_disease",
+                            "heart_failure"
+                        ],
+                        "baseline_lab_values": [
+                            "serum_creatinine",
+                            "eGFR",
+                            "hemoglobin",
+                            "albumin"
+                        ],
+                        "medications": [
+                            "ACE_inhibitors",
+                            "diuretics",
+                            "NSAIDs"
+                        ]
+                    },
+                    "intra_operative": {
+                        "surgery_duration": "minutes",
+                        "cardiopulmonary_bypass_time": "minutes",
+                        "blood_loss": "mL",
+                        "intraoperative_medications": [
+                            "vasopressors",
+                            "inotropes"
+                        ]
+                    },
+                    "post_operative": {
+                        "vital_signs": [
+                            "blood_pressure",
+                            "heart_rate",
+                            "oxygen_saturation"
+                        ],
+                        "lab_values": [
+                            "serum_creatinine",
+                            "urine_output",
+                            "BUN",
+                            "potassium"
+                        ],
+                        "medications": [
+                            "diuretics",
+                            "vasopressors",
+                            "antibiotics"
+                        ]
+                    },
+                    "outcome": {
+                        "AKI_incidence": "binary (0/1)",
+                        "AKI_stage": [
+                            "1",
+                            "2",
+                            "3"
+                        ]
+                    }
+                },
+                "time_series_data": {
+                    "frequency": "hourly",
+                    "variables": [
+                        "serum_creatinine",
+                        "urine_output",
+                        "blood_pressure",
+                        "heart_rate"
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "risk_score": "P(AKI|X) = 1 / (1 + exp(-(β0 + β1X1 + β2X2 + ... + βnXn)))",
+                "missing_data_handling": "Multiple Imputation by Chained Equations (MICE)",
+                "validation": "k-fold cross-validation with stratified sampling",
+                "evaluation_metrics": {
+                    "AUC-ROC": "Area Under the Receiver Operating Characteristic Curve",
+                    "sensitivity": "True Positive Rate",
+                    "specificity": "True Negative Rate",
+                    "calibration": "Hosmer-Lemeshow test"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "acute_kidney_injury",
+                    "cardiac_surgery",
+                    "serum_creatinine",
+                    "eGFR",
+                    "vasopressors",
+                    "diuretics",
+                    "cardiopulmonary_bypass",
+                    "time_series_data",
+                    "risk_prediction"
+                ],
+                "relations": [
+                    "patient_undergoes_surgery",
+                    "surgery_affects_kidney_function",
+                    "lab_values_indicate_AKI",
+                    "medications_influence_AKI_risk",
+                    "time_series_data_predicts_AKI"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "c2d72fb1-1438-47d1-9f95-ab3fe1253168",
+        "task_details": {
+            "task_instructions": "Given a cohort of patients with multi-drug resistant tuberculosis (MDR-TB), predict the probability of treatment success based on a combination of clinical, genomic, and socio-demographic variables. The prediction must account for interactions between variables, non-linear relationships, and missing data imputation. The output should include a confidence interval for each prediction and a sensitivity analysis of the model's robustness to variable perturbations.",
+            "task_data": {
+                "data_points": {
+                    "clinical_variables": [
+                        "baseline sputum smear grade",
+                        "HIV co-infection status",
+                        "previous TB treatment history",
+                        "body mass index (BMI)",
+                        "diabetes mellitus status",
+                        "chest X-ray findings"
+                    ],
+                    "genomic_variables": [
+                        "Mycobacterium tuberculosis strain type",
+                        "resistance-conferring mutations (e.g., rpoB, katG, inhA)",
+                        "minimum inhibitory concentrations (MICs) for key drugs"
+                    ],
+                    "socio_demographic_variables": [
+                        "age",
+                        "gender",
+                        "household income",
+                        "urban/rural residence",
+                        "access to healthcare facilities"
+                    ],
+                    "treatment_regimens": [
+                        "bedaquiline-containing regimen",
+                        "linezolid-containing regimen",
+                        "injectable-free regimen"
+                    ],
+                    "outcome_variables": [
+                        "treatment success (cured/treatment completed)",
+                        "treatment failure",
+                        "loss to follow-up",
+                        "death"
+                    ]
+                },
+                "sample_size": 5000,
+                "missing_data_percentage": 15
+            },
+            "mathematical_formulation": {
+                "logistic_regression_equation": "logit(P(Y=1)) = β0 + β1X1 + β2X2 + ... + βnXn + ε",
+                "probability_of_success": "P(Y=1) = 1 / (1 + e^-(βX))",
+                "confidence_interval": "CI = β ± z * SE(β)",
+                "sensitivity_analysis": "ΔP(Y=1) / ΔXi for each variable Xi"
+            },
+            "ontology": {
+                "entities": [
+                    "multi-drug resistant tuberculosis (MDR-TB)",
+                    "sputum smear grade",
+                    "HIV co-infection",
+                    "Mycobacterium tuberculosis strain type",
+                    "resistance-conferring mutations",
+                    "minimum inhibitory concentrations (MICs)",
+                    "treatment regimen",
+                    "treatment success",
+                    "treatment failure",
+                    "loss to follow-up",
+                    "death"
+                ],
+                "relations": [
+                    "MDR-TB is treated by treatment regimen",
+                    "treatment regimen affects treatment success",
+                    "genomic_variables influence resistance-conferring mutations",
+                    "clinical_variables correlate with treatment outcome",
+                    "socio_demographic_variables impact access to healthcare facilities"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "5f4c2d67-09b7-4246-8523-fdf8b1c91bc7",
+        "task_details": {
+            "task_instructions": "Given a cohort of patients with multi-drug resistant tuberculosis (MDR-TB), predict the probability of treatment success (cure or treatment completion without relapse) within 24 months, considering genetic polymorphisms in drug-metabolizing enzymes, drug-drug interactions, and comorbidities. The prediction must account for time-varying covariates such as adherence patterns, adverse drug reactions, and changes in bacterial load. Provide a confidence interval for each prediction and identify the most influential variables.",
+            "task_data": {
+                "data_points": {
+                    "patient_demographics": [
+                        "age",
+                        "sex",
+                        "BMI",
+                        "geographic_region"
+                    ],
+                    "genetic_data": [
+                        "CYP2B6_516G>T",
+                        "NAT2_acetylator_status",
+                        "SLCO1B1_rs4149032"
+                    ],
+                    "treatment_regimen": [
+                        "drug_names",
+                        "dosages",
+                        "administration_frequency",
+                        "start_date"
+                    ],
+                    "clinical_parameters": [
+                        "baseline_bacterial_load",
+                        "comorbidities",
+                        "HIV_status",
+                        "diabetes_status"
+                    ],
+                    "time_varying_data": [
+                        "monthly_adherence_rates",
+                        "adverse_drug_reactions",
+                        "bacterial_load_over_time",
+                        "serum_drug_concentrations"
+                    ],
+                    "outcome_data": [
+                        "treatment_outcome",
+                        "time_to_outcome",
+                        "relapse_status"
+                    ]
+                },
+                "sample_size": 1500,
+                "data_source": "Prospective multi-center cohort study"
+            },
+            "mathematical_formulation": {
+                "survival_analysis": "h(t|X) = h0(t) * exp(β1X1 + β2X2 + ... + βnXn)",
+                "probability_calculation": "P(Y=1|X) = 1 / (1 + exp(-(β0 + β1X1 + ... + βnXn)))",
+                "confidence_intervals": "95% CI for β coefficients: β̂ ± 1.96 * SE(β̂)",
+                "variable_importance": "Calculated via partial likelihood contribution or SHAP values"
+            },
+            "ontology": {
+                "entities": [
+                    "MDR-TB",
+                    "pharmacogenomics",
+                    "treatment_adherence",
+                    "drug-drug_interactions",
+                    "bacterial_load",
+                    "treatment_outcome",
+                    "adverse_drug_reaction",
+                    "comorbidity",
+                    "genetic_polymorphism",
+                    "confidence_interval"
+                ],
+                "relations": [
+                    "genetic_polymorphism affects drug_metabolism",
+                    "drug_drug_interaction affects treatment_efficacy",
+                    "adherence influences treatment_outcome",
+                    "comorbidity modifies treatment_response",
+                    "bacterial_load correlates with treatment_success"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "970732a8-f50a-42ac-bc19-4c8df440f9f0",
+        "task_details": {
+            "task_instructions": "Given a cohort of patients with multi-drug resistant tuberculosis (MDR-TB), predict the probability of treatment success based on a combination of clinical, demographic, and microbiological variables. The prediction must account for interactions between variables, non-linear relationships, and temporal changes in treatment response. The output should be a probabilistic model with confidence intervals for each prediction.",
+            "task_data": {
+                "data_points": {
+                    "patient_demographics": {
+                        "age": "numeric (years)",
+                        "gender": "categorical (male/female/other)",
+                        "BMI": "numeric (kg/m^2)",
+                        "socioeconomic_status": "ordinal (low/medium/high)"
+                    },
+                    "clinical_variables": {
+                        "HIV_status": "binary (yes/no)",
+                        "diabetes_status": "binary (yes/no)",
+                        "baseline_CD4_count": "numeric (cells/mm^3, if HIV+)",
+                        "previous_TB_treatment": "categorical (none/first-line/second-line)"
+                    },
+                    "microbiological_variables": {
+                        "drug_resistance_profile": "categorical (resistance to rifampicin/isoniazid/fluoroquinolones/etc.)",
+                        "baseline_sputum_smear_grade": "ordinal (1+/2+/3+)",
+                        "genotypic_mutations": "list (e.g., rpoB, katG, gyrA)"
+                    },
+                    "treatment_variables": {
+                        "regimen_composition": "list (drugs administered)",
+                        "treatment_duration": "numeric (months)",
+                        "adherence_rate": "numeric (percentage)"
+                    },
+                    "outcome_variables": {
+                        "treatment_success": "binary (yes/no)",
+                        "time_to_sputum_conversion": "numeric (days)",
+                        "adverse_events": "list (e.g., hepatotoxicity, nephrotoxicity)"
+                    }
+                },
+                "sample_size": "500 patients",
+                "data_source": "Prospective cohort study from high-TB-burden countries"
+            },
+            "mathematical_formulation": {
+                "logistic_regression": "P(Y=1|X) = 1 / (1 + e^-(β0 + β1X1 + ... + βnXn))",
+                "interaction_terms": "βijXiXj for significant interactions",
+                "time-dependent_variables": "Cox proportional hazards model for time-to-event analysis",
+                "confidence_intervals": "95% CI for predicted probabilities"
+            },
+            "ontology": {
+                "entities": [
+                    "multi-drug resistant tuberculosis (MDR-TB)",
+                    "treatment success",
+                    "drug resistance profile",
+                    "sputum smear grade",
+                    "genotypic mutations",
+                    "adherence rate",
+                    "adverse events"
+                ],
+                "relations": [
+                    "drug resistance profile influences treatment success",
+                    "adherence rate moderates treatment success",
+                    "genotypic mutations determine drug resistance profile",
+                    "adverse events negatively impact adherence rate"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "3504c467-8a7b-4f88-a5d3-0b64b1fac2b4",
+        "task_details": {
+            "task_instructions": "Given a dataset of 10,000 patients with metastatic breast cancer, each characterized by genomic, proteomic, and clinical variables, predict the 5-year progression-free survival (PFS) probability using a multimodal deep learning model. The model must integrate the following data modalities: 1) whole exome sequencing (WES) data for somatic mutations, 2) RNA-seq data for gene expression profiles, 3) immunohistochemistry (IHC) data for protein expression levels, and 4) clinical variables (age, tumor stage, hormone receptor status). The prediction must account for interactions between modalities and provide a confidence interval (95%) for each prediction. Validate the model using time-dependent ROC analysis and concordance index (C-index).",
+            "task_data": {
+                "data_points": {
+                    "genomic_data": {
+                        "WES": [
+                            "somatic_mutations.csv"
+                        ],
+                        "RNA_seq": [
+                            "gene_expression.csv"
+                        ]
+                    },
+                    "proteomic_data": {
+                        "IHC": [
+                            "protein_expression.csv"
+                        ]
+                    },
+                    "clinical_data": {
+                        "demographics": [
+                            "age",
+                            "gender"
+                        ],
+                        "tumor_characteristics": [
+                            "stage",
+                            "ER_status",
+                            "PR_status",
+                            "HER2_status"
+                        ],
+                        "treatment_history": [
+                            "chemotherapy",
+                            "hormonal_therapy",
+                            "radiation_therapy"
+                        ]
+                    },
+                    "outcome_data": {
+                        "PFS": [
+                            "event_status",
+                            "time_to_event"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "survival_analysis": "PFS(t) = exp(−∫₀ᵗ h(u) du), where h(u) is the hazard function at time u.",
+                "multimodal_integration": "y = σ(W₁·f₁(x₁) ⊕ W₂·f₂(x₂) ⊕ W₃·f₃(x₃) ⊕ W₄·f₄(x₄)), where σ is the sigmoid function, ⊕ denotes concatenation, fᵢ are modality-specific encoders, and Wᵢ are learnable weights.",
+                "confidence_interval": "CI = ŷ ± 1.96·SE(ŷ), where SE(ŷ) is the standard error of the prediction.",
+                "validation_metrics": {
+                    "time_dependent_ROC": "AUC(t) = ∫ROC(t, fpr) dfpr",
+                    "C_index": "C = P(ŷᵢ > ŷⱼ | yᵢ > yⱼ)"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "metastatic breast cancer",
+                    "whole exome sequencing",
+                    "RNA-seq",
+                    "immunohistochemistry",
+                    "progression-free survival",
+                    "hazard function",
+                    "multimodal deep learning",
+                    "confidence interval",
+                    "time-dependent ROC",
+                    "concordance index"
+                ],
+                "relations": [
+                    "WES data contains somatic mutations",
+                    "RNA-seq data measures gene expression",
+                    "IHC data quantifies protein expression",
+                    "clinical variables influence PFS",
+                    "multimodal integration improves PFS prediction",
+                    "confidence interval quantifies prediction uncertainty",
+                    "time-dependent ROC evaluates model discrimination",
+                    "C-index measures model calibration"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "1fb338aa-64cd-4e85-86a7-a2fec0353e81",
+        "task_details": {
+            "task_instructions": "Given a dataset of 10,000 patients with metastatic colorectal cancer (mCRC), each characterized by genomic, transcriptomic, and proteomic profiles, as well as treatment history and clinical outcomes, predict the optimal combination therapy (chemotherapy + targeted therapy) that maximizes 3-year progression-free survival (PFS) while minimizing grade 3+ adverse events (AEs). The prediction must account for dynamic interactions between molecular pathways (e.g., EGFR, VEGF, MAPK) and drug mechanisms (e.g., cetuximab, bevacizumab, regorafenib), and must be validated against a hold-out test set using a concordance index (C-index) ≥ 0.75.",
+            "task_data": {
+                "data_points": {
+                    "genomic_data": [
+                        "SNPs",
+                        "copy number variations",
+                        "mutations (e.g., KRAS, BRAF, PIK3CA)"
+                    ],
+                    "transcriptomic_data": [
+                        "RNA-seq profiles",
+                        "differential gene expression",
+                        "pathway activation scores"
+                    ],
+                    "proteomic_data": [
+                        "mass spectrometry data",
+                        "protein-protein interaction networks",
+                        "phosphoproteomics"
+                    ],
+                    "clinical_data": [
+                        "age",
+                        "ECOG performance status",
+                        "prior treatments",
+                        "tumor burden metrics"
+                    ],
+                    "treatment_data": [
+                        "chemotherapy regimens (e.g., FOLFOX, FOLFIRI)",
+                        "targeted therapies (e.g., anti-EGFR, anti-VEGF)",
+                        "dosing schedules"
+                    ],
+                    "outcome_data": [
+                        "PFS (months)",
+                        "overall survival (OS)",
+                        "adverse event profiles (CTCAE v5.0)"
+                    ]
+                },
+                "sample_size": 10000,
+                "validation_metric": "C-index ≥ 0.75"
+            },
+            "mathematical_formulation": {
+                "objective_function": "maximize [PFS(t=36 months)] - λ * [Σ(Grade 3+ AEs)] where λ is a penalty hyperparameter",
+                "constraints": [
+                    "PFS ≥ 6 months (clinical benefit threshold)",
+                    "Grade 3+ AEs ≤ 20% of cohort",
+                    "Drug-drug interactions ≤ FDA-reported toxicity thresholds"
+                ],
+                "probabilistic_model": "Bayesian network with Markov Chain Monte Carlo (MCMC) sampling to estimate posterior distributions of PFS given therapy combinations"
+            },
+            "ontology": {
+                "entities": [
+                    "metastatic colorectal cancer (mCRC)",
+                    "EGFR pathway",
+                    "VEGF pathway",
+                    "MAPK pathway",
+                    "chemotherapy",
+                    "targeted therapy",
+                    "progression-free survival (PFS)",
+                    "adverse events (AEs)",
+                    "concordance index (C-index)"
+                ],
+                "relations": [
+                    "mCRC is characterized by genomic alterations",
+                    "targeted therapy inhibits specific pathways",
+                    "chemotherapy induces cytotoxicity",
+                    "PFS is influenced by therapy efficacy",
+                    "AEs are caused by therapy toxicity"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "476213bd-d5f8-4727-a823-a276fa179fed",
+        "task_details": {
+            "task_instructions": "Given a cohort of patients with metastatic triple-negative breast cancer (mTNBC) undergoing combination therapy with immune checkpoint inhibitors (ICIs) and chemotherapy, predict the 12-month progression-free survival (PFS) probability for each patient based on their tumor microenvironment (TME) profile, pharmacogenomic markers, and treatment regimen. The prediction must account for dynamic interactions between immune cell infiltration, tumor mutational burden (TMB), PD-L1 expression levels, and chemotherapy pharmacokinetics. Provide a confidence interval for each prediction and rank patients by predicted PFS.",
+            "task_data": {
+                "data_points": {
+                    "patient_cohort": [
+                        {
+                            "patient_id": "P001",
+                            "age": 52,
+                            "ECOG_performance_status": 1,
+                            "TMB": 12.4,
+                            "PD_L1_expression": 15.2,
+                            "CD8_T_cell_density": 8.7,
+                            "regulatory_T_cell_density": 2.3,
+                            "chemotherapy_regimen": "Paclitaxel + Carboplatin",
+                            "ICI_dosage": "200mg q3w",
+                            "pharmacogenomic_markers": [
+                                "BRCA1_mutation",
+                                "GSTP1_AA"
+                            ],
+                            "baseline_PFS": 4.1
+                        },
+                        {
+                            "patient_id": "P002",
+                            "age": 47,
+                            "ECOG_performance_status": 0,
+                            "TMB": 8.7,
+                            "PD_L1_expression": 5.8,
+                            "CD8_T_cell_density": 5.2,
+                            "regulatory_T_cell_density": 3.1,
+                            "chemotherapy_regimen": "Gemcitabine + Cisplatin",
+                            "ICI_dosage": "240mg q2w",
+                            "pharmacogenomic_markers": [
+                                "BRCA2_mutation",
+                                "ERCC1_C"
+                            ],
+                            "baseline_PFS": 3.8
+                        }
+                    ],
+                    "temporal_data": {
+                        "treatment_cycles": 6,
+                        "interval_imaging_results": [
+                            "CT",
+                            "PET"
+                        ],
+                        "serum_biomarkers": [
+                            "LDH",
+                            "CA-15-3"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "PFS(t) = exp[-∫₀ᵗ h(u) du], where h(u) is the hazard function modeled as: h(u) = h₀(u) × exp[β₁(TMB) + β₂(PD_L1) + β₃(CD8_T_cell) + β₄(T_reg) + β₅(chemotherapy_Cmax) + β₆(ICI_dose) + β₇(pharmacogenomic_risk_score)]. Confidence intervals are derived via bootstrapping (1000 iterations) of the Cox proportional hazards model.",
+            "ontology": {
+                "entities": [
+                    "metastatic triple-negative breast cancer (mTNBC)",
+                    "immune checkpoint inhibitors (ICIs)",
+                    "progression-free survival (PFS)",
+                    "tumor microenvironment (TME)",
+                    "tumor mutational burden (TMB)",
+                    "PD-L1 expression",
+                    "CD8+ T cells",
+                    "regulatory T cells",
+                    "pharmacogenomics",
+                    "chemotherapy pharmacokinetics",
+                    "hazard function",
+                    "confidence interval"
+                ],
+                "relations": [
+                    "TMB influences PFS",
+                    "PD-L1 expression modulates ICI efficacy",
+                    "CD8+ T cell density is inversely correlated with tumor progression",
+                    "regulatory T cells suppress immune response",
+                    "pharmacogenomic markers affect drug metabolism",
+                    "chemotherapy Cmax impacts tumor kill rate"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "0d518635-3e37-4a80-9519-be36378d9585",
+        "task_details": {
+            "task_instructions": "Given a dataset of 10,000 patients with multi-omic profiles (genomic, transcriptomic, proteomic, and metabolomic data), clinical histories, and treatment outcomes, develop a predictive model that identifies the optimal personalized therapeutic regimen for metastatic triple-negative breast cancer (TNBC) patients. The model must integrate all omic layers, account for drug-drug interactions, and predict 5-year progression-free survival (PFS) with 95% confidence intervals. Validate the model using an independent cohort of 2,000 patients.",
+            "task_data": {
+                "data_points": {
+                    "genomic_data": [
+                        "SNP arrays",
+                        "whole-exome sequencing",
+                        "copy number variations"
+                    ],
+                    "transcriptomic_data": [
+                        "RNA-seq profiles",
+                        "miRNA expression levels"
+                    ],
+                    "proteomic_data": [
+                        "mass spectrometry profiles",
+                        "phosphoproteomics"
+                    ],
+                    "metabolomic_data": [
+                        "LC-MS metabolomics",
+                        "lipidomics"
+                    ],
+                    "clinical_data": [
+                        "age",
+                        "ECOG performance status",
+                        "prior treatments",
+                        "comorbidities"
+                    ],
+                    "treatment_outcomes": [
+                        "PFS",
+                        "overall survival",
+                        "adverse events"
+                    ],
+                    "drug_library": [
+                        "chemotherapies",
+                        "targeted therapies",
+                        "immunotherapies",
+                        "combination regimens"
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "objective_function": "maximize Σ(PFS_i * I(T_i = T_opt) / N, where PFS_i is progression-free survival for patient i, T_i is the treatment assigned, T_opt is the optimal treatment, and N is the number of patients.",
+                "constraints": [
+                    "P(drug-drug interaction) < 0.05 for all pairs in T_opt",
+                    "95% CI for PFS prediction must be within ±3 months",
+                    "Σ(cost(T_i)) < budget constraint"
+                ],
+                "probabilistic_model": "Bayesian hierarchical model integrating multi-omic data via latent variables."
+            },
+            "ontology": {
+                "entities": [
+                    "metastatic triple-negative breast cancer",
+                    "multi-omic profiling",
+                    "progression-free survival",
+                    "personalized therapeutics",
+                    "drug-drug interactions",
+                    "Bayesian hierarchical model"
+                ],
+                "relations": [
+                    "multi-omic profiles influence treatment response",
+                    "drug-drug interactions affect therapeutic efficacy",
+                    "clinical history modulates omic predictors",
+                    "Bayesian models integrate heterogeneous data layers"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "5d0f45cb-fc74-4df4-b482-f580a490ff9d",
+        "task_details": {
+            "task_instructions": "Given a cohort of patients with multi-drug resistant tuberculosis (MDR-TB), predict the probability of treatment success based on a combination of clinical, demographic, and pharmacological variables. The prediction must account for drug resistance patterns, adherence rates, and comorbidities. Provide a confidence interval for each prediction and justify the statistical model used.",
+            "task_data": {
+                "data_points": {
+                    "patient_demographics": {
+                        "age": "continuous (18-80)",
+                        "gender": "categorical (male, female, other)",
+                        "BMI": "continuous (15-40)",
+                        "socioeconomic_status": "ordinal (1-5)"
+                    },
+                    "clinical_variables": {
+                        "HIV_status": "binary (positive, negative)",
+                        "diabetes_status": "binary (yes, no)",
+                        "baseline_sputum_smear_grade": "ordinal (1-3)",
+                        "extent_of_chest_radiograph_abnormalities": "continuous (0-100%)"
+                    },
+                    "drug_resistance": {
+                        "resistance_to_isoniazid": "binary (yes, no)",
+                        "resistance_to_rifampicin": "binary (yes, no)",
+                        "resistance_to_fluoroquinolones": "binary (yes, no)",
+                        "resistance_to_second_line_injectables": "binary (yes, no)"
+                    },
+                    "treatment_regimen": {
+                        "drugs_prescribed": "list (e.g., bedaquiline, linezolid, clofazimine)",
+                        "treatment_duration": "continuous (6-24 months)",
+                        "adherence_rate": "continuous (0-100%)"
+                    },
+                    "outcome": {
+                        "treatment_success": "binary (yes, no)",
+                        "time_to_sputum_conversion": "continuous (days)",
+                        "adverse_events": "categorical (none, mild, moderate, severe)"
+                    }
+                },
+                "sample_size": 1500
+            },
+            "mathematical_formulation": {
+                "logistic_regression": "P(Y=1|X) = 1 / (1 + e^-(β0 + β1X1 + ... + βnXn))",
+                "confidence_interval": "95% CI for P(Y=1|X): [P(Y=1|X) ± 1.96 * sqrt(P(Y=1|X)*(1-P(Y=1|X))/n)]",
+                "model_selection_criteria": "AIC, BIC, and Hosmer-Lemeshow goodness-of-fit test",
+                "interaction_terms": "Include interaction terms for drug resistance patterns and adherence rates"
+            },
+            "ontology": {
+                "entities": [
+                    "multi-drug resistant tuberculosis (MDR-TB)",
+                    "treatment success",
+                    "drug resistance patterns",
+                    "adherence rates",
+                    "comorbidities",
+                    "sputum smear grade",
+                    "fluoroquinolones",
+                    "second-line injectables",
+                    "bedaquiline",
+                    "linezolid",
+                    "clofazimine"
+                ],
+                "relations": [
+                    "MDR-TB is treated with a combination of drugs including bedaquiline, linezolid, and clofazimine",
+                    "Drug resistance patterns influence treatment success",
+                    "Adherence rates are positively correlated with treatment success",
+                    "Comorbidities such as HIV and diabetes negatively impact treatment success",
+                    "Baseline sputum smear grade is indicative of disease severity"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "83515f3f-f05f-40ed-8e0a-79b2921c6d06",
+        "task_details": {
+            "task_instructions": "Given a cohort of patients with multi-drug resistant tuberculosis (MDR-TB), predict the probability of treatment success based on a combination of clinical, demographic, and microbiological factors. The prediction must account for interactions between variables, non-linear relationships, and missing data imputation. The output should be a probabilistic model with confidence intervals for each prediction.",
+            "task_data": {
+                "data_points": {
+                    "patient_demographics": {
+                        "age": [
+                            25,
+                            67,
+                            43,
+                            52,
+                            38
+                        ],
+                        "sex": [
+                            "M",
+                            "F",
+                            "M",
+                            "F",
+                            "M"
+                        ],
+                        "BMI": [
+                            22.1,
+                            28.5,
+                            19.8,
+                            24.3,
+                            27.6
+                        ],
+                        "smoking_status": [
+                            "current",
+                            "never",
+                            "former",
+                            "current",
+                            "never"
+                        ]
+                    },
+                    "clinical_parameters": {
+                        "HIV_status": [
+                            "negative",
+                            "positive",
+                            "negative",
+                            "negative",
+                            "positive"
+                        ],
+                        "diabetes_status": [
+                            "no",
+                            "yes",
+                            "no",
+                            "no",
+                            "yes"
+                        ],
+                        "baseline_CD4_count": [
+                            null,
+                            287,
+                            null,
+                            null,
+                            412
+                        ],
+                        "previous_TB_treatment": [
+                            "yes",
+                            "no",
+                            "yes",
+                            "yes",
+                            "no"
+                        ]
+                    },
+                    "microbiological_data": {
+                        "sputum_smear_grade": [
+                            "3+",
+                            "2+",
+                            "1+",
+                            "3+",
+                            "2+"
+                        ],
+                        "Xpert_MTB_RIF_result": [
+                            "resistant",
+                            "resistant",
+                            "sensitive",
+                            "resistant",
+                            "resistant"
+                        ],
+                        "culture_conversion_at_2_months": [
+                            "no",
+                            "yes",
+                            "yes",
+                            "no",
+                            "no"
+                        ]
+                    },
+                    "treatment_regimen": {
+                        "bedaquiline_included": [
+                            "yes",
+                            "no",
+                            "yes",
+                            "yes",
+                            "no"
+                        ],
+                        "linezolid_included": [
+                            "no",
+                            "yes",
+                            "yes",
+                            "no",
+                            "yes"
+                        ],
+                        "treatment_duration_months": [
+                            18,
+                            20,
+                            24,
+                            18,
+                            20
+                        ]
+                    },
+                    "outcome": {
+                        "treatment_success": [
+                            "no",
+                            "yes",
+                            "yes",
+                            "no",
+                            "yes"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "Let Y be the binary outcome variable (1 = treatment success, 0 = failure). The probability of treatment success P(Y=1|X) is modeled using a logistic regression with regularization to account for multicollinearity: P(Y=1|X) = 1 / (1 + exp(-(β₀ + ΣβᵢXᵢ + ΣβᵢⱼXᵢXⱼ))), where Xᵢ are the predictor variables, βᵢ are the coefficients, and XᵢXⱼ represent interaction terms. Missing data is imputed using multiple imputation by chained equations (MICE). Confidence intervals are derived via bootstrapping.",
+            "ontology": {
+                "entities": [
+                    "MDR-TB",
+                    "treatment success",
+                    "sputum smear grade",
+                    "Xpert MTB/RIF",
+                    "culture conversion",
+                    "bedaquiline",
+                    "linezolid",
+                    "logistic regression",
+                    "regularization",
+                    "multiple imputation"
+                ],
+                "relations": [
+                    "MDR-TB is treated with bedaquiline",
+                    "MDR-TB is treated with linezolid",
+                    "treatment success is influenced by sputum smear grade",
+                    "treatment success is influenced by Xpert MTB/RIF result",
+                    "logistic regression models treatment success",
+                    "multiple imputation handles missing data"
+                ]
+            }
+        }
+    }
+]

@@ -1,0 +1,3379 @@
+[
+    {
+        "task_id": "f3f4da51-336b-4c71-92ce-285c0a210843",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to estimate the 5-year survival rate for patients diagnosed with stage III non-small cell lung cancer (NSCLC) based on their clinical, genetic, and treatment data. The model should integrate multivariate regression analysis, survival analysis using the Kaplan-Meier estimator, and Cox proportional hazards modeling.",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "patient_id": 1,
+                            "age": 65,
+                            "gender": "Male",
+                            "smoking_status": "Current",
+                            "histology": "Adenocarcinoma",
+                            "tumor_size": 5.2,
+                            "lymph_node_involvement": "N2",
+                            "metastasis": "M0",
+                            "EGFR_mutation": "Positive",
+                            "ALK_rearrangement": "Negative",
+                            "PD-L1_expression": 45,
+                            "performance_status": 1,
+                            "treatment": {
+                                "surgery": "Lobectomy",
+                                "chemotherapy": "Cisplatin + Pemetrexed",
+                                "radiotherapy": "Yes",
+                                "immunotherapy": "Pembrolizumab"
+                            },
+                            "survival_time_months": 36,
+                            "status": "Alive"
+                        },
+                        {
+                            "patient_id": 2,
+                            "age": 58,
+                            "gender": "Female",
+                            "smoking_status": "Never",
+                            "histology": "Squamous cell carcinoma",
+                            "tumor_size": 4.8,
+                            "lymph_node_involvement": "N1",
+                            "metastasis": "M0",
+                            "EGFR_mutation": "Negative",
+                            "ALK_rearrangement": "Negative",
+                            "PD-L1_expression": 20,
+                            "performance_status": 0,
+                            "treatment": {
+                                "surgery": "Pneumonectomy",
+                                "chemotherapy": "Carboplatin + Paclitaxel",
+                                "radiotherapy": "No",
+                                "immunotherapy": "None"
+                            },
+                            "survival_time_months": 48,
+                            "status": "Deceased"
+                        }
+                    ]
+                },
+                "genetic_data": {
+                    "gene_expression_profiles": {
+                        "patient_1": {
+                            "gene_A": 2.3,
+                            "gene_B": 1.5,
+                            "gene_C": 0.8
+                        },
+                        "patient_2": {
+                            "gene_A": 1.8,
+                            "gene_B": 2.1,
+                            "gene_C": 1.2
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "multivariate_regression": "Y = β0 + β1X1 + β2X2 + ... + βnXn + ε",
+                "kaplan_meier_estimator": "S(t) = ∏(1 - di/ni)",
+                "cox_proportional_hazards": "h(t) = h0(t) * exp(β1X1 + β2X2 + ... + βnXn)"
+            },
+            "ontology": {
+                "entities": [
+                    "Non-small cell lung cancer (NSCLC)",
+                    "Adenocarcinoma",
+                    "Squamous cell carcinoma",
+                    "EGFR mutation",
+                    "ALK rearrangement",
+                    "PD-L1 expression",
+                    "Lobectomy",
+                    "Pneumonectomy",
+                    "Cisplatin",
+                    "Pemetrexed",
+                    "Carboplatin",
+                    "Paclitaxel",
+                    "Pembrolizumab",
+                    "Kaplan-Meier estimator",
+                    "Cox proportional hazards model"
+                ],
+                "relations": [
+                    "NSCLC has histology Adenocarcinoma",
+                    "NSCLC has histology Squamous cell carcinoma",
+                    "NSCLC may have EGFR mutation",
+                    "NSCLC may have ALK rearrangement",
+                    "NSCLC expresses PD-L1",
+                    "Treatment for NSCLC includes Lobectomy",
+                    "Treatment for NSCLC includes Pneumonectomy",
+                    "Chemotherapy for NSCLC includes Cisplatin",
+                    "Chemotherapy for NSCLC includes Pemetrexed",
+                    "Chemotherapy for NSCLC includes Carboplatin",
+                    "Chemotherapy for NSCLC includes Paclitaxel",
+                    "Immunotherapy for NSCLC includes Pembrolizumab",
+                    "Survival analysis uses Kaplan-Meier estimator",
+                    "Survival analysis uses Cox proportional hazards model"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "cc4b670a-0005-42be-bb98-d2d61b656325",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive differential diagnosis for a patient presenting with acute onset of fever, dyspnea, and hemoptysis, considering the patient's medical history, laboratory results, and radiological findings. Provide a ranked list of potential diagnoses with their respective probabilities, and recommend the most appropriate diagnostic and therapeutic interventions.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 55,
+                        "gender": "male",
+                        "ethnicity": "Caucasian"
+                    },
+                    "medical_history": [
+                        "hypertension",
+                        "type 2 diabetes mellitus",
+                        "chronic obstructive pulmonary disease (COPD)"
+                    ],
+                    "presenting_symptoms": [
+                        "fever (39.5°C)",
+                        "dyspnea",
+                        "hemoptysis (50 mL)"
+                    ],
+                    "laboratory_results": {
+                        "complete_blood_count": {
+                            "hemoglobin": "12 g/dL",
+                            "white_blood_cell_count": "15,000/mm3",
+                            "platelet_count": "250,000/mm3"
+                        },
+                        "basic_metabolic_panel": {
+                            "sodium": "135 mmol/L",
+                            "potassium": "4.5 mmol/L",
+                            "blood_urea_nitrogen": "20 mg/dL",
+                            "creatinine": "1.2 mg/dL"
+                        },
+                        "arterial_blood_gas": {
+                            "pH": "7.35",
+                            "pCO2": "40 mmHg",
+                            "pO2": "60 mmHg",
+                            "bicarbonate": "24 mmol/L"
+                        },
+                        "coagulation_profile": {
+                            "prothrombin_time": "12 seconds",
+                            "international_normalized_ratio": "1.0",
+                            "activated_partial_thromboplastin_time": "30 seconds"
+                        }
+                    },
+                    "radiological_findings": {
+                        "chest_x_ray": "bilateral infiltrates",
+                        "ct_scan_chest": "ground-glass opacities with consolidation"
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "probability_of_diagnosis": "P(D|S) = P(S|D) * P(D) / P(S)",
+                " Bayesian_inference": "P(D|S) = (P(S|D) * P(D)) / (P(S|D) * P(D) + P(S|~D) * P(~D))",
+                "sensitivity_and_specificity": "Sensitivity = TP / (TP + FN), Specificity = TN / (TN + FP)"
+            },
+            "ontology": {
+                "entities": [
+                    "acute respiratory distress syndrome (ARDS)",
+                    "community-acquired pneumonia (CAP)",
+                    "pulmonary embolism (PE)",
+                    "lung cancer",
+                    "tuberculosis (TB)",
+                    "bronchiectasis",
+                    "pulmonary edema",
+                    "aspiration pneumonia",
+                    "hemoglobin",
+                    "serum creatinine",
+                    "white blood corpuscles",
+                    "chest radiograph",
+                    "computed tomography",
+                    "d-dimer"
+                ],
+                "relations": [
+                    "CAP is_a bacterial_infection",
+                    "ARDS causes respiratory_failure",
+                    "PE presents_with dyspnea",
+                    "lung_cancer is_associated_with hemoptysis",
+                    "TB is_caused_by Mycobacterium_tuberculosis",
+                    "bronchiectasis is_characterized_by chronic_cough",
+                    "pulmonary_edema is_associated_with heart_failure",
+                    "aspiration_pneumonia is_caused_by aspiration_of_gastric_contents",
+                    "hemoglobin is_a component_of complete_blood_count",
+                    "serum_creatinine is_a marker_of renal_function",
+                    "white_blood_corpuscles are_a component_of complete_blood_count",
+                    "chest_radiograph is_used_for diagnosis_of respiratory_diseases",
+                    "computed_tomography is_used_for detailed_imaging_of_the_chest",
+                    "d-dimer is_a marker_of thrombosis"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "bbd5263c-ec85-4cc2-a40a-08891263669d",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute chest pain, dyspnea, and elevated troponin levels. Identify the most likely diagnoses and recommend appropriate diagnostic and therapeutic interventions. Provide a detailed rationale for each diagnosis considered and excluded.",
+            "task_data": {
+                "patient_demographics": {
+                    "age": 55,
+                    "gender": "Male",
+                    "BMI": 28.5,
+                    "medical_history": [
+                        "Hypertension",
+                        "Type 2 Diabetes Mellitus",
+                        "Hyperlipidemia"
+                    ],
+                    "family_history": [
+                        "Coronary Artery Disease"
+                    ],
+                    "smoking_status": "Current smoker"
+                },
+                "clinical_presentation": {
+                    "symptoms": [
+                        "Acute chest pain",
+                        "Dyspnea"
+                    ],
+                    "vital_signs": {
+                        "blood_pressure": "140/90 mmHg",
+                        "heart_rate": "95 bpm",
+                        "respiratory_rate": "20 breaths/min",
+                        "oxygen_saturation": "94% on room air"
+                    },
+                    "physical_examination": {
+                        "cardiovascular": "S4 gallop",
+                        "respiratory": "Bilateral basilar crackles",
+                        "abdominal": "Normal"
+                    }
+                },
+                "laboratory_results": {
+                    "troponin_level": "0.5 ng/mL",
+                    "CK-MB": "25 ng/mL",
+                    "BNP": "300 pg/mL",
+                    "lipid_profile": {
+                        "total_cholesterol": "220 mg/dL",
+                        "LDL": "140 mg/dL",
+                        "HDL": "40 mg/dL",
+                        "triglycerides": "180 mg/dL"
+                    },
+                    "electrolytes": {
+                        "sodium": "138 mEq/L",
+                        "potassium": "4.5 mEq/L"
+                    }
+                },
+                "imaging_studies": {
+                    "ECG": "ST-segment elevation in leads V2-V4",
+                    "echocardiogram": "Mild left ventricular dysfunction with ejection fraction of 45%"
+                }
+            },
+            "mathematical_formulation": "The likelihood ratio (LR) for a diagnosis can be calculated as LR = sensitivity / (1 - specificity). The post-test probability of a disease can be calculated using Bayes' theorem: P(D|T) = (P(T|D) * P(D)) / P(T), where P(D|T) is the probability of the disease given the test result, P(T|D) is the probability of the test result given the disease, P(D) is the pre-test probability of the disease, and P(T) is the probability of the test result.",
+            "ontology": {
+                "entities": [
+                    "Acute Coronary Syndrome",
+                    "Myocardial Infarction",
+                    "Unstable Angina",
+                    "Pulmonary Embolism",
+                    "Aortic Dissection",
+                    "Pericarditis",
+                    "Pneumothorax",
+                    "Heart Failure",
+                    "Troponin",
+                    "CK-MB",
+                    "BNP",
+                    "Ejection Fraction",
+                    "ST-segment elevation"
+                ],
+                "relations": [
+                    "causes",
+                    "associated_with",
+                    "leads_to",
+                    "diagnosed_by",
+                    "treated_with"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "745988c3-5d39-407c-a34e-9b1554058ebd",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of dyspnea, chest pain, and syncope. Consider all possible cardiovascular, pulmonary, and systemic etiologies. Provide a ranked list of differential diagnoses based on probability, supported by clinical evidence and pathophysiological mechanisms.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 65,
+                        "gender": "Male",
+                        "BMI": 30.5
+                    },
+                    "vital_signs": {
+                        "blood_pressure": "180/110 mmHg",
+                        "heart_rate": 120,
+                        "respiratory_rate": 28,
+                        "oxygen_saturation": 88,
+                        "temperature": 37.5
+                    },
+                    "laboratory_results": {
+                        "white_blood_cell_count": 15000,
+                        "hemoglobin": 13.5,
+                        "platelet_count": 250000,
+                        "creatinine": 1.2,
+                        "blood_urea_nitrogen": 20,
+                        "troponin_I": 0.05,
+                        "D-dimer": 500,
+                        "brain_natriuretic_peptide": 500
+                    },
+                    "imaging_studies": {
+                        "chest_x_ray": "Cardiomegaly with bilateral pleural effusions",
+                        "electrocardiogram": "Sinus tachycardia with ST-segment depression in leads V4-V6"
+                    },
+                    "medical_history": {
+                        "hypertension": true,
+                        "diabetes_mellitus": true,
+                        "coronary_artery_disease": true,
+                        "chronic_obstructive_pulmonary_disease": false,
+                        "smoking_history": "40 pack-years"
+                    },
+                    "medications": [
+                        "Metoprolol 50mg BID",
+                        "Lisinopril 20mg QD",
+                        "Aspirin 81mg QD",
+                        "Atorvastatin 40mg QD"
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(D|S) = P(S|D) * P(D) / P(S), where P(D|S) is the probability of disease D given symptoms S, P(S|D) is the probability of symptoms S given disease D, P(D) is the prior probability of disease D, and P(S) is the prior probability of symptoms S. The differential diagnoses should be ranked based on the highest P(D|S).",
+            "ontology": {
+                "entities": [
+                    "Acute Coronary Syndrome",
+                    "Pulmonary Embolism",
+                    "Aortic Dissection",
+                    "Cardiac Tamponade",
+                    "Acute Heart Failure",
+                    "Pneumothorax",
+                    "Pneumonia",
+                    "Chronic Obstructive Pulmonary Disease Exacerbation",
+                    "Arrhythmia",
+                    "Sepsis",
+                    "Anaphylaxis",
+                    "Metabolic Acidosis",
+                    "Hypovolemic Shock",
+                    "Cardiogenic Shock",
+                    "Septic Shock"
+                ],
+                "relations": [
+                    "causes",
+                    "associated_with",
+                    "leads_to",
+                    "manifests_as",
+                    "treated_by",
+                    "diagnosed_by",
+                    "risk_factor_for",
+                    "coexists_with"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "961e1d41-1841-4574-b35b-a1820f180831",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of chest pain, dyspnea, and diaphoresis. Consider all possible cardiovascular, pulmonary, and systemic etiologies. Provide a ranked list of differential diagnoses along with their respective probabilities based on the given clinical data, laboratory results, and imaging findings. Justify each diagnosis with relevant pathophysiological mechanisms and clinical evidence.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 55,
+                        "gender": "male",
+                        "BMI": 28.5
+                    },
+                    "medical_history": [
+                        "hypertension",
+                        "type_2_diabetes_mellitus",
+                        "hyperlipidemia"
+                    ],
+                    "current_medications": [
+                        "metformin",
+                        "lisinopril",
+                        "atorvastatin"
+                    ],
+                    "vital_signs": {
+                        "blood_pressure": "160/90 mmHg",
+                        "heart_rate": 110,
+                        "respiratory_rate": 22,
+                        "oxygen_saturation": 92
+                    },
+                    "symptoms": [
+                        "acute_onset_chest_pain",
+                        "dyspnea",
+                        "diaphoresis",
+                        "nausea"
+                    ],
+                    "physical_examination": {
+                        "cardiovascular": "S4 gallop",
+                        "pulmonary": "bilateral_basilar_crackles",
+                        "extremities": "trace_pedal_edema"
+                    }
+                },
+                "laboratory_results": {
+                    "complete_blood_count": {
+                        "hemoglobin": 14.5,
+                        "white_blood_cell_count": 12000,
+                        "platelet_count": 250000
+                    },
+                    "basic_metabolic_panel": {
+                        "sodium": 138,
+                        "potassium": 4.5,
+                        "bun": 20,
+                        "creatinine": 1.2
+                    },
+                    "cardiac_biomarkers": {
+                        "troponin_I": 0.05,
+                        "CK-MB": 10
+                    },
+                    "lipid_panel": {
+                        "total_cholesterol": 220,
+                        "LDL": 140,
+                        "HDL": 40,
+                        "triglycerides": 180
+                    },
+                    "d_dimer": 500
+                },
+                "imaging_findings": {
+                    "chest_x_ray": "mild_cardiomegaly",
+                    "electrocardiogram": "ST_elevation_in_leads_V2-V4"
+                }
+            },
+            "mathematical_formulation": {
+                "probability_of_diagnosis": "P(D|S) = P(S|D) * P(D) / P(S)",
+                "Bayesian_update": "P(D|S1, S2, ..., Sn) = P(S1, S2, ..., Sn|D) * P(D) / P(S1, S2, ..., Sn)",
+                "logistic_regression_model": "logit(P(D)) = β0 + β1X1 + β2X2 + ... + βnXn"
+            },
+            "ontology": {
+                "entities": [
+                    "acute_coronary_syndrome",
+                    "ST_elevation_myocardial_infarction",
+                    "non_ST_elevation_myocardial_infarction",
+                    "unstable_angina",
+                    "pulmonary_embolism",
+                    "aortic_dissection",
+                    "pneumothorax",
+                    "pericarditis",
+                    "cardiomyopathy",
+                    "heart_failure",
+                    "pneumonia",
+                    "sepsis"
+                ],
+                "relations": [
+                    "causes",
+                    "is_associated_with",
+                    "presents_with",
+                    "is_treated_by",
+                    "is_diagnosed_by"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "4a00cc7e-cb2e-4d31-9f08-68cfab85dcd4",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive treatment plan for a patient with stage IV non-small cell lung cancer (NSCLC) with EGFR mutation, brain metastases, and multiple comorbidities including chronic obstructive pulmonary disease (COPD), type 2 diabetes mellitus (T2DM), and chronic kidney disease (CKD). The plan should include detailed pharmacological interventions, radiotherapy protocols, supportive care measures, and palliative care strategies. Additionally, provide a prognostic analysis based on the latest clinical trials and epidemiological data.",
+            "task_data": {
+                "patient_demographics": {
+                    "age": 65,
+                    "gender": "male",
+                    "BMI": 28.5
+                },
+                "clinical_data": {
+                    "primary_diagnosis": "Stage IV NSCLC with EGFR mutation",
+                    "metastases": [
+                        "brain"
+                    ],
+                    "comorbidities": [
+                        "COPD",
+                        "T2DM",
+                        "CKD"
+                    ],
+                    "lab_results": {
+                        "HbA1c": 8.2,
+                        "Creat clearance": 45,
+                        "FEV1": 60
+                    },
+                    "imaging_results": {
+                        "CT_scan": "Multiple lung nodules, brain metastasis",
+                        "PET_scan": "increased uptake in the lungs and brain",
+                        "MRI": "brain metastasis"
+                    },
+                    "genetic_testing": {
+                        "EGFR_mutation": "Exon 19 deletion"
+                    }
+                },
+                "medication_history": {
+                    "current_medications": [
+                        {
+                            "medication": "Tiotropium",
+                            "dose": "18 mcg",
+                            "frequency": "QD"
+                        },
+                        {
+                            "medication": "Metformin",
+                            "dose": "1000 mg",
+                            "frequency": "BID"
+                        },
+                        {
+                            "medication": "Lisinopril",
+                            "dose": "20 mg",
+                            "frequency": "QD"
+                        }
+                    ],
+                    "previous_medications": [
+                        {
+                            "medication": "Gefitinib",
+                            "dose": "250 mg",
+                            "frequency": "QD"
+                        },
+                        {
+                            "medication": "Cisplatin",
+                            "dose": "75 mg/m2",
+                            "frequency": "Q3W"
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "prognostic_model": "P(survival) = f(age, gender, BMI, HbA1c, Creat clearance, FEV1, EGFR mutation status, treatment modality)",
+                "dose_calculation": "Dose = AUC * Clearance",
+                "radiotherapy_dose": "Total Dose = 60 Gy, Fraction Dose = 2 Gy/fraction"
+            },
+            "ontology": {
+                "entities": [
+                    "NSCLC",
+                    "EGFR mutation",
+                    "brain metastases",
+                    "COPD",
+                    "T2DM",
+                    "CKD",
+                    "Tiotropium",
+                    "Metformin",
+                    "Lisinopril",
+                    "Gefitinib",
+                    "Cisplatin",
+                    "radiotherapy",
+                    "supportive care",
+                    "palliative care"
+                ],
+                "relations": [
+                    "NSCLC has EGFR mutation",
+                    "NSCLC has brain metastases",
+                    "patient has COPD",
+                    "patient has T2DM",
+                    "patient has CKD",
+                    "Tiotropium treats COPD",
+                    "Metformin treats T2DM",
+                    "Lisinopril treats CKD",
+                    "Gefitinib treats NSCLC",
+                    "Cisplatin treats NSCLC",
+                    "radiotherapy treats NSCLC",
+                    "supportive care assists NSCLC treatment",
+                    "palliative care assists NSCLC treatment"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "ffcf7d16-3d9f-4e50-9b41-d2d80d2b3c4a",
+        "task_details": {
+            "task_instructions": "Given a cohort of patients with varying stages of Chronic Kidney Disease (CKD), predict the likelihood of progression to End-Stage Renal Disease (ESRD) within the next 5 years. Utilize a comprehensive set of clinical, laboratory, and demographic data to build a predictive model. The model should incorporate factors such as estimated Glomerular Filtration Rate (eGFR), proteinuria levels, comorbidities, and medications. The prediction should be validated using statistical methods and provide a risk score for each patient.",
+            "task_data": {
+                "clinical_data": {
+                    "patients": [
+                        {
+                            "patient_id": 1,
+                            "age": 65,
+                            "gender": "Male",
+                            "eGFR": 45,
+                            "proteinuria": 1.2,
+                            "comorbidities": [
+                                "Hypertension",
+                                "Diabetes Mellitus"
+                            ],
+                            "medications": [
+                                "Lisinopril",
+                                "Metformin"
+                            ]
+                        },
+                        {
+                            "patient_id": 2,
+                            "age": 55,
+                            "gender": "Female",
+                            "eGFR": 55,
+                            "proteinuria": 0.8,
+                            "comorbidities": [
+                                "Hypertension"
+                            ],
+                            "medications": [
+                                "Amlodipine"
+                            ]
+                        },
+                        {
+                            "patient_id": 3,
+                            "age": 70,
+                            "gender": "Male",
+                            "eGFR": 35,
+                            "proteinuria": 1.5,
+                            "comorbidities": [
+                                "Diabetes Mellitus",
+                                "Coronary Artery Disease"
+                            ],
+                            "medications": [
+                                "Insulin",
+                                "Aspirin"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "The risk score for progression to ESRD can be formulated using a logistic regression model: logit(P) = β0 + β1*eGFR + β2*proteinuria + β3*age + β4*gender + β5*comorbidities + β6*medications, where P is the probability of progression to ESRD, and β0, β1, ..., β6 are the coefficients to be estimated from the data.",
+            "ontology": {
+                "entities": [
+                    "Chronic Kidney Disease (CKD)",
+                    "End-Stage Renal Disease (ESRD)",
+                    "estimated Glomerular Filtration Rate (eGFR)",
+                    "proteinuria",
+                    "Hypertension",
+                    "Diabetes Mellitus",
+                    "Coronary Artery Disease",
+                    "Lisinopril",
+                    "Metformin",
+                    "Amlodipine",
+                    "Insulin",
+                    "Aspirin"
+                ],
+                "relations": [
+                    "CKD progresses to ESRD",
+                    "eGFR indicates renal function",
+                    "proteinuria indicates kidney damage",
+                    "Hypertension is a comorbidity",
+                    "Diabetes Mellitus is a comorbidity",
+                    "Coronary Artery Disease is a comorbidity",
+                    "Lisinopril is a medication",
+                    "Metformin is a medication",
+                    "Amlodipine is a medication",
+                    "Insulin is a medication",
+                    "Aspirin is a medication"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "a997a6d9-1878-43a1-a654-74a1a6487cbf",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of severe dyspnea, chest pain, and hypoxemia. Consider all possible cardiovascular, pulmonary, and systemic etiologies. Provide a ranked list of differential diagnoses based on probabilistic reasoning, taking into account the patient's medical history, laboratory results, and imaging studies. Justify each diagnosis with relevant medical literature and pathophysiological mechanisms.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 65,
+                        "gender": "male",
+                        "BMI": 30.5
+                    },
+                    "medical_history": [
+                        "hypertension",
+                        "type 2 diabetes mellitus",
+                        "hyperlipidemia",
+                        "smoking (20 pack-years)"
+                    ],
+                    "current_medications": [
+                        "metformin 500mg BID",
+                        "lisinopril 20mg QD",
+                        "atorvastatin 40mg QD"
+                    ],
+                    "vital_signs": {
+                        "blood_pressure": "140/90 mmHg",
+                        "heart_rate": 110,
+                        "respiratory_rate": 28,
+                        "oxygen_saturation": 88,
+                        "temperature": 37.5
+                    },
+                    "laboratory_results": {
+                        "CBC": {
+                            "WBC": 12.5,
+                            "HGB": 13.5,
+                            "PLT": 250
+                        },
+                        "BMP": {
+                            "Na": 138,
+                            "K": 4.5,
+                            "Cl": 105,
+                            "CO2": 22,
+                            "BUN": 20,
+                            "Cr": 1.2,
+                            "Glu": 180
+                        },
+                        "cardiac_biomarkers": {
+                            "troponin_I": 0.05,
+                            "BNP": 500
+                        },
+                        "ABG": {
+                            "pH": 7.35,
+                            "pCO2": 35,
+                            "pO2": 55,
+                            "HCO3": 22
+                        }
+                    },
+                    "imaging_studies": {
+                        "chest_x_ray": "bilateral interstitial infiltrates",
+                        "CT_angiography": "no evidence of pulmonary embolism"
+                    }
+                }
+            },
+            "mathematical_formulation": "P(D|S) = P(S|D) * P(D) / P(S), where P(D|S) is the posterior probability of disease D given symptoms S, P(S|D) is the likelihood of symptoms given disease, P(D) is the prior probability of disease, and P(S) is the total probability of symptoms.",
+            "ontology": {
+                "entities": [
+                    "acute coronary syndrome",
+                    "pulmonary edema",
+                    "pneumonia",
+                    "exacerbation of chronic obstructive pulmonary disease",
+                    "pulmonary embolism",
+                    "acute respiratory distress syndrome",
+                    "pneumothorax",
+                    "pericardial effusion",
+                    "septicemia",
+                    "anaphylaxis"
+                ],
+                "relations": [
+                    "causes",
+                    "is_associated_with",
+                    "is_a_complication_of",
+                    "is_treated_by",
+                    "is_diagnosed_by"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "2df8d7e3-b5be-4b53-8a90-581a4429471c",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of dyspnea, chest pain, and hemoptysis, considering a wide range of potential etiologies including pulmonary embolism, acute coronary syndrome, pneumothorax, and acute respiratory distress syndrome (ARDS). Provide a detailed analysis of the probability of each diagnosis based on the given clinical data, laboratory results, and imaging findings. Include a discussion on the pathophysiology, diagnostic criteria, and management strategies for each potential diagnosis.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 55,
+                        "gender": "male",
+                        "BMI": 30.5
+                    },
+                    "vital_signs": {
+                        "blood_pressure": "140/90 mmHg",
+                        "heart_rate": 110,
+                        "respiratory_rate": 28,
+                        "oxygen_saturation": 88,
+                        "temperature": 37.5
+                    },
+                    "symptoms": {
+                        "dyspnea": "severe",
+                        "chest_pain": "sharp",
+                        "hemoptysis": "mild",
+                        "duration": "2 hours"
+                    },
+                    "medical_history": {
+                        "hypertension": true,
+                        "diabetes_mellitus": true,
+                        "smoking": "20 pack-years",
+                        "previous_PE": false,
+                        "previous_DVT": true
+                    },
+                    "laboratory_results": {
+                        "D-dimer": 2000,
+                        "troponin_I": 0.05,
+                        "BNP": 500,
+                        "WBC": 12000,
+                        "Hgb": 13.5,
+                        "CRP": 15
+                    },
+                    "imaging_findings": {
+                        "chest_X-ray": "normal",
+                        "CT_pulmonary_angiogram": "filling defect inright lower lobe artery",
+                        "echocardiogram": "normal LV function, mild RV dilatation"
+                    }
+                }
+            },
+            "mathematical_formulation": "P(D|S) = P(S|D) * P(D) / P(S), where P(D|S) is the posterior probability of disease D given symptoms S, P(S|D) is the likelihood of symptoms given the disease, P(D) is the prior probability of the disease, and P(S) is the probability of the symptoms.",
+            "ontology": {
+                "entities": [
+                    "dyspnea",
+                    "chest pain",
+                    "hemoptysis",
+                    "pulmonary embolism",
+                    "acute coronary syndrome",
+                    "pneumothorax",
+                    "acute respiratory distress syndrome (ARDS)",
+                    "D-dimer",
+                    "troponin I",
+                    "BNP",
+                    "WBC",
+                    "Hgb",
+                    "CRP",
+                    "CT pulmonary angiogram",
+                    "echocardiogram"
+                ],
+                "relations": [
+                    "dyspnea is a symptom of pulmonary embolism",
+                    "chest pain is a symptom of acute coronary syndrome",
+                    "hemoptysis is a symptom of pulmonary embolism",
+                    "D-dimer is elevated in pulmonary embolism",
+                    "troponin I is elevated in acute coronary syndrome",
+                    "BNP is elevated in heart failure",
+                    "WBC is elevated in infection",
+                    "Hgb is decreased in anemia",
+                    "CRP is elevated in inflammation",
+                    "CT pulmonary angiogram shows filling defect in pulmonary embolism",
+                    "echocardiogram shows RV dilatation in pulmonary embolism"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "037a779f-4a1a-4113-876d-8f5cf9fd5083",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of chest pain, dyspnea, and syncope. Consider all possible cardiovascular, pulmonary, and neurological etiologies. Provide a ranked list of differential diagnoses based on probability, supported by clinical evidence and pathophysiological reasoning. Include relevant diagnostic tests and potential treatment plans for each diagnosis.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 55,
+                        "gender": "male",
+                        "BMI": 28.5
+                    },
+                    "medical_history": [
+                        "hypertension",
+                        "type 2 diabetes mellitus",
+                        "hyperlipidemia"
+                    ],
+                    "current_medications": [
+                        "metformin 500mg BID",
+                        "lisinopril 20mg QD",
+                        "atorvastatin 40mg QD"
+                    ],
+                    "vital_signs": {
+                        "blood_pressure": "140/90 mmHg",
+                        "heart_rate": "110 bpm",
+                        "respiratory_rate": "22 breaths/min",
+                        "oxygen_saturation": "92% on room air"
+                    },
+                    "laboratory_findings": {
+                        "troponin_I": "0.05 ng/mL",
+                        "CK-MB": "10 ng/mL",
+                        "BNP": "500 pg/mL",
+                        "D-dimer": "1.5 mg/L"
+                    },
+                    "electrocardiogram": "sinus tachycardia with nonspecific ST-T wave changes",
+                    "imaging_studies": {
+                        "chest_x_ray": "mild cardiomegaly with clear lung fields",
+                        "echocardiogram": "left ventricular hypertrophy with ejection fraction of 50%"
+                    }
+                }
+            },
+            "mathematical_formulation": "P(D|S) = P(S|D) * P(D) / P(S), where P(D|S) is the probability of a disease given the symptoms, P(S|D) is the probability of the symptoms given the disease, P(D) is the prior probability of the disease, and P(S) is the prior probability of the symptoms.",
+            "ontology": {
+                "entities": [
+                    "acute coronary syndrome",
+                    "pulmonary embolism",
+                    "aortic dissection",
+                    "cardiac tamponade",
+                    "pneumothorax",
+                    "myocarditis",
+                    "pericarditis",
+                    "sepsis",
+                    "anaphylaxis",
+                    "intracranial hemorrhage",
+                    "troponin I",
+                    "CK-MB",
+                    "BNP",
+                    "D-dimer",
+                    "echocardiogram",
+                    "chest x-ray",
+                    "electrocardiogram"
+                ],
+                "relations": [
+                    "causes",
+                    "is_associated_with",
+                    "is_diagnosed_by",
+                    "is_treated_by",
+                    "has_symptom",
+                    "has_risk_factor"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "91adbafd-0fd1-43f4-9566-a8708bdb7577",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of dyspnea, chest pain, and syncope. Consider all potential etiologies, including cardiac, pulmonary, and neurological causes. Prioritize the differential based on the provided clinical data, laboratory results, and imaging findings. Provide a detailed rationale for each diagnosis considered, including the likelihood of each diagnosis based on the given data.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 65,
+                        "gender": "Male",
+                        "ethnicity": "Caucasian"
+                    },
+                    "medical_history": {
+                        "hypertension": true,
+                        "diabetes_mellitus": true,
+                        "hyperlipidemia": true,
+                        "smoking_history": "40 pack-years",
+                        "previous_myocardial_infarction": true
+                    },
+                    "presenting_symptoms": {
+                        "dyspnea": "severe",
+                        "chest_pain": "crushing",
+                        "syncope": true,
+                        "diaphoresis": true,
+                        "nausea": true
+                    },
+                    "vital_signs": {
+                        "blood_pressure": "90/60 mmHg",
+                        "heart_rate": "120 bpm",
+                        "respiratory_rate": "28 breaths/min",
+                        "oxygen_saturation": "88% on room air"
+                    },
+                    "physical_examination": {
+                        "cardiovascular": "S3 gallop, murmur in the mitral area",
+                        "pulmonary": "bilateral rales",
+                        "neurological": "no focal deficits"
+                    }
+                },
+                "laboratory_results": {
+                    "complete_blood_count": {
+                        "hemoglobin": "13 g/dL",
+                        "white_blood_cell_count": "12,000/uL",
+                        "platelet_count": "250,000/uL"
+                    },
+                    "basic_metabolic_panel": {
+                        "sodium": "138 mmol/L",
+                        "potassium": "4.5 mmol/L",
+                        "blood_urea_nitrogen": "20 mg/dL",
+                        "creatinine": "1.2 mg/dL",
+                        "glucose": "180 mg/dL"
+                    },
+                    "cardiac_biomarkers": {
+                        "troponin_I": "0.5 ng/mL",
+                        "creatine_kinase_MB": "20 ng/mL",
+                        "brain_natriuretic_peptide": "500 pg/mL"
+                    },
+                    "arthritic_blood_gas": {
+                        "pH": "7.35",
+                        "pCO2": "35 mmHg",
+                        "pO2": "60 mmHg",
+                        "bicarbonate": "22 mmol/L"
+                    }
+                },
+                "imaging_findings": {
+                    "chest_x_ray": "cardiomegaly, pulmonary edema",
+                    "electrocardiogram": "ST-segment elevation in leads II, III, aVF",
+                    "echocardiogram": "reduced left ventricular ejection fraction (35%), regional wall motion abnormalities"
+                }
+            },
+            "mathematical_formulation": "Bayesian probability model to calculate the likelihood of each diagnosis based on the given data. P(D|S) = P(S|D) * P(D) / P(S), where D is the diagnosis, S is the symptom or finding, P(D|S) is the posterior probability of the diagnosis given the symptom, P(S|D) is the likelihood of the symptom given the diagnosis, P(D) is the prior probability of the diagnosis, and P(S) is the prior probability of the symptom.",
+            "ontology": {
+                "entities": [
+                    "acute myocardial infarction",
+                    "pulmonary embolism",
+                    "aortic dissection",
+                    "cardiac tamponade",
+                    "pneumothorax",
+                    "septic shock",
+                    "cardiogenic shock",
+                    "hypovolemic shock",
+                    "neurogenic shock",
+                    "anaphylaxis",
+                    "acute heart failure",
+                    "acute coronary syndrome",
+                    "acute pericarditis",
+                    "acute aortic syndrome",
+                    "acute pulmonary edema",
+                    "acute respiratory distress syndrome",
+                    "acute exacerbation of chronic obstructive pulmonary disease",
+                    "acute asthma exacerbation",
+                    "acute pneumonia",
+                    "acute bronchitis",
+                    "acute pleural effusion",
+                    "acute interstitial lung disease",
+                    "acute myocarditis",
+                    "acute endocarditis",
+                    "acute valvular heart disease",
+                    "acute arrhythmia",
+                    "acute conduction disorder",
+                    "acute neurological disorder",
+                    "acute metabolic disorder",
+                    "acute electrolyte imbalance",
+                    "acute renal failure",
+                    "acute hepatic failure",
+                    "acute gastrointestinal bleeding",
+                    "acute pancreatitis",
+                    "acute cholecystitis",
+                    "acute appendicitis",
+                    "acute diverticulitis",
+                    "acute bowel obstruction",
+                    "acute bowel ischemia",
+                    "acute bowel perforation",
+                    "acute abdominal aortic aneurysm",
+                    "acute mesenteric ischemia",
+                    "acute mesenteric thrombosis",
+                    "acute mesenteric embolism",
+                    "acute mesenteric vasculitis",
+                    "acute mesenteric arteritis",
+                    "acute mesenteric venous thrombosis",
+                    "acute mesenteric venous embolism",
+                    "acute mesenteric venous vasculitis",
+                    "acute mesenteric venous arteritis",
+                    "acute mesenteric venous thrombophlebitis",
+                    "acute mesenteric venous embolism",
+                    "acute mesenteric venous vasculitis",
+                    "acute mesenteric venous arteritis",
+                    "acute mesenteric venous thrombophlebitis",
+                    "acute mesenteric venous embolism",
+                    "acute mesenteric venous vasculitis",
+                    "acute mesenteric venous arteritis",
+                    "acute mesenteric venous thrombophlebitis",
+                    "acute mesenteric venous embolism",
+                    "acute mesenteric venous vasculitis",
+                    "acute mesenteric venous arteritis",
+                    "acute mesenteric venous thrombophlebitis",
+                    "acute mesenteric venous embolism",
+                    "acute mesenteric venous vasculitis",
+                    "acute mesenteric venous arteritis",
+                    "acute mesenteric venous thrombophlebitis",
+                    "acute mesenteric venous embolism",
+                    "acute mesenteric venous vasculitis",
+                    "acute mesenteric venous arteritis",
+                    "acute mesenteric venous thrombophlebitis"
+                ],
+                "relations": [
+                    "causes",
+                    "is_caused_by",
+                    "is_associated_with",
+                    "is_a_risk_factor_for",
+                    "is_a_symptom_of",
+                    "is_a_sign_of",
+                    "is_a_complication_of",
+                    "is_a_sequela_of",
+                    "is_a_manifestation_of",
+                    "is_a_feature_of",
+                    "is_a_characteristic_of",
+                    "is_a_marker_of",
+                    "is_a_predictor_of",
+                    "is_a_prognostic_factor_for",
+                    "is_a_diagnostic_criterion_for",
+                    "is_a_treatment_for",
+                    "is_a_prevention_for",
+                    "is_a_management_strategy_for",
+                    "is_a_therapeutic_option_for",
+                    "is_a_intervention_for",
+                    "is_a_procedure_for",
+                    "is_a_surgery_for",
+                    "is_a_medication_for",
+                    "is_a_device_for",
+                    "is_a_therapy_for",
+                    "is_a_rehabilitation_for",
+                    "is_a_supportive_care_for",
+                    "is_a_palliative_care_for",
+                    "is_a_hospice_care_for",
+                    "is_a_end_of_life_care_for",
+                    "is_a_bereavement_care_for",
+                    "is_a_grief_counseling_for",
+                    "is_a_psychological_support_for",
+                    "is_a_social_support_for",
+                    "is_a_spiritual_support_for",
+                    "is_a_cultural_support_for",
+                    "is_a_linguistic_support_for",
+                    "is_a_financial_support_for",
+                    "is_a_legal_support_for",
+                    "is_a_ethical_support_for",
+                    "is_a_research_support_for",
+                    "is_a_educational_support_for",
+                    "is_a_training_support_for",
+                    "is_a_mentoring_support_for",
+                    "is_a_coaching_support_for",
+                    "is_a_counseling_support_for",
+                    "is_a_therapy_support_for",
+                    "is_a_rehabilitation_support_for",
+                    "is_a_supportive_care_support_for",
+                    "is_a_palliative_care_support_for",
+                    "is_a_hospice_care_support_for",
+                    "is_a_end_of_life_care_support_for",
+                    "is_a_bereavement_care_support_for",
+                    "is_a_grief_counseling_support_for",
+                    "is_a_psychological_support_support_for",
+                    "is_a_social_support_support_for",
+                    "is_a_spiritual_support_support_for",
+                    "is_a_cultural_support_support_for",
+                    "is_a_linguistic_support_support_for",
+                    "is_a_financial_support_support_for",
+                    "is_a_legal_support_support_for",
+                    "is_a_ethical_support_support_for",
+                    "is_a_research_support_support_for",
+                    "is_a_educational_support_support_for",
+                    "is_a_training_support_support_for",
+                    "is_a_mentoring_support_support_for",
+                    "is_a_coaching_support_support_for",
+                    "is_a_counseling_support_support_for",
+                    "is_a_therapy_support_support_for",
+                    "is_a_rehabilitation_support_support_for",
+                    "is_a_supportive_care_support_support_for",
+                    "is_a_palliative_care_support_support_for",
+                    "is_a_hospice_care_support_support_for",
+                    "is_a_end_of_life_care_support_support_for",
+                    "is_a_bereavement_care_support_support_for",
+                    "is_a_grief_counseling_support_support_for"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "a4903bf4-a322-498f-a65d-814ba1adf675",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of severe dyspnea, chest pain, and hypotension, considering all possible cardiovascular, pulmonary, and systemic etiologies. Provide a ranked list of differential diagnoses with detailed explanations of pathophysiological mechanisms, diagnostic criteria, and recommended diagnostic workup for each condition.",
+            "task_data": {
+                "patient_demographics": {
+                    "age": 65,
+                    "gender": "Male",
+                    "BMI": 28.5
+                },
+                "vital_signs": {
+                    "blood_pressure": "85/50 mmHg",
+                    "heart_rate": 120,
+                    "respiratory_rate": 30,
+                    "oxygen_saturation": 88,
+                    "temperature": 37.5
+                },
+                "laboratory_results": {
+                    "troponin_I": 0.05,
+                    "BNP": 500,
+                    "D-dimer": 1500,
+                    "white_blood_cell_count": 12000,
+                    "hemoglobin": 13.5,
+                    "creatinine": 1.2
+                },
+                "electrocardiogram": "Sinus tachycardia with ST-segment depression in leads V4-V6",
+                "chest_x_ray": "Mild cardiomegaly with increased interstitial markings",
+                "medical_history": [
+                    "Hypertension",
+                    "Type 2 Diabetes Mellitus",
+                    "Hyperlipidemia",
+                    "Previous myocardial infarction 5 years ago"
+                ],
+                "medications": [
+                    "Metformin 500mg BID",
+                    "Lisinopril 20mg QD",
+                    "Atorvastatin 40mg QD",
+                    "Aspirin 81mg QD"
+                ]
+            },
+            "mathematical_formulation": "P(D|S) = P(S|D) * P(D) / P(S), where P(D|S) is the probability of disease D given symptoms S, P(S|D) is the probability of symptoms S given disease D, P(D) is the prior probability of disease D, and P(S) is the prior probability of symptoms S.",
+            "ontology": {
+                "entities": [
+                    "Acute Coronary Syndrome",
+                    "Pulmonary Embolism",
+                    "Acute Heart Failure",
+                    "Sepsis",
+                    "Pneumothorax",
+                    "Aortic Dissection",
+                    "Cardiac Tamponade",
+                    "Pneumonia",
+                    "Chronic Obstructive Pulmonary Disease Exacerbation",
+                    "Anaphylaxis"
+                ],
+                "relations": [
+                    "causes",
+                    "is_associated_with",
+                    "leads_to",
+                    "is_a_complication_of",
+                    "requires_diagnostic_workup"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "0bd0bc30-fdec-4fb1-a23c-e40247bbf214",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of severe headache, photophobia, and neck stiffness, considering all possible etiologies including infectious, vascular, and inflammatory causes. Provide a ranked list of differential diagnoses with corresponding likelihoods, recommended diagnostic tests, and initial management strategies.",
+            "task_data": {
+                "patient_demographics": {
+                    "age": 45,
+                    "gender": "female",
+                    "medical_history": [
+                        "hypertension",
+                        "migraine"
+                    ],
+                    "current_medications": [
+                        "lisinopril 10mg daily",
+                        "sumatriptan as needed"
+                    ],
+                    "allergies": [
+                        "penicillin"
+                    ],
+                    "social_history": [
+                        "non-smoker",
+                        "occasional alcohol use"
+                    ]
+                },
+                "clinical_presentation": {
+                    "symptoms": [
+                        "severe headache",
+                        "photophobia",
+                        "neck stiffness"
+                    ],
+                    "onset": "acute",
+                    "duration": "6 hours",
+                    "vital_signs": {
+                        "temperature": "38.5°C",
+                        "blood_pressure": "140/90 mmHg",
+                        "heart_rate": "90 bpm",
+                        "respiratory_rate": "18 breaths/min",
+                        "oxygen_saturation": "98% on room air"
+                    },
+                    "physical_examination": {
+                        "neurological": [
+                            "normal mental status",
+                            "no focal neurological deficits"
+                        ],
+                        "general": [
+                            "no rash",
+                            "no signs of trauma"
+                        ]
+                    }
+                },
+                "laboratory_results": {
+                    "complete_blood_count": {
+                        "white_blood_cell_count": "12,000/µL",
+                        "hemoglobin": "13 g/dL",
+                        "platelet_count": "250,000/µL"
+                    },
+                    "basic_metabolic_panel": {
+                        "sodium": "138 mmol/L",
+                        "potassium": "4.0 mmol/L",
+                        "blood_urea_nitrogen": "15 mg/dL",
+                        "creatinine": "0.9 mg/dL",
+                        "glucose": "110 mg/dL"
+                    }
+                }
+            },
+            "mathematical_formulation": "P(D|S) = P(S|D) * P(D) / P(S), where P(D|S) is the posterior probability of disease D given symptoms S, P(S|D) is the likelihood of symptoms given the disease, P(D) is the prior probability of the disease, and P(S) is the probability of the symptoms.",
+            "ontology": {
+                "entities": [
+                    "subarachnoid hemorrhage",
+                    "meningitis",
+                    "migraine",
+                    "encephalitis",
+                    "cerebral venous thrombosis",
+                    "hypertension",
+                    "lisinopril",
+                    "sumatriptan",
+                    "penicillin",
+                    "lumbar puncture",
+                    "computed tomography",
+                    "magnetic resonance imaging",
+                    "cerebrospinal fluid analysis",
+                    "blood culture",
+                    "intravenous antibiotics",
+                    "analgesics",
+                    "antiemetics"
+                ],
+                "relations": [
+                    "causes",
+                    "treated_with",
+                    "diagnosed_by",
+                    "associated_with",
+                    "contraindicated_with"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "567d743c-49b0-4725-8402-bdbca7d4181e",
+        "task_details": {
+            "task_instructions": "Predict the likelihood of a patient developing a condition of Hepatorenal Syndrome (HRS) within the next 48 hours, on the basis of the patient's electronic health records (EHRs). The factors to be considered include underlying liver disease severity, biochemical markers, and demographics. Provide an inference, including the influence of these factors on the development of HRS. Optimize the Systemic Inflammatory Score Index (SISI). SISI and medical formulas are based on Biochemical Markers, sepsis status, Lactic Acidosis, and multi-organ failure assessment (MOFA).",
+            "task_data": {
+                "clinical_data": {
+                    "patient_id": "P1218",
+                    "age": 65,
+                    "gender": "Male",
+                    "liver_disease": "Cirrhosis",
+                    "cirrhosis_stage": "Decompensated",
+                    "biochemical_markers": {
+                        "Creatinine (mg/dL)": 3.2,
+                        "Bilirubin (mg/dL)": 4.5,
+                        "INR": 1.9,
+                        "ALT (U/L)": 85,
+                        "AST (U/L)": 90,
+                        "Lactate (mmol/L)": 2.8
+                    },
+                    "hemodynamics": {
+                        "Mean Arterial Pressure (mmHg)": 68,
+                        "Central Venous Pressure (mmHg)": 12,
+                        "Cardiac Output (L/min)": 4.5
+                    },
+                    "sepsis_status": "Sepsis Present",
+                    "comorbidities": [
+                        "Diabetes Mellitus Type 2",
+                        "Hypertension"
+                    ],
+                    "MOFA": 9
+                }
+            },
+            "mathematical_formulation": "Predicted HRS = f(Creatinine, Bilirubin, INR, ALT, AST, Lactate, MAP,CVP,CO,SISI,MOFA). Where f is a complex prediction function governed by hospital algorithms including leaky softmax considering different stages of cirrhosis. Also INCLUDING the following equations: Child_pugh Score = Bilirubin + INR + Ascites Grade + Encephalopathy, SISI = 2.77X (Lactate) +1.3x(MOFA).... with boundary conditions that SIRS should not result in mortality without initial variable SIRS control.",
+            "ontology": {
+                "entities": [
+                    "Hepatorenal Syndrome (HRS)",
+                    "Cirrhosis",
+                    "Creatinine",
+                    "Bilirubin",
+                    "International Normalized Ratio (INR)",
+                    "Alanine Aminotransferase (ALT)",
+                    "Aspartate Aminotransferase (AST)",
+                    "Lactate",
+                    "Mean Arterial Pressure (MAP)",
+                    "Central Venous Pressure (CVP)",
+                    "Cardiac Output (CO)",
+                    "Systemic Inflammatory Score Index (SISI)",
+                    "Multi-Organ Failure Assessment (MOFA)",
+                    "Death",
+                    "Sepsis",
+                    "Sepsis-related SOFA"
+                ],
+                "relations": [
+                    "has_condition",
+                    "influences",
+                    "causes",
+                    "regulated_by",
+                    "is_measured_by",
+                    "affected_by"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "ecadba4d-7e66-43a1-b568-75176ad5b3f8",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive diagnostic and treatment plan for a patient presenting with acute onset of chest pain, shortness of breath, and syncope, considering differential diagnoses including but not limited to acute coronary syndrome, pulmonary embolism, and aortic dissection. Include a detailed discussion of the pathophysiology, diagnostic workup, and management strategies for each potential diagnosis. Provide a risk stratification based on clinical predictCharlson Comorbidity Index and GRACE score for acute coronary syndrome.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 65,
+                        "gender": "male",
+                        "BMI": 28.5,
+                        "medical_history": [
+                            "hypertension",
+                            "type 2 diabetes mellitus",
+                            "hyperlipidemia"
+                        ],
+                        "family_history": [
+                            "coronary artery disease in father"
+                        ],
+                        "social_history": [
+                            "former smoker",
+                            "occasionally alcohol abuse"
+                        ]
+                    },
+                    "presenting_symptoms": {
+                        "chest_pain": {
+                            "onset": "acute",
+                            "duration": "30 minutes",
+                            "character": "crushing",
+                            "radiation": "left arm",
+                            "associated_symptoms": [
+                                "diaphoresis",
+                                "nausea"
+                            ]
+                        },
+                        "shortness_of_breath": {
+                            "onset": "acute",
+                            "duration": "20 minutes",
+                            "severity": "moderate"
+                        },
+                        "syncope": {
+                            "onset": "acute",
+                            "duration": "brief",
+                            "frequency": "single episode"
+                        }
+                    },
+                    "vital_signs": {
+                        "blood_pressure": "140/90 mmHg",
+                        "heart_rate": "110 bpm",
+                        "respiratory_rate": "22 breaths per minute",
+                        "oxygen_saturation": "92% on room air"
+                    },
+                    "laboratory_results": {
+                        "troponin_I": "0.05 ng/mL",
+                        "CK-MB": "10 ng/mL",
+                        "D-dimer": "500 ng/mL",
+                        "BNP": "200 pg/mL"
+                    },
+                    "imaging_studies": {
+                        "chest_x-ray": "normal",
+                        "electrocardiogram": "ST-segment elevation in leads V2-V4",
+                        "echocardiogram": "hypokinesis of the anterior wall"
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "GRACE_score": "GRACE score = 1.23 × (age/10) + 0.63 (if heart rate > 70 bpm) + 0.54 (if systolic blood pressure < 140 mmHg) + 0.95 (if creatinine > 1.5 mg/dL) + 0.94 (if Killip class > 1) + 0.62 (if cardiac arrest at admission) + 0.70 (if ST-segment deviation) + 0.53 (if elevated cardiac enzymes)",
+                "Charlson_Comorbidity_Index": "CCI = 1 (if myocardial infarction) + 1 (if congestive heart failure) + 1 (if peripheral vascular disease) + 1 (if cerebrovascular disease) + 1 (if dementia) + 1 (if chronic pulmonary disease) + 1 (if connective tissue disease) + 1 (if peptic ulcer disease) + 1 (if mild liver disease) + 1 (if diabetes without chronic complications) + 2 (if hemiplegia) + 2 (if moderate or severe renal disease) + 2 (if diabetes with chronic complications) + 2 (if any tumor) + 2 (if leukemia) + 2 (if lymphoma) + 3 (if moderate or severe liver disease) + 6 (if metastatic solid tumor) + 6 (if AIDS)"
+            },
+            "ontology": {
+                "entities": [
+                    "acute coronary syndrome",
+                    "pulmonary embolism",
+                    "aortic dissection",
+                    "hypertension",
+                    "type 2 diabetes mellitus",
+                    "hyperlipidemia",
+                    "coronary artery disease",
+                    "chest pain",
+                    "shortness of breath",
+                    "syncope",
+                    "diaphoresis",
+                    "nausea",
+                    "blood pressure",
+                    "heart rate",
+                    "respiratory rate",
+                    "oxygen saturation",
+                    "troponin I",
+                    "CK-MB",
+                    "D-dimer",
+                    "BNP",
+                    "chest x-ray",
+                    "electrocardiogram",
+                    "echocardiogram",
+                    "GRACE score",
+                    "Charlson Comorbidity Index"
+                ],
+                "relations": [
+                    "is_associated_with",
+                    "is_a_symptom_of",
+                    "is_a_risk_factor_for",
+                    "is_diagnosed_by",
+                    "is_treated_by",
+                    "is_measured_by",
+                    "is_calculated_by"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "15a0dac3-8f54-4324-b757-2e7c04f7b7b1",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of dyspnea, chest pain, and syncope. Consider all possible cardiovascular, pulmonary, and systemic etiologies. Provide a ranked list of differential diagnoses based on probability, supported by evidence from clinical data, laboratory results, and imaging studies. Include a detailed pathophysiological explanation for each diagnosis and propose a management plan for the top three most likely diagnoses.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 65,
+                        "gender": "Male",
+                        "BMI": 28.5
+                    },
+                    " medical_history": [
+                        "Hypertension",
+                        "Type 2 Diabetes Mellitus",
+                        "Hyperlipidemia",
+                        "Previous Myocardial Infarction (5 years ago)"
+                    ],
+                    "presenting_symptoms": [
+                        "Acute onset dyspnea",
+                        "Chest pain (substernal, crushing, radiating to left arm)",
+                        "Syncope (brief loss of consciousness)"
+                    ],
+                    "vital_signs": {
+                        "blood_pressure": "180/95 mmHg",
+                        "heart_rate": "110 bpm",
+                        "respiratory_rate": "28 breaths/min",
+                        "oxygen_saturation": "88% on room air"
+                    },
+                    "physical_examination": {
+                        "general_appearance": "Diaphoretic, pale",
+                        "cardiovascular_exam": "Tachycardia, S4 gallop",
+                        "pulmonary_exam": "Bilateral rales, wheezing",
+                        "extremities": "Cool, cyanotic"
+                    },
+                    "laboratory_results": {
+                        "complete_blood_count": {
+                            "WBC": "12,000/mm3",
+                            "HGB": "13.5 g/dL",
+                            "PLT": "250,000/mm3"
+                        },
+                        "basic_metabolic_panel": {
+                            "Na": "140 mEq/L",
+                            "K": "4.5 mEq/L",
+                            "Cl": "105 mEq/L",
+                            "CO2": "22 mEq/L",
+                            "BUN": "25 mg/dL",
+                            "Cr": "1.2 mg/dL",
+                            "Glucose": "180 mg/dL"
+                        },
+                        "cardiac_biomarkers": {
+                            "Troponin I": "0.08 ng/mL (elevated)",
+                            "CK-MB": "25 ng/mL (elevated)"
+                        },
+                        "arterial_blood_gas": {
+                            "pH": "7.35",
+                            "PaCO2": "35 mmHg",
+                            "PaO2": "60 mmHg",
+                            "HCO3": "20 mEq/L"
+                        }
+                    },
+                    "imaging_studies": {
+                        "chest_x_ray": "Cardiomegaly, pulmonary vascular congestion",
+                        "electrocardiogram": "ST-segment elevation in leads II, III, aVF",
+                        "echocardiogram": "Reduced left ventricular ejection fraction (35%), regional wall motion abnormalities"
+                    }
+                }
+            },
+            "mathematical_formulation": "Calculate the probability of each differential diagnosis using Bayes' theorem, where P(D|E) = (P(E|D) * P(D)) / P(E). Here, P(D|E) is the probability of the disease given the evidence, P(E|D) is the probability of the evidence given the disease, P(D) is the prior probability of the disease, and P(E) is the probability of the evidence. Use likelihood ratios and pretest probabilities to determine the post-test probabilities for each diagnosis.",
+            "ontology": {
+                "entities": [
+                    "Dyspnea",
+                    "Chest pain",
+                    "Syncope",
+                    "Myocardial Infarction",
+                    "Pulmonary Embolism",
+                    "Aortic Dissection",
+                    "Cardiogenic Shock",
+                    "Pneumothorax",
+                    "Heart Failure",
+                    "Cardiomyopathy",
+                    "Acute Coronary Syndrome",
+                    "Pericarditis",
+                    "Myocarditis",
+                    "Pulmonary Hypertension",
+                    "Valvular Heart Disease",
+                    "Arrhythmias"
+                ],
+                "relations": [
+                    "causes",
+                    "is_a",
+                    "has_symptom",
+                    "has_sign",
+                    "has_lab_finding",
+                    "has_imaging_finding",
+                    "requires_treatment",
+                    "has_complication",
+                    "has_risk_factor"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "6ab3e302-e4bd-473d-a0b8-8a2eed43d010",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive differential diagnosis for a patient presenting with acute onset of dyspnea, chest pain, and hemoptysis, considering rare etiologies such as pulmonary arteriovenous malformations, eosinophilic granulomatosis with polyangiitis, and Goodpasture syndrome. Provide a detailed pathophysiological explanation for each potential diagnosis, including the underlying molecular mechanisms and expected laboratory findings. Additionally, propose a diagnostic algorithm that includes advanced imaging techniques and invasive procedures, such as bronchoalveolar lavage and transbronchial biopsy, to confirm the diagnosis. Finally, outline a management plan that addresses both the acute phase and long-term follow-up, incorporating pharmacological interventions, interventional radiology, and surgical options.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 45,
+                        "sex": "female",
+                        "ethnicity": "Caucasian"
+                    },
+                    "vital_signs": {
+                        "temperature": 37.5,
+                        "heart_rate": 110,
+                        "blood_pressure": "130/85 mmHg",
+                        "respiratory_rate": 28,
+                        "oxygen_saturation": 88
+                    },
+                    "laboratory_findings": {
+                        "white_blood_cell_count": "12,000/µL",
+                        "hemoglobin": "10 g/dL",
+                        "platelet_count": "250,000/µL",
+                        "erythrocyte_sedimentation_rate": "40 mm/h",
+                        "C-reactive_protein": "50 mg/L",
+                        "D-dimer": "2,000 ng/mL",
+                        "serum_creatinine": "1.2 mg/dL",
+                        "blood_urea_nitrogen": "20 mg/dL"
+                    },
+                    "imaging_studies": {
+                        "chest_X-ray": " diffuse bilateral infiltrates",
+                        "CT_scan": "ground-glass opacities and nodular lesions"
+                    },
+                    "clinical_history": {
+                        "medical_history": "asthma, recurrent sinusitis",
+                        "family_history": "no significant family history",
+                        "social_history": "non-smoker, occasional alcohol use"
+                    }
+                }
+            },
+            "mathematical_formulation": "P(D|S) = P(S|D) * P(D) / P(S), where P(D|S) is the probability of the disease given the symptoms, P(S|D) is the probability of the symptoms given the disease, P(D) is the prior probability of the disease, and P(S) is the prior probability of the symptoms. The diagnostic algorithm should aim to maximize the posterior probability P(D|S) for each potential diagnosis.",
+            "ontology": {
+                "entities": [
+                    "dyspnea",
+                    "chest pain",
+                    "hemoptysis",
+                    "pulmonary arteriovenous malformations",
+                    "eosinophilic granulomatosis with polyangiitis",
+                    "Goodpasture syndrome",
+                    "bronchoalveolar lavage",
+                    "transbronchial biopsy",
+                    "interventional radiology",
+                    "pharmacological interventions",
+                    "surgical options"
+                ],
+                "relations": [
+                    "dyspnea is a symptom of pulmonary arteriovenous malformations",
+                    "chest pain is a symptom of eosinophilic granulomatosis with polyangiitis",
+                    "hemoptysis is a symptom of Goodpasture syndrome",
+                    "bronchoalveolar lavage is a diagnostic procedure for pulmonary arteriovenous malformations",
+                    "transbronchial biopsy is a diagnostic procedure for eosinophilic granulomatosis with polyangiitis",
+                    "interventional radiology is a management option for pulmonary arteriovenous malformations",
+                    "pharmacological interventions are a management option for eosinophilic granulomatosis with polyangiitis",
+                    "surgical options are a management option for Goodpasture syndrome"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "1ceb03b0-ff17-44be-8084-c4b7c31c0003",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of dyspnea, chest pain, and hemoptysis, considering a wide range of potential etiologies including pulmonary embolism, acute coronary syndrome, aortic dissection, and pulmonary edema. Provide a detailed analysis of the likelihood of each diagnosis based on the provided clinical data, laboratory results, and imaging findings. Justify your conclusions with relevant medical literature and guidelines.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 55,
+                        "gender": "male",
+                        "BMI": 28.5
+                    },
+                    " medical_history": [
+                        "hypertension",
+                        "type 2 diabetes mellitus",
+                        "hyperlipidemia",
+                        "smoking (20 pack-years)"
+                    ],
+                    "presenting_symptoms": [
+                        "acute onset dyspnea",
+                        "chest pain",
+                        "hemoptysis"
+                    ],
+                    "vital_signs": {
+                        "blood_pressure": "140/90 mmHg",
+                        "heart_rate": "110 bpm",
+                        "respiratory_rate": "22 breaths/min",
+                        "oxygen_saturation": "92% on room air"
+                    },
+                    "physical_examination": {
+                        "general_appearance": "diaphoretic",
+                        "cardiovascular": "tachycardia, regular rhythm",
+                        "respiratory": "bilateral rales",
+                        "extremities": "no edema"
+                    }
+                },
+                "laboratory_results": {
+                    "complete_blood_count": {
+                        "hemoglobin": "13.5 g/dL",
+                        "white_blood_cell_count": "12,000 cells/mm3",
+                        "platelet_count": "250,000 cells/mm3"
+                    },
+                    "basic_metabolic_panel": {
+                        "sodium": "138 mmol/L",
+                        "potassium": "4.0 mmol/L",
+                        "blood_urea_nitrogen": "18 mg/dL",
+                        "creatinine": "1.1 mg/dL",
+                        "glucose": "180 mg/dL"
+                    },
+                    "cardiac_biomarkers": {
+                        "troponin_I": "0.05 ng/mL",
+                        "brain_natriuretic_peptide": "500 pg/mL"
+                    },
+                    "coagulation_profile": {
+                        "prothrombin_time": "12.5 seconds",
+                        "activated_partial_thromboplastin_time": "30 seconds",
+                        "D-dimer": "1.5 mg/L"
+                    },
+                    "arterial_blood_gas": {
+                        "pH": "7.40",
+                        "pCO2": "35 mmHg",
+                        "pO2": "70 mmHg",
+                        "bicarbonate": "24 mmol/L"
+                    }
+                },
+                "imaging_findings": {
+                    "chest_x_ray": "bilateral interstitial opacities",
+                    "electrocardiogram": "sinus tachycardia, no ST-segment elevation",
+                    "computed_tomography_pulmonary_angiogram": "filling defect in the right pulmonary artery"
+                }
+            },
+            "mathematical_formulation": {
+                "bayesian_probability": "P(D|S) = P(S|D) * P(D) / P(S), where D is the diagnosis, S is the symptom",
+                "likelihood_ratios": "LR = sensitivity / (1 - specificity)",
+                "decision_threshold": "T = P(D|S) > 0.5 for positive diagnosis"
+            },
+            "ontology": {
+                "entities": [
+                    "dyspnea",
+                    "chest pain",
+                    "hemoptysis",
+                    "pulmonary embolism",
+                    "acute coronary syndrome",
+                    "aortic dissection",
+                    "pulmonary edema",
+                    "hypertension",
+                    "type 2 diabetes mellitus",
+                    "hyperlipidemia",
+                    "troponin I",
+                    "brain natriuretic peptide",
+                    "D-dimer",
+                    "chest X-ray",
+                    "electrocardiogram",
+                    "computed tomography pulmonary angiogram"
+                ],
+                "relations": [
+                    "pulmonary embolism causes dyspnea",
+                    "acute coronary syndrome causes chest pain",
+                    "aortic dissection causes chest pain",
+                    "pulmonary edema causes dyspnea",
+                    "hypertension increases risk of aortic dissection",
+                    "type 2 diabetes mellitus increases risk of acute coronary syndrome",
+                    "hyperlipidemia increases risk of acute coronary syndrome",
+                    "smoking increases risk of pulmonary embolism",
+                    "troponin I elevated in acute coronary syndrome",
+                    "brain natriuretic peptide elevated in pulmonary edema",
+                    "D-dimer elevated in pulmonary embolism",
+                    "chest X-ray shows interstitial opacities in pulmonary edema",
+                    "electrocardiogram shows ST-segment elevation in acute coronary syndrome",
+                    "computed tomography pulmonary angiogram shows filling defect in pulmonary embolism"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "0855597b-f77c-4111-bea4-609fce88dc47",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive treatment plan for a patient with stage IV non-small cell lung cancer (NSCLC) with EGFR mutation, taking into account the patient's comorbidities, genetic profile, and prior treatment history. The plan should include a detailed chemotherapy regimen, targeted therapy, immunotherapy, and palliative care strategies. Additionally, provide a prognosis based on statistical survival rates and the patient's specific clinical parameters.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 65,
+                        "gender": "Female",
+                        "ethnicity": "Caucasian"
+                    },
+                    "medical_history": {
+                        "comorbidities": [
+                            "Hypertension",
+                            "Type 2 Diabetes",
+                            "Chronic Obstructive Pulmonary Disease (COPD)"
+                        ],
+                        "prior_treatments": [
+                            "Radiation therapy",
+                            "Cisplatin-based chemotherapy"
+                        ],
+                        "genetic_profile": {
+                            "EGFR_mutation": "Exon 19 deletion",
+                            "other_mutations": [
+                                "TP53 mutation"
+                            ]
+                        }
+                    },
+                    "laboratory_results": {
+                        "blood_counts": {
+                            "hemoglobin": 10.5,
+                            "white_blood_cell_count": 8.2,
+                            "platelet_count": 150
+                        },
+                        "renal_function": {
+                            "creatinine": 1.2,
+                            "blood_urea_nitrogen": 20
+                        },
+                        "liver_function": {
+                            "AST": 35,
+                            "ALT": 40,
+                            "bilirubin": 1.0
+                        }
+                    },
+                    "imaging_results": {
+                        "CT_scan": "Multiple bilateral lung nodules with pleural effusion",
+                        "PET_scan": "Increased FDG uptake in lung nodules and mediastinal lymph nodes"
+                    }
+                }
+            },
+            "mathematical_formulation": "Prognosis can be estimated using the Kaplan-Meier survival function: S(t) = P(T > t), where S(t) is the probability of surviving beyond time t, and T is the survival time. The hazard ratio (HR) for specific treatments can be calculated using Cox proportional hazards model: h(t) = h0(t) * exp(β1X1 + β2X2 + ... + βpXp), where h(t) is the hazard function, h0(t) is the baseline hazard, βi are the coefficients, and Xi are the covariates representing clinical parameters.",
+            "ontology": {
+                "entities": [
+                    "Stage IV non-small cell lung cancer (NSCLC)",
+                    "EGFR mutation",
+                    "Exon 19 deletion",
+                    "TP53 mutation",
+                    "Hypertension",
+                    "Type 2 Diabetes",
+                    "Chronic Obstructive Pulmonary Disease (COPD)",
+                    "Cisplatin-based chemotherapy",
+                    "Radiation therapy",
+                    "Kaplan-Meier survival function",
+                    "Cox proportional hazards model"
+                ],
+                "relations": [
+                    "NSCLC has EGFR mutation",
+                    "EGFR mutation includes Exon 19 deletion",
+                    "Patient has comorbidities including Hypertension, Type 2 Diabetes, and COPD",
+                    "Patient treated with Cisplatin-based chemotherapy and Radiation therapy",
+                    "Prognosis calculated using Kaplan-Meier survival function and Cox proportional hazards model"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "af54a0a5-32cf-42d5-b585-79a5084acdd4",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of dyspnea, chest pain, and hemoptysis, considering rare and complex etiologies. Provide a ranked list of potential diagnoses with detailed rationales, including pathophysiological mechanisms, epidemiological data, and diagnostic criteria. Include a recommendation for the most appropriate diagnostic workup and initial management strategy.",
+            "task_data": {
+                "patient_demographics": {
+                    "age": 55,
+                    "gender": " Female",
+                    "ethnicity": "Caucasian"
+                },
+                "medical_history": {
+                    "hypertension": true,
+                    "type_2_diabetes": true,
+                    "smoking_history": "30 pack-years",
+                    " previous_deep_vein_thrombosis": true
+                },
+                "presenting_symptoms": {
+                    "dyspnea": "severe",
+                    "chest_pain": "pleuritic",
+                    "hemoptysis": "mild",
+                    "onset": "acute"
+                },
+                "vital_signs": {
+                    "temperature": "37.5°C",
+                    "heart_rate": "110 bpm",
+                    "blood_pressure": "130/85 mmHg",
+                    "respiratory_rate": "24 breaths/min",
+                    "oxygen_saturation": "92% on room air"
+                },
+                "laboratory_results": {
+                    "white_blood_cell_count": "12,000/µL",
+                    "hemoglobin": "12 g/dL",
+                    "platelet_count": "250,000/µL",
+                    "d-dimer": "2,000 ng/mL",
+                    "troponin_I": "0.05 ng/mL",
+                    "brain_natriuretic_peptide": "500 pg/mL"
+                },
+                "imaging_studies": {
+                    "chest_x-ray": "bilateral patchy opacities",
+                    "electrocardiogram": "sinus tachycardia with non-specific T-wave abnormalities"
+                }
+            },
+            "mathematical_formulation": {
+                "bayes_theorem": "P(D|S) = [P(S|D) * P(D)] / P(S), where P(D|S) is the probability of a disease given the symptoms, P(S|D) is the probability of the symptoms given the disease, P(D) is the prevalence of the disease, and P(S) is the prevalence of the symptoms.",
+                "wells_criteria_for_pulmonary_embolism": "Score = (clinical_symptoms_of_DVT * 3) + (PE_is_number_one_diagnosis * 3) + (heart_rate_>_100 * 1.5) + (immobilization_or_surgery_in_previous_four_weeks * 1.5) + (previous_DVT_or_PE * 1.5) + (hemoptysis * 1) + (malignancy * 1)"
+            },
+            "ontology": {
+                "entities": [
+                    "dyspnea",
+                    "chest pain",
+                    "hemoptysis",
+                    "pulmonary embolism",
+                    "acute coronary syndrome",
+                    "pneumonia",
+                    "acute respiratory distress syndrome",
+                    "pulmonary hypertension",
+                    "interstitial lung disease",
+                    "vasculitis",
+                    "lung cancer",
+                    "pulmonary edema",
+                    "pneumothorax",
+                    "pleural effusion",
+                    "bronchiectasis",
+                    "pulmonary vasculitis",
+                    "diffuse alveolar hemorrhage",
+                    "Goodpasture syndrome",
+                    "granulomatosis with polyangiitis",
+                    "microscopic polyangiitis",
+                    "eosinophilic granulomatosis with polyangiitis",
+                    "idiopathic pulmonary hemosiderosis",
+                    "pulmonary veno-occlusive disease",
+                    "pulmonary capillary hemangiomatosis",
+                    "pulmonary arterial hypertension",
+                    "pulmonary venous hypertension",
+                    "pulmonary lymphangioleiomyomatosis",
+                    "pulmonary Langerhans cell histiocytosis",
+                    "pulmonary alveolar proteinosis",
+                    "pulmonary lymphangitic carcinomatosis",
+                    "pulmonary sarcoidosis",
+                    "pulmonary fibrosis",
+                    "pulmonary aspergillosis",
+                    "pulmonary tuberculosis",
+                    "pulmonary nocardiosis",
+                    "pulmonary actinomycosis",
+                    "pulmonary blastomycosis",
+                    "pulmonary coccidioidomycosis",
+                    "pulmonary cryptococcosis",
+                    "pulmonary histoplasmosis",
+                    "pulmonary mucormycosis",
+                    "pulmonary pneumocystosis",
+                    "pulmonary strongyloidiasis",
+                    "pulmonary toxoplasmosis",
+                    "pulmonary echinococcosis",
+                    "pulmonary paragonimiasis",
+                    "pulmonary dirofilariasis",
+                    "pulmonary schistosomiasis",
+                    "pulmonary amebiasis",
+                    "pulmonary leishmaniasis",
+                    "pulmonary trypanosomiasis",
+                    "pulmonary filariasis",
+                    "pulmonary onchocerciasis",
+                    "pulmonary loiasis",
+                    "pulmonary dracunculiasis",
+                    "pulmonary ascariasis",
+                    "pulmonary trichinellosis",
+                    "pulmonary hookworm infection",
+                    "pulmonary whipworm infection",
+                    "pulmonary pinworm infection",
+                    "pulmonary threadworm infection",
+                    "pulmonary capillariasis",
+                    "pulmonary anisakiasis",
+                    "pulmonary gnathostomiasis",
+                    "pulmonary angiostrongyliasis",
+                    "pulmonary parastrongyliasis",
+                    "pulmonary baylisascariasis",
+                    "pulmonary sparganosis",
+                    "pulmonary cysticercosis",
+                    "pulmonary coenurosis",
+                    "pulmonary taeniasis",
+                    "pulmonary diphyllobothriasis",
+                    "pulmonary hymenolepiasis",
+                    "pulmonary dipylidiasis",
+                    "pulmonary echinococcosis",
+                    "pulmonary alveolar echinococcosis",
+                    "pulmonary polycystic echinococcosis",
+                    "pulmonary trichinosis",
+                    "pulmonary ancylostomiasis",
+                    "pulmonary necatoriasis",
+                    "pulmonary ascariasis",
+                    "pulmonary enterobiasis",
+                    "pulmonary trichuriasis",
+                    "pulmonary strongyloidiasis",
+                    "pulmonary capillariasis",
+                    "pulmonary anisakiasis",
+                    "pulmonary gnathostomiasis",
+                    "pulmonary angiostrongyliasis",
+                    "pulmonary parastrongyliasis",
+                    "pulmonary baylisascariasis",
+                    "pulmonary sparganosis",
+                    "pulmonary cysticercosis",
+                    "pulmonary coenurosis",
+                    "pulmonary taeniasis",
+                    "pulmonary diphyllobothriasis",
+                    "pulmonary hymenolepiasis",
+                    "pulmonary dipylidiasis",
+                    "pulmonary echinococcosis",
+                    "pulmonary alveolar echinococcosis",
+                    "pulmonary polycystic echinococcosis"
+                ],
+                "relations": [
+                    "causes",
+                    "is_a_symptom_of",
+                    "is_associated_with",
+                    "is_a_risk_factor_for",
+                    "is_a_complication_of",
+                    "is_treated_by",
+                    "is_diagnosed_by",
+                    "is_a_subtype_of",
+                    "is_a_ manifestation_of",
+                    "is_a_sequela_of",
+                    "is_a_predisposing_factor_for",
+                    "is_a_protective_factor_for",
+                    "is_a_contraindication_for",
+                    "is_a_differential_diagnosis_of",
+                    "is_a_mimic_of",
+                    "is_a_variant_of",
+                    "is_a_stage_of",
+                    "is_a_grade_of",
+                    "is_a_severity_of",
+                    "is_a_duration_of",
+                    "is_a_frequency_of",
+                    "is_a_pattern_of",
+                    "is_a_distribution_of",
+                    "is_a_localization_of",
+                    "is_a_laterality_of",
+                    "is_a_morphology_of",
+                    "is_a_etiology_of",
+                    "is_a_pathogenesis_of",
+                    "is_a_pathophysiology_of",
+                    "is_a_pathognomonic_of",
+                    "is_a_pathologic_of",
+                    "is_a_histopathologic_of",
+                    "is_a_cytopathologic_of",
+                    "is_a_immunopathologic_of",
+                    "is_a_molecular_pathologic_of",
+                    "is_a_genetic_pathologic_of",
+                    "is_a_epigenetic_pathologic_of",
+                    "is_a_biochemical_pathologic_of",
+                    "is_a_physiologic_pathologic_of",
+                    "is_a_pharmacologic_pathologic_of",
+                    "is_a_toxicologic_pathologic_of",
+                    "is_a_radiologic_pathologic_of",
+                    "is_a_clinical_pathologic_of",
+                    "is_a_surgical_pathologic_of",
+                    "is_a_medical_pathologic_of",
+                    "is_a_ therapeutic_pathologic_of",
+                    "is_a_prognostic_pathologic_of",
+                    "is_a_epidemiologic_pathologic_of",
+                    "is_a_preventive_pathologic_of",
+                    "is_a_diagnostic_pathologic_of",
+                    "is_a_screening_pathologic_of",
+                    "is_a_monitoring_pathologic_of",
+                    "is_a_management_pathologic_of",
+                    "is_a_treatment_pathologic_of",
+                    "is_a_intervention_pathologic_of",
+                    "is_a_procedure_pathologic_of",
+                    "is_a_surgery_pathologic_of",
+                    "is_a_therapy_pathologic_of",
+                    "is_a_rehabilitation_pathologic_of",
+                    "is_a_palliative_pathologic_of",
+                    "is_a_supportive_pathologic_of",
+                    "is_a_preventive_pathologic_of",
+                    "is_a_promotive_pathologic_of",
+                    "is_a_curative_pathologic_of",
+                    "is_a_restorative_pathologic_of",
+                    "is_a_maintenance_pathologic_of",
+                    "is_a_symptomatic_pathologic_of",
+                    "is_a_etiotropic_pathologic_of",
+                    "is_a_pathogenetic_pathologic_of",
+                    "is_a_substitutive_pathologic_of",
+                    "is_a_augmentative_pathologic_of",
+                    "is_a_reductive_pathologic_of",
+                    "is_a_ablative_pathologic_of",
+                    "is_a_modulatory_pathologic_of",
+                    "is_a_immunomodulatory_pathologic_of",
+                    "is_a_biomodulatory_pathologic_of",
+                    "is_a_chemomodulatory_pathologic_of",
+                    "is_a_radiomodulatory_pathologic_of",
+                    "is_a_pharmacogenomic_pathologic_of",
+                    "is_a_pharmacogenetic_pathologic_of",
+                    "is_a_pharmacometabolomic_pathologic_of",
+                    "is_a_pharmacoproteomic_pathologic_of",
+                    "is_a_pharmacotranscriptomic_pathologic_of",
+                    "is_a_pharmacoepigenomic_pathologic_of",
+                    "is_a_pharmacometabolomic_pathologic_of",
+                    "is_a_pharmacokinetic_pathologic_of",
+                    "is_a_pharmacodynamic_pathologic_of",
+                    "is_a_pharmacotherapeutic_pathologic_of",
+                    "is_a_pharmacoeconomic_pathologic_of",
+                    "is_a_pharmacovigilance_pathologic_of",
+                    "is_a_pharmacoepidemiologic_pathologic_of",
+                    "is_a_pharmacogenetic_pathologic_of",
+                    "is_a_pharmacogenomic_pathologic_of",
+                    "is_a_pharmacometabolomic_pathologic_of",
+                    "is_a_pharmacoproteomic_pathologic_of",
+                    "is_a_pharmacotranscriptomic_pathologic_of",
+                    "is_a_pharmacoepigenomic_pathologic_of",
+                    "is_a_pharmacometabolomic_pathologic_of",
+                    "is_a_pharmacokinetic_pathologic_of",
+                    "is_a_pharmacodynamic_pathologic_of",
+                    "is_a_pharmacotherapeutic_pathologic_of",
+                    "is_a_pharmacoeconomic_pathologic_of",
+                    "is_a_pharmacovigilance_pathologic_of",
+                    "is_a_pharmacoepidemiologic_pathologic_of"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b8096c24-a223-4d0d-aecd-53ff7e58f3d1",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of chest pain, shortness of breath, and syncope. Consider all potential etiologies, including cardiovascular, pulmonary, and neurological causes. Provide a ranked list of differential diagnoses based on probability, supported by clinical evidence and pathophysiological mechanisms.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 55,
+                        "gender": "Male",
+                        "ethnicity": "Caucasian"
+                    },
+                    "vital_signs": {
+                        "blood_pressure": "85/50 mmHg",
+                        "heart_rate": "120 bpm",
+                        "respiratory_rate": "28 breaths/min",
+                        "oxygen_saturation": "88%",
+                        "temperature": "37.2°C"
+                    },
+                    "laboratory_results": {
+                        "troponin_I": "0.04 ng/mL",
+                        "CK-MB": "10 ng/mL",
+                        "BNP": "500 pg/mL",
+                        "D-dimer": "1.5 mg/L",
+                        "white_blood_cell_count": "12,000 cells/μL",
+                        "hemoglobin": "13 g/dL",
+                        "blood_glucose": "120 mg/dL"
+                    },
+                    "electrocardiogram": {
+                        "rhythm": "Sinus tachycardia",
+                        "ST_segment_changes": "ST elevation in leads V1-V4"
+                    },
+                    "imaging_studies": {
+                        "chest_x_ray": "Cardiomegaly with pulmonary edema",
+                        "echocardiogram": "Reduced ejection fraction (35%) with regional wall motion abnormalities"
+                    },
+                    "medical_history": {
+                        "hypertension": true,
+                        "diabetes_mellitus": true,
+                        "hyperlipidemia": true,
+                        "smoking_history": "20 pack-years",
+                        "family_history_of_CAD": true
+                    },
+                    "medications": [
+                        "Metformin 500mg BID",
+                        "Lisinopril 20mg QD",
+                        "Atorvastatin 40mg QD"
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(D|S) = P(S|D) * P(D) / P(S), where P(D|S) is the probability of a disease given the symptoms, P(S|D) is the probability of the symptoms given the disease, P(D) is the prior probability of the disease, and P(S) is the probability of the symptoms.",
+            "ontology": {
+                "entities": [
+                    "Acute coronary syndrome",
+                    "Pulmonary embolism",
+                    "Aortic dissection",
+                    "Myocarditis",
+                    "Pneumothorax",
+                    "Cardiomyopathy",
+                    "Pericarditis",
+                    "Cardiac tamponade",
+                    "Vasovagal syncope",
+                    "Orthostatic hypotension",
+                    "Hypertrophic cardiomyopathy",
+                    "Dilated cardiomyopathy",
+                    "Valvular heart disease",
+                    "Congestive heart failure",
+                    "Pneumonia",
+                    "Asthma exacerbation",
+                    "Chronic obstructive pulmonary disease",
+                    "Arrhythmias",
+                    "Stroke",
+                    "Transient ischemic attack"
+                ],
+                "relations": [
+                    "causes",
+                    "associated_with",
+                    "leads_to",
+                    "manifested_by",
+                    "treated_with",
+                    "diagnosed_by",
+                    "risk_factor_for",
+                    "differentiated_from"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "9a39278c-f2fe-4195-9069-938d88eb5d0e",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive differential diagnosis for a patient presenting with acute onset of dyspnea, chest pain, and syncope, considering the patient's medical history, laboratory results, and imaging studies. Provide a ranked list of potential diagnoses with their corresponding probabilities, pathophysiological mechanisms, and recommended diagnostic and therapeutic interventions.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 65,
+                        "gender": "Male",
+                        "BMI": 28.5
+                    },
+                    "medical_history": [
+                        "Hypertension",
+                        "Type 2 Diabetes Mellitus",
+                        "Hyperlipidemia",
+                        "Smoking (20 pack-years)"
+                    ],
+                    "presenting_symptoms": [
+                        "Dyspnea",
+                        "Chest pain",
+                        "Syncope"
+                    ],
+                    "vital_signs": {
+                        "blood_pressure": "120/80 mmHg",
+                        "heart_rate": "110 bpm",
+                        "respiratory_rate": "22 breaths/min",
+                        "oxygen_saturation": "88% on room air"
+                    },
+                    "laboratory_results": {
+                        "CBC": {
+                            "WBC": "12,000/µL",
+                            "HGB": "13.5 g/dL",
+                            "PLT": "250,000/µL"
+                        },
+                        "BMP": {
+                            "Na": "138 mmol/L",
+                            "K": "4.5 mmol/L",
+                            "Cl": "105 mmol/L",
+                            "BUN": "20 mg/dL",
+                            "Cr": "1.2 mg/dL"
+                        },
+                        "Cardiac_Markers": {
+                            "Troponin_I": "0.05 ng/mL",
+                            "CK-MB": "10 ng/mL"
+                        },
+                        "D-dimer": "500 ng/mL"
+                    },
+                    "imaging_studies": {
+                        "Chest_X-ray": "Cardiomegaly with bilateral pleural effusions",
+                        "ECG": "Sinus tachycardia with nonspecific ST-T wave changes"
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "Bayesian_Probability": "P(D|S) = P(S|D) * P(D) / P(S)",
+                "Decision_Threshold": "P(D|S) > 0.5"
+            },
+            "ontology": {
+                "entities": [
+                    "Dyspnea",
+                    "Chest pain",
+                    "Syncope",
+                    "Hypertension",
+                    "Type 2 Diabetes Mellitus",
+                    "Hyperlipidemia",
+                    "Acute Coronary Syndrome",
+                    "Pulmonary Embolism",
+                    "Aortic Dissection",
+                    "Cardiomyopathy",
+                    "Pneumothorax",
+                    "Troponin_I",
+                    "CK-MB",
+                    "D-dimer",
+                    "Chest_X-ray",
+                    "ECG"
+                ],
+                "relations": [
+                    "Causes",
+                    "Is_Associated_With",
+                    "Is_Diagnosed_By",
+                    "Is_Treated_By",
+                    "Has_Symptom",
+                    "Has_Laboratory_Finding",
+                    "Has_Imaging_Finding"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "cdbcc611-38b0-45ba-855f-e387e37f4e7d",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of chest pain, dyspnea, and diaphoresis, considering all possible cardiovascular, pulmonary, and systemic etiologies. Provide a detailed pathophysiological explanation for each differential diagnosis, including the underlying mechanisms, relevant biomarkers, and expected findings on diagnostic imaging. Prioritize the differentials based on the likelihood of occurrence given the patient's medical history and current presentation.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 55,
+                        "gender": "Male",
+                        "BMI": 28.5
+                    },
+                    "medical_history": [
+                        "Hypertension",
+                        "Type 2 Diabetes Mellitus",
+                        "Hyperlipidemia",
+                        "Smoking (20 pack-years)"
+                    ],
+                    "current_medications": [
+                        "Metformin 500mg BID",
+                        "Lisinopril 20mg QD",
+                        "Atorvastatin 40mg QD"
+                    ],
+                    "vital_signs": {
+                        "blood_pressure": "160/90 mmHg",
+                        "heart_rate": "110 bpm",
+                        "respiratory_rate": "22 breaths/min",
+                        "oxygen_saturation": "92% on room air"
+                    },
+                    "laboratory_results": {
+                        "troponin_I": "0.05 ng/mL",
+                        "CK-MB": "10 ng/mL",
+                        "BNP": "500 pg/mL",
+                        "D-dimer": "1.2 ug/mL"
+                    },
+                    "imaging_results": {
+                        "ECG": "ST-segment elevation in leads V2-V4",
+                        "chest_x_ray": "Mild cardiomegaly, no acute infiltrates"
+                    }
+                }
+            },
+            "mathematical_formulation": "P(D|S) = P(S|D) * P(D) / P(S), where P(D|S) is the posterior probability of disease D given symptoms S, P(S|D) is the likelihood of symptoms given the disease, P(D) is the prior probability of the disease, and P(S) is the prior probability of the symptoms.",
+            "ontology": {
+                "entities": [
+                    "Acute Coronary Syndrome (ACS)",
+                    "Myocardial Infarction (MI)",
+                    "Pulmonary Embolism (PE)",
+                    "Aortic Dissection",
+                    "Pneumothorax",
+                    "Pericarditis",
+                    "Cardiomyopathy",
+                    "Heart Failure",
+                    "Pneumonia",
+                    "Chronic Obstructive Pulmonary Disease (COPD)",
+                    "Troponin I",
+                    "CK-MB",
+                    "BNP",
+                    "D-dimer",
+                    "ECG",
+                    "Chest X-ray"
+                ],
+                "relations": [
+                    "ACS is associated with elevated Troponin I and CK-MB",
+                    "PE is associated with elevated D-dimer",
+                    "Aortic Dissection is associated with sudden onset of severe chest pain",
+                    "Pneumothorax is associated with dyspnea and chest pain",
+                    "Pericarditis is associated with chest pain and pericardial effusion",
+                    "Cardiomyopathy is associated with heart failure and elevated BNP",
+                    "Pneumonia is associated with dyspnea and infiltrates on chest X-ray",
+                    "COPD is associated with chronic dyspnea and obstructive pattern on spirometry"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "21adcec6-4a73-4769-8360-572f35908452",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of chest pain, dyspnea, and syncope. Consider all possible cardiovascular, pulmonary, and systemic etiologies. Provide a ranked list of potential diagnoses based on probability, supported by clinical evidence and pathophysiological mechanisms. Include detailed explanations for each diagnosis, relevant diagnostic tests, and initial management strategies.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 55,
+                        "sex": "Male",
+                        "BMI": 28.5
+                    },
+                    "vital_signs": {
+                        "blood_pressure": "120/80 mmHg",
+                        "heart_rate": 110,
+                        "respiratory_rate": 22,
+                        "temperature": 37.2,
+                        "oxygen_saturation": 92
+                    },
+                    "laboratory_results": {
+                        "white_blood_cell_count": 12000,
+                        "hemoglobin": 14.5,
+                        "creatinine": 1.2,
+                        "troponin_I": 0.05,
+                        "BNP": 500,
+                        "D-dimer": 1000
+                    },
+                    "imaging_results": {
+                        "chest_x_ray": "Mild cardiomegaly with clear lung fields",
+                        "electrocardiogram": "Sinus tachycardia with non-specific ST-T wave changes"
+                    },
+                    "medical_history": {
+                        "hypertension": true,
+                        "diabetes_mellitus": true,
+                        "hyperlipidemia": true,
+                        "smoking": "20 pack-years",
+                        "family_history": "Coronary artery disease in father"
+                    },
+                    "medications": [
+                        "Metformin 500mg BID",
+                        "Lisinopril 20mg QD",
+                        "Atorvastatin 40mg QD"
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(D|S) = P(S|D) * P(D) / P(S), where P(D|S) is the posterior probability of disease D given symptoms S, P(S|D) is the likelihood of symptoms given the disease, P(D) is the prior probability of the disease, and P(S) is the probability of the symptoms.",
+            "ontology": {
+                "entities": [
+                    "Acute coronary syndrome",
+                    "Pulmonary embolism",
+                    "Aortic dissection",
+                    "Pericarditis",
+                    "Pneumothorax",
+                    "Myocarditis",
+                    "Cardiomyopathy",
+                    "Heart failure",
+                    "Arrhythmia",
+                    "Pneumonia",
+                    "Chronic obstructive pulmonary disease",
+                    "Asthma",
+                    "Anaphylaxis",
+                    "Sepsis",
+                    "Hypovolemic shock",
+                    "Cardiogenic shock",
+                    "Septic shock"
+                ],
+                "relations": [
+                    "causes",
+                    "is_associated_with",
+                    "may_present_with",
+                    "requires_diagnostic_test",
+                    "initial_management_includes"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "cce6fa84-d012-4e0a-b480-12d1f94d2ff6",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive differential diagnosis for a patient presenting with acute onset of chest pain, dyspnea, and diaphoresis. Consider all possible cardiovascular, pulmonary, and systemic etiologies. Provide a ranked list of differential diagnoses based on probability, supported by clinical guidelines and evidence-based medicine. Include detailed pathophysiological mechanisms, diagnostic criteria, and recommended management strategies for each diagnosis.",
+            "task_data": {
+                "clinical_data": {
+                    "patient_demographics": {
+                        "age": 55,
+                        "gender": "Male",
+                        "ethnicity": "Caucasian"
+                    },
+                    "medical_history": {
+                        "hypertension": true,
+                        "diabetes_mellitus": true,
+                        "hyperlipidemia": true,
+                        "smoking_history": "20 pack-years",
+                        "family_history": "Coronary artery disease in father"
+                    },
+                    "presenting_symptoms": {
+                        "chest_pain": {
+                            "onset": "acute",
+                            "duration": "30 minutes",
+                            "quality": "crushing",
+                            "location": "substernal",
+                            "radiation": "left arm",
+                            "severity": "8/10"
+                        },
+                        "dyspnea": {
+                            "onset": "acute",
+                            "duration": "30 minutes",
+                            "severity": "moderate"
+                        },
+                        "diaphoresis": true,
+                        "nausea": true,
+                        "vomiting": false
+                    },
+                    "vital_signs": {
+                        "blood_pressure": "160/90 mmHg",
+                        "heart_rate": "110 bpm",
+                        "respiratory_rate": "22 breaths/min",
+                        "oxygen_saturation": "92% on room air",
+                        "temperature": "37.0°C"
+                    },
+                    "laboratory_results": {
+                        "troponin_I": "0.05 ng/mL",
+                        "CK-MB": "10 ng/mL",
+                        "BNP": "200 pg/mL",
+                        "D-dimer": "500 ng/mL",
+                        "lipid_profile": {
+                            "total_cholesterol": "220 mg/dL",
+                            "LDL": "140 mg/dL",
+                            "HDL": "40 mg/dL",
+                            "triglycerides": "180 mg/dL"
+                        }
+                    },
+                    "electrocardiogram": {
+                        " findings": "ST-segment elevation in leads V2-V4"
+                    },
+                    "imaging_studies": {
+                        "chest_x-ray": "normal",
+                        "echocardiogram": "hypokinesis of the anterior wall"
+                    }
+                }
+            },
+            "mathematical_formulation": "P(D|S) = P(S|D) * P(D) / P(S), where P(D|S) is the probability of a disease given the symptoms, P(S|D) is the probability of the symptoms given the disease, P(D) is the prior probability of the disease, and P(S) is the probability of the symptoms.",
+            "ontology": {
+                "entities": [
+                    "Acute Coronary Syndrome (ACS)",
+                    "ST-Elevation Myocardial Infarction (STEMI)",
+                    "Non-ST-Elevation Myocardial Infarction (NSTEMI)",
+                    "Unstable Angina (UA)",
+                    "Aortic Dissection",
+                    "Pulmonary Embolism (PE)",
+                    "Pneumothorax",
+                    "Pericarditis",
+                    "Myocarditis",
+                    "Gastroesophageal Reflux Disease (GERD)",
+                    "Panic Attack",
+                    "Hypertrophic Cardiomyopathy (HCM)",
+                    "Dilated Cardiomyopathy (DCM)",
+                    "Heart Failure with reduced Ejection Fraction (HFrEF)",
+                    "Heart Failure with preserved Ejection Fraction (HFpEF)",
+                    "Diabetic Ketoacidosis (DKA)",
+                    "Sepsis",
+                    "Pneumonia",
+                    "Chronic Obstructive Pulmonary Disease (COPD)",
+                    "Acute Respiratory Distress Syndrome (ARDS)"
+                ],
+                "relations": [
+                    " Acute Coronary Syndrome (ACS) is a manifestation of Coronary Artery Disease (CAD)",
+                    "ST-Elevation Myocardial Infarction (STEMI) is a type of Acute Coronary Syndrome (ACS)",
+                    "Non-ST-Elevation Myocardial Infarction (NSTEMI) is a type of Acute Coronary Syndrome (ACS)",
+                    "Unstable Angina (UA) is a type of Acute Coronary Syndrome (ACS)",
+                    "Aortic Dissection can mimic Acute Coronary Syndrome (ACS)",
+                    "Pulmonary Embolism (PE) can cause chest pain and dyspnea",
+                    "Pneumothorax can cause acute chest pain and dyspnea",
+                    "Pericarditis can cause chest pain and ST-segment elevation",
+                    "Myocarditis can cause chest pain and ST-segment elevation",
+                    "Gastroesophageal Reflux Disease (GERD) can cause chest pain",
+                    "Panic Attack can cause chest pain and dyspnea",
+                    "Hypertrophic Cardiomyopathy (HCM) can cause chest pain and dyspnea",
+                    "Dilated Cardiomyopathy (DCM) can cause heart failure",
+                    "Heart Failure with reduced Ejection Fraction (HFrEF) is a type of heart failure",
+                    "Heart Failure with preserved Ejection Fraction (HFpEF) is a type of heart failure",
+                    "Diabetic Ketoacidosis (DKA) can cause chest pain and dyspnea",
+                    "Sepsis can cause dyspnea and hypotension",
+                    "Pneumonia can cause dyspnea and chest pain",
+                    "Chronic Obstructive Pulmonary Disease (COPD) can cause dyspnea",
+                    "Acute Respiratory Distress Syndrome (ARDS) can cause severe dyspnea"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e238bac7-09ae-44e2-8dc7-913af83313c4",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive treatment plan for a patient with stage IV non-small cell lung cancer (NSCLC) with EGFR mutation, taking into account the patient's comorbidities, genetic profile, and prior treatment history. The plan should include a detailed chemotherapy regimen, targeted therapy options, radiation therapy protocols, and palliative care strategies. Additionally, provide a prognosis based on statistical survival rates and relevant clinical trial data.",
+            "task_data": {
+                "data_points": {
+                    "patient_demographics": {
+                        "age": 65,
+                        "gender": "female",
+                        "ethnicity": "Caucasian"
+                    },
+                    "medical_history": {
+                        "comorbidities": [
+                            " hypertension",
+                            "type 2 diabetes",
+                            "chronic obstructive pulmonary disease (COPD)"
+                        ],
+                        "prior_treatments": [
+                            "adjuvant chemotherapy",
+                            "surgery (lobectomy)"
+                        ],
+                        "genetic_profile": {
+                            "EGFR_mutation": "exon 19 deletion",
+                            "other_mutations": [
+                                "TP53 mutation"
+                            ]
+                        }
+                    },
+                    "clinical_parameters": {
+                        "stage": "IV",
+                        "metastasis": [
+                            "bone",
+                            "liver"
+                        ],
+                        "performance_status": "ECOG 2",
+                        "lab_results": {
+                            "hemoglobin": "10.5 g/dL",
+                            "white_blood_cell_count": "8.2 x 10^9/L",
+                            "platelet_count": "150 x 10^9/L",
+                            "creatinine": "1.2 mg/dL",
+                            "aldolase": "8.5 U/L"
+                        }
+                    },
+                    "clinical_trial_data": {
+                        "trial_1": {
+                            "name": "KEYNOTE-024",
+                            "results": {
+                                "median_overall_survival": "30.0 months",
+                                "progression_free_survival": "10.3 months"
+                            }
+                        },
+                        "trial_2": {
+                            "name": "ALEX",
+                            "results": {
+                                "median_overall_survival": "34.1 months",
+                                "progression_free_survival": "15.7 months"
+                            }
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": "The prognosis should be calculated using the Kaplan-Meier estimator for survival probability S(t): S(t) = ∏(1 - d_i / n_i), where d_i is the number of events at time t_i and n_i is the number of patients at risk at time t_i. The treatment plan should optimize the expected progression-free survival (PFS) based on the patient's characteristics and clinical trial data.",
+            "ontology": {
+                "entities": [
+                    "non-small cell lung cancer (NSCLC)",
+                    "EGFR mutation",
+                    "exon 19 deletion",
+                    "TP53 mutation",
+                    "hypertension",
+                    "type 2 diabetes",
+                    "chronic obstructive pulmonary disease (COPD)",
+                    "adjuvant chemotherapy",
+                    "lobectomy",
+                    "ECOG performance status",
+                    "KEYNOTE-024",
+                    "ALEX",
+                    "median overall survival",
+                    "progression-free survival",
+                    "Kaplan-Meier estimator"
+                ],
+                "relations": [
+                    "NSCLC has EGFR mutation",
+                    "EGFR mutation includes exon 19 deletion",
+                    "patient has comorbidities",
+                    "comorbidities include hypertension",
+                    "comorbidities include type 2 diabetes",
+                    "comorbidities include COPD",
+                    "patient has prior treatments",
+                    "prior treatments include adjuvant chemotherapy",
+                    "prior treatments include lobectomy",
+                    "patient has genetic profile",
+                    "genetic profile includes TP53 mutation",
+                    "clinical trial data includes KEYNOTE-024",
+                    "clinical trial data includes ALEX",
+                    "prognosis based on median overall survival",
+                    "prognosis based on progression-free survival",
+                    "prognosis calculated using Kaplan-Meier estimator"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "0f5d8357-3457-4bb3-8d73-31d810a6b9d4",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive predictive model for patient-specific risk stratification of acute kidney injury (AKI) in intensive care unit (ICU) patients, utilizing electronic health records (EHR) data. The model should integrate temporal dynamics of physiological parameters, laboratory results, and clinical interventions to predict the onset of AKI within the next 48 hours. The output should include a detailed mathematical formulation, a list of relevant entities and their relationships, and a robust evaluation metric for model performance.",
+            "task_data": {
+                "data_points": {
+                    "patients": [
+                        {
+                            "patient_id": 1,
+                            "age": 65,
+                            "gender": "Male",
+                            "comorbidities": [
+                                "Hypertension",
+                                "Diabetes"
+                            ],
+                            "vital_signs": [
+                                {
+                                    "timestamp": "2023-10-01T08:00:00Z",
+                                    "heart_rate": 85,
+                                    "blood_pressure": [
+                                        120,
+                                        80
+                                    ],
+                                    "respiratory_rate": 16,
+                                    "temperature": 37.2
+                                },
+                                {
+                                    "timestamp": "2023-10-01T12:00:00Z",
+                                    "heart_rate": 88,
+                                    "blood_pressure": [
+                                        125,
+                                        85
+                                    ],
+                                    "respiratory_rate": 17,
+                                    "temperature": 37.5
+                                }
+                            ],
+                            "lab_results": [
+                                {
+                                    "timestamp": "2023-10-01T09:00:00Z",
+                                    "creatinine": 1.2,
+                                    "BUN": 20,
+                                    "glucose": 120
+                                },
+                                {
+                                    "timestamp": "2023-10-01T13:00:00Z",
+                                    "creatinine": 1.3,
+                                    "BUN": 22,
+                                    "glucose": 125
+                                }
+                            ],
+                            "interventions": [
+                                {
+                                    "timestamp": "2023-10-01T10:00:00Z",
+                                    "intervention": "Fluid Bolus",
+                                    "amount": 500
+                                },
+                                {
+                                    "timestamp": "2023-10-01T14:00:00Z",
+                                    "intervention": "Diuretic",
+                                    "dose": 20
+                                }
+                            ]
+                        },
+                        {
+                            "patient_id": 2,
+                            "age": 70,
+                            "gender": "Female",
+                            "comorbidities": [
+                                "Chronic Kidney Disease",
+                                "Heart Failure"
+                            ],
+                            "vital_signs": [
+                                {
+                                    "timestamp": "2023-10-01T08:00:00Z",
+                                    "heart_rate": 90,
+                                    "blood_pressure": [
+                                        130,
+                                        90
+                                    ],
+                                    "respiratory_rate": 18,
+                                    "temperature": 37.0
+                                },
+                                {
+                                    "timestamp": "2023-10-01T12:00:00Z",
+                                    "heart_rate": 92,
+                                    "blood_pressure": [
+                                        135,
+                                        95
+                                    ],
+                                    "respiratory_rate": 19,
+                                    "temperature": 37.3
+                                }
+                            ],
+                            "lab_results": [
+                                {
+                                    "timestamp": "2023-10-01T09:00:00Z",
+                                    "creatinine": 1.5,
+                                    "BUN": 25,
+                                    "glucose": 130
+                                },
+                                {
+                                    "timestamp": "2023-10-01T13:00:00Z",
+                                    "creatinine": 1.6,
+                                    "BUN": 27,
+                                    "glucose": 135
+                                }
+                            ],
+                            "interventions": [
+                                {
+                                    "timestamp": "2023-10-01T10:00:00Z",
+                                    "intervention": "Fluid Bolus",
+                                    "amount": 1000
+                                },
+                                {
+                                    "timestamp": "2023-10-01T14:00:00Z",
+                                    "intervention": "Diuretic",
+                                    "dose": 40
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "The predictive model can be formulated using a temporal convolutional network (TCN) to capture the temporal dynamics of the physiological parameters, laboratory results, and clinical interventions. The model's output at time t, P(AKI|t), can be expressed as:\n\nP(AKI|t) = σ(W_out * h_t + b_out)\n\nwhere:\n- σ is the sigmoid activation function,\n- W_out and b_out are the weights and bias of the output layer,\n- h_t is the hidden state at time t, which is computed by the TCN based on the input features X_t = [vital_signs_t, lab_results_t, interventions_t].\n\nThe hidden state h_t is updated recursively as:\n\nh_t = TCN(X_t, h_t-1)\n\nThe loss function for training the model can be defined as the binary cross-entropy loss:\n\nL = -[y_t * log(P(AKI|t)) + (1 - y_t) * log(1 - P(AKI|t))]\n\nwhere y_t is the binary label indicating the occurrence of AKI at time t.",
+            "ontology": {
+                "entities": [
+                    "Acute Kidney Injury (AKI)",
+                    "Intensive Care Unit (ICU)",
+                    "Electronic Health Records (EHR)",
+                    "Physiological Parameters",
+                    "Laboratory Results",
+                    "Clinical Interventions",
+                    "Temporal Convolutional Network (TCN)",
+                    "Risk Stratification",
+                    "Predictive Model",
+                    "Vital Signs",
+                    "Creatinine",
+                    "Blood Urea Nitrogen (BUN)",
+                    "Glucose",
+                    "Fluid Bolus",
+                    "Diuretic",
+                    "Hypertension",
+                    "Diabetes",
+                    "Chronic Kidney Disease",
+                    "Heart Failure"
+                ],
+                "relations": [
+                    "AKI is predicted based on EHR data",
+                    "EHR data includes physiological parameters, laboratory results, and clinical interventions",
+                    "Physiological parameters include vital signs",
+                    "Laboratory results include creatinine, BUN, and glucose",
+                    "Clinical interventions include fluid bolus and diuretic",
+                    "TCN captures temporal dynamics of EHR data",
+                    "Predictive model outputs risk stratification for AKI",
+                    "Comorbidities influence the risk of AKI",
+                    "Vital signs are monitored in the ICU",
+                    "Laboratory results are recorded in the EHR",
+                    "Clinical interventions are administered in the ICU"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "38b58d9e-6e04-45b8-bfc7-2944105aa398",
+        "task_details": {
+            "task_instructions": "Perform a differential diagnosis for a patient presenting with acute abdominal pain, considering a wide range of potential etiologies including appendicitis, diverticulitis, cholecystitis, pancreatitis, and mesenteric ischemia. Provide a ranked list of possible diagnoses based on the given clinical data, laboratory results, and imaging findings. Justify each diagnosis with relevant clinical reasoning and evidence-based guidelines.",
+            "task_data": {
+                "data_points": {
+                    "patient_demographics": {
+                        "age": 55,
+                        "gender": "male",
+                        "weight": 85,
+                        "height": 175
+                    },
+                    "clinical_presentation": {
+                        "symptoms": [
+                            "abdominal pain",
+                            "nausea",
+                            "vomiting",
+                            "fever"
+                        ],
+                        " duration_of_symptoms": "12 hours",
+                        "pain_characteristics": {
+                            "location": "right lower quadrant",
+                            "severity": 8,
+                            "quality": "sharp",
+                            "radiation": "none",
+                            "aggravating_factors": "movement",
+                            "relieving_factors": "none"
+                        },
+                        "vital_signs": {
+                            "temperature": 38.5,
+                            "heart_rate": 110,
+                            "blood_pressure": "130/85",
+                            "respiratory_rate": 20,
+                            "oxygen_saturation": 98
+                        },
+                        "physical_examination": {
+                            "abdominal_tenderness": "right lower quadrant",
+                            "guarding": "present",
+                            "rebound_tenderness": "present",
+                            "bowel_sounds": "decreased"
+                        }
+                    },
+                    "laboratory_results": {
+                        "complete_blood_count": {
+                            "white_blood_cell_count": 15000,
+                            "hemoglobin": 14,
+                            "platelet_count": 250000
+                        },
+                        "basic_metabolic_panel": {
+                            "sodium": 138,
+                            "potassium": 4.0,
+                            "chloride": 105,
+                            "bicarbonate": 24,
+                            "blood_urea_nitrogen": 15,
+                            "creatinine": 1.0,
+                            "glucose": 110
+                        },
+                        "liver_function_tests": {
+                            "aspartate_aminotransferase": 30,
+                            "alanine_aminotransferase": 35,
+                            "alkaline_phosphatase": 120,
+                            "total_bilirubin": 1.0,
+                            "direct_bilirubin": 0.2
+                        },
+                        "pancreatic_enzymes": {
+                            "amylase": 150,
+                            "lipase": 200
+                        },
+                        "inflammatory_markers": {
+                            "c_reactive_protein": 150,
+                            "erythrocyte_sedimentation_rate": 30
+                        }
+                    },
+                    "imaging_findings": {
+                        "abdominal_ultrasound": "normal",
+                        "computed_tomography": {
+                            " findings": "mild fat stranding in the right lower quadrant",
+                            "contrast_enhancement": "none"
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": "The differential diagnosis process involves calculating the posterior probability of each disease given the clinical data using Bayes' theorem: P(D|Data) = [P(Data|D) * P(D)] / P(Data), where D represents the disease and Data represents the clinical, laboratory, and imaging findings. The ranking of diagnoses is based on these probabilities, with the highest probability indicating the most likely diagnosis.",
+            "ontology": {
+                "entities": [
+                    "appendicitis",
+                    "diverticulitis",
+                    "cholecystitis",
+                    "pancreatitis",
+                    "mesenteric ischemia",
+                    "abdominal pain",
+                    "nausea",
+                    "vomiting",
+                    "fever",
+                    "white blood cell count",
+                    "hemoglobin",
+                    "platelet count",
+                    "sodium",
+                    "potassium",
+                    "chloride",
+                    "bicarbonate",
+                    "blood urea nitrogen",
+                    "creatinine",
+                    "glucose",
+                    "aspartate aminotransferase",
+                    "alanine aminotransferase",
+                    "alkaline phosphatase",
+                    "total bilirubin",
+                    "direct bilirubin",
+                    "amylase",
+                    "lipase",
+                    "c-reactive protein",
+                    "erythrocyte sedimentation rate",
+                    "abdominal ultrasound",
+                    "computed tomography"
+                ],
+                "relations": [
+                    "presents_with",
+                    "causes",
+                    "associated_with",
+                    "indicates",
+                    "elevated_in",
+                    "normal_in",
+                    "visualized_by"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "c850596d-2bb3-484e-895e-b13c040f232a",
+        "task_details": {
+            "task_instructions": "Predict the optimal personalized treatment plan for a patient with stage IV non-small cell lung cancer (NSCLC) with EGFR mutation, taking into account the patient's genetic profile, comorbidities, and prior treatment history. The plan should maximize the expected progression-free survival (PFS) while minimizing adverse events.",
+            "task_data": {
+                "data_points": {
+                    "patient_demographics": {
+                        "age": 65,
+                        "gender": "Female",
+                        "ethnicity": "Caucasian"
+                    },
+                    "genetic_profile": {
+                        "EGFR_mutation": "L858R",
+                        "TP53_mutation": "R273H",
+                        "KRAS_mutation": "None"
+                    },
+                    "comorbidities": [
+                        "Hypertension",
+                        "Type 2 Diabetes Mellitus"
+                    ],
+                    "prior_treatment_history": [
+                        {
+                            "treatment": "Cisplatin + Pemetrexed",
+                            "duration": "6 months",
+                            "response": "Partial Response"
+                        },
+                        {
+                            "treatment": "Gefitinib",
+                            "duration": "8 months",
+                            "response": "Progressive Disease"
+                        }
+                    ],
+                    "current_laboratory_values": {
+                        "hemoglobin": 12.5,
+                        "white_blood_cell_count": 7.2,
+                        "platelet_count": 250,
+                        "creatinine": 1.1,
+                        "ALT": 35,
+                        "AST": 30
+                    }
+                }
+            },
+            "mathematical_formulation": "Maximize PFS = f(treatment_plan, genetic_profile, comorbidities, prior_treatment_history) subject to adverse_events ≤ threshold. Where PFS is a function of the treatment plan, genetic profile, comorbidities, and prior treatment history, and adverse_events are constrained to be less than or equal to a threshold.",
+            "ontology": {
+                "entities": [
+                    "Non-small cell lung cancer (NSCLC)",
+                    "EGFR mutation",
+                    "TP53 mutation",
+                    "KRAS mutation",
+                    "Hypertension",
+                    "Type 2 Diabetes Mellitus",
+                    "Cisplatin",
+                    "Pemetrexed",
+                    "Gefitinib",
+                    "Progression-free survival (PFS)",
+                    "Adverse events"
+                ],
+                "relations": [
+                    "NSCLC has EGFR mutation",
+                    "NSCLC has TP53 mutation",
+                    "NSCLC has no KRAS mutation",
+                    "Patient has Hypertension",
+                    "Patient has Type 2 Diabetes Mellitus",
+                    "Patient treated with Cisplatin + Pemetrexed",
+                    "Patient treated with Gefitinib",
+                    "Treatment plan affects PFS",
+                    "Treatment plan affects adverse events"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "2e908a5b-0ba1-43dc-abeb-921d121afba6",
+        "task_details": {
+            "task_instructions": "Formulate a comprehensive treatment plan for a patient with a complex medical history, including multiple comorbidities and rare genetic disorders. The plan should optimize pharmacological interventions, consider genetic factors, and minimize adverse drug reactions. Provide a detailed rationale for each treatment decision, including potential drug-drug interactions and genetic implications.",
+            "task_data": {
+                "data_points": {
+                    "patient_demographics": {
+                        "age": 55,
+                        "sex": "Female",
+                        "ethnicity": "Caucasian"
+                    },
+                    "medical_history": {
+                        "diagnoses": [
+                            "Type 2 Diabetes Mellitus",
+                            "Hypertension",
+                            "Chronic Kidney Disease (Stage 3)",
+                            "Congestive Heart Failure",
+                            "BRCA1 gene mutation"
+                        ],
+                        "current_medications": [
+                            "Metformin 500mg BID",
+                            "Lisinopril 20mg QD",
+                            "Furosemide 40mg BID",
+                            "Aspirin 81mg QD"
+                        ],
+                        "allergies": [
+                            "Penicillin"
+                        ],
+                        "lab_results": {
+                            "HbA1c": 8.5,
+                            " Creatinine": 1.8,
+                            "eGFR": 35,
+                            "LDL": 140,
+                            "BDNF gene polymorphism": "Val66Met"
+                        },
+                        "family_history": {
+                            "Breast Cancer": "Mother, Sister",
+                            "Hypertension": "Father"
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": "The treatment plan should aim to minimize the risk of adverse drug reactions (ADRs) and maximize therapeutic efficacy. This can be formulated as a multi-objective optimization problem: \n\nminimize f(x) = w1 * ADR_risk(x) - w2 * Therapeutic_efficacy(x)\n\nsubject to:\nGFR_constraint: eGFR(x) >= 30\nGenetic_constraint: BDNF_polymorphism(x) == 'Val66Met'\nDrug_interaction_constraint: Interaction_score(x) <= threshold\n\nwhere x represents the set of medications and their dosages, w1 and w2 are weights assigned to the objectives, and the constraints ensure that the treatment plan is safe and effective given the patient's genetic and clinical profile.",
+            "ontology": {
+                "entities": [
+                    "Type 2 Diabetes Mellitus",
+                    "Hypertension",
+                    "Chronic Kidney Disease",
+                    "Congestive Heart Failure",
+                    "BRCA1 gene mutation",
+                    "Metformin",
+                    "Lisinopril",
+                    "Furosemide",
+                    "Aspirin",
+                    "Penicillin",
+                    "HbA1c",
+                    "Creatinine",
+                    "eGFR",
+                    "LDL",
+                    "BDNF gene polymorphism",
+                    "Val66Met",
+                    "Adverse Drug Reactions",
+                    "Therapeutic Efficacy",
+                    "Drug-Drug Interactions"
+                ],
+                "relations": [
+                    "has_diagnosis",
+                    "is_treated_with",
+                    "has_allergy",
+                    "has_lab_result",
+                    "has_family_history",
+                    "affects_genetic_factor",
+                    "interacts_with",
+                    "causes_adverse_reaction",
+                    "improves_therapeutic_efficacy"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "1476890d-69f5-4ab8-9585-f98e078212cc",
+        "task_details": {
+            "task_instructions": "Perform a retrospective cohort study to determine the probability of developing Sepsis-associated Acute Kidney Injury (SA-AKI) in septic patients undergoing Continuous Renal Replacement Therapy (CRRT) with sustained low-efficiency dialysis (SLED) and compare the case fatality rate between Early (hospital admission 48 hrs. or less) vs Delayed (more than 48 hours) implementation of SLED therapy.",
+            "task_data": {
+                "data_points": {
+                    "patient_data": [
+                        {
+                            "patient_id": 1,
+                            "age": 65,
+                            "gender": "Male",
+                            "comorbidities": [
+                                "Hypertension",
+                                "Diabetes"
+                            ],
+                            "admission_time": "2023-01-01T08:00:00Z",
+                            "sepsis_onset_time": "2023-01-02T12:00:00Z",
+                            "CRRT_initiation_time": "2023-01-03T02:00:00Z",
+                            "CRRT_type": "SLED",
+                            "AKI_development": "Yes",
+                            "outcome_fatality": "No",
+                            "systolic_blood_pressure": 87,
+                            "prise_of_lactate": 4.0,
+                            "creatinine": 2.0,
+                            "serum_urea_nitrogen": 230,
+                            "c_reactive_protein": 14.0,
+                            "D-dimer": 2.8,
+                            "leukocyte": 0.8,
+                            "neutrophil": 0.8,
+                            "neutrophils_percentage": 0.8,
+                            "Calcitonine": "0.08 ng/ml"
+                        },
+                        {
+                            "patient_id": 2,
+                            "age": 55,
+                            "gender": "Female",
+                            "comorbidities": [
+                                "Chronic Obstructive Pulmonary Disease"
+                            ],
+                            "admission_time": "2023-01-05T10:00:00Z",
+                            "sepsis_onset_time": "2023-01-06T14:00:00Z",
+                            "CRRT_initiation_time": "2023-01-07T18:00:00Z",
+                            "CRRT_type": "SLED",
+                            "AKI_development": "No",
+                            "outcome_fatality": "No",
+                            "systolic_blood_pressure": 90,
+                            "prise_of_lactate": 2.3,
+                            "creatinine": 0.9,
+                            "serum_urea_nitrogen": 50,
+                            "c_reactive_protein": 14.0,
+                            "D-dimer": 2.8,
+                            "leukocyte": 0.8,
+                            "neutrophil": 0.8,
+                            "neutrophils_percentage": 0.8,
+                            "Calcitonine": "0.05 ng/ml"
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(SA-AKI | Sepsis, SLED)  = (Number of patients with SA-AKI given early SLED initiation / Total number of patients with early SLED initiation)",
+            "ontology": {
+                "entities": [
+                    "Sepsis",
+                    "Acute Kidney Injury (AKI)",
+                    "Continuous Renal Replacement Therapy (CRRT)",
+                    "Sustained Low-Efficiency Dialysis (SLED)",
+                    "Case Fatality Rate (CFR)",
+                    "Comorbidities",
+                    "Systolic_blood_pressure",
+                    "Prise_of_lactate",
+                    "Creatinine",
+                    "Serum_urea_nitrogen",
+                    "c_reactive_protein",
+                    "D-dimer",
+                    "leukocyte",
+                    "neutrophil",
+                    "neutrophils_percentage",
+                    "Calcitonine",
+                    "Sepsis-Related Organ Failure Assessment (SOFA)"
+                ],
+                "relations": [
+                    "Sepsis-is Cruzially related to CRRT",
+                    "SLED procedure follows Sepsis in SA-AKI",
+                    "SLED initiation time affects CFR",
+                    "Systolic_blood_pressure is crucial indicator of Sepsis outcomes",
+                    "Prise_of_lactate is an important indicator of Sepsis outcome",
+                    "Higher creatinine leads to Acute Kidney Injury",
+                    "Lung Cancer is a patient comorbidity",
+                    "Higher Serum_urea_nitrogen leads to kidney injury",
+                    "Extreme elevated D-dimer indicates possible kidney damage",
+                    "Calcitonine levels increased in many sepsis patients",
+                    "Leukopenia indicates poor septic outcome ",
+                    "Neutrophils indicate sepsis is in affected region",
+                    "Low neutrophil percentage suggests pathogen attacking neutrophils"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f6a82a35-76f9-4d52-a988-1dff9f2b4fac",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive treatment plan for a patient with a complex medical history, including multiple comorbidities, rare genetic disorders, and unique pharmacological sensitivities. The plan should optimize for minimal adverse drug reactions, maximize therapeutic efficacy, and consider the patient's quality of life. The plan should include a detailed pharmacological regimen, dietary recommendations, and a schedule for ongoing monitoring and follow-up care.",
+            "task_data": {
+                "patient_profile": {
+                    "age": 65,
+                    "gender": "Female",
+                    "medical_history": [
+                        "Type 2 Diabetes Mellitus",
+                        "Hypertension",
+                        "Chronic Kidney Disease (Stage 3)",
+                        "Osteoporosis",
+                        "Hereditary Hemochromatosis",
+                        "Genetic predisposition to Long QT Syndrome"
+                    ],
+                    "current_medications": [
+                        "Metformin 500mg BID",
+                        "Lisinopril 20mg QD",
+                        "Furosemide 40mg QD",
+                        "Alendronate 70mg weekly",
+                        "Phlebotomy sessions bi-weekly"
+                    ],
+                    "allergies": [
+                        "Penicillin",
+                        "Sulfonamides"
+                    ],
+                    "laboratory_results": {
+                        "HbA1c": 8.2,
+                        "Creatinine": 1.5,
+                        "eGFR": 40,
+                        "Serum Ferritin": 350,
+                        "Bone Mineral Density (T-score)": -2.8,
+                        "Electrocardiogram": "QTc interval of 480ms"
+                    }
+                }
+            },
+            "mathematical_formulation": "Optimize the treatment plan to minimize the risk of adverse drug reactions and maximize therapeutic efficacy. This can be formulated as a multi-objective optimization problem:\n\nmaximize E = f(D, I, M)\nsubject to R(D, I, M) <= T\n\nwhere:\nE = therapeutic efficacy\nD = drug dosages\nI = dietary intake\nM = monitoring schedule\nR = risk of adverse drug reactions\nT = threshold for acceptable risk\nf = function relating dosages, diet, and monitoring to efficacy\nR = function relating dosages, diet, and monitoring to risk",
+            "ontology": {
+                "entities": [
+                    "Type 2 Diabetes Mellitus",
+                    "Hypertension",
+                    "Chronic Kidney Disease",
+                    "Osteoporosis",
+                    "Hereditary Hemochromatosis",
+                    "Long QT Syndrome",
+                    "Metformin",
+                    "Lisinopril",
+                    "Furosemide",
+                    "Alendronate",
+                    "Phlebotomy",
+                    "Penicillin",
+                    "Sulfonamides",
+                    "HbA1c",
+                    "Creatinine",
+                    "eGFR",
+                    "Serum Ferritin",
+                    "Bone Mineral Density",
+                    "Electrocardiogram",
+                    "QTc interval"
+                ],
+                "relations": [
+                    "has_comorbidity",
+                    "is_treated_with",
+                    "has_allergy",
+                    "has_laboratory_result",
+                    "is_monitored_by",
+                    "has_genetic_predisposition",
+                    "has_pharmacological_sensitivity"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e1febe6a-6c00-4d11-bfce-dcd12087e4e4",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive treatment plan for a patient with a complex medical history, including multiple comorbidities, rare genetic disorders, and adverse drug reactions. The plan should optimize the patient's quality of life, minimize hospital readmissions, and consider the latest clinical trials and experimental therapies. Provide a detailed rationale for each intervention, including potential risks and benefits.",
+            "task_data": {
+                "patient_information": {
+                    "age": 55,
+                    "gender": "Female",
+                    "medical_history": [
+                        "Type 2 Diabetes Mellitus",
+                        "Hypertension",
+                        "Chronic Kidney Disease (Stage 3)",
+                        "Hereditary Hemochromatosis",
+                        "Brugada Syndrome",
+                        "Adverse reaction to ACE inhibitors"
+                    ],
+                    "current_medications": [
+                        "Metformin 500mg BID",
+                        "Amlodipine 10mg QD",
+                        "Furosemide 40mg QD",
+                        "Phlebotomy (as needed for Hemochromatosis)"
+                    ],
+                    "laboratory_results": {
+                        "HbA1c": 8.5,
+                        "Creatinine": 1.8,
+                        "eGFR": 35,
+                        "Ferritin": 500,
+                        "Blood Pressure": "150/90 mmHg"
+                    },
+                    "genetic_information": {
+                        "HFE gene mutation": "C282Y homozygous",
+                        "SCN5A gene mutation": "associated with Brugada Syndrome"
+                    }
+                }
+            },
+            "mathematical_formulation": "Optimization Problem:\nMaximize: Quality of Life (QoL) function\nQoL = f(treatment_effectiveness, side_effects, readmission_rate)\nSubject to:\n1. Minimize readmission rate (R) < 0.1\n2. Maintain eGFR > 30\n3. Keep HbA1c < 7.0\n4. Avoid medications with known adverse reactions\n5. Consider genetic predispositions and interactions",
+            "ontology": {
+                "entities": [
+                    "Type 2 Diabetes Mellitus",
+                    "Hypertension",
+                    "Chronic Kidney Disease",
+                    "Hereditary Hemochromatosis",
+                    "Brugada Syndrome",
+                    "Adverse Drug Reaction",
+                    "ACE inhibitors",
+                    "Metformin",
+                    "Amlodipine",
+                    "Furosemide",
+                    "Phlebotomy",
+                    "HbA1c",
+                    "Creatinine",
+                    "eGFR",
+                    "Ferritin",
+                    "HFE gene",
+                    "SCN5A gene",
+                    "Quality of Life",
+                    "Clinical Trials",
+                    "Experimental Therapies"
+                ],
+                "relations": [
+                    "comorbidity_of",
+                    "adverse_reaction_to",
+                    "genetic_predisposition_for",
+                    "treatment_for",
+                    "interacts_with",
+                    "optimizes",
+                    "minimizes",
+                    "considers"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "cf4bde10-c8a1-4432-a61d-7a8fe7bd8025",
+        "task_details": {
+            "task_instructions": "Conduct a meta-analysis of clinical trials to determine the optimal dosage of a novel antihypertensive drug, considering the variability in patient demographics, comorbidities, and genetic factors. The analysis should include a comprehensive review of published and unpublished studies, and a rigorous assessment of CYP2D6 genetic variations as a predictor of treatment response variance.",
+            "task_data": {
+                "data_points": {
+                    "studies_included": [
+                        {
+                            "study_id": 1,
+                            "title": "Phase II Trial of Novel Antihypertensive Drug",
+                            "sample_size": 200,
+                            "dosage_range": "5-20 mg",
+                            "mean_age": 55,
+                            "comorbidities": [
+                                "diabetes",
+                                "hyperlipidemia"
+                            ],
+                            "genetic_data": {
+                                "CYP2D6": {
+                                    "poor_metabolizers": 20,
+                                    "intermediate_metabolizers": 80,
+                                    "normal_metabolizers": 100
+                                }
+                            }
+                        },
+                        {
+                            "study_id": 2,
+                            "title": "Phase III Trial of Novel Antihypertensive Drug",
+                            "sample_size": 300,
+                            "dosage_range": "10-30 mg",
+                            "mean_age": 60,
+                            "comorbidities": [
+                                "obesity",
+                                "heart_disease"
+                            ],
+                            "genetic_data": {
+                                "CYP2D6": {
+                                    "poor_metabolizers": 30,
+                                    "intermediate_metabolizers": 120,
+                                    "normal_metabolizers": 150
+                                }
+                            }
+                        }
+                    ],
+                    "patient_demographics": [
+                        {
+                            "age_group": "40-50",
+                            "gender": "male",
+                            "ethnicity": "Caucasian",
+                            "count": 50
+                        },
+                        {
+                            "age_group": "51-60",
+                            "gender": "female",
+                            "ethnicity": "African American",
+                            "count": 70
+                        }
+                    ],
+                    "outcome_measures": [
+                        {
+                            "measure": "systolic_blood_pressure",
+                            "units": "mmHg",
+                            "mean_reduction": 15
+                        },
+                        {
+                            "measure": "diastolic_blood_pressure",
+                            "units": "mmHg",
+                            "mean_reduction": 10
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "The meta-analysis will employ a random-effects model to account for heterogeneity across studies. The effect size (ES) for each study will be calculated as the standardized mean difference (SMD) in blood pressure reduction. The overall effect size (ES_overall) will be computed using the DerSimonian-Laird method: ES_overall = ∑(wi * ESi) / ∑wi, where wi is the weight assigned to each study based on its sample size and variance. The impact of CYP2D6 genetic variations on treatment response will be assessed using a mixed-effects model: Y = β0 + β1*CYP2D6_status + β2*dosage + ε, where Y is the blood pressure reduction, β0 is the intercept, β1 and β2 are coefficients for CYP2D6 status and dosage, respectively, and ε is the error term.",
+            "ontology": {
+                "entities": [
+                    "clinical trial",
+                    "antihypertensive drug",
+                    "dosage",
+                    "patient demographics",
+                    "comorbidities",
+                    "CYP2D6",
+                    "treatment response",
+                    "meta-analysis",
+                    "blood pressure"
+                ],
+                "relations": [
+                    "study_includes_patients",
+                    "drug_administered_at_dosage",
+                    "patient_has_comorbidity",
+                    "genetic_variation_affects_response",
+                    "meta-analysis_reviews_studies",
+                    "medication_impact",
+                    "outcomes_measured"
+                ]
+            }
+        }
+    }
+]

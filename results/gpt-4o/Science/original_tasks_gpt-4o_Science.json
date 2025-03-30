@@ -1,0 +1,2338 @@
+[
+    {
+        "task_id": "bd7fd189-f9a0-4420-a613-7168a2581f4e",
+        "task_details": {
+            "task_instructions": "Develop an advanced model to predict the electrical conductivity of graphene-based materials under varying temperature and mechanical strain conditions, utilizing quantum mechanical principles and statistical mechanics to account for electron-phonon interactions and defect density variations.",
+            "task_data": {
+                "data_points": {
+                    "graphene_samples": [
+                        {
+                            "defect_density": 100000000000.0,
+                            "temperature_range": [
+                                100,
+                                500
+                            ],
+                            "temperature_step": 10,
+                            "strain_range": [
+                                0,
+                                0.05
+                            ],
+                            "strain_step": 0.005
+                        },
+                        {
+                            "defect_density": 500000000000.0,
+                            "temperature_range": [
+                                100,
+                                500
+                            ],
+                            "temperature_step": 10,
+                            "strain_range": [
+                                0,
+                                0.05
+                            ],
+                            "strain_step": 0.005
+                        }
+                    ],
+                    "quantum_constants": {
+                        "planck_constant": 6.62607015e-34,
+                        "electron_charge": 1.602176634e-19
+                    }
+                }
+            },
+            "mathematical_formulation": "σ(T, ε) = ∫[D(E)f(E, T, ε)dE], where σ is the electrical conductivity as a function of temperature T and strain ε, D(E) is the density of states, and f(E, T, ε) is the distribution function that incorporates electron-phonon interactions modeled through deformable potential scattering.",
+            "ontology": {
+                "entities": [
+                    "graphene",
+                    "electrical conductivity",
+                    "temperature",
+                    "mechanical strain",
+                    "quantum mechanics",
+                    "electron-phonon interactions",
+                    "defect density"
+                ],
+                "relations": [
+                    "conductivity varies with temperature",
+                    "conductivity varies with strain",
+                    "electron-phonon interactions affect conductivity",
+                    "defect density impacts electron scattering"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "c1856156-6f63-43a2-9c71-89336a3a8e5d",
+        "task_details": {
+            "task_instructions": "Develop and evaluate a computational model to predict the equilibrium states of a complex multi-component thermochemical system across a range of temperatures and pressures. The system comprises numerous gas-phase species and condensed phases, and the model must account for all relevant chemical reactions and phase equilibria. Provide detailed predictions of the concentration of each species at equilibrium over a specified range of conditions.",
+            "task_data": {
+                "data_points": {
+                    "species": [
+                        {
+                            "name": "H2O(g)",
+                            "phase": "gas"
+                        },
+                        {
+                            "name": "CO2(g)",
+                            "phase": "gas"
+                        },
+                        {
+                            "name": "O2(g)",
+                            "phase": "gas"
+                        },
+                        {
+                            "name": "C(s)",
+                            "phase": "solid"
+                        },
+                        {
+                            "name": "H2(g)",
+                            "phase": "gas"
+                        },
+                        {
+                            "name": "Graphite(s)",
+                            "phase": "solid"
+                        }
+                    ],
+                    "reactions": [
+                        {
+                            "equation": "C(s) + O2(g) ⇌ CO2(g)"
+                        },
+                        {
+                            "equation": "C(s) + H2O(g) ⇌ CO(g) + H2(g)"
+                        },
+                        {
+                            "equation": "2CO(g) + O2(g) ⇌ 2CO2(g)"
+                        },
+                        {
+                            "equation": "H2(g) + 0.5O2(g) ⇌ H2O(g)"
+                        }
+                    ],
+                    "thermodynamic_data": {
+                        "temperature_range": [
+                            298,
+                            1500
+                        ],
+                        "pressure_range": [
+                            1,
+                            10
+                        ],
+                        "enthalpies_of_formation": {
+                            "H2O(g)": -241.8,
+                            "CO2(g)": -393.5,
+                            "O2(g)": 0,
+                            "C(s)": 0,
+                            "H2(g)": 0
+                        },
+                        "Gibbs_free_energies": {
+                            "H2O(g)": -228.6,
+                            "CO2(g)": -394.4,
+                            "O2(g)": 0,
+                            "C(s)": 0,
+                            "H2(g)": 0
+                        }
+                    },
+                    "initial_conditions": {
+                        "moles_of_H2O": 1.0,
+                        "moles_of_CO2": 0.1,
+                        "moles_of_O2": 0.5,
+                        "moles_of_C(s)": 1.0,
+                        "moles_of_H2": 0,
+                        "pressure": 1.0
+                    }
+                }
+            },
+            "mathematical_formulation": "At equilibrium, apply the equilibrium constant expressions for each reaction: K_eq = exp(-ΔG / (R * T)) where ΔG is the change in Gibbs free energy for the reaction, R is the gas constant, and T is the temperature. Use stoichiometric coefficients to relate changes in concentration for different species and solve the resulting nonlinear system of equations to find equilibrium concentrations.",
+            "ontology": {
+                "entities": [
+                    "H2O(g)",
+                    "CO2(g)",
+                    "O2(g)",
+                    "C(s)",
+                    "H2(g)",
+                    "equilibrium",
+                    "thermodynamics",
+                    "Gibbs free energy",
+                    "enthalpies of formation"
+                ],
+                "relations": [
+                    "reacts with",
+                    "equilibrium constant",
+                    "temperature dependence",
+                    "formation reaction"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "43741a85-2edf-4424-8072-9fcfc606cf8d",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive model to predict the rate of star formation in a specific galaxy cluster over the next billion years using astrophysical data and cosmological parameters, while accounting for feedback processes and intrinsic uncertainties.",
+            "task_data": {
+                "galaxy_cluster_id": "Abell 1689",
+                "current_star_formation_rate": "200 solar masses per year",
+                "stellar_mass_distribution": {
+                    "type": "logarithmic",
+                    "parameters": {
+                        "alpha": -1.35,
+                        "mass_range": "0.1 to 100 solar masses"
+                    }
+                },
+                "interstellar_medium_properties": {
+                    "gas_density": "1 atom per cubic centimeter",
+                    "temperature": "10,000 Kelvin"
+                },
+                "dark_matter_halo": {
+                    "mass": "1e15 solar masses",
+                    "density_profile": "Navarro-Frenk-White"
+                },
+                "cosmological_parameters": {
+                    "Hubble_constant": "70 km/s/Mpc",
+                    "dark_energy_density": "0.7",
+                    "matter_density": "0.3"
+                },
+                "feedback_processes": "supernovae, active galactic nuclei"
+            },
+            "mathematical_formulation": "SFR(t) = ∫[0 to M_max] Φ(M) Ψ(M, t) dM + ∑ feedback_effects(t) - uncertainty_term(t)",
+            "ontology": {
+                "entities": [
+                    "galaxy cluster",
+                    "star formation rate",
+                    "stellar mass distribution",
+                    "interstellar medium",
+                    "dark matter halo",
+                    "cosmological parameters",
+                    "feedback processes"
+                ],
+                "relations": [
+                    "depends_on(current_star_formation_rate, cosmological_parameters)",
+                    "affects(stellar_mass_distribution, star_formation_rate)",
+                    "modifies(interstellar_medium_properties, feedback_processes)",
+                    "interacts_with(dark_matter_halo, galaxy_cluster)",
+                    "associated_with(feedback_processes, star_formation_rate)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "495b7262-d115-4538-958f-0155bd152100",
+        "task_details": {
+            "task_instructions": "Determine the stable isotopic distribution of a newly hypothesized element (element Z) with atomic number 119 under standard terrestrial conditions. Evaluate the nuclear binding energy, predict the half-life for its most stable isotopes, and provide a theoretical model for its decay pathways. Consider the effects of nuclear forces, electromagnetic interactions, and quantum tunneling in your predictions.",
+            "task_data": {
+                "atomic_mass_units": {
+                    "proton_mass": 1.007276466879,
+                    "neutron_mass": 1.00866491588
+                },
+                "known_elements": [
+                    {
+                        "atomic_number": 118,
+                        "name": "Oganesson",
+                        "stable_isotopes": []
+                    },
+                    {
+                        "atomic_number": 117,
+                        "name": "Tennessine",
+                        "stable_isotopes": []
+                    }
+                ],
+                "fundamental_constants": {
+                    "speed_of_light": 299792458,
+                    "planck_constant": 6.62607015e-34,
+                    "gravitational_constant": 6.6743e-11,
+                    "nuclear_binding_energy_per_nucleon": 8.5
+                }
+            },
+            "mathematical_formulation": "E_bind = (Z * m_p + (A - Z) * m_n - M_A) * c^2, T_half = ln(2)/lambda, where lambda = f(Z, A) based on empirically derived formulas for quantum tunneling probabilities and decay pathways.",
+            "ontology": {
+                "entities": [
+                    "Element Z",
+                    "Isotope",
+                    "Nucleons",
+                    "Binding Energy",
+                    "Half-life",
+                    "Quantum Tunneling",
+                    "Decay Pathways"
+                ],
+                "relations": [
+                    "Element Z has isotopes",
+                    "Isotopes have nucleons",
+                    "Binding Energy determines stability",
+                    "Half-life associated with decay pathways",
+                    "Quantum Tunneling influences decay pathways"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "9e6ad9d8-1f48-498e-9e38-abd4f3d45d25",
+        "task_details": {
+            "task_instructions": "Evaluate the interaction between dark matter and baryonic matter in spiral galaxies by modeling the rotation curves, analyzing discrepancies between expected and observed velocities, and estimating the distribution of dark matter using gravitational lensing data.",
+            "task_data": {
+                "data_points": {
+                    "galaxy": "NGC 3198",
+                    "observed_velocities_kms": [
+                        150,
+                        160,
+                        170,
+                        180,
+                        190,
+                        200,
+                        210,
+                        215,
+                        220,
+                        225
+                    ],
+                    "expected_velocities_kms": [
+                        140,
+                        145,
+                        150,
+                        155,
+                        160,
+                        165,
+                        170,
+                        175,
+                        180,
+                        185
+                    ],
+                    "distance_from_center_kpc": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10
+                    ],
+                    "gravitational_lens_mapping": [
+                        1.5,
+                        1.7,
+                        1.6,
+                        1.8,
+                        1.9,
+                        2.0,
+                        2.1,
+                        2.15,
+                        2.2,
+                        2.25
+                    ]
+                }
+            },
+            "mathematical_formulation": "V(r)^2 = \\frac{G M(r)}{r} + \\delta V_{\\text{dark}}(r), \\text{ where } M(r) = \\text{baryonic mass distribution, and } \\delta V_{\\text{dark}}(r) \\approx f(\\text{gravitational lens mapping}).",
+            "ontology": {
+                "entities": [
+                    "dark matter",
+                    "baryonic matter",
+                    "rotation curves",
+                    "spiral galaxies",
+                    "observed velocities",
+                    "expected velocities",
+                    "gravitational lensing",
+                    "distance from galaxy center",
+                    "velocity discrepancy"
+                ],
+                "relations": [
+                    "affects",
+                    "is measured by",
+                    "is estimated by",
+                    "maps to",
+                    "interacts with",
+                    "causes"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b716f0ef-7efc-4c58-bc86-373226a626d8",
+        "task_details": {
+            "task_instructions": "Develop a mathematical model to predict the evolution of a three-dimensional complex fluid system under the influence of variable thermal gradients and external electromagnetic fields. The model should account for both the macroscopic fluid dynamics and microscopic particle interactions. Validate your model using the provided dataset and determine key physical parameters that influence system stability.",
+            "task_data": {
+                "data_points": {
+                    "thermal_gradient_data": [
+                        {
+                            "time": 0,
+                            "gradient": [
+                                300,
+                                310,
+                                320
+                            ]
+                        },
+                        {
+                            "time": 1,
+                            "gradient": [
+                                305,
+                                315,
+                                325
+                            ]
+                        },
+                        {
+                            "time": 2,
+                            "gradient": [
+                                310,
+                                320,
+                                330
+                            ]
+                        },
+                        {
+                            "time": 3,
+                            "gradient": [
+                                315,
+                                325,
+                                335
+                            ]
+                        }
+                    ],
+                    "electromagnetic_field_data": [
+                        {
+                            "time": 0,
+                            "field": [
+                                0.1,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        {
+                            "time": 1,
+                            "field": [
+                                0.1,
+                                0.1,
+                                0.0
+                            ]
+                        },
+                        {
+                            "time": 2,
+                            "field": [
+                                0.0,
+                                0.1,
+                                0.1
+                            ]
+                        },
+                        {
+                            "time": 3,
+                            "field": [
+                                -0.1,
+                                0.0,
+                                0.1
+                            ]
+                        }
+                    ],
+                    "particle_interaction_data": [
+                        {
+                            "particle_type": "A",
+                            "interaction_strength": 1.0,
+                            "density": 1.2
+                        },
+                        {
+                            "particle_type": "B",
+                            "interaction_strength": 0.5,
+                            "density": 1.0
+                        },
+                        {
+                            "particle_type": "C",
+                            "interaction_strength": 0.8,
+                            "density": 1.1
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "fluid_dynamics": "Navier-Stokes equations: \\( \\frac{\\partial \\vec{v}}{\\partial t} + (\\vec{v} \\cdot \\nabla) \\vec{v} = -\\nabla p + \\nu \\nabla^2 \\vec{v} + \\vec{F} \\) where \\( \\vec{v} \\) is velocity, \\( p \\) is pressure, \\( \\nu \\) is viscosity, and \\( \\vec{F} \\) is force due to electromagnetic field.",
+                "particle_interactions": "Potential Energy \\( U_{ij} = \\epsilon_{ij} \\left( \\frac{\\sigma_{ij}}{r_{ij}} \\right)^{12} - \\left( \\frac{\\sigma_{ij}}{r_{ij}} \\right)^6 \\) where \\( r_{ij} \\) is distance between particles \\( i \\) and \\( j \\), and \\( \\epsilon_{ij}, \\sigma_{ij} \\) are constants.",
+                "thermal_effects": "Heat conduction: \\( \\frac{\\partial T}{\\partial t} = \\kappa \\nabla^2 T + S \\) where \\( T \\) is temperature, \\( \\kappa \\) is thermal conductivity, and \\( S \\) is source term."
+            },
+            "ontology": {
+                "entities": [
+                    "complex fluid",
+                    "thermal gradient",
+                    "electromagnetic field",
+                    "particle",
+                    "velocity",
+                    "pressure",
+                    "viscosity",
+                    "force",
+                    "potential energy",
+                    "temperature",
+                    "thermal conductivity"
+                ],
+                "relations": [
+                    "influences",
+                    "interacts with",
+                    "is affected by",
+                    "is modeled by",
+                    "determines stability of"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "7d691b9a-b96c-451c-a04e-e0a586250598",
+        "task_details": {
+            "task_instructions": "Develop a detailed theoretical model to predict the impact of varying solar radiation on the atmospheric circulation patterns of a terrestrial planet with a size similar to Earth, but with a different atmospheric composition primarily consisting of carbon dioxide (95%) and nitrogen (5%). The task requires applying knowledge of atmospheric dynamics, radiative transfer, and fluid mechanics to provide insights into potential weather patterns and climate systems on this planet.",
+            "task_data": {
+                "planetary_parameters": {
+                    "radius_km": 6371,
+                    "mass_kg": 5.972e+24,
+                    "gravity_ms2": 9.8
+                },
+                "atmospheric_composition": {
+                    "carbon_dioxide": 95.0,
+                    "nitrogen": 5.0
+                },
+                "solar_radiation_levels": {
+                    "min_wm2": 100,
+                    "max_wm2": 1361
+                },
+                "current_earth_atmospheric_conditions": {
+                    "pressure_at_sea_level_hpa": 1013.25,
+                    "temperature_at_sea_level_k": 288
+                }
+            },
+            "mathematical_formulation": "Consider the Navier-Stokes equations for fluid flow, modified to account for a primarily CO2 atmosphere. Use the radiative transfer equation: dI/ds = -kI + j_s, where I is the intensity, k is the attenuation coefficient, and j_s is the source function. Predict atmospheric dynamics using the continuity equation for a rotating planet: ∂ρ/∂t + ∇·(ρv) = 0. Incorporate the energy balance equation with radiative forcing: dT/dt = Rs - (σT^4)/ε, where Rs is the solar radiation absorbed, σ is the Stefan-Boltzmann constant, and ε is the emissivity of the atmosphere.",
+            "ontology": {
+                "entities": [
+                    "Radiation balance",
+                    "Atmospheric dynamics",
+                    "Carbon dioxide atmosphere",
+                    "Nitrogen",
+                    "Terrestrial planet parameters"
+                ],
+                "relations": [
+                    "Solar radiation influences atmospheric dynamics",
+                    "Atmospheric composition affects radiative transfer",
+                    "Pressure and temperature determine weather patterns",
+                    "Continuity equation governs fluid flow",
+                    "Energy balance affects climate systems"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "2a6d820c-7809-4b77-a63b-73bfba1ce5fc",
+        "task_details": {
+            "task_instructions": "Analyze the gravitational wave data from a simulated binary black hole merger to extract the mass and spin parameters of the resulting singularity, considering the impact of cosmic dust interference and superimposed cosmic microwave background radiation.",
+            "task_data": {
+                "data_points": {
+                    "gravitational_wave_signal": {
+                        "amplitude": [
+                            0.05,
+                            0.1,
+                            0.2,
+                            0.3,
+                            0.25,
+                            0.15,
+                            0.1,
+                            0.05
+                        ],
+                        "frequency": [
+                            20,
+                            30,
+                            40,
+                            50,
+                            60,
+                            50,
+                            40,
+                            30
+                        ],
+                        "time": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7
+                        ]
+                    },
+                    "cosmic_dust_density": {
+                        "regions": [
+                            "Region A",
+                            "Region B",
+                            "Region C"
+                        ],
+                        "density": [
+                            0.0001,
+                            0.0005,
+                            0.0002
+                        ]
+                    },
+                    "cosmic_microwave_background": {
+                        "temperature_fluctuation": [
+                            1e-05,
+                            -2e-05,
+                            3e-05
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "The gravitational waveform can be modeled using \\( h(t) = A(t) \\cos(2\\pi f(t) t + \\phi) \\) where \\( A(t) \\) is the amplitude function, and \\( f(t) \\) is the frequency. The presence of cosmic dust can be incorporated as an attenuation factor \\( e^{-\\kappa \\tau} \\), with \\( \\kappa \\) being a function of dust density. Spin parameter \\( a \\) and mass \\( M \\) are extracted using the formulae derived from the Kerr metric perturbation analysis.",
+            "ontology": {
+                "entities": [
+                    "gravitational waves",
+                    "binary black holes",
+                    "singularity",
+                    "cosmic dust",
+                    "cosmic microwave background radiation",
+                    "spin parameter",
+                    "mass"
+                ],
+                "relations": [
+                    "causes",
+                    "interacts with",
+                    "attenuates",
+                    "superimposes",
+                    "influences"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "d6e83672-bd81-49b7-b9e5-b477fa5ededc",
+        "task_details": {
+            "task_instructions": "Predict the thermodynamic and kinetic stability of hypothetical coordination complexes formed by transition metals with a set of organic ligands using a combination of quantum chemistry calculations and machine learning models. The task involves determining the most stable geometric and electronic configurations of these complexes and predicting reaction rate constants for ligand substitution reactions.",
+            "task_data": {
+                "data_points": {
+                    "transition_metals": [
+                        "Fe",
+                        "Cu",
+                        "Ni",
+                        "Co",
+                        "Zn"
+                    ],
+                    "ligands": [
+                        {
+                            "name": "acetylacetonate",
+                            "formula": "C5H7O2"
+                        },
+                        {
+                            "name": "ethylenediamine",
+                            "formula": "C2H8N2"
+                        },
+                        {
+                            "name": "bipyridine",
+                            "formula": "C10H8N2"
+                        }
+                    ],
+                    "complex_properties": [
+                        {
+                            "metal": "Fe",
+                            "ligand": "C5H7O2",
+                            "geometric_configuration": "octahedral",
+                            "binding_energy": -325.4,
+                            "electronic_properties": {
+                                "HOMO-LUMO_gap": 1.2,
+                                "spin_multiplicity": 6
+                            },
+                            "kinetic_properties": {
+                                "activation_energy": 45.3
+                            }
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "E_binding = E_complex - (E_metal + nE_ligand), where E_binding is the binding energy, E_complex, E_metal, and E_ligand are the energies of the complex, metal, and ligand respectively; E_a = k_B * T * ln(k/h), where E_a is the activation energy, k_B is the Boltzmann constant, T is the temperature, k is the rate constant, and h is Planck's constant.",
+            "ontology": {
+                "entities": [
+                    "transition_metals",
+                    "ligands",
+                    "coordination_complexes",
+                    "geometric_configuration",
+                    "binding_energy",
+                    "HOMO-LUMO_gap",
+                    "spin_multiplicity",
+                    "activation_energy"
+                ],
+                "relations": [
+                    "coordination_complexes formed by transition_metals and ligands",
+                    "geometric_configuration affects thermodynamic stability",
+                    "binding_energy determines stability of coordination_complexes",
+                    "HOMO-LUMO_gap indicates electronic properties",
+                    "spin_multiplicity influences magnetic properties",
+                    "activation_energy relates to kinetic stability"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "8d54b6c2-4136-46d7-9a51-13bdc4136de9",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive computational model that simulates the thermodynamic and kinetic behavior of a novel chemical reaction system under non-equilibrium conditions. The task involves predicting the reaction pathways, identifying transition states, calculating the Gibbs free energy changes, and evaluating the rate constants of the elementary steps. Validate the model using supplied experimental data, ensuring the model accounts for real-world deviations such as temperature gradients, pressure fluctuations, and catalyst surface irregularities.",
+            "task_data": {
+                "data_points": {
+                    "temperature_range_C": [
+                        298.15,
+                        350.15,
+                        400.15
+                    ],
+                    "pressure_Pa": [
+                        101325,
+                        150000,
+                        200000
+                    ],
+                    "reaction_components_mol": {
+                        "A": 1.0,
+                        "B": 2.0,
+                        "C": 0.0
+                    },
+                    "catalyst_properties": {
+                        "surface_area_m2_g": 50.0,
+                        "active_sites_density_mol_g": 0.01
+                    },
+                    "experimental_gibbs_energy_kJ_mol": {
+                        "A + B -> C": -20.5,
+                        "transition_state_energy": 30.0
+                    },
+                    "rate_constants_exp": {
+                        "k1": 0.0012,
+                        "k2": 0.00085,
+                        "k3": 0.00031
+                    }
+                }
+            },
+            "mathematical_formulation": "Rate_Model = Arrhenius_Eq * exp(-E_a / (R * T)); Gibbs_Free_Energy_ΔG = ΣvΔG_products - ΣvΔG_reactants; Transition_State_Theory_k = (k_B * T / h) * exp(-ΔG^‡ / (R * T));",
+            "ontology": {
+                "entities": [
+                    "thermodynamics",
+                    "kinetics",
+                    "reaction pathways",
+                    "transition states",
+                    "Gibbs free energy",
+                    "rate constants",
+                    "non-equilibrium conditions",
+                    "temperature gradient",
+                    "pressure",
+                    "catalyst surface"
+                ],
+                "relations": [
+                    "influences",
+                    "catalyzes",
+                    "determines",
+                    "affects",
+                    "varies_with",
+                    "depends_on"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "ebfb75c7-3949-4071-b127-145a0a3be6b4",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive computational simulation to model the formation and evolution of a supermassive black hole (SMBH) in a galaxy over a period of 10 billion years. The model should account for realistic physical processes including gas accretion, star formation, galaxy mergers, and feedback mechanisms. Provide a detailed report of the SMBH mass growth trajectory, the physical conditions of the host galaxy, and the influence of dark matter distribution over time.",
+            "task_data": {
+                "data_points": {
+                    "initial_black_hole_mass": "1e5 solar masses",
+                    "galaxy_initial_mass": "1e11 solar masses",
+                    "dark_matter_halo_mass": "1e12 solar masses",
+                    "gas_accretion_rate": "0.01 solar masses per year",
+                    "star_formation_rate": "1 solar mass per year",
+                    "merger_events": [
+                        {
+                            "time": "2 billion years",
+                            "mass_ratios": "3:1",
+                            "relative_velocity": "300 km/s"
+                        },
+                        {
+                            "time": "6 billion years",
+                            "mass_ratios": "1:1",
+                            "relative_velocity": "150 km/s"
+                        }
+                    ],
+                    "feedback_efficiency": "0.1",
+                    "simulation_timestep": "1 million years"
+                }
+            },
+            "mathematical_formulation": "The growth of the black hole mass M_BH(t) can be given by the differential equation dM_BH/dt = f(M_BH, M_gas, SFR) where f involves accretion efficiency and feedback mechanisms. The total mass of the host galaxy M_gal(t) evolves as dM_gal/dt = SFR + merger rate - feedback losses. The dark matter density profile is influenced by the Navarro-Frenk-White (NFW) profile: ρ(r) = ρ_0 / [r/r_s(1+r/r_s)^2].",
+            "ontology": {
+                "entities": [
+                    "Supermassive Black Hole (SMBH)",
+                    "Galaxy",
+                    "Gas Accretion",
+                    "Dark Matter",
+                    "Star Formation Rate (SFR)",
+                    "Feedback Mechanisms",
+                    "Galaxy Mergers"
+                ],
+                "relations": [
+                    "Black hole growth is influenced by gas accretion and mergers.",
+                    "Star formation contributes to galaxy evolution.",
+                    "Feedback mechanisms regulate accretion onto the black hole.",
+                    "Dark matter distribution affects galaxy dynamics."
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f3bc2046-ecf5-421d-9a18-62323196a9cf",
+        "task_details": {
+            "task_instructions": "Perform a multi-scale simulation of the propagation of gravitational waves through a heterogeneous interstellar medium, accounting for both the macroscopic properties (such as density variations and electromagnetic field interactions) and the microscopic quantum effects (such as particle scattering and entanglement) to predict the waveform distortions and energy dissipation observed at a distant detector array.",
+            "task_data": {
+                "data_points": {
+                    "interstellar_medium_properties": {
+                        "density_profile": "function of spatial coordinates",
+                        "electromagnetic_field": "vector field function over space and time",
+                        "temperature_distribution": "function of space and time"
+                    },
+                    "gravitational_wave_source": {
+                        "initial_waveform": "h(t, x, y, z) function",
+                        "polarization_states": [
+                            "plus",
+                            "cross"
+                        ],
+                        "frequency_spectrum": "range [10 Hz, 10 kHz]"
+                    },
+                    "quantum_particle_data": {
+                        "particle_species": [
+                            "electron",
+                            "proton"
+                        ],
+                        "initial_states": "quantum superposition states",
+                        "scattering_cross_sections": {
+                            "electron": "σ_e",
+                            "proton": "σ_p"
+                        }
+                    },
+                    "detector_array": {
+                        "detector_locations": [
+                            {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            },
+                            {
+                                "x": 1000,
+                                "y": 1000,
+                                "z": 1000
+                            }
+                        ],
+                        "sensitivity": "10^-22 strain"
+                    }
+                }
+            },
+            "mathematical_formulation": "Solve the coupled Einstein field equations and Maxwell's equations in the presence of a distributed medium described by quantum field theory. EFE: G_{μν} + Λg_{μν} = (8πG/c^4)T_{μν}, Maxwell's: ∇·E = ρ/ε₀, ∇×B - μ₀ε₀∂E/∂t = μ₀J, and Pauli equation for quantum effects.",
+            "ontology": {
+                "entities": [
+                    "gravitational waves",
+                    "interstellar medium",
+                    "quantum effects",
+                    "detector",
+                    "waveform",
+                    "density",
+                    "electromagnetic field",
+                    "temperature",
+                    "particle species",
+                    "scattering cross section"
+                ],
+                "relations": [
+                    "propagate through",
+                    "interact with",
+                    "modify",
+                    "detect",
+                    "scatter with",
+                    "entangle with",
+                    "influence"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e4700e19-584a-4da5-8b2e-afd01838b677",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive model predicting the stellar wind properties of different star types in the Milky Way galaxy, taking into account stellar mass, radius, temperature, metallicity, and age. The model should simulate the interactions of these parameters utilizing current astrophysical theories and data.",
+            "task_data": {
+                "stellar_data": {
+                    "stars": [
+                        {
+                            "name": "Star A",
+                            "mass": 1.0,
+                            "radius": 1.0,
+                            "temperature": 5778,
+                            "metallicity": 0.0122,
+                            "age": 4.6
+                        },
+                        {
+                            "name": "Star B",
+                            "mass": 0.8,
+                            "radius": 0.9,
+                            "temperature": 5300,
+                            "metallicity": 0.0205,
+                            "age": 5.1
+                        },
+                        {
+                            "name": "Star C",
+                            "mass": 1.5,
+                            "radius": 1.3,
+                            "temperature": 6700,
+                            "metallicity": 0.015,
+                            "age": 2.5
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "L = 4 * π * R^2 * σ * T^4; \n F_w = (M * (Z + 1)^0.2)/A; \nwhere L is the star luminosity, R is radius, σ is the Stefan-Boltzmann constant, T is temperature, F_w is the stellar wind flux, M is mass, Z is metallicity, and A is age.",
+            "ontology": {
+                "entities": [
+                    "stars",
+                    "stellar wind",
+                    "mass",
+                    "radius",
+                    "temperature",
+                    "metallicity",
+                    "age",
+                    "luminosity"
+                ],
+                "relations": [
+                    "has_mass",
+                    "has_radius",
+                    "has_temperature",
+                    "has_metallicity",
+                    "has_age",
+                    "affects_wind_properties",
+                    "related_to_luminosity"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "14713da4-4d66-49b9-9ee4-dc6e4918d6f0",
+        "task_details": {
+            "task_instructions": "Analyze the impact of dark matter distribution on galaxy rotation curves by using observational data from a sample of spiral galaxies. Develop a model that predicts the rotational velocity of these galaxies based on the hypothetical distribution of dark matter, and validate the model against the observed data.",
+            "task_data": {
+                "data_points": {
+                    "galaxies": [
+                        {
+                            "name": "Galaxy_A",
+                            "luminosity_profile": [
+                                10.2,
+                                9.8,
+                                8.7,
+                                7.5,
+                                6.3
+                            ],
+                            "observational_rotational_velocity": [
+                                220,
+                                230,
+                                235,
+                                240,
+                                245
+                            ],
+                            "radius_kpc": [
+                                1,
+                                2,
+                                3,
+                                4,
+                                5
+                            ]
+                        },
+                        {
+                            "name": "Galaxy_B",
+                            "luminosity_profile": [
+                                14.5,
+                                13.1,
+                                12.0,
+                                10.9,
+                                9.8
+                            ],
+                            "observational_rotational_velocity": [
+                                200,
+                                210,
+                                215,
+                                220,
+                                225
+                            ],
+                            "radius_kpc": [
+                                1,
+                                3,
+                                5,
+                                7,
+                                9
+                            ]
+                        }
+                    ],
+                    "dark_matter_model_parameters": {
+                        "density_profile": "NFW",
+                        "density_parameters": {
+                            "scale_radius_kpc": [
+                                10,
+                                15
+                            ],
+                            "density_0": [
+                                0.3,
+                                0.4
+                            ]
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": "v(r) = sqrt(\\frac{G M_{visible}(r) + M_{dark}(r)}{r}), where v(r) is the rotational velocity at radius r, G is the gravitational constant, M_{visible}(r) is the luminous mass within radius r, and M_{dark}(r) is the dark matter mass within radius r. M_{dark}(r) is derived from the NFW density profile \\rho(r) = \\frac{\\rho_0}{(r/r_s)(1 + r/r_s)^2}.",
+            "ontology": {
+                "entities": [
+                    "dark matter",
+                    "galaxy rotation curve",
+                    "NFW profile",
+                    "luminosity profile",
+                    "gravitational constant"
+                ],
+                "relations": [
+                    "dark matter affects galaxy rotation curve",
+                    "luminosity profile influences visible mass distribution",
+                    "NFW profile describes dark matter density distribution",
+                    "gravitational constant is a universal constant"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e27a0f3a-ff05-47d6-88ba-dbbce0108d44",
+        "task_details": {
+            "task_instructions": "Analyze the stability of a complex dynamical system representing climate interactions using a high-dimensional Lorenz-like model. The task involves simulating the system over time, identifying patterns of bifurcation, and determining the conditions leading to chaotic behavior. This includes interpreting the impact of multi-scale coupling between atmospheric, oceanic, and terrestrial subsystems.",
+            "task_data": {
+                "data_points": {
+                    "initial_conditions": {
+                        "temperature_profiles": [
+                            300,
+                            285,
+                            270
+                        ],
+                        "ocean_currents": [
+                            0.5,
+                            0.3,
+                            0.7
+                        ],
+                        "greenhouse_gases_concentration": [
+                            400,
+                            700,
+                            350
+                        ],
+                        "solar_radiation": [
+                            1361,
+                            1359,
+                            1360
+                        ]
+                    },
+                    "parameters": {
+                        "thermal_diffusivity": 0.0001,
+                        "reflection_coefficients": [
+                            0.3,
+                            0.6,
+                            0.9
+                        ],
+                        "interaction_strengths": [
+                            0.8,
+                            0.5,
+                            0.4
+                        ],
+                        "time_step": 0.01,
+                        "total_simulation_time": 1000
+                    }
+                }
+            },
+            "mathematical_formulation": "dx/dt = σ(y - x), dy/dt = x(ρ - z) - y, dz/dt = xy - βz, where x, y, z represent temperature, ocean currents, and atmospheric pressure deviations, respectively. σ, ρ, and β are parameters describing system properties. Additional coupling terms C(x, y), D(y, z) are defined as cross-system interactions.",
+            "ontology": {
+                "entities": [
+                    "Temperature Profiles",
+                    "Ocean Currents",
+                    "Greenhouse Gases Concentration",
+                    "Solar Radiation",
+                    "Thermal Diffusivity",
+                    "Reflection Coefficients",
+                    "Interaction Strengths",
+                    "Time Step",
+                    "Total Simulation Time",
+                    "Bifurcation",
+                    "Chaos Theory"
+                ],
+                "relations": [
+                    "affects",
+                    "interacts with",
+                    "causes",
+                    "leads to"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b4410a16-2626-469c-83cc-987adfb66a50",
+        "task_details": {
+            "task_instructions": "Predict the long-term climate change impact on Arctic sea ice extent by developing a comprehensive dynamical model. The model should account for multi-decadal atmospheric and oceanic variables, integrate with existing satellite data, and produce probabilistic forecasts of sea ice extent under multiple greenhouse gas emission scenarios.",
+            "task_data": {
+                "data_points": {
+                    "atmospheric_temperature": {
+                        "unit": "K",
+                        "values": [
+                            273.15,
+                            274.2,
+                            275.1,
+                            276.0
+                        ],
+                        "years": [
+                            2020,
+                            2025,
+                            2030,
+                            2035
+                        ]
+                    },
+                    "ocean_current_velocity": {
+                        "unit": "m/s",
+                        "values": [
+                            0.05,
+                            0.06,
+                            0.07,
+                            0.08
+                        ],
+                        "years": [
+                            2020,
+                            2025,
+                            2030,
+                            2035
+                        ]
+                    },
+                    "sea_ice_extent": {
+                        "unit": "million sq km",
+                        "values": [
+                            5.1,
+                            4.9,
+                            4.7,
+                            4.5
+                        ],
+                        "years": [
+                            2020,
+                            2025,
+                            2030,
+                            2035
+                        ]
+                    },
+                    "greenhouse_gas_concentration": {
+                        "units": [
+                            "ppm",
+                            "ppb"
+                        ],
+                        "CO2_values": [
+                            410,
+                            415,
+                            420,
+                            430
+                        ],
+                        "CH4_values": [
+                            1860,
+                            1870,
+                            1880,
+                            1900
+                        ],
+                        "years": [
+                            2020,
+                            2025,
+                            2030,
+                            2035
+                        ]
+                    },
+                    "satellite_data": {
+                        "resolution": "1 km",
+                        "temporal_coverage": "1980-2020",
+                        "data_sources": [
+                            "MODIS",
+                            "AVHRR",
+                            "Sentinel-1"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "S(E,t) = \\int \\int\\frac{\\partial T_{a}(x,y,t)}{\\partial t} + \\frac{\\partial V_{oc}(x,y,t)}{\\partial t} + \\phi(CO_2(t), CH_4(t)) dt dx dy\\;, P(S|E) \\sim \\mathcal{N}(\\mu, \\sigma^2)",
+            "ontology": {
+                "entities": [
+                    "atmospheric_temperature",
+                    "ocean_current_velocity",
+                    "sea_ice_extent",
+                    "greenhouse_gas_concentration",
+                    "satellite_data",
+                    "CO2_values",
+                    "CH4_values"
+                ],
+                "relations": [
+                    "temperature impacts sea ice melt rate",
+                    "ocean currents affect sea ice distribution",
+                    "greenhouse gas concentration influences atmospheric temperature",
+                    "satellite data provides historical sea ice measurements"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f7edf6a4-acd4-47f0-bae0-022a20698880",
+        "task_details": {
+            "task_instructions": "Conduct a comprehensive analysis and simulation of a high-energy particle collision in a particle accelerator, specifically focusing on the emergence of a Higgs boson from a collision of protons at 13 TeV, considering all possible intermediate interactions and conservation laws.",
+            "task_data": {
+                "data_points": {
+                    "proton_mass": 938.27,
+                    "collision_energy": 13000,
+                    "speed_of_light": 299792458,
+                    "higgs_mass": 125.1,
+                    "intermediate_particles": [
+                        {
+                            "name": "quark",
+                            "charge": "+2/3",
+                            "spin": "1/2",
+                            "color_charge": [
+                                "red",
+                                "green",
+                                "blue"
+                            ]
+                        },
+                        {
+                            "name": "antiquark",
+                            "charge": "-2/3",
+                            "spin": "1/2",
+                            "color_charge": [
+                                "anti-red",
+                                "anti-green",
+                                "anti-blue"
+                            ]
+                        },
+                        {
+                            "name": "gluon",
+                            "charge": "0",
+                            "spin": "1",
+                            "color_changing": true
+                        }
+                    ],
+                    "conservation_laws": [
+                        "energy",
+                        "momentum",
+                        "charge",
+                        "baryon_number",
+                        "lepton_number"
+                    ],
+                    "decay_channels": [
+                        {
+                            "name": "decay_to_two_b_quarks",
+                            "probability": 0.58
+                        },
+                        {
+                            "name": "decay_to_two_photons",
+                            "probability": 0.00228
+                        },
+                        {
+                            "name": "decay_to_zz",
+                            "probability": 0.026
+                        },
+                        {
+                            "name": "decay_to_ww",
+                            "probability": 0.215
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "E=mc^2; \np^2c^2 = E^2 - (m_0c^2)^2; \n\\text{Conservation: } E_i = E_f, \\vec{p}_i = \\vec{p}_f; \n\\sum Q_{initial} = \\sum Q_{final}; \nP(H\\to b\\bar{b}) + P(H \\to \\gamma\\gamma) + P(H \\to ZZ) + P(H \\to WW) = 1;",
+            "ontology": {
+                "entities": [
+                    "proton",
+                    "Higgs boson",
+                    "quark",
+                    "gluon",
+                    "collision energy",
+                    "conservation laws"
+                ],
+                "relations": [
+                    "quark emits gluon",
+                    "gluon interacts with quark",
+                    "proton collision produces Higgs boson",
+                    "Higgs boson decays into other particles",
+                    "energy and momentum are conserved"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "a660b990-1b6c-4b42-8131-ca3808f386e0",
+        "task_details": {
+            "task_instructions": "Determine the stability of a complex chemical reaction network using advanced computational methods. Analyze the reaction dynamics, identify any potential equilibrium states, and describe the conditions under which the network exhibits stability or instability. The reaction network is specified by a set of chemical reactions with given rate constants.",
+            "task_data": {
+                "data_points": {
+                    "reactions": [
+                        {
+                            "reactants": [
+                                "A"
+                            ],
+                            "products": [
+                                "B"
+                            ],
+                            "rate_constant": 1.0
+                        },
+                        {
+                            "reactants": [
+                                "B"
+                            ],
+                            "products": [
+                                "C"
+                            ],
+                            "rate_constant": 0.5
+                        },
+                        {
+                            "reactants": [
+                                "C",
+                                "A"
+                            ],
+                            "products": [
+                                "D"
+                            ],
+                            "rate_constant": 0.3
+                        },
+                        {
+                            "reactants": [
+                                "D"
+                            ],
+                            "products": [
+                                "A",
+                                "B"
+                            ],
+                            "rate_constant": 0.8
+                        }
+                    ],
+                    "initial_concentrations": {
+                        "A": 1.0,
+                        "B": 0.0,
+                        "C": 0.0,
+                        "D": 0.0
+                    },
+                    "temperature": 298.15,
+                    "pressure": 1.0
+                }
+            },
+            "mathematical_formulation": "d[A]/dt = -k1[A] + k4[D]; d[B]/dt = k1[A] - k2[B] + k4[D]; d[C]/dt = k2[B] - k3[C][A]; d[D]/dt = k3[C][A] - k4[D];",
+            "ontology": {
+                "entities": [
+                    "Chemical Reaction",
+                    "Rate Constant",
+                    "Concentration",
+                    "Stability",
+                    "Equilibrium State"
+                ],
+                "relations": [
+                    "Reactant to Product",
+                    "Rate Constant affecting Reaction Rate",
+                    "Concentration changing over Time",
+                    "Equilibrium State affecting Stability"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "4a64002a-9569-47b4-848b-fdf81ec8a4ab",
+        "task_details": {
+            "task_instructions": "Using the provided astrophysical observations, create a precise model predicting the dynamics of a hypothetical exoplanet's atmosphere, factoring in stellar radiation levels, planetary mass, atmospheric composition, and orbital characteristics. Validate the model against known data and provide uncertainty quantifications.",
+            "task_data": {
+                "data_points": {
+                    "stellar_radiance": {
+                        "mean_radiance": 1361,
+                        "radiance_variability": 0.1
+                    },
+                    "planetary_mass": {
+                        "mass_earth_units": 3.5
+                    },
+                    "atmospheric_composition": {
+                        "primary_gases": [
+                            "N2",
+                            "CO2",
+                            "H2O"
+                        ],
+                        "mole_fraction": [
+                            0.78,
+                            0.12,
+                            0.1
+                        ]
+                    },
+                    "orbital_characteristics": {
+                        "semi_major_axis_au": 1.5,
+                        "eccentricity": 0.05,
+                        "orbital_period_days": 500
+                    },
+                    "observational_data": {
+                        "temperature_profiles": {
+                            "day": [
+                                270,
+                                280,
+                                295
+                            ],
+                            "night": [
+                                250,
+                                240,
+                                230
+                            ]
+                        },
+                        "pressure_profiles": {
+                            "surface_pressure": 1.0,
+                            "pressure_variability": 0.05
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "radiative_transfer_equation": "dI(ν)/ds = -κ(ν)ρI(ν) + κ(ν)ρS(ν)",
+                "atmospheric_dynamics": {
+                    "Navier-Stokes": "ρ(∂u/∂t + u·∇u) = -∇p + ∇·T + ρg + F",
+                    "Energy_balance": "∂E/∂t + ∇·(Ev) = -∇·q + Q"
+                },
+                "orbital_mechanics": "F_gravity = G(m1*m2)/r^2"
+            },
+            "ontology": {
+                "entities": [
+                    "stellar_radiance",
+                    "planetary_mass",
+                    "atmospheric_composition",
+                    "orbital_characteristics",
+                    "temperature_profiles",
+                    "pressure_profiles"
+                ],
+                "relations": [
+                    "influences(stellar_radiance, atmospheric_temperature)",
+                    "depends_on(atmospheric_dynamics, atmospheric_composition)",
+                    "modifies(orbital_characteristics, observed_temperature_variability)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "3095147f-870a-420f-b3fb-c904f6b3ca94",
+        "task_details": {
+            "task_instructions": "Conduct a comprehensive theoretical analysis on the propagation of electromagnetic waves in a highly anisotropic medium. The task requires deriving the dispersion relations for such mediums, predicting wave behavior under various boundary conditions, and computing the energy distribution throughout the medium. The analysis should consider the effects of permittivity and permeability tensors, and account for loss mechanisms such as absorption and scattering.",
+            "task_data": {
+                "data_points": {
+                    "medium_properties": {
+                        "permittivity_tensor": [
+                            [
+                                2.0,
+                                0.1,
+                                0.0
+                            ],
+                            [
+                                0.1,
+                                3.0,
+                                0.0
+                            ],
+                            [
+                                0.0,
+                                0.0,
+                                1.5
+                            ]
+                        ],
+                        "permeability_tensor": [
+                            [
+                                1.0,
+                                0.05,
+                                0.0
+                            ],
+                            [
+                                0.05,
+                                0.9,
+                                0.0
+                            ],
+                            [
+                                0.0,
+                                0.0,
+                                1.2
+                            ]
+                        ],
+                        "loss_coefficients": {
+                            "absorption_coefficient": 0.01,
+                            "scattering_coefficient": 0.005
+                        }
+                    },
+                    "boundary_conditions": [
+                        "perfect_electric_conductor",
+                        "perfect_magnetic_conductor",
+                        "periodic_boundary_conditions"
+                    ],
+                    "frequencies": [
+                        1000000000.0,
+                        2000000000.0,
+                        5000000000.0
+                    ],
+                    "initial_wave_vector": [
+                        0.5,
+                        0.5,
+                        1.0
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "dispersion_relation": "k(ω) = (ω^2 / c^2) ∥ εr(ω) ∥ ∥ μr(ω) ∥",
+                "wave_equation": "∇ × (μr^(-1) ∇ × E) - εr ∂^2E/∂t^2 = -∂J/∂t",
+                "Poynting_vector": "S = E × H"
+            },
+            "ontology": {
+                "entities": [
+                    "anisotropic medium",
+                    "electromagnetic wave",
+                    "permittivity tensor",
+                    "permeability tensor",
+                    "dispersion relation",
+                    "boundary condition",
+                    "absorption",
+                    "scattering"
+                ],
+                "relations": [
+                    "permits",
+                    "interacts",
+                    "propagates",
+                    "absorbs",
+                    "scatters",
+                    "bounds"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "ceeb2b24-9fa4-47a1-b353-6e9c976e8418",
+        "task_details": {
+            "task_instructions": "Calculate the gravitational influence on a satellite in low Earth orbit (LEO) from both the Earth and the Moon simultaneously, taking into account the perturbative effects of atmospheric drag and the oblateness of the Earth (J2 effect). The satellite's position and velocity vectors should be computed over a period of one month using numerical integration with an appropriate algorithm like Runge-Kutta.",
+            "task_data": {
+                "satellite_initial_position": [
+                    7000,
+                    0,
+                    0
+                ],
+                "satellite_initial_velocity": [
+                    0,
+                    7.5,
+                    0
+                ],
+                "earth_mass": 5.972e+24,
+                "moon_mass": 7.342e+22,
+                "earth_radius": 6378.1,
+                "moon_distance": 384400,
+                "gravitational_constant": 6.6743e-11,
+                "atmospheric_drag_coefficient": 2.2,
+                "reference_area": 20.0,
+                "j2_coefficient": 0.00108263,
+                "atmospheric_density_at_leo": 4e-12
+            },
+            "mathematical_formulation": "The satellite's motion is governed by \\( \\mathbf{F} = m \\mathbf{a} \\), where the forces include gravitational influences \\( \\mathbf{F}_g = -\\frac{G M_1 m}{r_1^3} \\mathbf{r}_1 -\\frac{G M_2 m}{r_2^3} \\mathbf{r}_2 \\), atmospheric drag \\( \\mathbf{F}_d = -\\frac{1}{2} C_d A \\rho v^2 \\hat{v} \\), and the J2 perturbation \\( \\mathbf{F}_{j2} = -\\frac{3}{2} J_2 \\frac{G M_e R^2_e}{r^5} \\left[1 - \\frac{5 z^2}{r^2} \\right] \\mathbf{r} \\). The equations of motion can be integrated over time using Runge-Kutta or a similar numerical method.",
+            "ontology": {
+                "entities": [
+                    "gravitational influence",
+                    "satellite",
+                    "low Earth orbit (LEO)",
+                    "Earth",
+                    "Moon",
+                    "atmospheric drag",
+                    "oblateness",
+                    "J2 effect",
+                    "Runge-Kutta"
+                ],
+                "relations": [
+                    "affects",
+                    "perturbs",
+                    "orbits",
+                    "integrates"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "af28b4ef-c0e0-4c7a-b98e-805212eb2d76",
+        "task_details": {
+            "task_instructions": "Develop a computational model to simulate galaxy formation and evolution over time scales of billions of years. Consider gas dynamics, dark matter distribution, star formation, and feedback processes. Validate the model against observed data from multiple surveys, including the Sloan Digital Sky Survey (SDSS) and the Hubble Space Telescope (HST).",
+            "task_data": {
+                "data_points": {
+                    "galaxy_survey_data": {
+                        "SDSS": {
+                            "redshift_range": [
+                                0.01,
+                                0.8
+                            ],
+                            "spectra": "Collection of galaxy spectra",
+                            "photometry": "Multiband photometric data"
+                        },
+                        "HST": {
+                            "deep_field_images": "Images showing galaxies at high redshift",
+                            "morphological_classification": "Dataset of galaxy morphologies"
+                        }
+                    },
+                    "initial_conditions": {
+                        "cosmological_parameters": {
+                            "Hubble_constant": 70.4,
+                            "Omega_matter": 0.308,
+                            "Omega_lambda": 0.692
+                        },
+                        "dark_matter_distribution": "N-body simulation results for primordial dark matter"
+                    },
+                    "feedback_processes": {
+                        "stellar_feedback_efficiency": 0.02,
+                        "AGN_feedback_strength": "Variable in simulations"
+                    }
+                }
+            },
+            "mathematical_formulation": "The evolution of the galaxy can be represented by a system of coupled differential equations:\\n\\n1. Gravity: $\\nabla^2 \\Phi = 4 \\pi G \\rho$,\\n2. Hydrodynamics: $\\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\mathbf{v}) = 0$,\\n3. Star Formation Rate (SFR): $\\text{SFR} = \\varepsilon \\frac{\\rho_{gas}}{t_{dyn}}$,\\n4. Feedback: $E_{feedback} = \\eta \\text{SFR} c^2$,\\n\\nwhere $\\Phi$ is the gravitational potential, $\\rho$ is the mass density, $\\mathbf{v}$ is the velocity field, $\\varepsilon$ is the star formation efficiency, $t_{dyn}$ is the dynamical time, and $\\eta$ is the efficiency of converting SFR to feedback energy.",
+            "ontology": {
+                "entities": [
+                    "galaxy formation",
+                    "dark matter distribution",
+                    "star formation",
+                    "feedback processes",
+                    "galaxy survey data"
+                ],
+                "relations": [
+                    "influences",
+                    "depends on",
+                    "evolves over",
+                    "interacts with",
+                    "validates against"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "95d5ffcf-4591-417d-8f56-dd4c477d2e92",
+        "task_details": {
+            "task_instructions": "Determine the potential energy landscape of a protein molecule, given its amino acid sequence, using principles from quantum mechanics and statistical thermodynamics. Calculate the protein's most probable conformation in a solvent environment under normal physiological conditions.",
+            "task_data": {
+                "amino_acid_sequence": "MVKVYAPASSANMSVGFDVLGAAVTPVDGALLGDVVTVEAAETFSLNNLGQNAPLS..."
+            },
+            "mathematical_formulation": "The potential energy landscape, V(R), can be represented as a multidimensional surface where each point represents a conformation of the protein molecule. The Schrödinger equation, HΨ = EΨ, determines the quantum state energy, and the Boltzmann distribution, P(E) = exp(-E/kT) / Z, describes the probability distribution of energies, where Z is the partition function and T is the temperature.",
+            "ontology": {
+                "entities": [
+                    "protein molecule",
+                    "amino acid sequence",
+                    "potential energy landscape",
+                    "quantum mechanics",
+                    "statistical thermodynamics",
+                    "probable conformation",
+                    "solvent environment",
+                    "physiological conditions"
+                ],
+                "relations": [
+                    {
+                        "protein molecule": "defined by",
+                        "amino acid sequence": "sequence"
+                    },
+                    {
+                        "conformation": "represented on",
+                        "potential energy landscape": "surface"
+                    },
+                    {
+                        "quantum mechanics": "applies to",
+                        "energy states": "determination"
+                    },
+                    {
+                        "statistical thermodynamics": "describes",
+                        "probability distribution": "of conformations"
+                    },
+                    {
+                        "physiological conditions": "provide",
+                        "temperature and pressure": "for calculations"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "8058dad2-2a2b-47b7-a43f-104b747ed98b",
+        "task_details": {
+            "task_instructions": "Predict the temperature profile of Earth's troposphere under the influence of a supervolcanic eruption using atmospheric physics and fluid dynamics models. Incorporate aerosol particle dynamics, cloud microphysics, and infrared radiative transfer processes. Estimate changes in the radiation budget, precipitation patterns, and surface temperature anomalies over a one-year period post-eruption.",
+            "task_data": {
+                "data_points": {
+                    "volcanic_eruption": {
+                        "VEI": 8,
+                        "ash_injection_height": 30,
+                        "SO2_emission": 5000
+                    },
+                    "atmospheric_layers": {
+                        "troposphere": {
+                            "altitude_range_km": [
+                                0,
+                                12
+                            ],
+                            "baseline_temperature_profile_K": [
+                                288,
+                                216
+                            ],
+                            "pressure_profile_hPa": [
+                                1013,
+                                200
+                            ]
+                        }
+                    },
+                    "aerosol_properties": {
+                        "particle_radius_micro_m": [
+                            0.1,
+                            10
+                        ],
+                        "optical_depth": 0.1,
+                        "scattering_albedo": 0.9
+                    },
+                    "radiative_transfer_parameters": {
+                        "solar_constant_Wm2": 1361,
+                        "greenhouse_gases_concentration_ppmv": {
+                            "CO2": 400,
+                            "CH4": 1.8,
+                            "H2O": "variable with temperature"
+                        }
+                    },
+                    "cloud_microphysics": {
+                        "cloud_fraction": 0.5,
+                        "liquid_water_content_gm3": [
+                            0.1,
+                            0.8
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "dT/dt = F(T, Q, A, C) + εQ - σT^4; where F includes fluid dynamics and heat transport, Q denotes radiative fluxes, A represents aerosol forcing, C stands for cloud feedback, ε is the emissivity, and σ is the Stefan-Boltzmann constant.",
+            "ontology": {
+                "entities": [
+                    "troposphere",
+                    "supervolcanic eruption",
+                    "aerosol particles",
+                    "infrared radiation",
+                    "cloud microphysics",
+                    "radiative transfer"
+                ],
+                "relations": [
+                    "eruption affects aerosol distribution",
+                    "aerosols influence radiation balance",
+                    "radiation balance influences temperature profile",
+                    "cloud properties modify infrared absorption"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "2d532cdf-68f5-40ab-a4bb-37f35f64ab77",
+        "task_details": {
+            "task_instructions": "Derive a predictive model for estimating the surface temperature of potential exoplanets based on their distance from their star, stellar characteristics, and atmospheric composition. The task involves applying principles of astrophysics and atmospheric science to develop an algorithm capable of predicting surface temperatures with a high degree of precision. Utilize the provided dataset, mathematical models, and relationships between key entities to inform and validate your model.",
+            "task_data": {
+                "exoplanets": [
+                    {
+                        "name": "Exo1",
+                        "distance_from_star_au": 1.5,
+                        "stellar_luminosity_lsun": 1.0,
+                        "stellar_temperature_k": 5800,
+                        "atmospheric_composition": {
+                            "CO2_percentage": 0.04,
+                            "N2_percentage": 78.08,
+                            "O2_percentage": 20.95
+                        }
+                    },
+                    {
+                        "name": "Exo2",
+                        "distance_from_star_au": 0.85,
+                        "stellar_luminosity_lsun": 0.7,
+                        "stellar_temperature_k": 5400,
+                        "atmospheric_composition": {
+                            "CO2_percentage": 0.03,
+                            "N2_percentage": 75.11,
+                            "O2_percentage": 23.76
+                        }
+                    },
+                    {
+                        "name": "Exo3",
+                        "distance_from_star_au": 2.3,
+                        "stellar_luminosity_lsun": 0.5,
+                        "stellar_temperature_k": 4900,
+                        "atmospheric_composition": {
+                            "CO2_percentage": 0.02,
+                            "N2_percentage": 77.0,
+                            "O2_percentage": 21.0
+                        }
+                    }
+                ],
+                "constants": {
+                    "stefan_boltzmann_constant": 5.67e-08
+                }
+            },
+            "mathematical_formulation": "T_surface = \\left(\\frac{(1-Albedo) \\times L_{*} \\times (R_{*}/a_{p})^2 \\times \\text{Stefan-Boltzmann constant}}{4\\pi R_{p}^2}\\right)^{1/4}, where L_{*} is the stellar luminosity, a_{p} is the semi-major axis of the planet's orbit, and R_{p} is the radius of the planet. Adjustments for atmospheric composition and greenhouse effect can be modeled through empirical coefficients or enhanced albedo estimates.",
+            "ontology": {
+                "entities": [
+                    "Exoplanet",
+                    "Star",
+                    "Stellar Luminosity",
+                    "Stellar Effective Temperature",
+                    "Distance from Star",
+                    "Atmospheric Composition",
+                    "Surface Temperature"
+                ],
+                "relations": [
+                    "Distance impacts solar flux received by Exoplanet",
+                    "Stellar Effective Temperature influences Exoplanet heating",
+                    "Atmospheric Composition moderates surface heating",
+                    "Stellar Luminosity targets Exoplanet illumination"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "bfff5725-f8c6-4c1c-8458-b308950a5ce7",
+        "task_details": {
+            "task_instructions": "Given an n-body celestial mechanics system in a non-relativistic regime, predict the long-term stability and possible formation of resonant orbital configurations. Assume the system consists of various masses with initial conditions set within a star's habitable zone. Utilize perturbative methods to approximate the solutions, taking into account the effects of mutual gravitational interactions and potential encounters leading to significant modifications in orbital parameters.",
+            "task_data": {
+                "celestial_bodies": [
+                    {
+                        "name": "Body1",
+                        "mass": 5.97e+24,
+                        "initial_position": [
+                            149600000000.0,
+                            0,
+                            0
+                        ],
+                        "initial_velocity": [
+                            0,
+                            29800,
+                            0
+                        ]
+                    },
+                    {
+                        "name": "Body2",
+                        "mass": 4.867e+24,
+                        "initial_position": [
+                            -149600000000.0,
+                            0,
+                            0
+                        ],
+                        "initial_velocity": [
+                            0,
+                            -35000,
+                            0
+                        ]
+                    },
+                    {
+                        "name": "Star",
+                        "mass": 1.989e+30,
+                        "initial_position": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "initial_velocity": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ]
+            },
+            "mathematical_formulation": "Given the Hamiltonian for the n-body system: H = \\sum_{i=1}^{n} \\frac{||p_i||^2}{2m_i} - G \\sum_{i=1}^{n}\\sum_{j>i}^{n} \\frac{m_i m_j}{||r_i - r_j||}, determine the secular evolution using perturbation theory H_1 = \\epsilon V_{pert}, where \\epsilon represents small perturbations. Estimate the probability of entering a mean-motion resonance: P(resonance) \\approx \\sum_{n=1}^{\\infty} \\frac{(\\Delta a)^n}{n}, where \\Delta a is the change in semi-major axis.",
+            "ontology": {
+                "entities": [
+                    "celestial bodies",
+                    "mass",
+                    "initial conditions",
+                    "perturbative methods",
+                    "orbital configurations",
+                    "resonant orbital configuration",
+                    "habitable zone"
+                ],
+                "relations": [
+                    "mass affects gravitational force",
+                    "initial conditions determine future trajectory",
+                    "mutual interactions influence stability",
+                    "perturbations alter orbital parameters",
+                    "resonances occur due to specific orbital ratios"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "be92da4f-d150-4df6-9333-e50495a80f92",
+        "task_details": {
+            "task_instructions": "Analyze the thermodynamic efficiency and entropy change of a hypothetical closed system undergoing a complex series of phase transitions and chemical reactions. The system consists of a mixture of ideal gases and a two-phase liquid-vapor system, with specified initial states and boundary conditions. Determine the final state properties, energy transfers, and entropy production using advanced thermodynamic principles.",
+            "task_data": {
+                "data_points": {
+                    "initial_temperature_gas": 350.0,
+                    "initial_pressure_gas": 2.0,
+                    "initial_composition_mole_fraction": {
+                        "A": 0.5,
+                        "B": 0.5
+                    },
+                    "initial_temperature_liquid": 300.0,
+                    "initial_pressure_liquid": 1.0,
+                    "initial_mass_liquid": 10.0,
+                    "phase_transition_temperature": 373.15,
+                    "reaction_constants": {
+                        "k1": 1.0,
+                        "k2": 0.5
+                    },
+                    "reaction_enthalpies": {
+                        "H1": -100.0,
+                        "H2": 150.0
+                    },
+                    "system_volume": 1.0
+                }
+            },
+            "mathematical_formulation": "S_final = S_initial + ΔS_phase + ΔS_reactions; \nη = W_out/Q_in; \nR = 8.314; \nΔG_reaction = ΔH_reaction - TΔS_reaction; \nPV = nRT (ideal gas law); \nQ_in = mLΔT + nC_vΔT;",
+            "ontology": {
+                "entities": [
+                    "entropy",
+                    "enthalpy",
+                    "ideal gases",
+                    "phase transition",
+                    "chemical reactions",
+                    "system volume",
+                    "mole fraction",
+                    "thermodynamic efficiency",
+                    "temperature",
+                    "pressure"
+                ],
+                "relations": [
+                    "entropy change occurs due to phase transition and reactions",
+                    "enthalpy impacts the energy balance",
+                    "ideal gases obey the ideal gas law",
+                    "phase transitions contribute to entropy production",
+                    "chemical reactions change composition and energy",
+                    "system volume is held constant in the analysis",
+                    "mole fraction determines initial state composition",
+                    "thermodynamic efficiency is the ratio of work output to heat input",
+                    "temperature and pressure define initial and final states"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b04fc930-4f5f-47a1-bda0-91f7dca13271",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive model to predict the thermal conductivity of a novel class of composite materials under varying pressure and temperature conditions. This involves the integration of physical properties, crystallographic data, and microscopic structural characteristics into a cohesive predictive framework. The model should be validated against experimental data and account for non-linear interactions between components of the composite materials.",
+            "task_data": {
+                "data_points": {
+                    "material_samples": [
+                        {
+                            "id": "sample_1",
+                            "composition": {
+                                "matrix": "Polymer_A",
+                                "filler": "Ceramic_X"
+                            },
+                            "density": 2.3
+                        },
+                        {
+                            "id": "sample_2",
+                            "composition": {
+                                "matrix": "Polymer_B",
+                                "filler": "Metal_Y"
+                            },
+                            "density": 3.1
+                        }
+                    ],
+                    "physical_properties": {
+                        "Polymer_A": {
+                            "thermal_conductivity": 0.2,
+                            "specific_heat": 1.5
+                        },
+                        "Ceramic_X": {
+                            "thermal_conductivity": 5.1,
+                            "specific_heat": 0.8
+                        },
+                        "Polymer_B": {
+                            "thermal_conductivity": 0.1,
+                            "specific_heat": 1.8
+                        },
+                        "Metal_Y": {
+                            "thermal_conductivity": 20.5,
+                            "specific_heat": 0.5
+                        }
+                    },
+                    "experimental_conditions": [
+                        {
+                            "temperature": 300,
+                            "pressure": 1
+                        },
+                        {
+                            "temperature": 500,
+                            "pressure": 5
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "k_eff = f(T, P, k_m, k_f, phi_m, phi_f) = \\sum_{i=1}^{n}( \\alpha_i k_i^{\\beta_i} T^{\\gamma_i} P^{\\delta_i} )",
+            "ontology": {
+                "entities": [
+                    "thermal conductivity",
+                    "temperature",
+                    "pressure",
+                    "composite material",
+                    "polymer",
+                    "ceramic",
+                    "metal",
+                    "specific heat",
+                    "density"
+                ],
+                "relations": [
+                    "composite material contains polymer",
+                    "composite material contains ceramic",
+                    "composite material contains metal",
+                    "thermal conductivity is related to temperature",
+                    "thermal conductivity is related to pressure",
+                    "density affects thermal conductivity"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "c20119b4-7493-4b03-aab5-44f4a1a5fc57",
+        "task_details": {
+            "task_instructions": "Develop a theoretical model to predict the collision outcomes of binary neutron stars, including the potential formation of black holes or other exotic states. This requires understanding the complex interactions of strong gravitational fields, nuclear matter at extreme densities, and the emission of gravitational waves.",
+            "task_data": {
+                "data_points": {
+                    "neutron_star_masses": [
+                        1.4,
+                        1.7,
+                        2.0
+                    ],
+                    "neutron_star_radii": [
+                        10,
+                        11,
+                        12
+                    ],
+                    "equation_of_state_models": [
+                        "APR",
+                        "SLy",
+                        "LS220"
+                    ],
+                    "initial_orbital_parameters": {
+                        "separation": [
+                            15,
+                            20
+                        ],
+                        "eccentricity": [
+                            0.0,
+                            0.1
+                        ],
+                        "spin": [
+                            -0.1,
+                            0.0,
+                            0.1
+                        ]
+                    },
+                    "observational_data": {
+                        "gravitational_wave_signals": [
+                            "GW170817",
+                            "GW190425"
+                        ],
+                        "electromagnetic counterparts": [
+                            "Kilonovae",
+                            "Short Gamma-ray bursts"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "Consider the Einstein Field Equations G_{uv} + \\Lambda g_{uv} = \\kappa T_{uv}, where the energy-momentum tensor T_{uv} incorporates a high-density equation of state for neutron star matter. Analyze the tidal deformation effects using Love numbers, k_2 = (2/3) (R^5)/(GM)^5 Q_{uv}. Simulate the post-merger remnant using the equation d d\\tau (R_{\\nu\\beta\\sigma\\epsilon} R^{\\beta\\sigma\\epsilon}_{\\nu}) = 0, exploring stability towards black hole formation.",
+            "ontology": {
+                "entities": [
+                    "Neutron Star",
+                    "Black Hole",
+                    "Gravitational Waves",
+                    "Equation of State",
+                    "Electromagnetic Counterpart"
+                ],
+                "relations": [
+                    "merge to form",
+                    "affect",
+                    "emit",
+                    "are influenced by",
+                    "result in"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "744a3544-9d72-4eac-a19d-57d6a2234bb2",
+        "task_details": {
+            "task_instructions": "Analyze the stability of a hypothetical exoplanetary system with three planets orbiting a single star. The system must be evaluated for dynamic stability using orbital mechanics principles over a simulated period of 1000 Earth years. The stability analysis should account for gravitational interactions between the planets and the potential presence of a dense asteroid belt. Predict any long-term perturbations and potential orbital resonances due to gravitational influences.",
+            "task_data": {
+                "stellar_parameters": {
+                    "star_mass": 1.1,
+                    "star_radius": 1.0,
+                    "star_luminosity": 1.2
+                },
+                "planetary_parameters": [
+                    {
+                        "planet_name": "Planet A",
+                        "mass": 0.8,
+                        "semi_major_axis": 0.5,
+                        "eccentricity": 0.02,
+                        "inclination": 2.0
+                    },
+                    {
+                        "planet_name": "Planet B",
+                        "mass": 1.5,
+                        "semi_major_axis": 1.2,
+                        "eccentricity": 0.1,
+                        "inclination": 5.0
+                    },
+                    {
+                        "planet_name": "Planet C",
+                        "mass": 2.3,
+                        "semi_major_axis": 2.5,
+                        "eccentricity": 0.05,
+                        "inclination": 3.0
+                    }
+                ],
+                "asteroid_belt_parameters": {
+                    "inner_edge": 3.0,
+                    "outer_edge": 5.0,
+                    "total_mass": 0.01
+                }
+            },
+            "mathematical_formulation": "The stability can be analyzed using the N-body problem equations, specifically: F = G * (m_i * m_j) / r_ij^2 for the gravitational force between two bodies, where F is the force, G is the gravitational constant, m_i and m_j are the masses of the bodies, and r_ij is the distance between them. Orbital elements need to be integrated over time using numerical methods such as Runge-Kutta to observe the time evolution, considering perturbations from mutual gravitational attractions.",
+            "ontology": {
+                "entities": [
+                    "exoplanet",
+                    "star",
+                    "orbit",
+                    "gravity",
+                    "asteroid belt",
+                    "mass",
+                    "semi-major axis",
+                    "eccentricity",
+                    "inclination",
+                    "orbital resonance"
+                ],
+                "relations": [
+                    "orbits",
+                    "gravitationally interacts with",
+                    "perturbs",
+                    "resides within",
+                    "forms orbital resonance with",
+                    "is influenced by"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "88a3e035-ee05-4c47-8ef9-020fb5fdfd27",
+        "task_details": {
+            "task_instructions": "Perform an exhaustive analysis to optimize the parameters of a chaotic double pendulum system to achieve a stable periodic orbit. The system is subject to varying gravitational conditions and air resistance. Identify the appropriate initial conditions and physical parameters that result in a periodic solution using numerical simulations. Ensure to include error analysis and sensitivity assessment of the solution with respect to small perturbations.",
+            "task_data": {
+                "data_points": {
+                    "initial_conditions": {
+                        "angle1": [
+                            0.1,
+                            1.0,
+                            2.0,
+                            -0.5
+                        ],
+                        "angle2": [
+                            0.1,
+                            0.5,
+                            -1.0,
+                            0.7
+                        ],
+                        "angular_velocity1": [
+                            0.0,
+                            0.3,
+                            -0.3,
+                            0.1
+                        ],
+                        "angular_velocity2": [
+                            0.0,
+                            0.4,
+                            -0.4,
+                            0.2
+                        ]
+                    },
+                    "system_parameters": {
+                        "length1": 1.0,
+                        "length2": 1.0,
+                        "mass1": 1.0,
+                        "mass2": 1.0,
+                        "damping_coefficient": [
+                            0.01,
+                            0.05,
+                            0.1
+                        ],
+                        "gravity": [
+                            9.81,
+                            3.72,
+                            1.62
+                        ]
+                    },
+                    "simulation_parameters": {
+                        "time_step": 0.01,
+                        "total_time": 100.0
+                    }
+                }
+            },
+            "mathematical_formulation": "The motion of a double pendulum is described by the equations: \\[ m1 \\cdot l1^2 \\cdot \\frac{d^2\\theta_1}{dt^2} + m2 \\cdot l1 \\cdot l2 \\cdot \\frac{d^2\\theta_2}{dt^2} \\cdot \\cos(\\theta_1 - \\theta_2) + m2 \\cdot l2^2 \\cdot \\frac{d^2\\theta_2}{dt^2} = - g \\cdot (2 \\cdot m1 + m2) \\cdot \\sin(\\theta_1) \\] \n and \n \\[ m2 \\cdot l2 \\cdot \\frac{d^2\\theta_2}{dt^2} = -g \\cdot m2 \\cdot \\sin(\\theta_2) + l2 \\cdot \\frac{d\\theta_1}{dt}^2 \\cdot \\sin(\\theta_1 - \\theta_2) \\cdot \\cos(\\theta_1 - \\theta_2) \\]. Numerical integration methods such as Runge-Kutta are required to solve these differential equations.",
+            "ontology": {
+                "entities": [
+                    "double pendulum",
+                    "angle",
+                    "angular velocity",
+                    "length",
+                    "mass",
+                    "gravity",
+                    "damping_coefficient",
+                    "numerical simulation"
+                ],
+                "relations": [
+                    "angle affects the trajectory",
+                    "mass influences the system's inertia",
+                    "damping_coefficient modifies the energy dissipation",
+                    "gravity alters the pendulum's acceleration",
+                    "simulation parameters control the numerical solution's stability and accuracy"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "cd57a550-11f2-4f9d-85e3-9d6327b2e4a4",
+        "task_details": {
+            "task_instructions": "Determine the optimal configuration for a tokamak reactor to achieve sustained nuclear fusion for over 24 hours. This involves analyzing plasma stability, confinement times, magnetic field strengths, and energy input-output efficiencies using a dataset of historical operational parameters from existing experimental reactors.",
+            "task_data": {
+                "data_points": {
+                    "reactor_type": [
+                        "ITER",
+                        "JET",
+                        "Alcator C-Mod",
+                        "DIII-D"
+                    ],
+                    "plasma_confined": [
+                        "Deuterium-Tritium",
+                        "Deuterium-Deuterium",
+                        "Hydrogen"
+                    ],
+                    "magnetic_field_strength": [
+                        5,
+                        6,
+                        10,
+                        12
+                    ],
+                    "plasma_current": [
+                        5000000.0,
+                        10000000.0,
+                        15000000.0,
+                        20000000.0
+                    ],
+                    "heat_input": [
+                        50000000.0,
+                        100000000.0,
+                        150000000.0
+                    ],
+                    "energy_output": [
+                        10000000.0,
+                        20000000.0,
+                        25000000.0,
+                        30000000.0
+                    ],
+                    "confinement_time": [
+                        0.5,
+                        1,
+                        1.5,
+                        2.5
+                    ],
+                    "plasma_density": [
+                        1e+19,
+                        5e+19,
+                        1e+20,
+                        5e+20
+                    ]
+                }
+            },
+            "mathematical_formulation": "maximize(τ_E) = \\frac{E_{output}}{E_{input}} \\ \\text{under constraints}: B_t > 5T, I_p > 10^6A, n_{plasma} * \\tau_E > Lawson_{criterion}",
+            "ontology": {
+                "entities": [
+                    "Tokamak Reactor",
+                    "Plasma Stability",
+                    "Magnetic Field Strength",
+                    "Plasma Current",
+                    "Energy Input",
+                    "Energy Output",
+                    "Confinement Time",
+                    "Lawson Criterion",
+                    "Plasma Density"
+                ],
+                "relations": [
+                    "Influences(Magnetic Field Strength, Plasma Stability)",
+                    "Contributes_to(Plasma Current, Energy Output)",
+                    "Requires(Tokamak Reactor, Energy Input)",
+                    "Affects(Plasma Density, Confinement Time)",
+                    "Conforms_to(Energy Output, Lawson Criterion)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "335eea33-d698-4115-8712-1a4c7eddab3b",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive model to predict the gravitational wave signatures from binary neutron star mergers using post-Newtonian approximations. The task requires deriving the equations of motion, simulating waveform generation, and considering the effects of spin and orbital eccentricity for such systems.",
+            "task_data": {
+                "data_points": {
+                    "mass_neutron_star1": 1.4,
+                    "mass_neutron_star2": 1.3,
+                    "initial_orbital_period": 0.01,
+                    "spin_neutron_star1": 0.03,
+                    "spin_neutron_star2": 0.04,
+                    "eccentricity": 0.1,
+                    "n_post_Newtonian_terms": 3
+                }
+            },
+            "mathematical_formulation": "The motion is governed by the post-Newtonian expansion of the equations of motion: F = -G M1 M2 / r^2 [1 + f(e)] (1 + 3/2 (v/c)^2 - (3/2 + eta) (G * (M1 + M2) / c^2r)), where f(e) is a function of eccentricity, eta is the symmetric mass ratio, and higher-order terms in v/c.",
+            "ontology": {
+                "entities": [
+                    "Gravitational Wave",
+                    "Binary Neutron Star",
+                    "Post-Newtonian Approximation",
+                    "Spin",
+                    "Eccentricity",
+                    "Orbital Period"
+                ],
+                "relations": [
+                    "Binary Neutron Stars emit Gravitational Waves",
+                    "Gravitational Waves are influenced by Post-Newtonian Approximation",
+                    "Spin affects Gravitational Wave signatures",
+                    "Eccentricity impacts the orbital characteristics",
+                    "The Orbital Period affects the frequency of emitted Gravitational Waves"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "063ef9f4-ac3e-4483-bb74-64da91a92d14",
+        "task_details": {
+            "task_instructions": "Using the provided dataset on stellar objects, identify and classify potential habitable exoplanets based on their star type, distance from the parent star (stellar flux), and observed atmospheric composition. The task involves analyzing stellar data to assess the habitability index and evaluate the potential for liquid water presence using the circumstellar habitable zone concept.",
+            "task_data": {
+                "data_points": [
+                    {
+                        "object_id": 1,
+                        "star_type": "G-type",
+                        "distance_from_star_au": 1.0,
+                        "stellar_flux": 1.1,
+                        "atmospheric_composition": {
+                            "oxygen": 0.21,
+                            "carbon_dioxide": 0.0004,
+                            "nitrogen": 0.78
+                        },
+                        "surface_temperature_k": 288
+                    },
+                    {
+                        "object_id": 2,
+                        "star_type": "M-type",
+                        "distance_from_star_au": 0.15,
+                        "stellar_flux": 0.35,
+                        "atmospheric_composition": {
+                            "oxygen": 0.1,
+                            "carbon_dioxide": 0.01,
+                            "methane": 0.02
+                        },
+                        "surface_temperature_k": 250
+                    }
+                ]
+            },
+            "mathematical_formulation": "H = S * (0.72 + 0.90(T/T_earth)) + A_m * f_m + A_n * f_n where H is the habitability index, S is a scalar based on star type, T is the surface temperature, A_m and A_n are atmospheric composition factors for methane and nitrogen, respectively, and f_m, f_n are weighting factors based on scientific estimates.",
+            "ontology": {
+                "entities": [
+                    "stellar object",
+                    "star type",
+                    "distance from star",
+                    "stellar flux",
+                    "atmospheric composition",
+                    "surface temperature",
+                    "habitable zone",
+                    "habitability index"
+                ],
+                "relations": [
+                    "is_categorized_by",
+                    "influences",
+                    "has_composition",
+                    "affects_habitable_zone",
+                    "determines_habitability"
+                ]
+            }
+        }
+    }
+]

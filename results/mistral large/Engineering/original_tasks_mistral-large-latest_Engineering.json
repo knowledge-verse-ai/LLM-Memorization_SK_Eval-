@@ -1,0 +1,3553 @@
+[
+    {
+        "task_id": "b7c4ee2b-da6e-4781-bd80-22818f3a4a62",
+        "task_details": {
+            "task_instructions": "Design a fault-tolerant control system for a nuclear power plant that can withstand multiple failures and ensure safe operation under all scenarios. The system should include redundant sensors, actuators, and control algorithms that can dynamically reconfigure in real-time to maintain stability. The design should be validated through a comprehensive simulation of various failure modes and their impacts on system performance.",
+            "task_data": {
+                "data_points": {
+                    "power_plant_specifications": {
+                        "reactor_type": "Pressurized Water Reactor (PWR)",
+                        "power_output": "1000 MWe",
+                        "primary_coolant_flow_rate": "20000 kg/s",
+                        "secondary_coolant_flow_rate": "15000 kg/s",
+                        "steam_generator_pressure": "6.5 MPa",
+                        "turbine_efficiency": "0.35",
+                        "control_rod_insertion_time": "2.5 s"
+                    },
+                    "sensor_data": {
+                        "temperature_sensors": [
+                            "Core Inlet",
+                            "Core Outlet",
+                            "Steam Generator Inlet",
+                            "Steam Generator Outlet"
+                        ],
+                        "pressure_sensors": [
+                            "Primary Coolant Loop",
+                            "Secondary Coolant Loop",
+                            "Steam Generator"
+                        ],
+                        "flow_rate_sensors": [
+                            "Primary Coolant",
+                            "Secondary Coolant",
+                            "Feedwater"
+                        ],
+                        "neutron_flux_sensors": [
+                            "Core Region"
+                        ]
+                    },
+                    "actuator_data": {
+                        "control_rods": [
+                            "Boron Concentration",
+                            "Insertion Depth"
+                        ],
+                        "pumps": [
+                            "Primary Coolant Pump",
+                            "Secondary Coolant Pump",
+                            "Feedwater Pump"
+                        ],
+                        "valves": [
+                            "Steam Release Valve",
+                            "Safety Relief Valve"
+                        ]
+                    },
+                    "failure_modes": {
+                        "sensor_failures": [
+                            "Bias",
+                            "Drift",
+                            "Complete Failure"
+                        ],
+                        "actuator_failures": [
+                            "Stuck",
+                            "Delayed Response",
+                            "Complete Failure"
+                        ],
+                        "control_system_failures": [
+                            "Software Bug",
+                            "Hardware Malfunction",
+                            "Communication Loss"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "state_space_representation": "ẋ(t) = Ax(t) + Bu(t), y(t) = Cx(t) + Du(t)",
+                "fault_detection_algorithm": "r(t) = y(t) - ŷ(t), ||r(t)|| > threshold → fault detected",
+                "control_reconfiguration": "u(t) = K(t)x(t), K(t) = f(failure_mode)",
+                "stability_criteria": "All poles of A-BK must lie in the left half-plane",
+                "performance_metrics": "Integral of Time-weighted Absolute Error (ITAE), Mean Time to Repair (MTTR)"
+            },
+            "ontology": {
+                "entities": [
+                    "Nuclear Power Plant",
+                    "Pressurized Water Reactor",
+                    "Primary Coolant Loop",
+                    "Secondary Coolant Loop",
+                    "Steam Generator",
+                    "Turbine",
+                    "Control Rod",
+                    "Pump",
+                    "Valve",
+                    "Sensor",
+                    "Actuator",
+                    "Fault-Tolerant Control System",
+                    "Redundancy",
+                    "Failure Mode",
+                    "Stability",
+                    "Dynamic Reconfiguration",
+                    "Simulation",
+                    "State Space Representation",
+                    "Fault Detection Algorithm",
+                    "Control Reconfiguration",
+                    "Stability Criteria",
+                    "Performance Metrics"
+                ],
+                "relations": [
+                    "is_part_of",
+                    "controls",
+                    "monitors",
+                    "actuates",
+                    "detects_fault_in",
+                    "reconfigures",
+                    "ensures_stability_of",
+                    "validates_design_through",
+                    "represents_state_of",
+                    "measures_performance_by"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "81b9356c-94ee-4103-863d-f0df227d7d17",
+        "task_details": {
+            "task_instructions": "Design a multi-objective optimization framework for a smart grid system that integrates renewable energy sources, energy storage systems, and demand response programs. The framework should minimize the total operational cost, maximize the renewable energy penetration, and ensure grid stability. Provide a detailed analysis of the Pareto frontier and the trade-offs between the objectives.",
+            "task_data": {
+                "data_points": {
+                    "renewable_energy_sources": [
+                        {
+                            "type": "solar",
+                            "capacity": 500,
+                            "cost_per_kWh": 0.05
+                        },
+                        {
+                            "type": "wind",
+                            "capacity": 300,
+                            "cost_per_kWh": 0.04
+                        }
+                    ],
+                    "energy_storage_systems": [
+                        {
+                            "type": "battery",
+                            "capacity": 200,
+                            "efficiency": 0.9,
+                            "cost_per_kWh": 0.03
+                        },
+                        {
+                            "type": "pumped_hydro",
+                            "capacity": 150,
+                            "efficiency": 0.8,
+                            "cost_per_kWh": 0.02
+                        }
+                    ],
+                    "demand_response_programs": [
+                        {
+                            "type": "residential",
+                            "max_reduction": 100,
+                            "incentive_per_kWh": 0.06
+                        },
+                        {
+                            "type": "industrial",
+                            "max_reduction": 200,
+                            "incentive_per_kWh": 0.07
+                        }
+                    ],
+                    "grid_parameters": {
+                        "base_load": 800,
+                        "peak_load": 1200,
+                        "grid_stability_threshold": 0.95
+                    }
+                }
+            },
+            "mathematical_formulation": "Minimize: f1(x) = Total Operational Cost\nMaximize: f2(x) = Renewable Energy Penetration\nSubject to: Grid Stability Constraint (P_grid >= P_load * grid_stability_threshold)\nWhere:\nx = [P_solar, P_wind, P_battery, P_pumped_hydro, P_residential_DR, P_industrial_DR]\nP_grid = P_solar + P_wind + P_battery + P_pumped_hydro - P_residential_DR - P_industrial_DR\nP_load = Base Load + Peak Load",
+            "ontology": {
+                "entities": [
+                    "Renewable Energy Sources",
+                    "Energy Storage Systems",
+                    "Demand Response Programs",
+                    "Grid Stability",
+                    "Operational Cost",
+                    "Renewable Energy Penetration",
+                    "Pareto Frontier"
+                ],
+                "relations": [
+                    "Renewable Energy Sources supply power to the grid",
+                    "Energy Storage Systems store and release energy to the grid",
+                    "Demand Response Programs reduce load on the grid",
+                    "Grid Stability is maintained by balancing supply and demand",
+                    "Operational Cost is influenced by energy generation and storage costs",
+                    "Renewable Energy Penetration is the percentage of renewable energy in the total energy mix",
+                    "Pareto Frontier represents the trade-offs between minimizing cost and maximizing renewable energy penetration"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "5c8388a2-59b2-463d-883c-ae6eea359be6",
+        "task_details": {
+            "task_instructions": "Design a robust control system for a quadrotor unmanned aerial vehicle (UAV) capable of autonomous navigation in an urban environment with dynamic obstacles. The control system must ensure stability, precise trajectory tracking, and collision avoidance. The design should include a hierarchical control architecture consisting of high-level path planning, mid-level trajectory generation, and low-level attitude control. The system must be validated through simulations and theoretical analysis.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            [
+                                0.02,
+                                0,
+                                0
+                            ],
+                            [
+                                0,
+                                0.02,
+                                0
+                            ],
+                            [
+                                0,
+                                0,
+                                0.04
+                            ]
+                        ],
+                        "rotor_positions": [
+                            [
+                                0.2,
+                                0,
+                                0.1
+                            ],
+                            [
+                                0,
+                                0.2,
+                                0.1
+                            ],
+                            [
+                                -0.2,
+                                0,
+                                0.1
+                            ],
+                            [
+                                0,
+                                -0.2,
+                                0.1
+                            ]
+                        ],
+                        "rotor_constants": [
+                            1e-06,
+                            1e-06,
+                            1e-06,
+                            1e-06
+                        ]
+                    },
+                    "environment_parameters": {
+                        "wind_conditions": {
+                            "mean_wind_speed": 5,
+                            "wind_gust_magnitude": 2
+                        },
+                        "obstacle_parameters": {
+                            "obstacle_1": {
+                                "position": [
+                                    10,
+                                    15,
+                                    5
+                                ],
+                                "velocity": [
+                                    0,
+                                    -2,
+                                    0
+                                ]
+                            },
+                            "obstacle_2": {
+                                "position": [
+                                    20,
+                                    25,
+                                    10
+                                ],
+                                "velocity": [
+                                    -1,
+                                    0,
+                                    0
+                                ]
+                            }
+                        }
+                    },
+                    "mission_parameters": {
+                        "waypoints": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                10,
+                                10,
+                                5
+                            ],
+                            [
+                                20,
+                                20,
+                                10
+                            ],
+                            [
+                                30,
+                                30,
+                                15
+                            ]
+                        ],
+                        "max_speed": 10,
+                        "max_acceleration": 5
+                    }
+                }
+            },
+            "mathematical_formulation": "The control system must satisfy the following equations:\n1. Dynamics of the quadrotor:\n   m*a = F_total + G\n   I*α = τ_total\nwhere m is the mass, a is the acceleration, F_total is the total force, G is the gravitational force, I is the inertia matrix, α is the angular acceleration, and τ_total is the total torque.\n2. Path planning must minimize the cost function:\n   J = ∫(k1*distance_to_goal + k2*obstacle_proximity + k3*control_effort) dt\nwhere k1, k2, and k3 are weighting factors.\n3. Trajectory generation must ensure:\n   x(t) = f(t)\n   y(t) = g(t)\n   z(t) = h(t)\nwhere f(t), g(t), and h(t) are polynomial functions of time t.\n4. Attitude control must satisfy:\n   φ_dot = p + (q*sin(φ) + r*cos(φ))*tan(θ)\n   θ_dot = q*cos(φ) - r*sin(φ)\n   ψ_dot = (q*sin(φ) + r*cos(φ))*sec(θ)\nwhere φ, θ, and ψ are the roll, pitch, and yaw angles, respectively, and p, q, and r are the angular velocities.",
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "UAV",
+                    "control system",
+                    "stability",
+                    "trajectory tracking",
+                    "collision avoidance",
+                    "hierarchical control architecture",
+                    "path planning",
+                    "trajectory generation",
+                    "attitude control",
+                    "simulations",
+                    "theoretical analysis",
+                    "mass",
+                    "inertia matrix",
+                    "rotor positions",
+                    "rotor constants",
+                    "wind conditions",
+                    "obstacle parameters",
+                    "mission parameters",
+                    "waypoints",
+                    "max speed",
+                    "max acceleration",
+                    "dynamics",
+                    "acceleration",
+                    "force",
+                    "gravitational force",
+                    "angular acceleration",
+                    "torque",
+                    "cost function",
+                    "distance to goal",
+                    "obstacle proximity",
+                    "control effort",
+                    "polynomial functions",
+                    "roll",
+                    "pitch",
+                    "yaw",
+                    "angular velocities"
+                ],
+                "relations": [
+                    "quadrotor is a type of UAV",
+                    "control system ensures stability",
+                    "control system ensures trajectory tracking",
+                    "control system ensures collision avoidance",
+                    "hierarchical control architecture includes path planning",
+                    "hierarchical control architecture includes trajectory generation",
+                    "hierarchical control architecture includes attitude control",
+                    "simulations validate the control system",
+                    "theoretical analysis validates the control system",
+                    "mass is a parameter of the quadrotor",
+                    "inertia matrix is a parameter of the quadrotor",
+                    "rotor positions are parameters of the quadrotor",
+                    "rotor constants are parameters of the quadrotor",
+                    "wind conditions affect the environment",
+                    "obstacle parameters affect the environment",
+                    "mission parameters define the mission",
+                    "waypoints are part of mission parameters",
+                    "max speed is a part of mission parameters",
+                    "max acceleration is a part of mission parameters",
+                    "dynamics describe the motion of the quadrotor",
+                    "acceleration is a part of dynamics",
+                    "force is a part of dynamics",
+                    "gravitational force is a part of dynamics",
+                    "angular acceleration is a part of dynamics",
+                    "torque is a part of dynamics",
+                    "cost function is minimized in path planning",
+                    "distance to goal is a part of cost function",
+                    "obstacle proximity is a part of cost function",
+                    "control effort is a part of cost function",
+                    "polynomial functions describe the trajectory",
+                    "roll is a part of attitude control",
+                    "pitch is a part of attitude control",
+                    "yaw is a part of attitude control",
+                    "angular velocities are a part of attitude control"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "2cff9b20-8330-4579-b6bc-674026e617a7",
+        "task_details": {
+            "task_instructions": "Design a multi-objective optimization framework for a smart grid system that integrates renewable energy sources, energy storage systems, and demand response programs. The framework should minimize both operational costs and carbon emissions while maximizing system reliability and renewable energy penetration. Provide a detailed analysis of the trade-offs between these objectives and propose an optimal scheduling strategy for a 24-hour period.",
+            "task_data": {
+                "data_points": {
+                    "renewable_energy_sources": [
+                        {
+                            "type": "solar",
+                            "capacity": 50,
+                            "unit_cost": 0.05,
+                            "emission_factor": 0.02
+                        },
+                        {
+                            "type": "wind",
+                            "capacity": 100,
+                            "unit_cost": 0.04,
+                            "emission_factor": 0.01
+                        }
+                    ],
+                    "energy_storage_systems": [
+                        {
+                            "type": "battery",
+                            "capacity": 200,
+                            "efficiency": 0.95,
+                            "unit_cost": 0.03,
+                            "emission_factor": 0
+                        }
+                    ],
+                    "demand_response_programs": [
+                        {
+                            "type": "residential",
+                            "capacity": 300,
+                            "unit_cost": 0.02,
+                            "emission_factor": 0
+                        },
+                        {
+                            "type": "commercial",
+                            "capacity": 500,
+                            "unit_cost": 0.015,
+                            "emission_factor": 0
+                        }
+                    ],
+                    "load_profile": [
+                        100,
+                        120,
+                        150,
+                        180,
+                        200,
+                        220,
+                        240,
+                        260,
+                        280,
+                        300,
+                        320,
+                        340,
+                        360,
+                        380,
+                        400,
+                        420,
+                        440,
+                        460,
+                        480,
+                        500,
+                        480,
+                        460,
+                        440,
+                        420
+                    ],
+                    "renewable_energy_forecast": [
+                        50,
+                        60,
+                        70,
+                        80,
+                        90,
+                        100,
+                        110,
+                        120,
+                        130,
+                        140,
+                        150,
+                        160,
+                        170,
+                        180,
+                        190,
+                        200,
+                        210,
+                        220,
+                        230,
+                        240,
+                        230,
+                        220,
+                        210,
+                        200
+                    ],
+                    "carbon_emission_target": 500,
+                    "reliability_target": 0.99
+                }
+            },
+            "mathematical_formulation": {
+                "objective_function": "minimize(C_total, E_total), maximize(R_renewable, R_reliability)",
+                "constraints": {
+                    "cost_constraint": "C_total = ∑(C_solar + C_wind + C_battery + C_residential + C_commercial)",
+                    "emission_constraint": "E_total ≤ carbon_emission_target",
+                    "reliability_constraint": "R_reliability ≥ reliability_target",
+                    "energy_balance": "∑(P_solar + P_wind + P_battery + P_residential + P_commercial) = load_profile"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "renewable energy sources",
+                    "energy storage systems",
+                    "demand response programs",
+                    "load profile",
+                    "renewable energy forecast",
+                    "carbon emission target",
+                    "reliability target",
+                    "operational costs",
+                    "carbon emissions",
+                    "system reliability",
+                    "renewable energy penetration"
+                ],
+                "relations": [
+                    "integrates",
+                    "minimizes",
+                    "maximizes",
+                    "provides",
+                    "proposes",
+                    "analyzes"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "2f60bddd-5f9a-4e1a-a0d3-8840ebc253e4",
+        "task_details": {
+            "task_instructions": "Design a multi-stage heat exchanger network for a petrochemical plant that optimizes energy efficiency and minimizes operational costs. The network should include shell-and-tube heat exchangers, plate heat exchangers, and air-cooled heat exchangers. The design must consider fouling factors, pressure drops, and material compatibility. Additionally, perform a pinch analysis to identify the minimum energy requirement and determine the optimal heat exchanger network configuration.",
+            "task_data": {
+                "data_points": {
+                    "heat_exchangers": [
+                        {
+                            "type": "shell_and_tube",
+                            "material": "stainless_steel",
+                            "fouling_factor": 0.0005,
+                            "pressure_drop": 0.2,
+                            "heat_transfer_coefficient": 500
+                        },
+                        {
+                            "type": "plate",
+                            "material": "titanium",
+                            "fouling_factor": 0.0003,
+                            "pressure_drop": 0.1,
+                            "heat_transfer_coefficient": 700
+                        },
+                        {
+                            "type": "air_cooled",
+                            "material": "aluminum",
+                            "fouling_factor": 0.0004,
+                            "pressure_drop": 0.15,
+                            "heat_transfer_coefficient": 400
+                        }
+                    ],
+                    "process_streams": [
+                        {
+                            "stream_id": "S1",
+                            "inlet_temperature": 350,
+                            "outlet_temperature": 100,
+                            "flow_rate": 50,
+                            "specific_heat": 2.5
+                        },
+                        {
+                            "stream_id": "S2",
+                            "inlet_temperature": 200,
+                            "outlet_temperature": 300,
+                            "flow_rate": 40,
+                            "specific_heat": 3.0
+                        }
+                    ],
+                    "utility_streams": [
+                        {
+                            "stream_id": "U1",
+                            "inlet_temperature": 400,
+                            "outlet_temperature": 350,
+                            "flow_rate": 60,
+                            "specific_heat": 2.0
+                        },
+                        {
+                            "stream_id": "U2",
+                            "inlet_temperature": 50,
+                            "outlet_temperature": 100,
+                            "flow_rate": 70,
+                            "specific_heat": 2.2
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "The heat transfer rate (Q) for each heat exchanger can be calculated using the equation Q = UAΔT_lm, where U is the overall heat transfer coefficient, A is the heat transfer area, and ΔT_lm is the log mean temperature difference. The pressure drop (ΔP) across each heat exchanger can be calculated using the equation ΔP = f(L/D)(v^2)/(2g), where f is the friction factor, L is the length of the heat exchanger, D is the diameter, v is the fluid velocity, and g is the acceleration due to gravity. The minimum energy requirement can be determined using pinch analysis, which involves constructing composite curves for hot and cold streams and identifying the pinch point.",
+            "ontology": {
+                "entities": [
+                    "heat_exchanger",
+                    "shell_and_tube",
+                    "plate",
+                    "air_cooled",
+                    "fouling_factor",
+                    "pressure_drop",
+                    "heat_transfer_coefficient",
+                    "process_stream",
+                    "utility_stream",
+                    "inlet_temperature",
+                    "outlet_temperature",
+                    "flow_rate",
+                    "specific_heat",
+                    "pinch_analysis",
+                    "composite_curves",
+                    "pinch_point"
+                ],
+                "relations": [
+                    "heat_exchanger has fouling_factor",
+                    "heat_exchanger has pressure_drop",
+                    "heat_exchanger has heat_transfer_coefficient",
+                    "process_stream has inlet_temperature",
+                    "process_stream has outlet_temperature",
+                    "process_stream has flow_rate",
+                    "process_stream has specific_heat",
+                    "utility_stream has inlet_temperature",
+                    "utility_stream has outlet_temperature",
+                    "utility_stream has flow_rate",
+                    "utility_stream has specific_heat",
+                    "pinch_analysis identifies pinch_point",
+                    "composite_curves relate to pinch_point"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "d715a00c-485c-4525-903c-4315a897ad9d",
+        "task_details": {
+            "task_instructions": "Design a multi-objective optimization framework for a smart grid system integrating renewable energy sources, energy storage systems, and demand response programs. The framework should minimize operational costs, maximize renewable energy integration, and ensure grid stability. Provide a detailed schematic of the system architecture, including all components and their interactions.",
+            "task_data": {
+                "data_points": {
+                    "renewable_energy_sources": [
+                        {
+                            "type": "solar",
+                            "capacity": 500,
+                            "efficiency": 0.15,
+                            "location": "35.6895, 139.6917"
+                        },
+                        {
+                            "type": "wind",
+                            "capacity": 1000,
+                            "efficiency": 0.35,
+                            "location": "51.5074, -0.1278"
+                        }
+                    ],
+                    "energy_storage_systems": [
+                        {
+                            "type": "battery",
+                            "capacity": 200,
+                            "efficiency": 0.9,
+                            "location": "40.7128, -74.0060"
+                        },
+                        {
+                            "type": "pumped_hydro",
+                            "capacity": 500,
+                            "efficiency": 0.8,
+                            "location": "34.0522, -118.2437"
+                        }
+                    ],
+                    "demand_response_programs": [
+                        {
+                            "type": "residential",
+                            "participants": 1000,
+                            "average_reduction": 0.2
+                        },
+                        {
+                            "type": "commercial",
+                            "participants": 500,
+                            "average_reduction": 0.3
+                        }
+                    ],
+                    "grid_parameters": {
+                        "base_load": 1500,
+                        "peak_load": 3000,
+                        "grid_frequency": 60,
+                        "voltage_level": 110
+                    }
+                }
+            },
+            "mathematical_formulation": "Objective Function:\nMinimize: C_total = C_op + C_ren + C_storage + C_DR\nMaximize: E_ren = ∑(P_ren_i * t_i)\nSubject to:\nP_grid + P_ren + P_storage - P_load = 0\nP_ren_i ≤ P_ren_i_max\nP_storage_i ≤ P_storage_i_max\nP_load_i ≤ P_load_i_max\nWhere:\nC_total = Total operational cost\nC_op = Operational cost of the grid\nC_ren = Cost of renewable energy integration\nC_storage = Cost of energy storage systems\nC_DR = Cost of demand response programs\nE_ren = Total renewable energy integrated\nP_ren_i = Power from renewable source i\nt_i = Time duration for renewable source i\nP_grid = Power from the grid\nP_load = Total load\nP_ren_i_max = Maximum power from renewable source i\nP_storage_i_max = Maximum power from energy storage system i\nP_load_i_max = Maximum load i",
+            "ontology": {
+                "entities": [
+                    "renewable energy sources",
+                    "energy storage systems",
+                    "demand response programs",
+                    "grid stability",
+                    "operational costs",
+                    "smart grid system",
+                    "multi-objective optimization",
+                    "system architecture",
+                    "components",
+                    "interactions"
+                ],
+                "relations": [
+                    "integrates",
+                    "ensures",
+                    "minimizes",
+                    "maximizes",
+                    "includes",
+                    "interacts with"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "d15eff57-7a8a-4fd0-95d9-2268d957a85f",
+        "task_details": {
+            "task_instructions": "Design a multi-objective optimization framework for a smart grid system that integrates renewable energy sources, energy storage systems, and demand response programs. The framework should minimize costs, maximize reliability, and reduce carbon emissions. Provide a detailed design including the optimization algorithms, constraint handling, and simulation results for a 24-hour period.",
+            "task_data": {
+                "data_points": {
+                    "renewable_energy_sources": [
+                        {
+                            "type": "solar",
+                            "capacity": 500,
+                            " generation_profile": [
+                                0,
+                                0,
+                                0,
+                                0.1,
+                                0.3,
+                                0.5,
+                                0.7,
+                                0.9,
+                                1,
+                                0.8,
+                                0.6,
+                                0.4,
+                                0.2,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "type": "wind",
+                            "capacity": 800,
+                            "generation_profile": [
+                                0.2,
+                                0.3,
+                                0.4,
+                                0.5,
+                                0.6,
+                                0.7,
+                                0.8,
+                                0.9,
+                                1,
+                                0.9,
+                                0.8,
+                                0.7,
+                                0.6,
+                                0.5,
+                                0.4,
+                                0.3,
+                                0.2,
+                                0.1,
+                                0,
+                                0,
+                                0,
+                                0.1,
+                                0.2,
+                                0.3
+                            ]
+                        }
+                    ],
+                    "energy_storage_systems": [
+                        {
+                            "type": "battery",
+                            "capacity": 300,
+                            "charging_efficiency": 0.95,
+                            "discharging_efficiency": 0.95,
+                            "initial_state_of_charge": 0.5
+                        }
+                    ],
+                    "demand_response_programs": [
+                        {
+                            "type": "residential",
+                            "max_load_reduction": 100,
+                            "incentive_cost": 0.5
+                        },
+                        {
+                            "type": "commercial",
+                            "max_load_reduction": 200,
+                            "incentive_cost": 0.7
+                        }
+                    ],
+                    "load_profile": [
+                        500,
+                        550,
+                        600,
+                        650,
+                        700,
+                        750,
+                        800,
+                        850,
+                        900,
+                        950,
+                        1000,
+                        1050,
+                        1100,
+                        1150,
+                        1200,
+                        1250,
+                        1300,
+                        1350,
+                        1400,
+                        1450,
+                        1500,
+                        1450,
+                        1400,
+                        1350
+                    ],
+                    "grid_parameters": {
+                        "base_load_cost": 0.1,
+                        "carbon_emission_factor": 0.5,
+                        "reliability_requirement": 0.99
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "objective_function": "Minimize (C_total = C_generation + C_storage + C_demand_response) and Maximize (R_system) and Minimize (E_carbon)",
+                "constraints": [
+                    "P_generation + P_storage + P_demand_response >= P_load",
+                    "P_generation <= P_capacity",
+                    "P_storage <= P_capacity_storage",
+                    "P_demand_response <= P_max_load_reduction",
+                    "R_system >= R_requirement",
+                    "E_carbon = P_generation * EF_carbon"
+                ],
+                "optimization_algorithm": "Non-dominated Sorting Genetic Algorithm II (NSGA-II)"
+            },
+            "ontology": {
+                "entities": [
+                    "renewable_energy_sources",
+                    "energy_storage_systems",
+                    "demand_response_programs",
+                    "load_profile",
+                    "grid_parameters",
+                    "optimization_algorithm",
+                    "objective_function",
+                    "constraints"
+                ],
+                "relations": [
+                    "generates_power(renewable_energy_sources, grid)",
+                    "stores_energy(energy_storage_systems, grid)",
+                    "reduces_load(demand_response_programs, load_profile)",
+                    "supplies_power(grid, load_profile)",
+                    "optimizes(optimization_algorithm, objective_function)",
+                    "constrains(constraints, optimization_algorithm)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "210ab344-1361-4993-b58e-e09ce3910dfd",
+        "task_details": {
+            "task_instructions": "Design a fault-tolerant control system for a nuclear power plant that ensures safe operation under various failure scenarios. The system should include redundant sensors, actuators, and control algorithms that can detect and mitigate failures in real-time. The design should be validated through a comprehensive risk analysis",
+            "task_data": {
+                "data_points": {
+                    "nuclear_reactor_specifications": {
+                        "thermal_power": 3400,
+                        "electrical_power": 1100,
+                        "coolant_type": "Pressurized Water",
+                        "fuel_type": "Uranium-235",
+                        "operating_temperature": 300,
+                        "operating_pressure": 15.5
+                    },
+                    "sensor_data": {
+                        "temperature_sensors": [
+                            "T1",
+                            "T2",
+                            "T3",
+                            "T4"
+                        ],
+                        "pressure_sensors": [
+                            "P1",
+                            "P2",
+                            "P3",
+                            "P4"
+                        ],
+                        "radiation_sensors": [
+                            "R1",
+                            "R2",
+                            "R3",
+                            "R4"
+                        ],
+                        "flow_rate_sensors": [
+                            "F1",
+                            "F2",
+                            "F3",
+                            "F4"
+                        ]
+                    },
+                    "actuator_data": {
+                        "control_rods": [
+                            "CR1",
+                            "CR2",
+                            "CR3",
+                            "CR4"
+                        ],
+                        "coolant_pumps": [
+                            "CP1",
+                            "CP2",
+                            "CP3",
+                            "CP4"
+                        ],
+                        "valves": [
+                            "V1",
+                            "V2",
+                            "V3",
+                            "V4"
+                        ]
+                    },
+                    "failure_scenarios": [
+                        {
+                            "scenario_name": "Coolant Pump Failure",
+                            "failure_probability": 0.001,
+                            "failure_impact": "Reduced coolant flow",
+                            "mitigation_strategy": "Activate backup pump"
+                        },
+                        {
+                            "scenario_name": "Sensor Failure",
+                            "failure_probability": 0.002,
+                            "failure_impact": "Inaccurate temperature reading",
+                            "mitigation_strategy": "Use redundant sensor data"
+                        },
+                        {
+                            "scenario_name": "Control Rod Failure",
+                            "failure_probability": 0.0005,
+                            "failure_impact": "Loss of control over reaction rate",
+                            "mitigation_strategy": "Insert backup control rod"
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "reliability_model": "R(t) = e^(-λt)",
+                "failure_rate": "λ = 1 / MTBF",
+                "mean_time_between_failures": "MTBF = 1 / λ",
+                "risk_assessment": "Risk = Probability of Failure * Impact of Failure",
+                "control_algorithm": "PID Controller: u(t) = K_p * e(t) + K_i * ∫e(t) dt + K_d * d/dt e(t)"
+            },
+            "ontology": {
+                "entities": [
+                    "Nuclear Reactor",
+                    "Control System",
+                    "Sensor",
+                    "Actuator",
+                    "Failure Scenario",
+                    "Risk Analysis",
+                    "Redundancy",
+                    "Fault Tolerance",
+                    "PID Controller",
+                    "Coolant Pump",
+                    "Control Rod",
+                    "Valve",
+                    "Temperature Sensor",
+                    "Pressure Sensor",
+                    "Radiation Sensor",
+                    "Flow Rate Sensor"
+                ],
+                "relations": [
+                    "Control System controls Nuclear Reactor",
+                    "Sensor provides data to Control System",
+                    "Actuator is controlled by Control System",
+                    "Failure Scenario affects Nuclear Reactor",
+                    "Risk Analysis evaluates Failure Scenario",
+                    "Redundancy mitigates Failure Scenario",
+                    "Fault Tolerance is achieved by Redundancy",
+                    "PID Controller is part of Control System",
+                    "Coolant Pump is an Actuator",
+                    "Control Rod is an Actuator",
+                    "Valve is an Actuator",
+                    "Temperature Sensor is a Sensor",
+                    "Pressure Sensor is a Sensor",
+                    "Radiation Sensor is a Sensor",
+                    "Flow Rate Sensor is a Sensor"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "1e0bb283-b42d-41b9-83c2-55c974ef7eb1",
+        "task_details": {
+            "task_instructions": "Design a optimized, complex multi-stage steam turbine system for a 500 MW combined-cycle power plant, ensuring maximum efficiency and minimal environmental impact. Perform detailed thermodynamic analysis, including heat transfer and fluid dynamics calculations, to determine the optimal configuration of high-pressure, intermediate-pressure, and low-pressure turbine stages. Include a comprehensive stress analysis of the turbine blades under high-temperature and high-pressure conditions, and provide a detailed report on the materials selection and predicted lifespan of critical components.",
+            "task_data": {
+                "data_points": {
+                    "plant_capacity": 500000000.0,
+                    "steam_inlet_temperature": 550,
+                    "steam_inlet_pressure": 18000000.0,
+                    "condenser_pressure": 5000.0,
+                    "turbine_stages": {
+                        "high_pressure": {
+                            "inlet_temperature": 550,
+                            "inlet_pressure": 18000000.0,
+                            "outlet_pressure": 4000000.0
+                        },
+                        "intermediate_pressure": {
+                            "inlet_pressure": 4000000.0,
+                            "outlet_pressure": 600000.0
+                        },
+                        "low_pressure": {
+                            "inlet_pressure": 600000.0,
+                            "outlet_pressure": 5000.0
+                        }
+                    },
+                    "materials_database": {
+                        "material_1": {
+                            "name": "Inconel 740H",
+                            "youngs_modulus": 190000000000.0,
+                            "poissons_ratio": 0.32,
+                            "thermal_conductivity": 32,
+                            "coefficient_of_thermal_expansion": 1.3e-05
+                        },
+                        "material_2": {
+                            "name": "Haynes 282",
+                            "youngs_modulus": 205000000000.0,
+                            "poissons_ratio": 0.3,
+                            "thermal_conductivity": 23.4,
+                            "coefficient_of_thermal_expansion": 1.37e-05
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": "1. Thermodynamic Efficiency: η_thermal = W_out / Q_in, where W_out is the work output and Q_in is the heat input.\n2. Isentropic Efficiency: η_isentropic = (h_in - h_out_isentropic) / (h_in - h_out_actual), where h is the enthalpy.\n3. Heat Transfer: Q = hA(T_hot - T_cold), where h is the heat transfer coefficient and A is the area.\n4. Blade Stress Analysis: σ = My/I, where M is the bending moment, y is the distance from the neutral axis, and I is the moment of inertia.\n5. Creep Life Prediction: t_rup = A * σ^-m * exp(Q/RT), where t_rup is the time to rupture, A, m, and Q are material constants, R is the gas constant, and T is the temperature.",
+            "ontology": {
+                "entities": [
+                    "Steam Turbine",
+                    "Combined-Cycle Power Plant",
+                    "Thermodynamic Analysis",
+                    "Heat Transfer",
+                    "Fluid Dynamics",
+                    "Stress Analysis",
+                    "Turbine Blades",
+                    "Materials Selection",
+                    "High-Pressure Turbine",
+                    "Intermediate-Pressure Turbine",
+                    "Low-Pressure Turbine",
+                    "Inconel 740H",
+                    "Haynes 282"
+                ],
+                "relations": [
+                    "isPartOf(High-Pressure Turbine, Steam Turbine)",
+                    "isPartOf(Intermediate-Pressure Turbine, Steam Turbine)",
+                    "isPartOf(Low-Pressure Turbine, Steam Turbine)",
+                    "requires(Thermodynamic Analysis, Heat Transfer)",
+                    "requires(Thermodynamic Analysis, Fluid Dynamics)",
+                    "affects(Stress Analysis, Materials Selection)",
+                    "affects(Thermodynamic Analysis, Turbine Blades)",
+                    "isA(Inconel 740H, Material)",
+                    "isA(Haynes 282, Material)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "a7693373-63ef-4e0d-bfd9-0dda90abc572",
+        "task_details": {
+            "task_instructions": "Design a hybrid renewable energy system for a remote community with the following specifications: 1. The system must meet the daily energy demand of 500 kWh. 2. The system must include wind turbines, solar photovoltaic (PV) panels, and a battery storage system. 3. Optimize the system for the lowest levelized cost of energy (LCOE) over a 20-year period. 4. Consider the intermittency of renewable sources and ensure a reliability factor of 99%. 5. Perform a techno-economic analysis including capital expenditure (CAPEX), operational expenditure (OPEX), and payback period.",
+            "task_data": {
+                "data_points": {
+                    "community_profile": {
+                        "daily_energy_demand": 500,
+                        "peak_load": 50,
+                        "location": {
+                            "latitude": 40.7128,
+                            "longitude": -74.006
+                        }
+                    },
+                    "renewable_resources": {
+                        "solar_irradiance": {
+                            "average_daily_irradiance": 5.5,
+                            "peak_sun_hours": 4.5
+                        },
+                        "wind_speed": {
+                            "average_wind_speed": 6.5,
+                            "wind_speed_distribution": {
+                                "jan": 7.0,
+                                "feb": 6.8,
+                                "mar": 6.5,
+                                "apr": 6.0,
+                                "may": 5.5,
+                                "jun": 5.0,
+                                "jul": 4.5,
+                                "aug": 4.8,
+                                "sep": 5.2,
+                                "oct": 5.8,
+                                "nov": 6.2,
+                                "dec": 6.7
+                            }
+                        }
+                    },
+                    "technical_specifications": {
+                        "solar_pv": {
+                            "panel_efficiency": 0.18,
+                            "panel_area": 1.6,
+                            "cost_per_watt": 0.7
+                        },
+                        "wind_turbine": {
+                            "rated_power": 5,
+                            "cut_in_speed": 3,
+                            "cut_out_speed": 25,
+                            "cost_per_kw": 1200
+                        },
+                        "battery_storage": {
+                            "battery_capacity": 100,
+                            "depth_of_discharge": 0.8,
+                            "cost_per_kwh": 200
+                        }
+                    },
+                    "economic_parameters": {
+                        "discount_rate": 0.05,
+                        "inflation_rate": 0.02,
+                        "project_lifetime": 20
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "energy_balance": "E_solar + E_wind - E_demand = E_battery",
+                "solar_energy_production": "E_solar = A_pv * η_pv * H_solar",
+                "wind_energy_production": "E_wind = P_rated * ((V^3 - V_cut_in^3) / (V_rated^3 - V_cut_in^3)) * Γ(V)",
+                "battery_storage_constraint": "E_battery ≤ C_battery * DOD",
+                "reliability_constraint": "P(E_supply ≥ E_demand) ≥ 0.99",
+                "levelized_cost_of_energy": "LCOE = (CAPEX + ∑ OPEX_t) / (∑ E_supply_t)"
+            },
+            "ontology": {
+                "entities": [
+                    "Hybrid Renewable Energy System",
+                    "Solar Photovoltaic (PV) Panel",
+                    "Wind Turbine",
+                    "Battery Storage System",
+                    "Levelized Cost of Energy (LCOE)",
+                    "Capital Expenditure (CAPEX)",
+                    "Operational Expenditure (OPEX)",
+                    "Reliability Factor",
+                    "Solar Irradiance",
+                    "Wind Speed Distribution",
+                    "Energy Demand",
+                    "Peak Load",
+                    "Project Lifetime",
+                    "Discount Rate",
+                    "Inflation Rate"
+                ],
+                "relations": [
+                    "Hybrid Renewable Energy System comprises Solar PV Panels, Wind Turbines, and Battery Storage System",
+                    "Solar PV Panels produce energy based on Solar Irradiance",
+                    "Wind Turbines produce energy based on Wind Speed Distribution",
+                    "Battery Storage System stores excess energy and supplies during deficit",
+                    "Levelized Cost of Energy is calculated from CAPEX and OPEX over the Project Lifetime",
+                    "Reliability Factor ensures Energy Supply meets or exceeds Energy Demand",
+                    "Energy Demand varies with Peak Load and community consumption patterns",
+                    "Project Lifetime is influenced by Discount Rate and Inflation Rate"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "00114976-fbc2-420b-b00e-0263405ca180",
+        "task_details": {
+            "task_instructions": "Design a hybrid renewable energy system for a remote community with the objective of minimizing the Levelized Cost of Energy (LCOE) while ensuring a reliability factor of at least 95%. The system should integrate solar photovoltaic (PV) panels, wind turbines, and a battery energy storage system (BESS). Perform a techno-economic analysis considering the variability of renewable resources, load demand, and component degradation over a 25-year lifespan.",
+            "task_data": {
+                "data_points": {
+                    "community_load_profile": {
+                        "peak_demand": 500,
+                        "daily_energy_consumption": [
+                            1200,
+                            1300,
+                            1400,
+                            1500,
+                            1600,
+                            1700,
+                            1800,
+                            1900,
+                            2000,
+                            2100,
+                            2200,
+                            2300
+                        ]
+                    },
+                    "solar_resource": {
+                        "average_daily_irradiance": [
+                            4.5,
+                            5.0,
+                            5.5,
+                            6.0,
+                            6.5,
+                            7.0,
+                            7.5,
+                            8.0,
+                            8.5,
+                            9.0,
+                            9.5,
+                            10.0
+                        ]
+                    },
+                    "wind_resource": {
+                        "average_wind_speed": [
+                            4.0,
+                            4.5,
+                            5.0,
+                            5.5,
+                            6.0,
+                            6.5,
+                            7.0,
+                            7.5,
+                            8.0,
+                            8.5,
+                            9.0,
+                            9.5
+                        ]
+                    },
+                    "component_specifications": {
+                        "solar_pv": {
+                            "rated_power": 300,
+                            "efficiency": 0.18,
+                            "cost_per_watt": 0.7
+                        },
+                        "wind_turbine": {
+                            "rated_power": 1000,
+                            "cut_in_speed": 3.0,
+                            "cut_out_speed": 25.0,
+                            "cost_per_kw": 1200
+                        },
+                        "bess": {
+                            "capacity": 500,
+                            "power_rating": 250,
+                            "cost_per_kwh": 200
+                        }
+                    },
+                    "economic_parameters": {
+                        "discount_rate": 0.05,
+                        "inflation_rate": 0.02,
+                        "project_lifetime": 25
+                    }
+                }
+            },
+            "mathematical_formulation": "Minimize LCOE = (Initial Investment + Operation and Maintenance Costs) / (Total Energy Output over Lifetime)\nSubject to:\n1. Reliability Factor ≥ 95%\n2. Energy Balance: Generation + Storage Discharge = Load Demand + Storage Charge\n3. Component Degradation: PV Efficiency Decay = 0.5% per year, Battery Capacity Decay = 2% per year\n4. Renewable Resource Variability: Use stochastic modeling for solar irradiance and wind speed.",
+            "ontology": {
+                "entities": [
+                    "Solar Photovoltaic (PV) Panel",
+                    "Wind Turbine",
+                    "Battery Energy Storage System (BESS)",
+                    "Levelized Cost of Energy (LCOE)",
+                    "Reliability Factor",
+                    "Load Profile",
+                    "Solar Irradiance",
+                    "Wind Speed",
+                    " component Degradation",
+                    "Energy Balance",
+                    "Initial Investment",
+                    "Operation and Maintenance Costs",
+                    "Total Energy Output",
+                    "Discount Rate",
+                    "Inflation Rate",
+                    "Project Lifetime"
+                ],
+                "relations": [
+                    "PV Panel generates electricity from solar irradiance",
+                    "Wind Turbine generates electricity from wind speed",
+                    "BESS stores excess generation and supplies during deficit",
+                    "LCOE is minimized by optimizing system design",
+                    "Reliability Factor is ensured by adequate system sizing",
+                    "Load Profile is met by combined generation and storage",
+                    "Component Degradation affects system performance over time",
+                    "Energy Balance is maintained by matching generation and demand",
+                    "Initial Investment and Operation and Maintenance Costs determine LCOE",
+                    "Total Energy Output is maximized by optimizing renewable resource utilization"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "512e72ad-6a28-4fff-8950-5b43732b9cb3",
+        "task_details": {
+            "task_instructions": "Design a hybrid renewable energy system for a remote community with the following requirements: 1. The system must provide a reliable power supply for a community of 500 households, each consuming an average of 5 kWh per day. 2. The system must integrate solar photovoltaic (PV) panels, wind turbines, and a battery energy storage system (BESS). 3. The system must optimize the levelized cost of energy (LCOE) while ensuring a minimum of 95% renewable energy penetration. 4. The system must maintain a loss of power supply probability (LPSP) of less than 5%.",
+            "task_data": {
+                "data_points": {
+                    "community_data": {
+                        "number_of_households": 500,
+                        "average_daily_consumption_per_household_kWh": 5,
+                        "total_daily_consumption_kWh": 2500,
+                        "peak_load_kW": 300
+                    },
+                    "solar_data": {
+                        "average_solar_irradiation_kWh_per_m2_per_day": 5.5,
+                        "PV_panel_efficiency_percent": 18,
+                        "PV_panel_cost_USD_per_W": 0.7
+                    },
+                    "wind_data": {
+                        "average_wind_speed_m_per_s": 6.5,
+                        "wind_turbine_capacity_factor_percent": 35,
+                        "wind_turbine_cost_USD_per_kW": 1300
+                    },
+                    "battery_data": {
+                        "battery_energy_density_kWh_per_kg": 0.25,
+                        "battery_cost_USD_per_kWh": 200,
+                        "battery_lifetime_years": 10,
+                        "battery_round_trip_efficiency_percent": 85
+                    },
+                    "economic_data": {
+                        "discount_rate_percent": 5,
+                        "project_lifetime_years": 20
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "total_daily_energy_generation_kWh": "solar_energy_generation_kWh + wind_energy_generation_kWh",
+                "solar_energy_generation_kWh": "PV_panel_area_m2 * average_solar_irradiation_kWh_per_m2_per_day * PV_panel_efficiency_percent",
+                "wind_energy_generation_kWh": "wind_turbine_capacity_kW * wind_turbine_capacity_factor_percent * 24",
+                "battery_capacity_kWh": "total_daily_consumption_kWh * days_of_autonomy / battery_round_trip_efficiency_percent",
+                "LCOE_USD_per_kWh": "(initial_investment_USD + maintenance_cost_USD) / (total_energy_generated_kWh * project_lifetime_years)",
+                "LPSP_constraint": "Probability(power_supply < demand) < 0.05"
+            },
+            "ontology": {
+                "entities": [
+                    "solar photovoltaic (PV) panels",
+                    "wind turbines",
+                    "battery energy storage system (BESS)",
+                    "levelized cost of energy (LCOE)",
+                    "loss of power supply probability (LPSP)",
+                    "renewable energy penetration",
+                    "remote community",
+                    "household energy consumption",
+                    "solar irradiation",
+                    "wind speed",
+                    "battery energy density",
+                    "battery lifetime",
+                    "discount rate",
+                    "project lifetime"
+                ],
+                "relations": [
+                    "integrates",
+                    "optimizes",
+                    "ensures",
+                    "maintains",
+                    "provides",
+                    "consumes",
+                    "generates",
+                    "stores",
+                    "calculates",
+                    "constrains"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "0a9538ed-7855-4997-9d78-b564ae66963e",
+        "task_details": {
+            "task_instructions": "Design a closed-loop control system for a quadrotor unmanned aerial vehicle (UAV) to autonomously navigate through a dynamic obstacle course. The system must ensure stability, robustness, and optimal path planning while minimizing energy consumption and maintaining a safety margin from obstacles. The control system should integrate sensor fusion from IMU, GPS, and LIDAR sensors, and employ a model predictive control (MPC) strategy with real-time constraints.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_specifications": {
+                        "mass": 1.5,
+                        "rotor_diameter": 0.25,
+                        "max_thrust": 20,
+                        "battery_capacity": 5000,
+                        "max_speed": 15,
+                        "max_altitude": 100
+                    },
+                    "sensor_specifications": {
+                        "IMU": {
+                            "accelerometer_range": 16,
+                            "gyroscope_range": 2000,
+                            "sample_rate": 100
+                        },
+                        "GPS": {
+                            "accuracy": 2,
+                            "update_rate": 10
+                        },
+                        "LIDAR": {
+                            "range": 50,
+                            "field_of_view": 360,
+                            "resolution": 0.1,
+                            "scan_rate": 10
+                        }
+                    },
+                    "obstacle_course": {
+                        "course_length": 100,
+                        "course_width": 50,
+                        "obstacle_density": 0.2,
+                        "obstacle_velocity_range": [
+                            0,
+                            2
+                        ]
+                    },
+                    "environmental_conditions": {
+                        "wind_speed_range": [
+                            0,
+                            5
+                        ],
+                        "temperature_range": [
+                            -10,
+                            40
+                        ],
+                        "humidity_range": [
+                            20,
+                            80
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "quadrotor_dynamics": {
+                    "equations_of_motion": [
+                        "m*a = F - mg",
+                        "I*alpha = tau"
+                    ],
+                    "state_space_representation": [
+                        "x_dot = Ax + Bu",
+                        "y = Cx + Du"
+                    ]
+                },
+                "model_predictive_control": {
+                    "cost_function": "J = integral(x^T*Q*x + u^T*R*u) dt",
+                    "constraints": [
+                        "x_min <= x <= x_max",
+                        "u_min <= u <= u_max",
+                        "x_dot = f(x, u)"
+                    ]
+                },
+                "sensor_fusion": {
+                    "kalman_filter_equations": [
+                        "x_hat = A*x_hat + B*u",
+                        "P = A*P*A^T + Q",
+                        "K = P*H^T / (H*P*H^T + R)",
+                        "x_hat = x_hat + K*(y - H*x_hat)",
+                        "P = (I - K*H)*P"
+                    ]
+                },
+                "path_planning": {
+                    "optimal_path_equations": [
+                        "minimize integral(1 + k^2) ds",
+                        "subject to x_dot = f(x, u), x(0) = x0, x(T) = xT"
+                    ]
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "UAV",
+                    "IMU",
+                    "GPS",
+                    "LIDAR",
+                    "obstacle course",
+                    "sensor fusion",
+                    "model predictive control",
+                    "path planning",
+                    "stability",
+                    "robustness",
+                    "energy consumption",
+                    "safety margin"
+                ],
+                "relations": [
+                    "quadrotor has sensors (IMU, GPS, LIDAR)",
+                    "UAV navigates through obstacle course",
+                    "sensor fusion integrates data from IMU, GPS, LIDAR",
+                    "model predictive control optimizes path planning",
+                    "path planning ensures stability and robustness",
+                    "energy consumption is minimized",
+                    "safety margin is maintained from obstacles"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "76803289-2bd3-47e7-943a-55e859c994d5",
+        "task_details": {
+            "task_instructions": "Design a multi-objective optimization framework for a hybrid renewable energy system integrating wind, solar, and hydrogen storage to minimize both cost and environmental impact while meeting a specified load demand. The system should be simulated over a 24-hour period with hourly data points. The optimization should consider constraints such as renewable resource availability, storage capacity, and grid regulations.",
+            "task_data": {
+                "data_points": {
+                    "wind_speed": [
+                        3.5,
+                        4.2,
+                        5.1,
+                        6.3,
+                        7.0,
+                        7.5,
+                        8.0,
+                        8.2,
+                        7.8,
+                        7.0,
+                        6.5,
+                        5.8,
+                        5.0,
+                        4.5,
+                        4.0,
+                        3.8,
+                        3.6,
+                        3.5,
+                        3.4,
+                        3.3,
+                        3.2,
+                        3.1,
+                        3.0,
+                        2.9
+                    ],
+                    "solar_irradiance": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        100,
+                        200,
+                        300,
+                        400,
+                        500,
+                        600,
+                        700,
+                        800,
+                        900,
+                        1000,
+                        800,
+                        600,
+                        400,
+                        200,
+                        100,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "load_demand": [
+                        50,
+                        55,
+                        60,
+                        65,
+                        70,
+                        75,
+                        80,
+                        85,
+                        90,
+                        95,
+                        100,
+                        105,
+                        110,
+                        115,
+                        120,
+                        125,
+                        130,
+                        135,
+                        140,
+                        145,
+                        150,
+                        155,
+                        160,
+                        165
+                    ],
+                    "hydrogen_storage_capacity": 500,
+                    "grid_regulations": {
+                        "max_power_import": 100,
+                        "max_power_export": 50
+                    },
+                    "cost_parameters": {
+                        "wind_cost": 0.05,
+                        "solar_cost": 0.03,
+                        "hydrogen_cost": 0.08,
+                        "grid_cost": 0.1
+                    },
+                    "environmental_impact_parameters": {
+                        "wind_emissions": 0.02,
+                        "solar_emissions": 0.01,
+                        "hydrogen_emissions": 0.05,
+                        "grid_emissions": 0.15
+                    }
+                }
+            },
+            "mathematical_formulation": "Minimize: Z = [w1 * (C_wind * P_wind + C_solar * P_solar + C_hydrogen * P_hydrogen + C_grid * P_grid), w2 * (E_wind * P_wind + E_solar * P_solar + E_hydrogen * P_hydrogen + E_grid * P_grid)] Subject to: P_wind + P_solar + P_hydrogen + P_grid >= Load_demand P_wind <= f(wind_speed) P_solar <= f(solar_irradiance) P_hydrogen <= Hydrogen_storage_capacity P_grid <= Max_power_import (for import) P_grid >= -Max_power_export (for export) where w1 and w2 are weighting factors for cost and environmental impact, respectively, and f() represents the power output functions for wind and solar based on availability.",
+            "ontology": {
+                "entities": [
+                    "Wind Energy",
+                    "Solar Energy",
+                    "Hydrogen Storage",
+                    "Grid Regulations",
+                    "Cost Parameters",
+                    "Environmental Impact Parameters",
+                    "Load Demand",
+                    "Multi-Objective Optimization",
+                    "Renewable Resource Availability",
+                    "Storage Capacity",
+                    "Hybrid Renewable Energy System"
+                ],
+                "relations": [
+                    "Wind Energy produces Power",
+                    "Solar Energy produces Power",
+                    "Hydrogen Storage stores and supplies Power",
+                    "Grid Regulations limit Power import and export",
+                    "Cost Parameters associate costs with Power sources",
+                    "Environmental Impact Parameters associate emissions with Power sources",
+                    "Load Demand requires Power supply",
+                    "Multi-Objective Optimization minimizes Cost and Environmental Impact",
+                    "Renewable Resource Availability constrains Power production",
+                    "Storage Capacity constrains Hydrogen Storage",
+                    "Hybrid Renewable Energy System integrates Wind Energy, Solar Energy, and Hydrogen Storage"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "70b87bda-33be-4d1f-aefc-9d5ccc879c6c",
+        "task_details": {
+            "task_instructions": "Design a robust control system for a hexacopter drone that must stabilize itself under severe wind gusts up to 20 m/s, while optimizing energy consumption to extend flight time. The control system must incorporate adaptive control algorithms and predictive modeling to anticipate and counteract external disturbances. Perform a comprehensive stability analysis and provide a detailed report on the system's performance under various simulated wind conditions, defining as complicated model as you can.",
+            "task_data": {
+                "data_points": {
+                    "drone_specifications": {
+                        "mass": 2.5,
+                        "rotor_diameter": 0.3,
+                        "max_thrust": 20,
+                        "battery_capacity": 5000,
+                        "motor_efficiency": 0.85
+                    },
+                    "wind_conditions": {
+                        "gust_speeds": [
+                            5,
+                            10,
+                            15,
+                            20
+                        ],
+                        "gust_directions": [
+                            0,
+                            45,
+                            90,
+                            135,
+                            180,
+                            225,
+                            270,
+                            315
+                        ],
+                        "gust_durations": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ]
+                    },
+                    "environmental_conditions": {
+                        "temperature_range": [
+                            -10,
+                            40
+                        ],
+                        "humidity_range": [
+                            20,
+                            80
+                        ],
+                        "altitude_range": [
+                            0,
+                            500
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "The control system should be designed using the following equations:\n1. Dynamic Model of the Hexacopter:\n   m*a = F_thrust - F_drag - F_gravity\n   where m is the mass of the drone, a is the acceleration, F_thrust is the thrust force, F_drag is the drag force, and F_gravity is the gravitational force.\n2. Adaptive Control Law:\n   u = K_p * e + K_i * ∫e dt + K_d * de/dt\n   where u is the control input, K_p, K_i, and K_d are the proportional, integral, and derivative gains, respectively, and e is the error between the desired and actual states.\n3. Predictive Modeling:\n   x(t+1) = A * x(t) + B * u(t) + w(t)\n   where x(t) is the state vector at time t, A and B are the system matrices, u(t) is the control input, and w(t) is the disturbance vector.",
+            "ontology": {
+                "entities": [
+                    "hexacopter drone",
+                    "robust control system",
+                    "adaptive control algorithms",
+                    "predictive modeling",
+                    "stability analysis",
+                    "wind gusts",
+                    "energy consumption",
+                    "flight time",
+                    "dynamic model",
+                    "control law",
+                    "state vector",
+                    "system matrices",
+                    "disturbance vector"
+                ],
+                "relations": [
+                    "hexacopter drone requires robust control system",
+                    "robust control system incorporates adaptive control algorithms",
+                    "adaptive control algorithms use predictive modeling",
+                    "predictive modeling anticipates wind gusts",
+                    "wind gusts affect stability analysis",
+                    "stability analysis optimizes energy consumption",
+                    "energy consumption determines flight time",
+                    "dynamic model defines hexacopter drone behavior",
+                    "control law stabilizes hexacopter drone",
+                    "state vector represents hexacopter drone state",
+                    "system matrices relate state vector and control input",
+                    "disturbance vector accounts for wind gusts"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "010a71cf-7a83-4ae1-8644-ffe2ca651fce",
+        "task_details": {
+            "task_instructions": "Design a multi-stage, multi-objective optimization framework for a complex manufacturing system that integrates predictive maintenance, dynamic scheduling, and energy efficiency. The framework should minimize downtime, maximize throughput, and reduce energy consumption, while adhering to operational constraints and quality standards. Provide a detailed plan including the selection of optimization algorithms, simulation tools, and data integration methods.",
+            "task_data": {
+                "data_points": {
+                    "machines": [
+                        {
+                            "id": "M1",
+                            "type": "CNC",
+                            "failure_rate": 0.05,
+                            "power_consumption": 1500
+                        },
+                        {
+                            "id": "M2",
+                            "type": "Lathe",
+                            "failure_rate": 0.03,
+                            "power_consumption": 1200
+                        },
+                        {
+                            "id": "M3",
+                            "type": "Drill",
+                            "failure_rate": 0.04,
+                            "power_consumption": 1000
+                        }
+                    ],
+                    "jobs": [
+                        {
+                            "id": "J1",
+                            "processing_time": 20,
+                            "due_date": 50,
+                            "energy_requirement": 300
+                        },
+                        {
+                            "id": "J2",
+                            "processing_time": 30,
+                            "due_date": 60,
+                            "energy_requirement": 400
+                        },
+                        {
+                            "id": "J3",
+                            "processing_time": 25,
+                            "due_date": 55,
+                            "energy_requirement": 350
+                        }
+                    ],
+                    "maintenance_activities": [
+                        {
+                            "id": "MA1",
+                            "machine_id": "M1",
+                            "duration": 10,
+                            "cost": 500
+                        },
+                        {
+                            "id": "MA2",
+                            "machine_id": "M2",
+                            "duration": 8,
+                            "cost": 400
+                        },
+                        {
+                            "id": "MA3",
+                            "machine_id": "M3",
+                            "duration": 9,
+                            "cost": 450
+                        }
+                    ],
+                    "operational_constraints": {
+                        "max_downtime": 20,
+                        "min_throughput": 80,
+                        "max_energy_consumption": 5000
+                    },
+                    "quality_standards": {
+                        " defect_rate": 0.01,
+                        "rework_time": 15
+                    }
+                }
+            },
+            "mathematical_formulation": "Minimize:Z=Σ(α1*t_d+α2*t_p)+β(E)M_D=T_d1,T_dpM_P=T_p1,T_ppM_E=e_c1,e_cpSubject to: t_d ≤ t_dmax t_p ≥ t_pmin e_c ≤ e_cmax d_r ≤ 0.01 α1 + α2 + β = 1 α1,α2,α3,β ≥ 0 where, t_d = downtime, t_p =throughput,e_c=energy consumption",
+            "ontology": {
+                "entities": [
+                    "Machine",
+                    "Job",
+                    "MaintenanceActivity",
+                    "OperationalConstraint",
+                    "QualityStandard",
+                    "Downtime",
+                    "Throughput",
+                    "EnergyConsumption",
+                    "DefectRate",
+                    "ReworkTime"
+                ],
+                "relations": [
+                    "Machine performs Job",
+                    "Job requires Energy",
+                    "MaintenanceActivity affects Machine",
+                    "OperationalConstraint limits Downtime",
+                    "QualityStandard affects job ReworkTime"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "9abc8f87-9933-4680-a8ea-bb628e61c482",
+        "task_details": {
+            "task_instructions": "Design a robust control system for a quadrotor unmanned aerial vehicle (UAV) to achieve precise trajectory tracking in the presence of external disturbances and model uncertainties. The control system should incorporate adaptive control methods to handle varying payloads and environmental conditions. Provide a detailed block diagram of the control system, including the adaptive controller, the quadrotor dynamics model, and the sensor fusion algorithm. Additionally, simulate the system's response to a step input command and analyze the stability and performance metrics.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "moment_of_inertia": [
+                            0.02,
+                            0.02,
+                            0.04
+                        ],
+                        "arm_length": 0.25,
+                        "propeller_constant": 0.01,
+                        "drag_coefficient": 0.001
+                    },
+                    "environmental_conditions": {
+                        "wind_speed": [
+                            0,
+                            0,
+                            5
+                        ],
+                        "temperature": 25,
+                        "humidity": 60
+                    },
+                    "payload_variations": [
+                        0.1,
+                        0.5,
+                        1.0
+                    ],
+                    "sensor_data": {
+                        "IMU": {
+                            "accelerometer": [
+                                0.1,
+                                0.2,
+                                0.3
+                            ],
+                            "gyroscope": [
+                                0.01,
+                                0.02,
+                                0.03
+                            ]
+                        },
+                        "GPS": {
+                            "position": [
+                                10,
+                                20,
+                                30
+                            ],
+                            "velocity": [
+                                1,
+                                2,
+                                3
+                            ]
+                        }
+                    },
+                    "control_parameters": {
+                        "PID_gains": {
+                            "Kp": [
+                                1.0,
+                                1.0,
+                                1.0
+                            ],
+                            "Ki": [
+                                0.1,
+                                0.1,
+                                0.1
+                            ],
+                            "Kd": [
+                                0.01,
+                                0.01,
+                                0.01
+                            ]
+                        },
+                        "adaptive_controller_gains": [
+                            0.5,
+                            0.5,
+                            0.5
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "The dynamics of the quadrotor can be described by the following equations:\n\n1. Translational dynamics:\n   m * a = F - mg + F_disturbance\n   where m is the mass, a is the acceleration, F is the force generated by the propellers, g is the gravitational acceleration, and F_disturbance is the external disturbance force.\n\n2. Rotational dynamics:\n   I * alpha = M + M_disturbance\n   where I is the moment of inertia, alpha is the angular acceleration, M is the moment generated by the propellers, and M_disturbance is the external disturbance moment.\n\n3. Adaptive control law:\n   u = Kp * e + Ki * integral(e) + Kd * derivative(e) + u_adaptive\n   where e is the error between the desired and actual states, and u_adaptive is the adaptive control input.\n\n4. Sensor fusion algorithm:\n   x_estimated = f(x_IMU, x_GPS)\n   where x_estimated is the estimated state, x_IMU is the state from the IMU, and x_GPS is the state from the GPS.",
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "UAV",
+                    "adaptive control",
+                    "trajectory tracking",
+                    "disturbances",
+                    "model uncertainties",
+                    "payloads",
+                    " environmental conditions",
+                    "control system",
+                    "quadrotor dynamics model",
+                    "sensor fusion algorithm",
+                    "stability",
+                    "performance metrics",
+                    "step input command",
+                    "simulation"
+                ],
+                "relations": [
+                    "quadrotor_has_adaptive_control",
+                    "adaptive_control_handles_disturbances",
+                    "disturbances_affect_trajectory_tracking",
+                    "model_uncertainties_influence_control_system",
+                    "payloads_vary_quadrotor_dynamics",
+                    "environmental_conditions_affect_control_system",
+                    "control_system_incorporates_sensor_fusion_algorithm",
+                    "sensor_fusion_algorithm_improves_stability",
+                    "stability_and_performance_metrics_analyze_simulation"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f69741cf-938d-45db-b8ff-a5596f124dd1",
+        "task_details": {
+            "task_instructions": "Design a complex control system for a hybrid electric vehicle (HEV) that optimizes fuel efficiency, minimizes emissions, and ensures robust performance under varying driving conditions. The control system should integrate multiple subsystems, including the internal combustion engine (ICE), electric motor (EM), battery management system (BMS), and regenerative braking system (RBS). The system should employ model predictive control (MPC) to anticipate and adapt to dynamic driving scenarios. Provide a detailed block diagram of the control system, specifying the control strategies, sensors, actuators, and communication protocols involved.",
+            "task_data": {
+                "data_points": {
+                    "vehicle_parameters": {
+                        "mass": 1500,
+                        "drag_coefficient": 0.3,
+                        "frontal_area": 2.2,
+                        "rolling_resistance_coefficient": 0.01,
+                        "wheel_radius": 0.3,
+                        "gear_ratios": [
+                            3.4,
+                            2.1,
+                            1.4,
+                            1.0
+                        ],
+                        "final_drive_ratio": 4.1
+                    },
+                    "ICE_parameters": {
+                        "max_power": 100,
+                        "max_torque": 200,
+                        "fuel_consumption_map": {
+                            "idle": 0.5,
+                            "low_load": 1.2,
+                            "high_load": 2.0
+                        }
+                    },
+                    "EM_parameters": {
+                        "max_power": 50,
+                        "max_torque": 150,
+                        "efficiency_map": {
+                            "low_speed": 0.9,
+                            "high_speed": 0.85
+                        }
+                    },
+                    "BMS_parameters": {
+                        "capacity": 10,
+                        "voltage": 300,
+                        "max_charge_rate": 2,
+                        "max_discharge_rate": 5,
+                        "state_of_charge_limits": [
+                            0.2,
+                            0.9
+                        ]
+                    },
+                    "RBS_parameters": {
+                        "max_regenerative_power": 30,
+                        "efficiency": 0.8
+                    },
+                    "driving_scenarios": [
+                        {
+                            "type": "urban",
+                            "speed_profile": [
+                                0,
+                                10,
+                                20,
+                                30,
+                                20,
+                                10,
+                                0
+                            ],
+                            "duration": [
+                                5,
+                                10,
+                                15,
+                                10,
+                                15,
+                                10,
+                                5
+                            ]
+                        },
+                        {
+                            "type": "highway",
+                            "speed_profile": [
+                                0,
+                                30,
+                                60,
+                                90,
+                                60,
+                                30,
+                                0
+                            ],
+                            "duration": [
+                                10,
+                                20,
+                                30,
+                                20,
+                                30,
+                                20,
+                                10
+                            ]
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "ICE_torque_equation": "T_ice = f(ω_ice, θ_throttle)",
+                "EM_torque_equation": "T_em = f(ω_em, I_em)",
+                "battery_soc_equation": "SOC(t) = SOC(0) - ∫(I_bat(t) / C_bat) dt",
+                "vehicle_dynamics_equation": "F_traction = m * a + 0.5 * ρ * C_d * A * v^2 + C_rr * m * g * cos(θ) + m * g * sin(θ)",
+                "MPC_cost_function": "J = ∫(w_fuel * F_fuel(t) + w_emissions * E_emissions(t) + w_performance * P_performance(t)) dt",
+                "MPC_constraints": [
+                    "0 ≤ θ_throttle ≤ 1",
+                    "0 ≤ I_em ≤ I_em_max",
+                    "SOC_min ≤ SOC(t) ≤ SOC_max",
+                    "0 ≤ P_regen(t) ≤ P_regen_max"
+                ]
+            },
+            "ontology": {
+                "entities": [
+                    "Hybrid Electric Vehicle (HEV)",
+                    "Internal Combustion Engine (ICE)",
+                    "Electric Motor (EM)",
+                    "Battery Management System (BMS)",
+                    "Regenerative Braking System (RBS)",
+                    "Model Predictive Control (MPC)",
+                    "Fuel Efficiency",
+                    "Emissions",
+                    "Driving Conditions",
+                    "Control System",
+                    "Control Strategies",
+                    "Sensors",
+                    "Actuators",
+                    "Communication Protocols"
+                ],
+                "relations": [
+                    "HEV integrates ICE, EM, BMS, and RBS",
+                    "MPC controls ICE, EM, BMS, and RBS",
+                    "Control System employs MPC",
+                    "Control Strategies optimize Fuel Efficiency and Emissions",
+                    "Sensors and Actuators interact with Control System",
+                    "Communication Protocols facilitate data exchange between subsystems"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "33ef35c9-76b0-408b-977d-58bb1db48d49",
+        "task_details": {
+            "task_instructions": "Design a multi-objective optimization framework for a smart grid system integrating renewable energy sources, energy storage systems, and demand response programs. The framework should minimize total cost, maximize renewable energy penetration, and ensure grid stability. Provide a detailed step-by-step approach, including the selection of optimization algorithms, constraints, and objective functions.",
+            "task_data": {
+                "data_points": {
+                    "renewable_energy_sources": [
+                        {
+                            "type": "solar",
+                            "capacity": 500,
+                            "cost_per_kW": 1200,
+                            "generation_profile": [
+                                0.1,
+                                0.2,
+                                0.5,
+                                0.7,
+                                0.9,
+                                0.8,
+                                0.6,
+                                0.4,
+                                0.3,
+                                0.2
+                            ]
+                        },
+                        {
+                            "type": "wind",
+                            "capacity": 300,
+                            "cost_per_kW": 1500,
+                            "generation_profile": [
+                                0.3,
+                                0.4,
+                                0.6,
+                                0.7,
+                                0.8,
+                                0.9,
+                                0.7,
+                                0.5,
+                                0.4,
+                                0.3
+                            ]
+                        }
+                    ],
+                    "energy_storage_systems": [
+                        {
+                            "type": "battery",
+                            "capacity": 200,
+                            "cost_per_kWh": 300,
+                            "efficiency": 0.95,
+                            "max_charge_discharge_rate": 50
+                        }
+                    ],
+                    "demand_response_programs": [
+                        {
+                            "type": "residential",
+                            "participation_rate": 0.2,
+                            "max_load_reduction": 0.3
+                        },
+                        {
+                            "type": "commercial",
+                            "participation_rate": 0.3,
+                            "max_load_reduction": 0.4
+                        }
+                    ],
+                    "load_profile": [
+                        0.5,
+                        0.6,
+                        0.7,
+                        0.8,
+                        0.9,
+                        1.0,
+                        0.9,
+                        0.8,
+                        0.7,
+                        0.6
+                    ],
+                    "grid_constraints": {
+                        "voltage_limits": [
+                            0.95,
+                            1.05
+                        ],
+                        "frequency_limits": [
+                            49.5,
+                            50.5
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "objective_functions": {
+                    "total_cost": "Minimize C_total = C_renewable + C_storage + C_demand_response",
+                    "renewable_penetration": "Maximize P_renewable = (E_solar + E_wind) / E_total",
+                    "grid_stability": "Minimize S_grid = |V - V_nominal| + |f - f_nominal|"
+                },
+                "constraints": {
+                    "power_balance": "P_generation + P_storage_discharge - P_load - P_storage_charge = 0",
+                    "storage_limits": "0 <= E_storage <= E_storage_max",
+                    "demand_response_limits": "0 <= P_load_reduction <= P_load_max_reduction"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "renewable energy sources",
+                    "energy storage systems",
+                    "demand response programs",
+                    "load profile",
+                    "grid constraints",
+                    "optimization algorithms",
+                    "objective functions",
+                    "constraints"
+                ],
+                "relations": [
+                    "integrates",
+                    "minimizes",
+                    "maximizes",
+                    "ensures",
+                    "selects",
+                    "includes",
+                    "balances",
+                    "limits"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f2d8170a-95a0-4a89-bc87-3075c3a782d4",
+        "task_details": {
+            "task_instructions": "Design a multi-objective optimization framework for a smart grid system integrating renewable energy sources, energy storage systems, and demand response programs. The framework should minimize overall cost, maximize renewable energy penetration, and ensure grid stability. Provide a detailed step-by-step approach, including the selection of optimization algorithms, constraint handling, and sensitivity analysis.",
+            "task_data": {
+                "data_points": {
+                    "renewable_energy_sources": [
+                        {
+                            "type": "solar",
+                            "capacity": 500,
+                            "cost": 150,
+                            "availability": 0.8
+                        },
+                        {
+                            "type": "wind",
+                            "capacity": 700,
+                            "cost": 120,
+                            "availability": 0.75
+                        }
+                    ],
+                    "energy_storage_systems": [
+                        {
+                            "type": "battery",
+                            "capacity": 200,
+                            "efficiency": 0.9,
+                            "cost": 200
+                        },
+                        {
+                            "type": "pumped_hydro",
+                            "capacity": 300,
+                            "efficiency": 0.85,
+                            "cost": 180
+                        }
+                    ],
+                    "demand_response_programs": [
+                        {
+                            "type": "residential",
+                            "flexibility": 0.2,
+                            "cost": 50
+                        },
+                        {
+                            "type": "commercial",
+                            "flexibility": 0.3,
+                            "cost": 70
+                        }
+                    ],
+                    "grid_parameters": {
+                        "base_load": 1000,
+                        "peak_load": 1500,
+                        "grid_stability_threshold": 0.95
+                    }
+                }
+            },
+            "mathematical_formulation": "Objective Function:\nminimize Z = Σ(C_res * P_res) + Σ(C_storage * P_storage) + Σ(C_dr * P_dr)\nsubject to:\n1. ΣP_res + ΣP_storage + ΣP_dr ≥ D_load\n2. ΣP_res ≤ R_penetration\n3. Grid_stability ≥ G_threshold\nwhere:\nC_res = Cost of renewable energy sources\nP_res = Power from renewable energy sources\nC_storage = Cost of energy storage systems\nP_storage = Power from energy storage systems\nC_dr = Cost of demand response programs\nP_dr = Power from demand response programs\nD_load = Demand load\nR_penetration = Renewable energy penetration\nG_threshold = Grid stability threshold",
+            "ontology": {
+                "entities": [
+                    "renewable_energy_sources",
+                    "energy_storage_systems",
+                    "demand_response_programs",
+                    "grid_parameters",
+                    "optimization_framework",
+                    "multi-objective_optimization",
+                    "grid_stability"
+                ],
+                "relations": [
+                    "integrates",
+                    "minimizes",
+                    "maximizes",
+                    "ensures",
+                    "selects",
+                    "handles",
+                    "analyzes"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "d0b69470-3318-4e2f-a02b-a88498a87005",
+        "task_details": {
+            "task_instructions": "Design a multi-objective optimization framework for a smart grid system integrating renewable energy sources, energy storage systems, and demand response programs. The framework should minimize costs, maximize renewable energy penetration, and ensure grid stability. Provide a detailed step-by-step approach, including the selection of optimization algorithms, constraint handling, and sensitivity analysis.",
+            "task_data": {
+                "data_points": {
+                    "renewable_energy_sources": [
+                        {
+                            "type": "solar",
+                            "capacity": 500,
+                            "cost_per_kW": 1200,
+                            " generation_profile": [
+                                0.1,
+                                0.2,
+                                0.4,
+                                0.6,
+                                0.8,
+                                0.7,
+                                0.5,
+                                0.3,
+                                0.2,
+                                0.1
+                            ]
+                        },
+                        {
+                            "type": "wind",
+                            "capacity": 800,
+                            "cost_per_kW": 1500,
+                            "generation_profile": [
+                                0.3,
+                                0.4,
+                                0.5,
+                                0.6,
+                                0.7,
+                                0.6,
+                                0.5,
+                                0.4,
+                                0.3,
+                                0.2
+                            ]
+                        }
+                    ],
+                    "energy_storage_systems": [
+                        {
+                            "type": "battery",
+                            "capacity": 200,
+                            "cost_per_kWh": 400,
+                            "efficiency": 0.95,
+                            "max_charge_discharge_rate": 50
+                        },
+                        {
+                            "type": "pumped_hydro",
+                            "capacity": 1000,
+                            "cost_per_kWh": 150,
+                            "efficiency": 0.85,
+                            "max_charge_discharge_rate": 200
+                        }
+                    ],
+                    "demand_response_programs": [
+                        {
+                            "type": "residential",
+                            "potential_load_reduction": 30,
+                            "incentive_cost": 0.5
+                        },
+                        {
+                            "type": "commercial",
+                            "potential_load_reduction": 100,
+                            "incentive_cost": 0.7
+                        }
+                    ],
+                    "load_profile": [
+                        500,
+                        550,
+                        600,
+                        650,
+                        700,
+                        750,
+                        800,
+                        850,
+                        900,
+                        950
+                    ],
+                    "grid_constraints": {
+                        "max_load": 1000,
+                        "min_load": 200,
+                        "frequency_limits": [
+                            49.5,
+                            50.5
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "Minimize: C_total = C_ generation + C_storage + C_DR\nMaximize: P_renewable = Σ(P_solar + P_wind)\nSubject to:\n1. P_generated + P_storage + P_DR = P_load\n2. P_min ≤ P_generated ≤ P_max\n3. SOC_min ≤ SOC_storage ≤ SOC_max\n4. f_min ≤ f_grid ≤ f_max\n5. P_renewable ≥ P_renewable_target\nWhere:\nC_total = Total cost\nC_generation = Cost of generation from renewable sources\nC_storage = Cost of energy storage systems\nC_DR = Cost of demand response programs\nP_renewable = Power from renewable sources\nP_generated = Total power generated\nP_storage = Power from storage systems\nP_DR = Power reduction from demand response\nP_load = Load demand\nP_min, P_max = Minimum and maximum power generation limits\nSOC_min, SOC_max = Minimum and maximum state of charge of storage systems\nf_min, f_max = Minimum and maximum grid frequency limits\nP_renewable_target = Target renewable energy penetration",
+            "ontology": {
+                "entities": [
+                    "renewable energy sources",
+                    "energy storage systems",
+                    "demand response programs",
+                    "load profile",
+                    "grid constraints",
+                    "optimization algorithms",
+                    "constraint handling",
+                    "sensitivity analysis",
+                    "solar energy",
+                    "wind energy",
+                    "battery storage",
+                    "pumped hydro storage",
+                    "residential demand response",
+                    "commercial demand response",
+                    "grid stability",
+                    "multi-objective optimization"
+                ],
+                "relations": [
+                    "integrates",
+                    "minimizes",
+                    "maximizes",
+                    "ensures",
+                    "selects",
+                    "handles",
+                    "analyzes",
+                    "generates",
+                    "stores",
+                    "reduces",
+                    "constrains",
+                    "optimizes"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f052b006-6009-46fb-9737-78559a624865",
+        "task_details": {
+            "task_instructions": "Design a robust control system for a quadrotor unmanned aerial vehicle (UAV) capable of autonomous navigation in a dynamic, obstacle-rich environment. The control system must integrate sensor fusion, path planning, and real-time trajectory optimization. The UAV should maintain stability under varying wind conditions and ensure collision avoidance with moving obstacles. The system should be validated through extensive simulations and performance metrics such as trajectory accuracy, energy efficiency, and computational load.",
+            "task_data": {
+                "data_points": {
+                    "UAV_specifications": {
+                        "mass": 1.5,
+                        "inertia": [
+                            0.02,
+                            0.02,
+                            0.04
+                        ],
+                        "max_thrust": 20,
+                        "max_torque": 0.5
+                    },
+                    "environment_parameters": {
+                        "wind_speeds": [
+                            0,
+                            5,
+                            10
+                        ],
+                        "obstacle_types": [
+                            "static",
+                            "dynamic"
+                        ],
+                        "obstacle_positions": [
+                            [
+                                10,
+                                10,
+                                5
+                            ],
+                            [
+                                20,
+                                20,
+                                10
+                            ]
+                        ],
+                        "obstacle_velocities": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                1,
+                                1,
+                                0
+                            ]
+                        ]
+                    },
+                    "sensor_data": {
+                        "IMU": {
+                            "acceleration": [
+                                0.1,
+                                0.1,
+                                9.8
+                            ],
+                            "angular_velocity": [
+                                0.01,
+                                0.01,
+                                0.01
+                            ]
+                        },
+                        "GPS": {
+                            "position": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "velocity": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        "Lidar": {
+                            "range_data": [
+                                10,
+                                20,
+                                30
+                            ]
+                        }
+                    },
+                    "performance_metrics": {
+                        "trajectory_accuracy": 0.1,
+                        "energy_efficiency": 0.9,
+                        "computational_load": 0.5
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "equations_of_motion": [
+                    "m*a = F - mg",
+                    "I*α = τ"
+                ],
+                "sensor_fusion": [
+                    "x_hat = f(x, u) + K(y - h(x))"
+                ],
+                "path_planning": [
+                    "minimize J = ∫(q(x) + r(u)) dt",
+                    "subject to x_dot = f(x, u)"
+                ],
+                "trajectory_optimization": [
+                    "minimize J = ∫(q(x) + r(u)) dt",
+                    "subject to x_dot = f(x, u), g(x, u) ≤ 0"
+                ]
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "UAV",
+                    "control system",
+                    "sensor fusion",
+                    "path planning",
+                    "trajectory optimization",
+                    "autonomous navigation",
+                    "dynamic environment",
+                    "obstacle avoidance",
+                    "wind conditions",
+                    "stability",
+                    "simulations",
+                    "performance metrics",
+                    "IMU",
+                    "GPS",
+                    "Lidar"
+                ],
+                "relations": [
+                    "quadrotor is a type of UAV",
+                    "control system integrates sensor fusion, path planning, and trajectory optimization",
+                    "UAV performs autonomous navigation in a dynamic environment",
+                    "dynamic environment includes obstacle avoidance and varying wind conditions",
+                    "stability is maintained by the control system",
+                    "simulations validate the control system",
+                    "performance metrics evaluate the control system",
+                    "IMU, GPS, and Lidar provide sensor data for sensor fusion"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "23852e83-cc13-4b9f-a2c8-26e17414df41",
+        "task_details": {
+            "task_instructions": "Design a multi-objective optimization framework for a complex manufacturing system that includes a job shop scheduling problem with stochastic processing times, machine breakdowns, and dynamic job arrivals. The framework should aim to minimize makespan, total tardiness, and energy consumption while maximizing system throughput and robustness. Provide a detailed algorithmic approach, including the selection of appropriate metaheuristics and simulation techniques.",
+            "task_data": {
+                "data_points": {
+                    "jobs": [
+                        {
+                            "job_id": 1,
+                            "processing_time": {
+                                "mean": 5,
+                                "std_dev": 1
+                            },
+                            "due_date": 15
+                        },
+                        {
+                            "job_id": 2,
+                            "processing_time": {
+                                "mean": 7,
+                                "std_dev": 2
+                            },
+                            "due_date": 20
+                        },
+                        {
+                            "job_id": 3,
+                            "processing_time": {
+                                "mean": 8,
+                                "std_dev": 1.5
+                            },
+                            "due_date": 25
+                        }
+                    ],
+                    "machines": [
+                        {
+                            "machine_id": 1,
+                            "breakdown_probability": 0.05,
+                            "repair_time": {
+                                "mean": 3,
+                                "std_dev": 1
+                            }
+                        },
+                        {
+                            "machine_id": 2,
+                            "breakdown_probability": 0.03,
+                            "repair_time": {
+                                "mean": 2,
+                                "std_dev": 0.5
+                            }
+                        },
+                        {
+                            "machine_id": 3,
+                            "breakdown_probability": 0.04,
+                            "repair_time": {
+                                "mean": 2.5,
+                                "std_dev": 0.8
+                            }
+                        }
+                    ],
+                    "energy_consumption": {
+                        "idle": 0.5,
+                        "processing": 2.0
+                    },
+                    "job_arrival_rate": {
+                        "mean": 10,
+                        "std_dev": 2
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "objective_functions": {
+                    "makespan": "minimize C_max = max(C_i)",
+                    "total_tardiness": "minimize TT = sum(max(0, L_i))",
+                    "energy_consumption": "minimize EC = sum(E_i)",
+                    "throughput": "maximize TH = sum(J_i / T)",
+                    "robustness": "maximize R = 1 / (sum(abs(C_i - C_i^'))"
+                },
+                "constraints": {
+                    "processing_time": "P_i ~ N(mu_i, sigma_i)",
+                    "machine_breakdown": "B_j ~ Bernoulli(p_j)",
+                    "repair_time": "R_j ~ N(mu_Rj, sigma_Rj)",
+                    "job_arrival": "A_i ~ N(mu_A, sigma_A)"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "Job",
+                    "Machine",
+                    "Processing Time",
+                    "Due Date",
+                    "Breakdown Probability",
+                    "Repair Time",
+                    "Energy Consumption",
+                    "Job Arrival Rate",
+                    "Makespan",
+                    "Total Tardiness",
+                    "Throughput",
+                    "Robustness",
+                    "Metaheuristics",
+                    "Simulation Techniques"
+                ],
+                "relations": [
+                    "Job is processed on Machine",
+                    "Machine has Breakdown Probability",
+                    "Machine requires Repair Time",
+                    "Job has Processing Time and Due Date",
+                    "System has Energy Consumption",
+                    "Jobs arrive with Job Arrival Rate",
+                    "Optimization Framework minimizes Makespan",
+                    "Optimization Framework minimizes Total Tardiness",
+                    "Optimization Framework minimizes Energy Consumption",
+                    "Optimization Framework maximizes Throughput",
+                    "Optimization Framework maximizes Robustness",
+                    "Metaheuristics are used in Optimization Framework",
+                    "Simulation Techniques are used in Optimization Framework"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "9244c91b-6f44-4768-83ee-e4a6145989b3",
+        "task_details": {
+            "task_instructions": "Design a multi-objective optimization framework for a smart grid system integrating renewable energy sources, energy storage systems, and electric vehicle charging stations. The framework should minimize costs, maximize renewable energy utilization, and ensure grid stability. Perform a comprehensive analysis using Monte Carlo simulations to assess the robustness of the framework under varying demand and supply scenarios.",
+            "task_data": {
+                "data_points": {
+                    "renewable_energy_sources": [
+                        {
+                            "type": "solar",
+                            "capacity": 500,
+                            "efficiency": 0.15
+                        },
+                        {
+                            "type": "wind",
+                            "capacity": 800,
+                            "efficiency": 0.35
+                        }
+                    ],
+                    "energy_storage_systems": [
+                        {
+                            "type": "battery",
+                            "capacity": 1000,
+                            "charge_rate": 0.2,
+                            "discharge_rate": 0.2
+                        },
+                        {
+                            "type": "flywheel",
+                            "capacity": 500,
+                            "charge_rate": 0.3,
+                            "discharge_rate": 0.3
+                        }
+                    ],
+                    "electric_vehicle_charging_stations": [
+                        {
+                            "type": "fast_charging",
+                            "capacity": 200,
+                            "efficiency": 0.9
+                        },
+                        {
+                            "type": "slow_charging",
+                            "capacity": 100,
+                            "efficiency": 0.85
+                        }
+                    ],
+                    "demand_profiles": [
+                        {
+                            "time": "peak",
+                            "demand": 1500
+                        },
+                        {
+                            "time": "off_peak",
+                            "demand": 800
+                        }
+                    ],
+                    "cost_parameters": {
+                        "renewable_energy_cost": 0.05,
+                        "storage_cost": 0.1,
+                        "grid_cost": 0.15,
+                        "EV_charging_cost": 0.2
+                    },
+                    "grid_stability_parameters": {
+                        "voltage_limits": [
+                            0.95,
+                            1.05
+                        ],
+                        "frequency_limits": [
+                            49.5,
+                            50.5
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "Objective Function: Minimize Total Cost (C_total) = C_renewable + C_storage + C_grid + C_EV\nConstraints:\n1. Renewable Energy Utilization (R_utilization) >= 0.8\n2. Grid Stability: V_min <= V <= V_max and f_min <= f <= f_max\n3. Energy Balance: P_supply = P_demand\n4. Storage Constraints: SOC_min <= SOC <= SOC_max\nMonte Carlo Simulation: Generate N scenarios with varying demand (D_i) and supply (S_i) to assess the robustness of the framework.",
+            "ontology": {
+                "entities": [
+                    "Renewable Energy Sources",
+                    "Energy Storage Systems",
+                    "Electric Vehicle Charging Stations",
+                    "Demand Profiles",
+                    "Cost Parameters",
+                    "Grid Stability Parameters"
+                ],
+                "relations": [
+                    "integrates",
+                    "minimizes",
+                    "maximizes",
+                    "ensures",
+                    "assesses",
+                    "generates"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "238af2ee-0700-44ca-9fc2-edf780b16827",
+        "task_details": {
+            "task_instructions": "Design a fault-tolerant, distributed control system for a nuclear power plant that ensures safety and reliability under severe accident conditions. The system should integrate redundant sensors, actuators, and control logic to maintain critical functions during partial failures. The design must include a real-time diagnostic system capable of detecting and isolating faults within 100 milliseconds. Additionally, the system should optimize plant efficiency while adhering to stringent safety regulations and environmental standards. Provide a detailed schematic of the control system architecture, including all relevant components and their interconnections.",
+            "task_data": {
+                "data_points": {
+                    "nuclear_reactor_parameters": {
+                        "thermal_power": 3400,
+                        "electrical_output": 1100,
+                        "coolant_flow_rate": 15000,
+                        "core_temperature": 300,
+                        "steam_pressure": 70
+                    },
+                    "safety_parameters": {
+                        "max_allowable_temperature": 350,
+                        "max_allowable_pressure": 80,
+                        "emergency_shutdown_threshold": 320
+                    },
+                    "environmental_standards": {
+                        "max_radiation_leakage": 0.001,
+                        "waste_disposal_efficiency": 99.9
+                    },
+                    "component_list": {
+                        "sensors": [
+                            "temperature",
+                            "pressure",
+                            "flow_rate",
+                            "radiation"
+                        ],
+                        "actuators": [
+                            "control_rods",
+                            "coolant_pumps",
+                            "valves"
+                        ],
+                        "control_logic": [
+                            "PI_controllers",
+                            "PID_controllers",
+                            "fuzzy_logic"
+                        ]
+                    },
+                    "fault_scenarios": {
+                        "sensor_failure": 0.01,
+                        "actuator_failure": 0.02,
+                        "control_logic_failure": 0.005
+                    }
+                }
+            },
+            "mathematical_formulation": "The control system must satisfy the following constraints:\n1. Temperature control: T(t) <= T_max_allowable\n2. Pressure control: P(t) <= P_max_allowable\n3. Fault detection time: t_detection <= 0.1 seconds\n4. Radiation leakage: R(t) <= R_max_allowable\n5. Waste disposal efficiency: E_waste >= E_waste_efficiency\nWhere:\n- T(t) is the core temperature at time t\n- P(t) is the steam pressure at time t\n- R(t) is the radiation leakage at time t\n- E_waste is the waste disposal efficiency",
+            "ontology": {
+                "entities": [
+                    "nuclear_reactor",
+                    "thermal_power",
+                    "electrical_output",
+                    "coolant_flow_rate",
+                    "core_temperature",
+                    "steam_pressure",
+                    "max_allowable_temperature",
+                    "max_allowable_pressure",
+                    "emergency_shutdown_threshold",
+                    "max_radiation_leakage",
+                    "waste_disposal_efficiency",
+                    "sensors",
+                    "actuators",
+                    "control_logic",
+                    "fault_scenarios",
+                    "fault_detection_time",
+                    "redundancy",
+                    "distributed_control_system",
+                    "real_time_diagnostic_system",
+                    "safety_regulations"
+                ],
+                "relations": [
+                    "sensors_monitor",
+                    "actuators_control",
+                    "control_logic_regulates",
+                    "fault_scenarios_affect",
+                    "redundancy_ensures",
+                    "distributed_control_system_integrates",
+                    "real_time_diagnostic_system_detects",
+                    "safety_regulations_govern"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "43fdc487-689b-46aa-861a-68b7a3e7c058",
+        "task_details": {
+            "task_instructions": "Design a multi-stage axial compressor for a gas turbine engine that meets specific performance requirements. The compressor should be optimized for maximum efficiency and minimum weight, while ensuring structural integrity under operational loads. Provide a detailed design including blade geometry, stage-by-stage pressure and temperature distributions, and a prediction of overall compressor performance.",
+            "task_data": {
+                "data_points": {
+                    "inlet_conditions": {
+                        "total_pressure": 101325,
+                        "total_temperature": 288.15,
+                        "mass_flow_rate": 50,
+                        "inlet_area": 0.5
+                    },
+                    "design_requirements": {
+                        "pressure_ratio": 15,
+                        "rotational_speed": 15000,
+                        "max_tip_radius": 0.5
+                    },
+                    "material_properties": {
+                        "density": 8000,
+                        "yield_strength": 1200000000.0,
+                        "youngs_modulus": 210000000000.0,
+                        "poissons_ratio": 0.3
+                    },
+                    "operational_conditions": {
+                        "max_centrifugal_load": 50000,
+                        "max_thermal_load": 1000
+                    }
+                }
+            },
+            "mathematical_formulation": "1. Compressor Performance: P_ratio = P_outlet / P_inlet, where P_ratio is the pressure ratio, P_outlet is the outlet pressure, and P_inlet is the inlet pressure. 2. Blade Geometry: β = arctan(U/C), where β is the blade angle, U is the blade velocity, and C is the flow velocity. 3. Structural Integrity: σ_max = (ρ * ω^2 * r^2) / 2, where σ_max is the maximum stress, ρ is the material density, ω is the angular velocity, and r is the radius. 4. Efficiency: η = (h_is - h_in) / (h_out - h_in), where η is the efficiency, h_is is the isentropic enthalpy, h_in is the inlet enthalpy, and h_out is the outlet enthalpy.",
+            "ontology": {
+                "entities": [
+                    "axial_compressor",
+                    "blade_geometry",
+                    "pressure_ratio",
+                    "mass_flow_rate",
+                    "rotational_speed",
+                    "structural_integrity",
+                    "centrifugal_load",
+                    "thermal_load",
+                    "efficiency"
+                ],
+                "relations": [
+                    "blade_geometry affects pressure_ratio",
+                    "mass_flow_rate influences rotational_speed",
+                    "structural_integrity depends on centrifugal_load and thermal_load",
+                    "efficiency is a function of blade_geometry and pressure_ratio"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "ed29c9c5-ae1e-4c23-acb5-5e18df8a8bb4",
+        "task_details": {
+            "task_instructions": "Design an optimal control system for a quadrotor unmanned aerial vehicle (UAV) to navigate through a dense urban environment with dynamic obstacles, minimizing energy consumption and ensuring safe operational boundaries.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_specifications": {
+                        "mass": 1.5,
+                        "rotor_radius": 0.2,
+                        "max_thrust": 20,
+                        "battery_capacity": 5000,
+                        "max_speed": 15,
+                        "max_acceleration": 5
+                    },
+                    "environment_parameters": {
+                        "wind_speed": 3,
+                        "wind_direction": "North-East",
+                        "obstacle_density": 0.3,
+                        "obstacle_velocity_range": [
+                            0,
+                            2
+                        ]
+                    },
+                    "mission_parameters": {
+                        "start_point": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "end_point": [
+                            100,
+                            100,
+                            50
+                        ],
+                        "max_flight_time": 300,
+                        "safety_margin": 1
+                    }
+                }
+            },
+            "mathematical_formulation": "The control system should optimize the following cost function:\n\nJ = ∫(L(x, u, t) + λ(t) * g(x, u, t)) dt\n\nwhere:\n- L(x, u, t) is the Lagrangian representing energy consumption,\n- λ(t) is the Lagrange multiplier for the constraints,\n- g(x, u, t) represents the safety and operational constraints.\n\nThe dynamics of the quadrotor can be described by the following state-space equations:\n\nẋ = f(x, u) = Ax + Bu\n\nwhere:\n- x is the state vector [position, velocity, orientation, angular velocity],\n- u is the control input [thrust, torques],\n- A and B are the system matrices.\n\nThe constraints include:\n- |u| ≤ u_max (control input limits),\n- |x| ≤ x_safe (safe operational boundaries).",
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "UAV",
+                    "urban environment",
+                    "dynamic obstacles",
+                    "control system",
+                    "energy consumption",
+                    "operational boundaries",
+                    "state-space equations",
+                    "Lagrangian",
+                    "Lagrange multiplier",
+                    "safety constraints"
+                ],
+                "relations": [
+                    "quadrotor navigates through urban environment",
+                    "control system optimizes energy consumption",
+                    "dynamic obstacles affect quadrotor path",
+                    "state-space equations describe quadrotor dynamics",
+                    "Lagrangian represents energy consumption",
+                    "Lagrange multiplier enforces safety constraints",
+                    "operational boundariesensure safe navigation"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "05b50221-c1aa-45ea-96ff-1f17430a91b9",
+        "task_details": {
+            "task_instructions": "Design an energy-efficient space habitat for the colonization of Mars. Assume a mission life-cycle of 20 years and a capacity to sustainably house 200 space colonists. The vehicle must maintain short and long-term climate control systems while ensuring sustainable oxygen production, waste management, and radiation protection.",
+            "task_data": {
+                "data_points": {
+                    "mission_duration": 20,
+                    "colonist_population": 200,
+                    "gravity_mars": 0.378,
+                    "atmospheric_pressure_mars": 600,
+                    "average_temperature_mars": -60,
+                    "radiation_levels_mars": {
+                        "solar_particle_events": "high",
+                        "galactic_cosmic_rays": "high"
+                    },
+                    "oxygen_requirement_per_colonist": 0.84,
+                    "water_requirement_per_colonist": 3.0,
+                    "food_requirement_per_colonist": 2.0,
+                    "waste_production_per_colonist": 1.2,
+                    "energy_requirement_per_colonist": 5.0
+                }
+            },
+            "mathematical_formulation": {
+                "oxygen_production_rate": "O_2 >= 0.84 * 200",
+                "water_recycling_efficiency": "W >= 3.0 * 200 * (1 - recycling_loss_factor)",
+                "energy_balance_equation": "E_produced >= E_consumed",
+                "thermal_control_equation": "Q_heating - Q_cooling = 0",
+                "radiation_shielding_effectiveness": "R_shielding >= R_required"
+            },
+            "ontology": {
+                "entities": [
+                    "Space Habitat",
+                    "Mars Colonization",
+                    "Climate Control System",
+                    "Oxygen Production System",
+                    "Waste Management System",
+                    "Radiation Protection System",
+                    "Sustainable Energy Source",
+                    "Life Support System",
+                    "Habitat Design",
+                    "Mission Life-Cycle",
+                    "Colonist Population"
+                ],
+                "relations": [
+                    "Space Habitat supports Mars Colonization",
+                    "Climate Control System regulates temperature in Space Habitat",
+                    "Oxygen Production System supplies oxygen to Colonist Population",
+                    "Waste Management System processes waste from Colonist Population",
+                    "Radiation Protection System shields Colonist Population",
+                    "Sustainable Energy Source powers Space Habitat",
+                    "Life Support System maintains Colonist Population",
+                    "Habitat Design considers Mission Life-Cycle",
+                    "Mission Life-Cycle determines resource requirements for Colonist Population"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "963fa9ce-b717-4ea9-a380-6cdf608a3869",
+        "task_details": {
+            "task_instructions": "Design a multi-objective optimization framework for a renewable energy microgrid system that includes wind turbines, solar panels, and energy storage systems. The framework should minimize the levelized cost of energy (LCOE) and maximize the system's reliability, defined as the probability of meeting the demand. The optimization should consider stochastic variations in wind speed, solar irradiance, and energy demand over a 24-hour period.",
+            "task_data": {
+                "data_points": {
+                    "wind_turbines": {
+                        "capacity": 2000,
+                        "cut_in_speed": 3,
+                        "cut_out_speed": 25,
+                        "rated_speed": 12
+                    },
+                    "solar_panels": {
+                        "capacity": 1000,
+                        "efficiency": 0.15
+                    },
+                    "energy_storage": {
+                        "capacity": 500,
+                        "efficiency": 0.9
+                    },
+                    "wind_speed_data": [
+                        3.5,
+                        4.2,
+                        5.1,
+                        6.3,
+                        7.8,
+                        8.5,
+                        9.2,
+                        10.1,
+                        11.3,
+                        12.5,
+                        13.2,
+                        14.1,
+                        15.3,
+                        16.5,
+                        17.2,
+                        18.1,
+                        19.3,
+                        20.5,
+                        21.2,
+                        22.1,
+                        23.3,
+                        24.5,
+                        23.2,
+                        22.1
+                    ],
+                    "solar_irradiance_data": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        50,
+                        100,
+                        150,
+                        200,
+                        250,
+                        300,
+                        350,
+                        400,
+                        450,
+                        500,
+                        550,
+                        600,
+                        650,
+                        700,
+                        750,
+                        800,
+                        850,
+                        900,
+                        950,
+                        1000
+                    ],
+                    "energy_demand_data": [
+                        50,
+                        60,
+                        70,
+                        80,
+                        90,
+                        100,
+                        110,
+                        120,
+                        130,
+                        140,
+                        150,
+                        160,
+                        170,
+                        180,
+                        190,
+                        200,
+                        210,
+                        220,
+                        230,
+                        240,
+                        250,
+                        260,
+                        270,
+                        280
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "objective_functions": {
+                    "LCOE_minimization": "minimize (C_wind + C_solar + C_storage) / E_total",
+                    "reliability_maximization": "maximize P(demand_met)"
+                },
+                "constraints": {
+                    "energy_balance": "E_wind(t) + E_solar(t) + E_storage(t) >= demand(t)",
+                    "storage_capacity": "0 <= E_storage(t) <= capacity_storage",
+                    "wind_power_curve": "P_wind(t) = 0.5 * rho * A * Cp * V_wind(t)^3",
+                    "solar_power": "P_solar(t) = G_solar(t) * A_solar * efficiency_solar"
+                },
+                "stochastic_variables": {
+                    "wind_speed": "V_wind(t) ~ Normal(mu_wind, sigma_wind)",
+                    "solar_irradiance": "G_solar(t) ~ Normal(mu_solar, sigma_solar)",
+                    "energy_demand": "demand(t) ~ Normal(mu_demand, sigma_demand)"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "wind_turbines",
+                    "solar_panels",
+                    "energy_storage",
+                    "wind_speed",
+                    "solar_irradiance",
+                    "energy_demand",
+                    "LCOE",
+                    "reliability"
+                ],
+                "relations": [
+                    "generates_power(wind_turbines, wind_speed)",
+                    "generates_power(solar_panels, solar_irradiance)",
+                    "stores_energy(energy_storage)",
+                    "meets_demand(energy_storage, energy_demand)",
+                    "optimizes(LCOE, reliability)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b6c459ac-febd-407f-81b1-1d9fb169b5ad",
+        "task_details": {
+            "task_instructions": "Design an optimal HVAC (Heating, Ventilation, and Air Conditioning) system for a 50-story commercial building located in a region with extreme temperature variations ranging from -20°C to 40°C. The system should minimize energy consumption while maintaining indoor temperatures between 20°C and 25°C. Consider factors such as building occupancy, solar radiation, and wind speed. Provide a detailed schematic of the system, including component specifications and control strategies.",
+            "task_data": {
+                "data_points": {
+                    "building_specifications": {
+                        "height": 200,
+                        "floor_area": 2000,
+                        "number_of_floors": 50,
+                        "window_to_wall_ratio": 0.4,
+                        "occupancy_schedule": {
+                            "monday_friday": {
+                                "08:00-18:00": 5000,
+                                "18:00-22:00": 1000,
+                                "22:00-08:00": 500
+                            },
+                            "saturday_sunday": {
+                                "08:00-14:00": 2000,
+                                "14:00-22:00": 500,
+                                "22:00-08:00": 200
+                            }
+                        }
+                    },
+                    "environmental_conditions": {
+                        "temperature_range": {
+                            "min": -20,
+                            "max": 40
+                        },
+                        "solar_radiation": {
+                            "peak": 1000,
+                            "average": 500
+                        },
+                        "wind_speed": {
+                            "average": 5,
+                            "peak": 20
+                        }
+                    },
+                    "indoor_comfort_requirements": {
+                        "temperature_range": {
+                            "min": 20,
+                            "max": 25
+                        },
+                        "humidity_range": {
+                            "min": 40,
+                            "max": 60
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": "The energy consumption E of the HVAC system can be modeled as E = ∫(Q_heating + Q_cooling + P_fan + P_pump) dt, where Q_heating and Q_cooling are the heating and cooling loads, respectively, and P_fan and P_pump are the power consumptions of the fans and pumps. The heating and cooling loads can be calculated using the equations Q_heating = m * c_p * (T_supply - T_return) and Q_cooling = m * c_p * (T_return - T_supply), where m is the mass flow rate of the air, c_p is the specific heat capacity of air, and T_supply and T_return are the supply and return air temperatures.",
+            "ontology": {
+                "entities": [
+                    "HVAC system",
+                    "Commercial building",
+                    "Energy consumption",
+                    "Indoor temperature",
+                    "Occupancy schedule",
+                    "Solar radiation",
+                    "Wind speed",
+                    "Heating load",
+                    "Cooling load",
+                    "Fan power",
+                    "Pump power",
+                    "Mass flow rate",
+                    "Specific heat capacity",
+                    "Supply air temperature",
+                    "Return air temperature"
+                ],
+                "relations": [
+                    "HVAC system regulates indoor temperature",
+                    "Energy consumption depends on heating load, cooling load, fan power, and pump power",
+                    "Heating load and cooling load are functions of mass flow rate, specific heat capacity, supply air temperature, and return air temperature",
+                    "Occupancy schedule affects energy consumption",
+                    "Solar radiation and wind speed influence heating and cooling loads"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "ab32511b-0218-4b1c-982f-cde3dafcb9e7",
+        "task_details": {
+            "task_instructions": "Design a multi-objective optimization algorithm for the placement of wind turbines in a large-scale offshore wind farm to maximize energy production, minimize environmental impact, and reduce costs, considering complex geospatial, meteorological, and structural engineering constraints.",
+            "task_data": {
+                "data_points": {
+                    "wind_farm_area": {
+                        "latitude_range": [
+                            53.0,
+                            54.0
+                        ],
+                        "longitude_range": [
+                            -3.0,
+                            -2.0
+                        ]
+                    },
+                    "wind_speed_data": {
+                        "mean_wind_speed": 8.5,
+                        "wind_speed_distribution": {
+                            "Jan": 9.0,
+                            "Feb": 8.8,
+                            "Mar": 8.5,
+                            "Apr": 8.0,
+                            "May": 7.5,
+                            "Jun": 7.0,
+                            "Jul": 6.5,
+                            "Aug": 6.8,
+                            "Sep": 7.2,
+                            "Oct": 7.8,
+                            "Nov": 8.2,
+                            "Dec": 8.7
+                        }
+                    },
+                    "environmental_constraints": {
+                        "noise_limits": 45,
+                        "bird_migration_paths": [
+                            {
+                                "path_id": 1,
+                                "coordinates": [
+                                    [
+                                        53.5,
+                                        -2.5
+                                    ],
+                                    [
+                                        53.8,
+                                        -2.8
+                                    ]
+                                ]
+                            },
+                            {
+                                "path_id": 2,
+                                "coordinates": [
+                                    [
+                                        53.6,
+                                        -2.6
+                                    ],
+                                    [
+                                        53.9,
+                                        -2.9
+                                    ]
+                                ]
+                            }
+                        ]
+                    },
+                    "cost_parameters": {
+                        "turbine_cost": 3000000,
+                        "maintenance_cost_per_year": 50000,
+                        "installation_cost_per_turbine": 500000
+                    },
+                    "structural_constraints": {
+                        "max_turbine_height": 150,
+                        "min_distance_between_turbines": 500,
+                        "soil_type": "sandy"
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "objective_functions": {
+                    "maximize_energy_production": "Maximize E = Σ (P_i * t_i)",
+                    "minimize_environmental_impact": "Minimize I = Σ (N_i + B_i)",
+                    "reduce_costs": "Minimize C = Σ (C_i + M_i + I_i)"
+                },
+                "constraints": {
+                    "geospatial_constraints": "x_i, y_i ∈ wind_farm_area",
+                    "wind_speed_constraint": "v_i ≥ v_min",
+                    "noise_constraint": "N_i ≤ noise_limits",
+                    "bird_migration_constraint": "B_i ∩ bird_migration_paths = ∅",
+                    "turbine_height_constraint": "h_i ≤ max_turbine_height",
+                    "turbine_distance_constraint": "d_ij ≥ min_distance_between_turbines"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "wind_farm_area",
+                    "wind_speed_data",
+                    "environmental_constraints",
+                    "cost_parameters",
+                    "structural_constraints",
+                    "turbine",
+                    "noise_limits",
+                    "bird_migration_paths",
+                    "soil_type"
+                ],
+                "relations": [
+                    "wind_farm_area contains turbine",
+                    "turbine affected_by wind_speed_data",
+                    "turbine constrained_by environmental_constraints",
+                    "turbine has cost_parameters",
+                    "turbine constrained_by structural_constraints",
+                    "turbine produces noise_limits",
+                    "turbine avoids bird_migration_paths",
+                    "turbine installed_on soil_type"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "56a9d342-7165-432e-a1d3-4d467c09667a",
+        "task_details": {
+            "task_instructions": "Design an optimized wind farm layout for maximum power generation efficiency, considering wake effects, terrain roughness, and environmental constraints. The layout should include the placement of wind turbines, their respective hub heights, and rotor diameters. The goal is to maximize the overall power output while minimizing the cost and environmental impact.",
+            "task_data": {
+                "data_points": {
+                    "wind_speed_distribution": {
+                        "mean": 8.5,
+                        "standard_deviation": 2.3,
+                        "weibull_shape_parameter": 2.0,
+                        "weibull_scale_parameter": 10.0
+                    },
+                    "terrain_roughness": 0.3,
+                    "air_density": 1.225,
+                    "environmental_constraints": {
+                        "noise_limit": 45,
+                        "shadow_flicker_limit": 30,
+                        "proximity_to_residential_areas": 500
+                    },
+                    "wind_turbine_specifications": {
+                        "turbine_1": {
+                            "hub_height": 80,
+                            "rotor_diameter": 120,
+                            "power_curve": [
+                                {
+                                    "wind_speed": 3,
+                                    "power_output": 0
+                                },
+                                {
+                                    "wind_speed": 5,
+                                    "power_output": 100
+                                },
+                                {
+                                    "wind_speed": 10,
+                                    "power_output": 1500
+                                },
+                                {
+                                    "wind_speed": 20,
+                                    "power_output": 3000
+                                }
+                            ],
+                            "cost": 1500000
+                        },
+                        "turbine_2": {
+                            "hub_height": 100,
+                            "rotor_diameter": 140,
+                            "power_curve": [
+                                {
+                                    "wind_speed": 3,
+                                    "power_output": 0
+                                },
+                                {
+                                    "wind_speed": 5,
+                                    "power_output": 120
+                                },
+                                {
+                                    "wind_speed": 10,
+                                    "power_output": 1800
+                                },
+                                {
+                                    "wind_speed": 20,
+                                    "power_output": 3500
+                                }
+                            ],
+                            "cost": 1800000
+                        }
+                    },
+                    "wake_effect_model": "Jensen's model",
+                    "land_area": {
+                        "length": 2000,
+                        "width": 1500
+                    }
+                }
+            },
+            "mathematical_formulation": "Maximize the total power output P_total = ∑ P_i(v_i), where P_i(v_i) is the power output of the i-th turbine as a function of the wind speed v_i at its location. The wind speed v_i is influenced by the wake effects from upstream turbines, modeled by Jensen's wake model: v_i = v_0 * (1 - (2a / (1 + α * (x / D)^2))), where v_0 is the free stream wind speed, a is the axial induction factor, α is the wake decay constant, x is the downstream distance, and D is the rotor diameter. The cost function C_total = ∑ C_i, where C_i is the cost of the i-th turbine. The optimization problem is subject to the constraints: noise levels < 45 dB, shadow flicker < 30 hours/year, and minimum distance to residential areas > 500 meters.",
+            "ontology": {
+                "entities": [
+                    "wind farm",
+                    "wind turbine",
+                    "hub height",
+                    "rotor diameter",
+                    "power curve",
+                    "wake effect",
+                    "terrain roughness",
+                    "air density",
+                    "noise limit",
+                    "shadow flicker",
+                    "residential areas"
+                ],
+                "relations": [
+                    "wind turbine is placed in wind farm",
+                    "hub height is a property of wind turbine",
+                    "rotor diameter is a property of wind turbine",
+                    "power curve is a characteristic of wind turbine",
+                    "wake effect influences wind speed at downstream turbines",
+                    "terrain roughness affects wind speed distribution",
+                    "air density affects power output",
+                    "noise limit constrains turbine placement",
+                    "shadow flicker constrains turbine placement",
+                    "residential areas impose proximity constraints"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "2f1cc95b-4e06-4c3e-b5b9-bc33e376570a",
+        "task_details": {
+            "task_instructions": "Design a multi-stage axial compressor for a gas turbine engine, optimizing for maximum pressure ratio and minimum weight, while ensuring structural integrity and aerodynamic stability. The compressor should meet the performance requirements specified below, using advanced materials and manufacturing techniques.",
+            "task_data": {
+                "data_points": {
+                    "inlet_mass_flow_rate": 50.0,
+                    "inlet_total_pressure": 101325.0,
+                    "inlet_total_temperature": 288.15,
+                    "pressure_ratio": 15.0,
+                    "rotational_speed": 15000.0,
+                    "materials": [
+                        "Inconel 718",
+                        "Ti-6Al-4V",
+                        "Haynes 282"
+                    ],
+                    "manufacturing_techniques": [
+                        "Investment Casting",
+                        "Forging",
+                        "Additive Manufacturing"
+                    ],
+                    "max_allowable_vibration": 5.0,
+                    "max_allowable_deflection": 0.5,
+                    "life_cycle": 10000.0
+                }
+            },
+            "mathematical_formulation": {
+                "compressor_pressure_ratio": "PR = P_exit / P_inlet",
+                "compressor_efficiency": "η = (PR^((γ-1)/γ) - 1) / (T_exit / T_inlet - 1)",
+                "mass_flow_rate": "ṁ = ρ * A * V",
+                "structural_integrity": "σ_max < σ_yield",
+                "vibration_constraint": "a_rms < max_allowable_vibration",
+                "deflection_constraint": "δ < max_allowable_deflection",
+                "life_cycle_constraint": "N_cycles > life_cycle"
+            },
+            "ontology": {
+                "entities": [
+                    "Axial Compressor",
+                    "Gas Turbine Engine",
+                    "Pressure Ratio",
+                    "Mass Flow Rate",
+                    "Total Pressure",
+                    "Total Temperature",
+                    "Rotational Speed",
+                    "Inconel 718",
+                    "Ti-6Al-4V",
+                    "Haynes 282",
+                    "Investment Casting",
+                    "Forging",
+                    "Additive Manufacturing",
+                    "Vibration",
+                    "Deflection",
+                    "Life Cycle",
+                    "Structural Integrity",
+                    "Aerodynamic Stability"
+                ],
+                "relations": [
+                    "Axial Compressor is a component of Gas Turbine Engine",
+                    "Pressure Ratio is a performance metric of Axial Compressor",
+                    "Mass Flow Rate is a parameter of Axial Compressor",
+                    "Total Pressure is a boundary condition of Axial Compressor",
+                    "Total Temperature is a boundary condition of Axial Compressor",
+                    "Rotational Speed is an operating parameter of Axial Compressor",
+                    "Inconel 718 is a material for Axial Compressor",
+                    "Ti-6Al-4V is a material for Axial Compressor",
+                    "Haynes 282 is a material for Axial Compressor",
+                    "Investment Casting is a manufacturing technique for Axial Compressor",
+                    "Forging is a manufacturing technique for Axial Compressor",
+                    "Additive Manufacturing is a manufacturing technique for Axial Compressor",
+                    "Vibration is a constraint for Axial Compressor",
+                    "Deflection is a constraint for Axial Compressor",
+                    "Life Cycle is a constraint for Axial Compressor",
+                    "Structural Integrity is a requirement for Axial Compressor",
+                    "Aerodynamic Stability is a requirement for Axial Compressor"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b6c240f4-15c5-4c1e-ab11-911407bfc17b",
+        "task_details": {
+            "task_instructions": "Design a microgrid system for a small community of 500 households aiming for 99.9% renewable energy integration. The system should include photovoltaic (PV) panels, wind turbines, and energy storage systems (ESS). Optimize the system for minimal levelized cost of electricity (LCOE) while ensuring reliability and resilience. Provide a detailed design including component sizing, interconnection schematics, and control strategies.",
+            "task_data": {
+                "data_points": {
+                    "household_energy_demand": {
+                        "peak_demand": 500,
+                        "average_daily_consumption": 12000
+                    },
+                    "renewable_energy_resources": {
+                        "solar_irradiance": 5.5,
+                        "wind_speed": 7.2
+                    },
+                    "technical_specifications": {
+                        "pv_panel_efficiency": 0.2,
+                        "wind_turbine_capacity_factor": 0.35,
+                        "ess_round_trip_efficiency": 0.85
+                    },
+                    "economic_parameters": {
+                        "pv_cost_per_kw": 1200,
+                        "wind_turbine_cost_per_kw": 1800,
+                        "ess_cost_per_kwh": 400,
+                        "discount_rate": 0.07,
+                        "project_lifetime": 25
+                    }
+                }
+            },
+            "mathematical_formulation": "Minimize LCOE = (Initial Investment + Operation and Maintenance Costs) / (Total Energy Output over Lifetime)\nSubject to:\n1. Energy Balance: Generation + Storage Discharge = Demand + Storage Charge + Losses\n2. Reliability Constraint: Probability of Meeting Demand ≥ 99.9%\n3. Component Sizing Constraints: PV Capacity ≥ Minimum Required, Wind Capacity ≥ Minimum Required, ESS Capacity ≥ Minimum Required",
+            "ontology": {
+                "entities": [
+                    "Microgrid",
+                    "Photovoltaic (PV) Panels",
+                    "Wind Turbines",
+                    "Energy Storage Systems (ESS)",
+                    "Levelized Cost of Electricity (LCOE)",
+                    "Reliability",
+                    "Resilience",
+                    "Household Energy Demand",
+                    "Renewable Energy Resources",
+                    "Technical Specifications",
+                    "Economic Parameters"
+                ],
+                "relations": [
+                    "Microgrid integrates PV Panels",
+                    "Microgrid integrates Wind Turbines",
+                    "Microgrid integrates ESS",
+                    "LCOE is minimized for Microgrid design",
+                    "Reliability and Resilience are ensured in Microgrid design",
+                    "Household Energy Demand is met by Microgrid",
+                    "Renewable Energy Resources are utilized by Microgrid",
+                    "Technical Specifications define component performance",
+                    "Economic Parameters influence Microgrid design"
+                ]
+            }
+        }
+    }
+]

@@ -1,0 +1,2864 @@
+[
+    {
+        "task_id": "da38e7b0-6c7f-4d9a-ac3b-f37fdc275c5d",
+        "task_details": {
+            "task_instructions": "Design a multi-objective optimization model for the load distribution and energy efficiency in a smart grid system. The objective is to minimize the cost of electricity generation and transmission while maximizing the integration of renewable energy sources and maintaining grid stability. Consider constraints such as power demand satisfaction, generator capacity limits, and transmission line capacities.",
+            "task_data": {
+                "data_points": {
+                    "generators": [
+                        {
+                            "id": "G1",
+                            "capacity": 100,
+                            "cost_per_mwh": 50,
+                            "renewable": false
+                        },
+                        {
+                            "id": "G2",
+                            "capacity": 200,
+                            "cost_per_mwh": 40,
+                            "renewable": true
+                        },
+                        {
+                            "id": "G3",
+                            "capacity": 150,
+                            "cost_per_mwh": 45,
+                            "renewable": false
+                        }
+                    ],
+                    "demand_centers": [
+                        {
+                            "id": "D1",
+                            "demand_mwh": 120
+                        },
+                        {
+                            "id": "D2",
+                            "demand_mwh": 180
+                        },
+                        {
+                            "id": "D3",
+                            "demand_mwh": 130
+                        }
+                    ],
+                    "transmission_lines": [
+                        {
+                            "from": "G1",
+                            "to": "D1",
+                            "capacity": 50,
+                            "loss_percentage": 2
+                        },
+                        {
+                            "from": "G2",
+                            "to": "D2",
+                            "capacity": 80,
+                            "loss_percentage": 1.5
+                        },
+                        {
+                            "from": "G3",
+                            "to": "D3",
+                            "capacity": 70,
+                            "loss_percentage": 3
+                        }
+                    ],
+                    "renewable_energy_sources": [
+                        {
+                            "id": "R1",
+                            "type": "solar",
+                            "capacity": 50
+                        },
+                        {
+                            "id": "R2",
+                            "type": "wind",
+                            "capacity": 60
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Minimize (sum_i c_i * x_i) subject to sum_j x_ij >= d_j for all j; sum_j x_ij <= C_i for all i; sum_{i,j} l_ij * x_ij <= T_ij for all (i, j); Objective: min(cost * generation + transmission loss) / (max(renewable integration) + grid stability constraint)",
+            "ontology": {
+                "entities": [
+                    "generator",
+                    "demand center",
+                    "transmission line",
+                    "renewable energy source",
+                    "energy efficiency",
+                    "grid stability"
+                ],
+                "relations": [
+                    "connects_to",
+                    "supplies",
+                    "generates",
+                    "distributes"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "9a1320e7-1756-432f-ac0e-ec05f387f863",
+        "task_details": {
+            "task_instructions": "Develop a predictive maintenance algorithm for a fleet of industrial machines. The algorithm should analyze historical operational data to predict failures and schedule maintenance proactively. The task involves creating a robust machine learning model that can handle time-series data and provide accurate predictions.",
+            "task_data": {
+                "machine_1": {
+                    "operational_hours": [
+                        100,
+                        200,
+                        300,
+                        400,
+                        500
+                    ],
+                    "temperature": [
+                        75,
+                        78,
+                        80,
+                        82,
+                        85
+                    ],
+                    "vibration": [
+                        0.15,
+                        0.2,
+                        0.25,
+                        0.3,
+                        0.35
+                    ],
+                    "failure": [
+                        0,
+                        0,
+                        1,
+                        0,
+                        1
+                    ]
+                },
+                "machine_2": {
+                    "operational_hours": [
+                        120,
+                        240,
+                        360,
+                        480,
+                        600
+                    ],
+                    "temperature": [
+                        70,
+                        72,
+                        74,
+                        76,
+                        78
+                    ],
+                    "vibration": [
+                        0.1,
+                        0.12,
+                        0.14,
+                        0.16,
+                        0.18
+                    ],
+                    "failure": [
+                        0,
+                        1,
+                        0,
+                        1,
+                        0
+                    ]
+                },
+                "machine_3": {
+                    "operational_hours": [
+                        150,
+                        300,
+                        450,
+                        600,
+                        750
+                    ],
+                    "temperature": [
+                        80,
+                        82,
+                        84,
+                        86,
+                        88
+                    ],
+                    "vibration": [
+                        0.18,
+                        0.22,
+                        0.26,
+                        0.3,
+                        0.34
+                    ],
+                    "failure": [
+                        1,
+                        0,
+                        1,
+                        0,
+                        1
+                    ]
+                }
+            },
+            "mathematical_formulation": "P(failure | operational_data) = P(failure | operational_hours, temperature, vibration) = \\sigma(w_1x_1 + w_2x_2 + w_3x_3 + b)",
+            "ontology": {
+                "entities": [
+                    "operational_hours",
+                    "temperature",
+                    "vibration",
+                    "failure",
+                    "machine",
+                    "predictive_maintenance",
+                    "machine_learning_model"
+                ],
+                "relations": [
+                    "operational_hours affects failure",
+                    "temperature affects failure",
+                    "vibration affects failure",
+                    "machine has operational_data",
+                    "machine undergoes predictive_maintenance"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "c8767aad-bcfc-49e2-a206-740f8a73953b",
+        "task_details": {
+            "task_instructions": "Develop an algorithm to optimize the placement of sensors in a smart city infrastructure to maximize coverage and minimize cost. The algorithm must consider various types of sensors, each with specific range, cost, and reliability. The city area is represented as a grid, and each cell may have different levels of importance and environmental factors affecting sensor performance. The objective is to cover at least 95% of the high-importance areas with an overall budget constraint, ensuring reliability and redundancy in sensor coverage.",
+            "task_data": {
+                "city_grid": {
+                    "dimensions": [
+                        100,
+                        100
+                    ],
+                    "high_importance_areas": [
+                        [
+                            5,
+                            5
+                        ],
+                        [
+                            10,
+                            22
+                        ],
+                        [
+                            30,
+                            40
+                        ],
+                        [
+                            55,
+                            60
+                        ],
+                        [
+                            70,
+                            75
+                        ],
+                        [
+                            90,
+                            10
+                        ]
+                    ],
+                    "environmental_factors": [
+                        [
+                            0.8,
+                            0.9,
+                            1.0
+                        ],
+                        [
+                            95,
+                            50
+                        ],
+                        [
+                            13,
+                            67
+                        ]
+                    ],
+                    "budget": 50000
+                },
+                "sensors": [
+                    {
+                        "type": "Type A",
+                        "range": 5,
+                        "cost": 500,
+                        "reliability": 0.95
+                    },
+                    {
+                        "type": "Type B",
+                        "range": 8,
+                        "cost": 1000,
+                        "reliability": 0.9
+                    },
+                    {
+                        "type": "Type C",
+                        "range": 10,
+                        "cost": 1500,
+                        "reliability": 0.85
+                    }
+                ]
+            },
+            "mathematical_formulation": "Maximize Coverage = Σ(Coverage(i,j) * Importance(i,j)) / Total_Importance, Subject to Coverage(i,j) >= 0.95 for all (i,j) ∈ High_Importance_Areas, Σ(Cost(s)) <= Budget, for all sensors s placed.",
+            "ontology": {
+                "entities": [
+                    "Sensor",
+                    "City Grid",
+                    "High Importance Areas",
+                    "Environmental Factors",
+                    "Budget"
+                ],
+                "relations": [
+                    "Sensor has range",
+                    "Sensor has cost",
+                    "Sensor has reliability",
+                    "Grid contains high importance areas",
+                    "Environmental factors affect sensor performance"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b0a1ff82-f519-4338-be42-dab5a15807c4",
+        "task_details": {
+            "task_instructions": "Design and optimize a truss structure for a pedestrian bridge that must span 30 meters across a river while minimizing the weight and material cost. The structure should be designed to support a uniform pedestrian load and must comply with engineering safety standards and environmental constraints, such as limited material types availability and load distribution requirements.",
+            "task_data": {
+                "data_points": {
+                    "material_types": {
+                        "Steel": {
+                            "density": 7850,
+                            "cost_per_kg": 2.5,
+                            "maximum_stress": 250
+                        },
+                        "Aluminum": {
+                            "density": 2700,
+                            "cost_per_kg": 4.5,
+                            "maximum_stress": 150
+                        },
+                        "Composite": {
+                            "density": 1600,
+                            "cost_per_kg": 6.0,
+                            "maximum_stress": 120
+                        }
+                    },
+                    "span_length": 30,
+                    "width": 3,
+                    "live_load": 5.0,
+                    "safety_factor": 1.5,
+                    "environmental_constraints": {
+                        "maximum_height": 5,
+                        "minimum_clearance": 3,
+                        "max_material_usage": 10000
+                    }
+                }
+            },
+            "mathematical_formulation": "Minimize: \nW = \\sum_{i} V_i \\times \\rho_i \nCost = \\sum_{i} V_i \\times \\text{Cost/kg}_i \nSubject to: \n\\sigma \\leq \\frac{\\sigma_{max}}{\\text{SF}} \n\\sum_{i} V_i \\times \\rho_i \\leq \\text{max_material_usage} \nWhere: \nV_i = \\text{Volume of member }i \n\\rho_i = \\text{Density of material }i \n\\sigma = \\text{Stress on member} \n\\sigma_{max} = \\text{Maximum stress capacity of material} \n\\text{SF} = \\text{Safety Factor}",
+            "ontology": {
+                "entities": [
+                    "Truss Structure",
+                    "Pedestrian Bridge",
+                    "Material Type",
+                    "Volume",
+                    "Cost",
+                    "Stress",
+                    "Safety Factor",
+                    "Density",
+                    "Live Load",
+                    "Maximum Stress"
+                ],
+                "relations": [
+                    "Truss Structure uses Material Type",
+                    "Truss Structure has Volume",
+                    "Material Type has Density",
+                    "Material Type has Maximum Stress",
+                    "Volume contributes to Weight",
+                    "Stress is influenced by Live Load",
+                    "Cost is a function of Volume and Cost per kg",
+                    "Truss Structure must adhere to Environmental Constraints"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "942b9fe2-153f-4961-8229-121e9d809823",
+        "task_details": {
+            "task_instructions": "Develop a computational model to predict the thermal efficiency of a novel thermal power plant system incorporating both conventional and renewable energy sources. The model must account for dynamic changes in fuel compositions, real-time weather variations, and operational parameters. Perform a sensitivity analysis on the system to identify key variables impacting efficiency.",
+            "task_data": {
+                "data_points": {
+                    "fuel_compositions": {
+                        "data": [
+                            {
+                                "type": "conventional",
+                                "calorific_value": 35.5,
+                                "mass_flow_rate": 50
+                            },
+                            {
+                                "type": "biomass",
+                                "calorific_value": 17.9,
+                                "mass_flow_rate": 30
+                            }
+                        ],
+                        "unit": "MJ/kg"
+                    },
+                    "weather_conditions": {
+                        "data": [
+                            {
+                                "temperature": 28,
+                                "humidity": 65,
+                                "wind_speed": 8
+                            },
+                            {
+                                "temperature": 32,
+                                "humidity": 60,
+                                "wind_speed": 10
+                            }
+                        ],
+                        "unit": "Celsius, %, m/s"
+                    },
+                    "operational_parameters": {
+                        "steam_pressure": [
+                            100,
+                            120,
+                            150
+                        ],
+                        "turbine_efficiency": [
+                            0.85,
+                            0.88,
+                            0.9
+                        ],
+                        "pump_efficiency": [
+                            0.75,
+                            0.78,
+                            0.8
+                        ],
+                        "unit": "bar, dimensionless"
+                    }
+                }
+            },
+            "mathematical_formulation": "Thermal efficiency (η) = (W_out / Q_in) * 100, where W_out is the net work output and Q_in is the heat input. Q_in can be calculated based on mass flow rate and calorific value of each fuel source, adjusted by an efficiency factor determined by real-time conditions and operational parameters.",
+            "ontology": {
+                "entities": [
+                    "thermal efficiency",
+                    "fuel composition",
+                    "real-time weather",
+                    "operational parameters"
+                ],
+                "relations": [
+                    {
+                        "fuel composition": "affects",
+                        "thermal efficiency": "by changing calorific input"
+                    },
+                    {
+                        "real-time weather": "influences",
+                        "thermal efficiency": "through ambient conditions"
+                    },
+                    {
+                        "operational parameters": "modify",
+                        "thermal efficiency": "by altering system behavior"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "6fac967e-18b6-4ccc-9268-84397360e4d3",
+        "task_details": {
+            "task_instructions": "Design an algorithm to optimize the layout and routing of a VLSI (Very Large Scale Integration) chip with specific power, area, and timing constraints. The task involves partitioning the circuit into manageable sub-components, placing these components efficiently on a rectangular chip substrate, and routing the electrical connections while minimizing power consumption and maximizing signal integrity. The solution should adhere to a specified design rule set and account for variations in manufacturing.",
+            "task_data": {
+                "data_points": {
+                    "components": [
+                        {
+                            "id": "NAND1",
+                            "type": "NAND Gate",
+                            "area": 1.2,
+                            "power": 0.5
+                        },
+                        {
+                            "id": "NOR1",
+                            "type": "NOR Gate",
+                            "area": 1.3,
+                            "power": 0.6
+                        },
+                        {
+                            "id": "INV1",
+                            "type": "Inverter",
+                            "area": 0.9,
+                            "power": 0.2
+                        },
+                        {
+                            "id": "FF1",
+                            "type": "Flip-Flop",
+                            "area": 2.0,
+                            "power": 1.0
+                        }
+                    ],
+                    "connections": [
+                        {
+                            "from": "NAND1",
+                            "to": "NOR1",
+                            "length": 5.0
+                        },
+                        {
+                            "from": "NOR1",
+                            "to": "INV1",
+                            "length": 3.0
+                        },
+                        {
+                            "from": "INV1",
+                            "to": "FF1",
+                            "length": 4.5
+                        }
+                    ],
+                    "constraints": {
+                        "max_area": 100,
+                        "max_power": 50,
+                        "max_delay": 20
+                    },
+                    "design_rules": {
+                        "minimum_spacing": 0.1,
+                        "maximum_metal_density": 80,
+                        "via_constraints": "max via count per mm²: 10"
+                    }
+                }
+            },
+            "mathematical_formulation": "minimize Cost = alpha * Area + beta * Power + gamma * Delay; subject to Area <= max_area, Power <= max_power, Delay <= max_delay; Delay = sum(path_delay for all critical_paths); path_delay = sum(resistance * capacitance for each connection);",
+            "ontology": {
+                "entities": [
+                    "VLSI Chip",
+                    "Substrate",
+                    "NAND Gate",
+                    "NOR Gate",
+                    "Inverter",
+                    "Flip-Flop",
+                    "Electrical Connection",
+                    "Signal Integrity",
+                    "Manufacturing Variation"
+                ],
+                "relations": [
+                    "is_a_part_of",
+                    "connects",
+                    "has_constraints",
+                    "affects",
+                    "is_mitigated_by"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "d2e64d1a-db46-4f8c-86fa-2c02b2b234f0",
+        "task_details": {
+            "task_instructions": "Design an optimization model for a multi-source power generation system that minimizes total operational cost while meeting specific energy demand constraints and maintaining environmental compliance. The system should include renewable sources (solar, wind), non-renewable sources (coal, gas), and energy storage solutions (batteries). Consider variability in renewable energy production and fuel price fluctuations within the constraints.",
+            "task_data": {
+                "data_points": {
+                    "energy_demand_profile": [
+                        500,
+                        450,
+                        520,
+                        600,
+                        700,
+                        800,
+                        750,
+                        680,
+                        600,
+                        580,
+                        560,
+                        540,
+                        510,
+                        400
+                    ],
+                    "solar_production_profile": [
+                        100,
+                        150,
+                        120,
+                        100,
+                        160,
+                        180,
+                        200,
+                        190,
+                        170,
+                        140,
+                        130,
+                        90,
+                        50,
+                        20
+                    ],
+                    "wind_production_profile": [
+                        50,
+                        60,
+                        70,
+                        80,
+                        75,
+                        85,
+                        82,
+                        78,
+                        77,
+                        65,
+                        63,
+                        60,
+                        55,
+                        50
+                    ],
+                    "coal_cost": [
+                        40,
+                        42,
+                        41,
+                        39,
+                        45,
+                        48,
+                        47,
+                        46,
+                        44,
+                        43,
+                        42,
+                        41,
+                        40,
+                        39
+                    ],
+                    "gas_cost": [
+                        70,
+                        68,
+                        71,
+                        73,
+                        69,
+                        72,
+                        74,
+                        75,
+                        71,
+                        70,
+                        68,
+                        66,
+                        65,
+                        67
+                    ],
+                    "battery_efficiency": 0.9,
+                    "max_battery_storage": 300,
+                    "emissions_factor_coal": 900,
+                    "emissions_factor_gas": 550,
+                    "emissions_limit": 10000
+                }
+            },
+            "mathematical_formulation": "minimize C_total = sum_t (C_coal(t) + C_gas(t) + C_renewables(t) + C_batteries(t)) subject to: sum_t (P_solar(t) + P_wind(t) + P_coal(t) + P_gas(t) + P_battery_out(t) - P_battery_in(t)) >= demand_t, emissions_total = sum_t (emissions_factor_coal * P_coal(t) + emissions_factor_gas * P_gas(t)) <= emissions_limit, P_battery_out(t) - P_battery_in(t) <= max_battery_storage * battery_efficiency for each t, 0 <= P_coal(t) <= max_coal_production, 0 <= P_gas(t) <= max_gas_production, 0 <= P_solar(t), 0 <= P_wind(t), P_battery_in(t), P_battery_out(t)",
+            "ontology": {
+                "entities": [
+                    "energy_demand_profile",
+                    "solar_production_profile",
+                    "wind_production_profile",
+                    "coal_cost",
+                    "gas_cost",
+                    "battery_efficiency",
+                    "max_battery_storage",
+                    "emissions_factor_coal",
+                    "emissions_factor_gas",
+                    "emissions_limit"
+                ],
+                "relations": [
+                    "minimization",
+                    "constraints",
+                    "emissions_total",
+                    "resource_balance",
+                    "cost_function"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b47c178e-a93e-4a8b-813c-98c02d70be16",
+        "task_details": {
+            "task_instructions": "Design and analyze a control system for a multi-variable industrial process involving heat exchange and reaction kinetics. The system must maintain desired temperature and concentration profiles within specified ranges to optimize productivity and energy efficiency. Constraints include bounded input energy, reaction rate variability, and real-time adjustments for external disturbances.",
+            "task_data": {
+                "data_points": {
+                    "heat_exchanger_properties": {
+                        "area": 20.0,
+                        "heat_transfer_coefficient": 500.0,
+                        "fluid_specific_heat": 4.18
+                    },
+                    "reaction_kinetics": {
+                        "pre_exponential_factor": 200000000000.0,
+                        "activation_energy": 80000.0,
+                        "reaction_order": 1
+                    },
+                    "process_variables": {
+                        "desired_temperature_range": [
+                            350.0,
+                            360.0
+                        ],
+                        "desired_concentration_range": [
+                            1.0,
+                            1.5
+                        ],
+                        "coolant_flow_rate": 3.0
+                    },
+                    "operational_constraints": {
+                        "input_energy_bounds": [
+                            0.0,
+                            500.0
+                        ],
+                        "maximum_reaction_rate": 0.001
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "mass_balance": "dC/dt = F/V(C_in - C) - k*C^n",
+                "energy_balance": "dT/dt = (Q - UA(T - T_c))/Cp*M",
+                "control_strategy": "minimize J = ∫(w1*(T - T_d)^2 + w2*(C - C_d)^2) dt",
+                "constraints": [
+                    "Q(t) ≤ 500",
+                    "350 ≤ T ≤ 360",
+                    "1.0 ≤ C ≤ 1.5"
+                ],
+                "reaction_rate": "f(T) = Ae^(-Ea/RT)"
+            },
+            "ontology": {
+                "entities": [
+                    "Heat Exchanger",
+                    "Reactor",
+                    "Temperature",
+                    "Concentration",
+                    "Reaction Rate",
+                    "Input Energy",
+                    "Control System",
+                    "External Disturbance"
+                ],
+                "relations": [
+                    "controls",
+                    "influences",
+                    "constrains",
+                    "optimizes",
+                    "reacts"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "37f1c450-ae40-48e7-b17c-c438180fa7ce",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive model to predict the failure rate of a multi-component mechanical system under varying environmental and operational conditions, using stochastic methods and reliability engineering principles.",
+            "task_data": {
+                "data_points": {
+                    "components": [
+                        {
+                            "name": "Gear Assembly",
+                            "material_properties": {
+                                "tensile_strength": 750,
+                                "yield_strength": 400
+                            },
+                            "operational_conditions": {
+                                "temperature_range": [
+                                    -20,
+                                    150
+                                ],
+                                "load_cycles": 1000000
+                            },
+                            "failure_modes": [
+                                "fatigue",
+                                "wear"
+                            ]
+                        },
+                        {
+                            "name": "Bearing",
+                            "material_properties": {
+                                "tensile_strength": 500,
+                                "yield_strength": 300
+                            },
+                            "operational_conditions": {
+                                "temperature_range": [
+                                    -30,
+                                    120
+                                ],
+                                "load_cycles": 500000
+                            },
+                            "failure_modes": [
+                                "lubrication failure",
+                                "corrosion"
+                            ]
+                        }
+                    ],
+                    "environmental_conditions": {
+                        "humidity_levels": [
+                            10,
+                            90
+                        ],
+                        "ambient_temperature": [
+                            -40,
+                            50
+                        ]
+                    },
+                    "historical_failure_data": [
+                        {
+                            "time_to_failure": 15000,
+                            "failure_type": "fatigue"
+                        },
+                        {
+                            "time_to_failure": 20000,
+                            "failure_type": "wear"
+                        },
+                        {
+                            "time_to_failure": 12000,
+                            "failure_type": "lubrication failure"
+                        },
+                        {
+                            "time_to_failure": 25000,
+                            "failure_type": "corrosion"
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Let F(t) be the cumulative distribution function representing the probability of failure by time t. The survival function S(t) = 1 - F(t). Use the Weibull distribution: F(t) = 1 - exp(- (t/η)^β), where η is the scale parameter and β is the shape parameter. Consider environmental factors E(t) influencing the rate parameter, adjusting η as η(E) = η_0 * exp(-γE), where γ is a sensitivity coefficient.",
+            "ontology": {
+                "entities": [
+                    "Gear Assembly",
+                    "Bearing",
+                    "Failure Modes",
+                    "Environmental Conditions",
+                    "Operational Conditions",
+                    "Weibull Distribution",
+                    "Scale Parameter",
+                    "Shape Parameter",
+                    "Survival Function"
+                ],
+                "relations": [
+                    "Affects (Environmental Conditions, Scale Parameter)",
+                    "Exhibits (Components, Failure Modes)",
+                    "Operates Under (Components, Operational Conditions)",
+                    "Provides (Components, Material Properties)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "5db1e29b-40ec-456e-8762-9d43f5510fee",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive optimization model for designing a high-efficiency, renewable energy-powered, microgrid system for a small urban area, considering both energy production and consumption patterns. The design must minimize costs and emissions while maximizing reliability and integrating solar, wind, and battery storage options. Consideration must be given to varying weather conditions, grid connection constraints, and projected future energy demands.",
+            "task_data": {
+                "data_points": {
+                    "urban_area_size": "15 km^2",
+                    "population": 50000,
+                    "average_energy_consumption": "400 kWh/capita/month",
+                    "solar_irradiance": "5.5 kWh/m^2/day",
+                    "wind_speed": "6 m/s average",
+                    "battery_storage_capacity": [
+                        "100 kWh",
+                        "500 kWh",
+                        "1000 kWh"
+                    ],
+                    "weather_conditions": [
+                        "sunny",
+                        "cloudy",
+                        "windy"
+                    ],
+                    "grid_connection_cost": "$100,000 per km",
+                    "emission_factor_for_fossil_backup": "0.4 kg CO2/kWh",
+                    "renewable_installation_costs": {
+                        "solar": "$1000/kW",
+                        "wind": "$1500/kW"
+                    },
+                    "historical_energy_demand_data": [
+                        {
+                            "date": "2021-01-01",
+                            "energy_demand": "30 MWh"
+                        },
+                        {
+                            "date": "2021-01-02",
+                            "energy_demand": "28 MWh"
+                        },
+                        {
+                            "date": "2021-01-03",
+                            "energy_demand": "32 MWh"
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Minimize Z = C_total + E_total, where C_total is the total cost given by C_inst + C_maint + C_oper, and E_total is the total emissions. C_inst = \\sum_{i} (C_i * X_i), where C_i is the cost per unit for the technology i and X_i is the installed capacity for technology i. Subject to constraints: \\sum_{i} (P_i * X_i) + P_grid >= D_t for all time periods t, where P_i is the power output for technology i, and D_t is the demand at time t. Additionally, Emissions = \\sum_{t} (D_t - \\sum_{i} (P_i * X_i) - B_t), where B_t represents battery discharge.",
+            "ontology": {
+                "entities": [
+                    "microgrid",
+                    "solar power",
+                    "wind power",
+                    "battery storage",
+                    "urban area",
+                    "cost",
+                    "emissions",
+                    "energy demand",
+                    "weather conditions",
+                    "grid"
+                ],
+                "relations": [
+                    "powered_by",
+                    "influences",
+                    "connected_to",
+                    "contributes_to",
+                    "depends_on"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "ce0a00a3-01a5-487c-bb57-22297de934eb",
+        "task_details": {
+            "task_instructions": "Develop an optimized control algorithm for a multiple-input, multiple-output (MIMO) system used in advanced robotics, focusing on achieving both stability and energy efficiency. The system should be designed using predictive control techniques and must handle up to 50 distinct inputs and outputs, while ensuring real-time processing capabilities under varying operational conditions.",
+            "task_data": {
+                "data_points": {
+                    "system_inputs": [
+                        "Joint Torque 1",
+                        "Joint Torque 2",
+                        "Sensor Input 1",
+                        "Sensor Input 2",
+                        "...",
+                        "Sensor Input 25"
+                    ],
+                    "system_outputs": [
+                        "Angular Position 1",
+                        "Angular Velocity 1",
+                        "Angular Position 2",
+                        "Angular Velocity 2",
+                        "...",
+                        "Angular Velocity 25"
+                    ],
+                    "operational_conditions": [
+                        "Temperature Range",
+                        "Operating Voltage",
+                        "External Load Variations",
+                        "Environmental Noise Level"
+                    ],
+                    "performance_metrics": [
+                        "Stability Index",
+                        "Energy Consumption Rate",
+                        "Processing Time",
+                        "Positional Accuracy"
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "objective_function": "minimize J = Σ (w_i * |y_i - y_ref_i|^2 + λ * u_i^2) for i = 1 to 50",
+                "constraints": {
+                    "stability_constraints": "ensure all eigenvalues of A_cl are inside the unit circle",
+                    "real_time_constraints": "processing time < 5 ms",
+                    "energy_constraints": "Σ E_i < E_max"
+                },
+                "predictive_model": "x(k+1) = A*x(k) + B*u(k), y(k) = C*x(k) + D*u(k)"
+            },
+            "ontology": {
+                "entities": [
+                    "MIMO System",
+                    "Predictive Control",
+                    "Joint Torque",
+                    "Sensor Input",
+                    "Angular Position",
+                    "Angular Velocity",
+                    "Stability",
+                    "Energy Consumption"
+                ],
+                "relations": [
+                    "MIMO System uses Predictive Control",
+                    "Joint Torque affects Angular Position and Velocity",
+                    "Sensor Input influences Control Algorithm",
+                    "Stability depends on Control Algorithm",
+                    "Energy Consumption is minimized by Optimized Control"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f0e1ae08-eae8-4fa0-9ba4-87e7e737a5a9",
+        "task_details": {
+            "task_instructions": "Design an optimized energy management system (EMS) for a microgrid integrating renewable energy sources (RES) subjected to stochastic variations and demand response. Develop an analytical model that minimizes the total operational cost while maintaining reliability and stability over a 24-hour horizon.",
+            "task_data": {
+                "energy_sources": {
+                    "solar": {
+                        "cost": 0,
+                        "capacity_profile": [
+                            50,
+                            75,
+                            90,
+                            100,
+                            95,
+                            60,
+                            30,
+                            20,
+                            10,
+                            5,
+                            0,
+                            0,
+                            0,
+                            10,
+                            30,
+                            60,
+                            85,
+                            100,
+                            95,
+                            80,
+                            50,
+                            25,
+                            10,
+                            5
+                        ],
+                        "variability": "stochastic"
+                    },
+                    "wind": {
+                        "cost": 0,
+                        "capacity_profile": [
+                            20,
+                            35,
+                            55,
+                            65,
+                            60,
+                            40,
+                            20,
+                            15,
+                            10,
+                            5,
+                            0,
+                            0,
+                            0,
+                            5,
+                            15,
+                            40,
+                            60,
+                            75,
+                            80,
+                            65,
+                            40,
+                            25,
+                            15,
+                            5
+                        ],
+                        "variability": "stochastic"
+                    },
+                    "grid": {
+                        "cost": 10,
+                        "capacity_profile": "infinite",
+                        "variability": "fixed"
+                    }
+                },
+                "demand_profile": [
+                    30,
+                    35,
+                    45,
+                    50,
+                    55,
+                    60,
+                    70,
+                    80,
+                    85,
+                    90,
+                    85,
+                    80,
+                    75,
+                    70,
+                    65,
+                    60,
+                    55,
+                    50,
+                    45,
+                    40,
+                    35,
+                    30,
+                    25,
+                    20
+                ],
+                "battery": {
+                    "capacity": 150,
+                    "charge_efficiency": 0.9,
+                    "discharge_efficiency": 0.9,
+                    "wear_cost": 0.5
+                },
+                "peak_price": 20,
+                "offpeak_price": 5,
+                "charge_state_initial": 75
+            },
+            "mathematical_formulation": "minimize(C_grid(t) + C_battery(t) + C_wear(t)) for t in {0, 1, 2, ..., 23}, subject to (P_solar(t) + P_wind(t) + P_grid(t) + P_battery_discharge(t) = Demand(t) + P_battery_charge(t)), P_battery_discharge(t) <= 150, P_battery_charge(t) <= (150 - SOC(t)), SOC(t) = SOC(t-1) - P_battery_discharge(t) + P_battery_charge(t), 0 <= SOC(t) <= 150",
+            "ontology": {
+                "entities": [
+                    "microgrid",
+                    "energy management system",
+                    "solar power",
+                    "wind power",
+                    "grid power",
+                    "battery storage",
+                    "demand response",
+                    "operational cost"
+                ],
+                "relations": [
+                    "solar power is part of microgrid",
+                    "wind power is part of microgrid",
+                    "grid power supplies microgrid",
+                    "battery storage supports microgrid",
+                    "energy management system optimizes operational cost",
+                    "demand response influences power allocation"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "ab13b349-f631-4dbf-b376-1fb6bf0a89f0",
+        "task_details": {
+            "task_instructions": "Develop an optimization algorithm to enhance the energy efficiency of a smart grid system. The task involves integrating real-time data to predict energy demand and supply, managing distributed energy resources (DERs), and maintaining grid stability under varying load conditions. Ensure that the algorithm can handle non-linear constraints and stochastic variables inherent in renewable energy sources.",
+            "task_data": {
+                "data_points": {
+                    "historical_energy_demand": [
+                        350,
+                        400,
+                        330,
+                        420,
+                        380,
+                        360,
+                        410
+                    ],
+                    "real_time_demand": 395,
+                    "solar_power_output": [
+                        40,
+                        50,
+                        60,
+                        55,
+                        45,
+                        50,
+                        55
+                    ],
+                    "wind_power_output": [
+                        30,
+                        45,
+                        35,
+                        40,
+                        50,
+                        55,
+                        60
+                    ],
+                    "grid_capacity": 500,
+                    "battery_capacity": 50,
+                    "distribution_losses": 0.05,
+                    "weather_forecast": {
+                        "temperature": 24,
+                        "wind_speed": 15,
+                        "cloud_coverage": 0.3
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "objective_function": "minimize ∑(grid_losses + (energy_supply - energy_demand)^2)",
+                "constraints": {
+                    "energy_balance": "energy_supply = energy_demand +/- distribution_losses",
+                    "power_limits": "0 <= solar_power_output + wind_power_output <= grid_capacity",
+                    "storage_limits": "0 <= battery_capacity <= battery_max_capacity",
+                    "stochastic_model": "P(energy_supply = x | weather_forecast) follows a normal distribution"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "smart grid",
+                    "energy demand",
+                    "energy supply",
+                    "distributed energy resources",
+                    "grid stability",
+                    "renewable energy",
+                    "non-linear constraints"
+                ],
+                "relations": [
+                    "energy demand is predicted using historical data and current conditions",
+                    "energy supply is managed by balancing renewable outputs and grid capacity",
+                    "grid stability depends on demand-supply balance and efficient resource allocation",
+                    "DERs contribute to energy supply under constraints"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "86fb40eb-d77b-4c1e-bfa0-3c193b9aefd9",
+        "task_details": {
+            "task_instructions": "Design an optimal structural beam using advanced composite materials for a bridge, ensuring maximum strength-to-weight ratio while adhering to safety and durability standards. The design must account for various loads, including a static distributed load and a dynamic load related to vehicular traffic, while considering material cost constraints.",
+            "task_data": {
+                "bridge_span_length": 100,
+                "static_distributed_load": 5000,
+                "dynamic_vehicle_load": 15000,
+                "material_properties": [
+                    {
+                        "name": "Carbon Fiber Composite",
+                        "density": 1.6,
+                        "modulus_of_elasticity": 70,
+                        "ultimate_tensile_strength": 3500,
+                        "cost_per_unit_volume": 200
+                    },
+                    {
+                        "name": "Glass Fiber Composite",
+                        "density": 2.5,
+                        "modulus_of_elasticity": 35,
+                        "ultimate_tensile_strength": 1800,
+                        "cost_per_unit_volume": 100
+                    },
+                    {
+                        "name": "Aluminum Alloy",
+                        "density": 2.7,
+                        "modulus_of_elasticity": 69,
+                        "ultimate_tensile_strength": 310,
+                        "cost_per_unit_volume": 75
+                    }
+                ],
+                "safety_factor": 1.5,
+                "max_allowable_deflection": 0.5
+            },
+            "mathematical_formulation": "Minimize (rho * V), subject to: (sigma < UTS/safety_factor), (delta < max_allowable_deflection).\\ \\sigma = M*y/I,\\ \\delta = (5*L^4*W)/(384*E*I), where rho is material density, V is volume, sigma is stress, UTS is ultimate tensile strength, delta is deflection, L is span length, W is load, E is modulus of elasticity, I is moment of inertia, and y is centroid.",
+            "ontology": {
+                "entities": [
+                    "Composite Materials",
+                    "Static Load",
+                    "Dynamic Load",
+                    "Strength-to-Weight Ratio",
+                    "Safety Factor",
+                    "Deflection"
+                ],
+                "relations": [
+                    "composed of",
+                    "subjected to",
+                    "evaluated by",
+                    "limited by"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f6aa5d8b-144d-4cde-8b93-ae29f6e0fc1a",
+        "task_details": {
+            "task_instructions": "Design a multi-layered heat exchanger capable of optimizing thermal transfer efficiency in a closed-loop methanol synthesis process. The design should incorporate material science considerations, fluid dynamics, and thermodynamic efficiencies, while minimizing the overall energy consumption and pressure loss.",
+            "task_data": {
+                "data_points": {
+                    "thermal_conductivity_coefficient": {
+                        "copper": 400,
+                        "aluminum": 205,
+                        "steel": 50
+                    },
+                    "specific_heat_capacity": {
+                        "methanol": 2.5,
+                        "water": 4.18,
+                        "synthetic_gas": 2.0
+                    },
+                    "flow_rates": {
+                        "methanol": {
+                            "input": 20,
+                            "output": 18
+                        },
+                        "synthetic_gas": {
+                            "input": 22,
+                            "output": 21
+                        }
+                    },
+                    "temperatures": {
+                        "input_methanol": 333.15,
+                        "output_methanol": 298.15,
+                        "input_gas": 350.15,
+                        "output_gas": 310.15
+                    },
+                    "pressure_loss": {
+                        "maximum_allowable_loss": 2.0
+                    }
+                }
+            },
+            "mathematical_formulation": "Q = m * c * ΔT, where Q is the heat transfer, m is the mass flow rate, c is the specific heat capacity, and ΔT is the temperature difference; E = η * W, where E is energy consumed, η is the efficiency factor, and W is work done; ΔP ≤ 2.0 to ensure pressure loss constraints are not exceeded.",
+            "ontology": {
+                "entities": [
+                    "heat exchanger",
+                    "thermal conductivity",
+                    "specific heat capacity",
+                    "flow rate",
+                    "temperature",
+                    "pressure loss",
+                    "methanol synthesis",
+                    "thermal efficiency",
+                    "closed-loop process"
+                ],
+                "relations": [
+                    "has_property",
+                    "affects",
+                    "flows_through",
+                    "exchange_heat_with",
+                    "depends_on"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "ff2a1597-f51e-4fc6-a9b2-b5b753867e86",
+        "task_details": {
+            "task_instructions": "Design and optimize a multi-variable control system for a smart manufacturing process aimed at minimizing energy consumption while maximizing production efficiency. The system should dynamically adjust to changes in input material properties and operational disturbances. Perform an in-depth analysis to determine the optimal control strategies using provided datasets and constraints.",
+            "task_data": {
+                "data_points": {
+                    "inputs": [
+                        {
+                            "material_type": "Aluminum",
+                            "thermal_conductivity": 230,
+                            "specific_heat": 0.91
+                        },
+                        {
+                            "material_type": "Copper",
+                            "thermal_conductivity": 385,
+                            "specific_heat": 0.39
+                        },
+                        {
+                            "material_type": "Steel",
+                            "thermal_conductivity": 50,
+                            "specific_heat": 0.49
+                        }
+                    ],
+                    "disturbances": [
+                        {
+                            "temperature_variation": "±5°C",
+                            "vibration_level": "Moderate"
+                        },
+                        {
+                            "temperature_variation": "±10°C",
+                            "vibration_level": "High"
+                        }
+                    ],
+                    "operational_parameters": [
+                        {
+                            "machine_speed": 500,
+                            "energy_usage": 250
+                        },
+                        {
+                            "machine_speed": 700,
+                            "energy_usage": 450
+                        },
+                        {
+                            "machine_speed": 900,
+                            "energy_usage": 650
+                        }
+                    ],
+                    "production_metrics": [
+                        {
+                            "output_rate": 100,
+                            "defect_rate": 2
+                        },
+                        {
+                            "output_rate": 150,
+                            "defect_rate": 3
+                        },
+                        {
+                            "output_rate": 200,
+                            "defect_rate": 5
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Minimize E = f1(x1, x2, ..., xn) subject to: Production Efficiency P = f2(y1, y2, ..., ym), O: Operational Constraints, D: Disturbances handling; where E: Energy consumption, P: Production efficiency, xi: Control variables, yi: Response metrics.",
+            "ontology": {
+                "entities": [
+                    "Energy Consumption",
+                    "Production Efficiency",
+                    "Material Type",
+                    "Thermal Conductivity",
+                    "Specific Heat",
+                    "Machine Speed",
+                    "Temperature Variation",
+                    "Vibration Level",
+                    "Output Rate",
+                    "Defect Rate"
+                ],
+                "relations": [
+                    "Energy Consumption is minimized when Machine Speed and Production Efficiency are optimized",
+                    "Material Type affects Thermal Conductivity and Specific Heat",
+                    "Temperature Variation and Vibration Level affect Operational Parameters",
+                    "Output Rate and Defect Rate determine Production Efficiency"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "d9bac63b-d45b-4c39-8249-b8b50a5abda4",
+        "task_details": {
+            "task_instructions": "Develop a multi-variable optimization model to minimize the energy consumption of a medium-scale industrial manufacturing process, while maintaining the quality and throughput of the production. Consider variables such as machine speed, load distribution, and cooling efficiency, with constraints related to material properties and environmental conditions.",
+            "task_data": {
+                "data_points": {
+                    "machines": {
+                        "machine_1": {
+                            "max_speed_rpm": 1500,
+                            "power_consumption_kW": 10
+                        },
+                        "machine_2": {
+                            "max_speed_rpm": 1300,
+                            "power_consumption_kW": 8
+                        },
+                        "machine_3": {
+                            "max_speed_rpm": 1800,
+                            "power_consumption_kW": 12
+                        }
+                    },
+                    "load_distribution": {
+                        "machine_1": 30,
+                        "machine_2": 25,
+                        "machine_3": 45
+                    },
+                    "cooling_efficiency": {
+                        "ambient_temp_C": 25,
+                        "coolant_flow_rate_L_per_min": 20,
+                        "cooling_power_kW": 5
+                    },
+                    "material_properties": {
+                        "thermal_conductivity_W_per_mK": 200,
+                        "specific_heat_capacity_J_per_kgK": 900,
+                        "density_kg_per_m3": 7800
+                    },
+                    "environmental_conditions": {
+                        "ambient_temp_C": 25,
+                        "humidity_percent": 50,
+                        "pressure_kPa": 101.3
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "objective_function": "minimize E = ∑(power_consumption_kW[i] * load_distribution[i] / speed[i]) + cooling_power_kW",
+                "constraints": [
+                    "speed[i] <= max_speed_rpm[i] for all machines",
+                    "load_distribution[i] >= minimum_load_percent[i] for all machines",
+                    "maintain_quality(Q) ≥ threshold_quality",
+                    "maintain_throughput(T) ≥ threshold_throughput"
+                ],
+                "variables": [
+                    "speed[i]",
+                    "load_distribution[i]",
+                    "cooling_efficiency"
+                ],
+                "parameters": [
+                    "power_consumption_kW[i]",
+                    "max_speed_rpm[i]",
+                    "minimum_load_percent[i]",
+                    "threshold_quality",
+                    "threshold_throughput"
+                ]
+            },
+            "ontology": {
+                "entities": [
+                    "machine",
+                    "power_consumption",
+                    "speed",
+                    "load_distribution",
+                    "cooling_efficiency",
+                    "material_properties",
+                    "environmental_conditions"
+                ],
+                "relations": [
+                    "machine has power_consumption",
+                    "machine has speed",
+                    "process depends_on load_distribution",
+                    "process depends_on cooling_efficiency",
+                    "environmental_conditions affect material_properties"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "c9d61365-67ac-4abc-88d3-14cb9cc172ae",
+        "task_details": {
+            "task_instructions": "Develop a comprehensive Finite Element Analysis (FEA) to simulate the structural integrity and dynamic response of a suspension bridge under variable load conditions, such as wind load, vehicle load, and thermal expansion. Ensure the simulation captures non-linear material behavior and dynamic interactions, providing both stress distribution and deformation analysis.",
+            "task_data": {
+                "data_points": {
+                    "material_properties": {
+                        "steel_density": 7850,
+                        "steel_youngs_modulus": 210000000000.0,
+                        "steel_poissons_ratio": 0.3,
+                        "concrete_density": 2400,
+                        "concrete_compressive_strength": 30000000.0
+                    },
+                    "bridge_geometry": {
+                        "main_span_length": 1500,
+                        "tower_height": 200,
+                        "cable_diameter": 1.2,
+                        "deck_width": 30
+                    },
+                    "load_conditions": {
+                        "wind_speed": [
+                            0,
+                            10,
+                            20,
+                            30
+                        ],
+                        "vehicle_load_distribution": [
+                            50,
+                            100,
+                            150,
+                            200
+                        ],
+                        "temperature_variation": [
+                            -20,
+                            0,
+                            20,
+                            40
+                        ]
+                    },
+                    "boundary_conditions": {
+                        "fixed_supports": [
+                            "tower_base_left",
+                            "tower_base_right"
+                        ],
+                        "pinned_supports": [
+                            "end_anchors_left",
+                            "end_anchors_right"
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": [
+                "σ = E * ε (Stress-Strain relationship)",
+                "∑F = 0 (Equilibrium of forces)",
+                "∑M = 0 (Equilibrium of moments)",
+                "F = k * δ (Non-linear spring force)",
+                "d²u/dt² + C * du/dt + K * u = F(t) (Dynamic equation of motion)"
+            ],
+            "ontology": {
+                "entities": [
+                    "suspension_bridge",
+                    "FEA",
+                    "load_conditions",
+                    "material_properties",
+                    "boundary_conditions"
+                ],
+                "relations": [
+                    "is_applied_to",
+                    "supports",
+                    "affects",
+                    "responds_to",
+                    "comprises"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "36d55e07-9905-40d3-ab4e-a6c1d6a65ef7",
+        "task_details": {
+            "task_instructions": "Design an optimization model for a smart electrical grid system to minimize power loss during transmission while maximizing renewable energy utilization under dynamic demand conditions.",
+            "task_data": {
+                "power_grid_stations": [
+                    {
+                        "station_id": "S1",
+                        "location": "Location 1",
+                        "capacity_mw": 500,
+                        "main_energy_source": "Solar"
+                    },
+                    {
+                        "station_id": "S2",
+                        "location": "Location 2",
+                        "capacity_mw": 750,
+                        "main_energy_source": "Wind"
+                    },
+                    {
+                        "station_id": "S3",
+                        "location": "Location 3",
+                        "capacity_mw": 1000,
+                        "main_energy_source": "Hydro"
+                    }
+                ],
+                "power_load_centers": [
+                    {
+                        "center_id": "C1",
+                        "location": "Urban Center 1",
+                        "average_demand_mw": 300
+                    },
+                    {
+                        "center_id": "C2",
+                        "location": "Urban Center 2",
+                        "average_demand_mw": 450
+                    },
+                    {
+                        "center_id": "C3",
+                        "location": "Rural Center 1",
+                        "average_demand_mw": 150
+                    }
+                ],
+                "transmission_lines": [
+                    {
+                        "line_id": "L1",
+                        "from_station": "S1",
+                        "to_center": "C1",
+                        "loss_coefficient": 0.03
+                    },
+                    {
+                        "line_id": "L2",
+                        "from_station": "S2",
+                        "to_center": "C2",
+                        "loss_coefficient": 0.02
+                    },
+                    {
+                        "line_id": "L3",
+                        "from_station": "S3",
+                        "to_center": "C3",
+                        "loss_coefficient": 0.04
+                    }
+                ],
+                "dynamic_demand_patterns": {
+                    "time_periods": [
+                        "Morning",
+                        "Afternoon",
+                        "Evening",
+                        "Night"
+                    ],
+                    "demand_variations": [
+                        {
+                            "center_id": "C1",
+                            "Morning": 0.8,
+                            "Afternoon": 1.0,
+                            "Evening": 1.2,
+                            "Night": 0.6
+                        },
+                        {
+                            "center_id": "C2",
+                            "Morning": 0.9,
+                            "Afternoon": 1.1,
+                            "Evening": 1.3,
+                            "Night": 0.7
+                        },
+                        {
+                            "center_id": "C3",
+                            "Morning": 0.7,
+                            "Afternoon": 1.0,
+                            "Evening": 1.1,
+                            "Night": 0.5
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Minimize: \\sum_{i}(line_i.loss_coefficient * power_transmitted_i) - \\sum_{j}(renewable_utilization_j) \\\\ Subject \\ to: \\\\ \\sum_{k}(power_from_source_k \\to center) \\geq dynamic_demand(center, time) \\\\ \\sum_{all\\stations}(station.capacity_mw) \\geq \\sum_{all\\centers}(center.average_demand_mw)",
+            "ontology": {
+                "entities": [
+                    "Power Station",
+                    "Load Center",
+                    "Transmission Line",
+                    "Dynamic Demand Pattern",
+                    "Renewable Energy Source"
+                ],
+                "relations": [
+                    "Generates Power For",
+                    "Transmits Power To",
+                    "Has Demand Variation",
+                    "Is Connected By"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "03638800-3dc9-419d-a73a-d2781af979e5",
+        "task_details": {
+            "task_instructions": "Design an optimized multi-layer thermal insulation system for a geothermal power plant's steam transport pipeline operating at high pressures and temperatures. The design should minimize heat loss, ensure structural integrity under thermal expansion, and comply with relevant industry standards for safety and efficiency. The deliverable should include material specifications, dimensional calculations, and a cost analysis.",
+            "task_data": {
+                "data_points": {
+                    "pipeline_length": 5000.0,
+                    "outer_diameter": 1.5,
+                    "pipe_material_thermal_conductivity": 15.0,
+                    "steam_temperature": 150.0,
+                    "ambient_temperature": 25.0,
+                    "max_allowable_heat_loss_rate": 75.0,
+                    "material_database": {
+                        "insulation_materials": [
+                            {
+                                "name": "Aerogel",
+                                "thermal_conductivity": 0.02,
+                                "cost_per_unit_volume": 150.0
+                            },
+                            {
+                                "name": "Fiberglass",
+                                "thermal_conductivity": 0.035,
+                                "cost_per_unit_volume": 50.0
+                            },
+                            {
+                                "name": "Mineral Wool",
+                                "thermal_conductivity": 0.04,
+                                "cost_per_unit_volume": 45.0
+                            }
+                        ]
+                    },
+                    "modulus_of_elasticity_materials": {
+                        "Aerogel": 500,
+                        "Fiberglass": 1000,
+                        "Mineral Wool": 2000
+                    }
+                }
+            },
+            "mathematical_formulation": "Heat_loss = (2 * π * L * (T_steam - T_ambient)) / Ln(R_outer/R_inner) * (1/k_material) <= Max_Heat_Loss",
+            "ontology": {
+                "entities": [
+                    "thermal insulation system",
+                    "geothermal power plant",
+                    "pipeline",
+                    "material specifications",
+                    "thermal conductivity",
+                    "cost analysis",
+                    "aerogel",
+                    "fiberglass",
+                    "mineral wool"
+                ],
+                "relations": [
+                    "has_thermal_conductivity",
+                    "contains_cost_per_unit_volume",
+                    "minimizes_heat_loss",
+                    "ensures_structural_integrity",
+                    "complies_with_standards"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "a05aac46-2ad7-4873-a3c4-5286dfdb0487",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive structural optimization of a dual-span bridge under non-linear dynamic load conditions, considering material anisotropy and environmental degradation over a 50-year lifecycle.",
+            "task_data": {
+                "data_points": {
+                    "bridge_geometry": {
+                        "span_lengths": [
+                            80,
+                            120
+                        ],
+                        "width": 20,
+                        "height": 15,
+                        "pier_diameter": 5
+                    },
+                    "material_properties": {
+                        "steel": {
+                            "elastic_modulus": 210000,
+                            "yield_strength": 355,
+                            "density": 7.85,
+                            "thermal_expansion_coefficient": 1.2e-05,
+                            "anisotropy_factors": [
+                                0.8,
+                                1.2
+                            ]
+                        },
+                        "concrete": {
+                            "compressive_strength": 40,
+                            "density": 2.4,
+                            "creep_coefficient": 2.5,
+                            "shrinkage_strain": 0.0003
+                        }
+                    },
+                    "dynamic_load_conditions": {
+                        "vehicle_loads": [
+                            30,
+                            45,
+                            22
+                        ],
+                        "seismic_activity": {
+                            "peak_ground_acceleration": 0.3,
+                            "frequency_content": [
+                                1.0,
+                                3.0,
+                                5.0
+                            ]
+                        },
+                        "wind_loads": {
+                            "mean_speed": 25,
+                            "gust_factor": 1.3
+                        }
+                    },
+                    "environmental_factors": {
+                        "temperature_range": [
+                            -20,
+                            40
+                        ],
+                        "humidity_variation": [
+                            30,
+                            90
+                        ],
+                        "corrosion_rate": 0.1
+                    },
+                    "lifecycle": 50
+                }
+            },
+            "mathematical_formulation": {
+                "objective_function": "Minimize C = Σ (Material Cost + Maintenance Cost + Retrofit Cost)",
+                "subject_to_constraints": [
+                    "Deflection_limits: ∀ x ∈ [0, L], |D(x)| ≤ δ_allowable",
+                    "Strength_limits: σ_vm ≤ σ_yield",
+                    "Dynamic_response: ω_natural ≠ ω_excitation",
+                    "Environmental_degradation: σ_internal(t) ≤ f(t, ρ_corrosion(t))"
+                ],
+                "optimization_methods": "Use Finite Element Method (FEM) for structural analysis and Genetic Algorithms for optimization."
+            },
+            "ontology": {
+                "entities": [
+                    "bridge_geometry",
+                    "material_properties",
+                    "dynamic_load_conditions",
+                    "environmental_factors",
+                    "lifecycle",
+                    "deflection",
+                    "stress",
+                    "corrosion"
+                ],
+                "relations": [
+                    "is_composed_of(bridge_geometry, material_properties)",
+                    "experiences(dynamic_load_conditions, bridge_geometry)",
+                    "influences(environmental_factors, material_properties)",
+                    "affects(lifecycle, environmental_factors)",
+                    "constrains(dynamic_load_conditions, deflection)",
+                    "induces(environmental_factors, corrosion)"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f19fcf9c-9c7f-4f38-8b4f-c6dca9fd89f6",
+        "task_details": {
+            "task_instructions": "Develop an algorithm to optimize the design of a high-efficiency wind turbine blade. The objective is to maximize the aerodynamic efficiency while minimizing material cost, subject to constraints on structural strength, aerodynamic performance, and manufacturing feasibility.",
+            "task_data": {
+                "material_properties": {
+                    "carbon_fiber": {
+                        "density": 1600,
+                        "tensile_strength": 3000,
+                        "cost": 25
+                    },
+                    "fiberglass": {
+                        "density": 1850,
+                        "tensile_strength": 1000,
+                        "cost": 15
+                    }
+                },
+                "design_constraints": {
+                    "max_length": 80,
+                    "max_weight": 20000,
+                    "min_strength_factor": 1.5
+                },
+                "aerodynamic_parameters": {
+                    "wind_speed": [
+                        4,
+                        12,
+                        25
+                    ],
+                    "air_density": 1.225,
+                    "blade_angle_range": [
+                        0,
+                        45
+                    ]
+                },
+                "cost_factors": {
+                    "assembly_cost_per_unit_length": 50,
+                    "additional_cost_factor": 1.2
+                }
+            },
+            "mathematical_formulation": "Maximize: η = (C_L / C_D) * A\nSubject to: \n1. m <= max_weight\n2. SF(bending, torsion) >= min_strength_factor\n3. L <= max_length\n4. C_material + C_assembly <= budget\nWhere:\n- C_L is the lift coefficient\n- C_D is the drag coefficient\n- A is the blade area\n- m is the blade mass\n- SF is the safety factor\n- L is blade length\n- C_material and C_assembly are material and assembly costs",
+            "ontology": {
+                "entities": [
+                    "Blade",
+                    "Lift Coefficient",
+                    "Drag Coefficient",
+                    "Material Property",
+                    "Cost",
+                    "Safety Factor",
+                    "Wind Speed"
+                ],
+                "relations": [
+                    "affects efficiency",
+                    "contributes to weight",
+                    "contributes to cost",
+                    "restricts design",
+                    "relates to structural strength"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e2eede6b-d957-43f2-bab0-21bf93d8f619",
+        "task_details": {
+            "task_instructions": "Perform a multi-objective optimization of an electrical power grid that integrates renewable energy sources. The objectives are to minimize the cost of electricity production, maximize the usage of renewable energy, and ensure grid stability. The optimization should consider the variability of renewable resources, demand fluctuations, grid constraints, and storage capabilities.",
+            "task_data": {
+                "data_points": {
+                    "energy_sources": [
+                        {
+                            "type": "solar",
+                            "capacity_kw": 5000,
+                            "location": "desert",
+                            "average_irradiance_solar": 6
+                        },
+                        {
+                            "type": "wind",
+                            "capacity_kw": 3000,
+                            "location": "coastal",
+                            "average_wind_speed_mps": 8
+                        },
+                        {
+                            "type": "natural_gas",
+                            "capacity_kw": 10000,
+                            "variable_cost_per_mwh": 50
+                        },
+                        {
+                            "type": "coal",
+                            "capacity_kw": 8000,
+                            "variable_cost_per_mwh": 100
+                        }
+                    ],
+                    "demand_fluctuations": [
+                        {
+                            "time": "00:00",
+                            "demand_mw": 15000
+                        },
+                        {
+                            "time": "06:00",
+                            "demand_mw": 18000
+                        },
+                        {
+                            "time": "12:00",
+                            "demand_mw": 22000
+                        },
+                        {
+                            "time": "18:00",
+                            "demand_mw": 25000
+                        },
+                        {
+                            "time": "24:00",
+                            "demand_mw": 17000
+                        }
+                    ],
+                    "grid_constraints": {
+                        "line_capacity_mw": [
+                            {
+                                "from": "plant1",
+                                "to": "plant2",
+                                "capacity": 5000
+                            },
+                            {
+                                "from": "plant2",
+                                "to": "substation1",
+                                "capacity": 7000
+                            },
+                            {
+                                "from": "substation1",
+                                "to": "city1",
+                                "capacity": 6000
+                            }
+                        ],
+                        "storage": {
+                            "type": "battery",
+                            "capacity_mwh": 2000,
+                            "charging_efficiency": 0.9,
+                            "discharging_efficiency": 0.85
+                        }
+                    }
+                }
+            },
+            "mathematical_formulation": "Minimize: C = Σ(C_g * E_g) where C_g is the variable cost per MWh from generator g, and E_g is the energy output from generator g.\\nMaximize: R = Σ(R_{t} * E_{r,t}) where R_t is the renewable generation ratio at time t, and E_{r,t} is the renewable energy output at time t.\\nSubject to: D_t = Σ(E_{g,t}) - E_{storage,t} (considering storage charge/discharge) for each time period t. E_{g,t} ≤ capacity constraints. Network capacity constraints for power flow between nodes.",
+            "ontology": {
+                "entities": [
+                    "energy_sources",
+                    "demand_fluctuations",
+                    "grid_constraints",
+                    "storage",
+                    "cost",
+                    "renewable_energy",
+                    "grid_stability"
+                ],
+                "relations": [
+                    "energy_sources provide power to meet demand_fluctuations",
+                    "grid_constraints impose limits on energy flow",
+                    "storage influences cost and renewable_energy usage",
+                    "objective functions influence cost, renewable_energy, and grid_stability"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "7c23d56c-15b7-42e9-af5a-807fa4ea02dd",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to optimize a multi-threaded real-time operating system's performance. The task involves analyzing and tuning scheduler algorithms for minimal latency and optimal resource allocation in heterogeneous processors. The model must take into account a variety of real-time tasks with different priorities and deadlines, and dynamically adjust the scheduling policy based on workload and system state.",
+            "task_data": {
+                "data_points": {
+                    "processors": [
+                        {
+                            "id": 1,
+                            "type": "ARM Cortex-A78",
+                            "clock_speed": 2.1,
+                            "cores": 4
+                        },
+                        {
+                            "id": 2,
+                            "type": "ARM Cortex-A55",
+                            "clock_speed": 1.8,
+                            "cores": 6
+                        }
+                    ],
+                    "tasks": [
+                        {
+                            "task_id": "T1",
+                            "priority": 1,
+                            "execution_time": 5,
+                            "deadline": 10
+                        },
+                        {
+                            "task_id": "T2",
+                            "priority": 2,
+                            "execution_time": 3,
+                            "deadline": 8
+                        },
+                        {
+                            "task_id": "T3",
+                            "priority": 3,
+                            "execution_time": 9,
+                            "deadline": 15
+                        },
+                        {
+                            "task_id": "T4",
+                            "priority": 1,
+                            "execution_time": 2,
+                            "deadline": 7
+                        }
+                    ],
+                    "system_state": {
+                        "cpu_load": 0.75,
+                        "memory_usage": 0.6
+                    }
+                }
+            },
+            "mathematical_formulation": "{minimize \\, L \\sum_{i=1}^{N} \\frac{(D_i - C_i)}{D_i} \\, subject \\ to \\, \\sum_{i=1}^{N} (U_i) \\leq 1 \\,,  \\, \\text{where } U_i = \\frac{C_i}{T_i} \\, \\text{and} \\, C_i = \\text{Execution Time of task } i, \\, D_i = \\text{Deadline of task } i}",
+            "ontology": {
+                "entities": [
+                    "Processor",
+                    "Task",
+                    "Scheduler",
+                    "Real-time Operating System",
+                    "Priority",
+                    "Deadline",
+                    "Execution Time",
+                    "Clock Speed",
+                    "Load",
+                    "Resource Allocation"
+                ],
+                "relations": [
+                    "Processor runs Tasks",
+                    "Tasks have Priorities and Deadlines",
+                    "Scheduler allocates Processors to Tasks",
+                    "Real-time Operating System manages Scheduler",
+                    "Execution Time affects Deadline compliance",
+                    "Clock Speed determines Processor performance",
+                    "Load impacts Scheduler decisions",
+                    "Resource Allocation affects Task execution"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e47282f2-7e4b-46ac-b6f7-df3271458109",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive thermal analysis for a novel heat exchanger system designed for a high-efficiency electric power generation plant. The system involves complex multiphase fluid flows and time-dependent heat transfer characteristics. Utilize computational fluid dynamics (CFD) simulations to optimize the geometry for maximum thermal efficiency and minimal pressure drop. Analyze and interpret the results to provide detailed design modifications.",
+            "task_data": {
+                "data_points": {
+                    "geometry": {
+                        "geometry_type": "counter-flow heat exchanger",
+                        "tube_diameter": 0.05,
+                        "tube_length": 2.0,
+                        "shell_diameter": 0.3,
+                        "number_of_tubes": 120
+                    },
+                    "fluid_properties": {
+                        "hot_fluid": {
+                            "type": "water",
+                            "inlet_temperature": 373.15,
+                            "inlet_pressure": 101325,
+                            "mass_flow_rate": 2.0
+                        },
+                        "cold_fluid": {
+                            "type": "air",
+                            "inlet_temperature": 293.15,
+                            "inlet_pressure": 101325,
+                            "mass_flow_rate": 3.5
+                        }
+                    },
+                    "material_properties": {
+                        "tube_material": {
+                            "material_type": "copper",
+                            "thermal_conductivity": 401,
+                            "density": 8960,
+                            "specific_heat": 385
+                        }
+                    },
+                    "boundary_conditions": {
+                        "ambient_temperature": 300,
+                        "heat_loss_coefficient": 15
+                    }
+                }
+            },
+            "mathematical_formulation": "Solve the time-dependent Navier-Stokes equations for incompressible flow along with the energy equation. Implement the finite volume method to discretize the governing equations. Use turbulence modeling (k-epsilon model) and simulate the heat conduction through the tube material using Fourier's law. Optimize using the objective function J = maximization(T_r - T_l) subject to C1: ΔP < ΔP_max, C2: ϕ_eff > ϕ_eff,min.",
+            "ontology": {
+                "entities": [
+                    "heat exchanger",
+                    "CFD simulation",
+                    "thermal efficiency",
+                    "pressure drop",
+                    "Navier-Stokes equations",
+                    "finite volume method",
+                    "turbulence modeling",
+                    "Fourier's law",
+                    "optimization"
+                ],
+                "relations": [
+                    "heat transfer between fluids",
+                    "pressure affects flow dynamics",
+                    "thermal efficiency depends on design",
+                    "CFD simulation predicts fluid behavior",
+                    "optimization modifies geometry"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "ac9792ad-7a8a-40bd-9ca3-ad1bd8ffe316",
+        "task_details": {
+            "task_instructions": "Design a highly efficient photovoltaic solar cell using advanced materials and optimizing for maximum energy conversion efficiency under varying environmental conditions. This should involve selecting materials, creating a layered structure, and simulating performance under different light intensities and temperatures.",
+            "task_data": {
+                "materials": [
+                    {
+                        "name": "Silicon",
+                        "bandgap": 1.12,
+                        "absorption_coefficient": 1.5,
+                        "thermal_conductivity": 150
+                    },
+                    {
+                        "name": "Perovskite",
+                        "bandgap": 1.55,
+                        "absorption_coefficient": 2.0,
+                        "thermal_conductivity": 0.5
+                    },
+                    {
+                        "name": "Cadmium Telluride",
+                        "bandgap": 1.45,
+                        "absorption_coefficient": 1.8,
+                        "thermal_conductivity": 6
+                    }
+                ],
+                "environmental_conditions": [
+                    {
+                        "condition": "High Light Intensity",
+                        "light_intensity": 1000,
+                        "temperature": 300
+                    },
+                    {
+                        "condition": "Low Light Intensity",
+                        "light_intensity": 500,
+                        "temperature": 300
+                    },
+                    {
+                        "condition": "High Temperature",
+                        "light_intensity": 1000,
+                        "temperature": 350
+                    }
+                ]
+            },
+            "mathematical_formulation": {
+                "energy_conversion_efficiency": "η = (P_output / P_input) × 100",
+                "current_density": "J = q * (N * μ * E + G)",
+                "temperature_effect": "Efficiency_loss = k * (T_actual - T_reference)"
+            },
+            "ontology": {
+                "entities": [
+                    "Photovoltaic Solar Cell",
+                    "Energy Conversion Efficiency",
+                    "Bandgap",
+                    "Absorption Coefficient",
+                    "Thermal Conductivity",
+                    "Light Intensity",
+                    "Temperature",
+                    "Current Density"
+                ],
+                "relations": [
+                    "Material affects Energy Conversion Efficiency",
+                    "Temperature influences Efficiency",
+                    "Light Intensity alters Current Density",
+                    "Bandgap determines Absorption Coefficient"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "bd3acf1a-6c8e-422e-9d7b-ae62b51911b7",
+        "task_details": {
+            "task_instructions": "Develop a predictive model to optimize the load balancing in a smart grid system with multiple power sources and varying demand, under specific constraints of power loss minimization, efficiency maximization, and reliability assurance.",
+            "task_data": {
+                "data_points": {
+                    "power_sources": [
+                        {
+                            "id": 1,
+                            "type": "solar",
+                            "capacity_kw": 500
+                        },
+                        {
+                            "id": 2,
+                            "type": "wind",
+                            "capacity_kw": 700
+                        },
+                        {
+                            "id": 3,
+                            "type": "nuclear",
+                            "capacity_kw": 2000
+                        },
+                        {
+                            "id": 4,
+                            "type": "coal",
+                            "capacity_kw": 1500
+                        }
+                    ],
+                    "demand_profiles": [
+                        {
+                            "time": "00:00",
+                            "demand_kw": 1200
+                        },
+                        {
+                            "time": "06:00",
+                            "demand_kw": 1500
+                        },
+                        {
+                            "time": "12:00",
+                            "demand_kw": 1800
+                        },
+                        {
+                            "time": "18:00",
+                            "demand_kw": 2000
+                        },
+                        {
+                            "time": "23:59",
+                            "demand_kw": 1300
+                        }
+                    ],
+                    "transmission_losses": [
+                        {
+                            "source_id": 1,
+                            "destination_id": 2,
+                            "loss_percent": 2.5
+                        },
+                        {
+                            "source_id": 2,
+                            "destination_id": 3,
+                            "loss_percent": 3.0
+                        },
+                        {
+                            "source_id": 3,
+                            "destination_id": 4,
+                            "loss_percent": 1.5
+                        },
+                        {
+                            "source_id": 4,
+                            "destination_id": 1,
+                            "loss_percent": 2.0
+                        }
+                    ],
+                    "historical_outages": [
+                        {
+                            "source_id": 1,
+                            "downtime_hours": 2
+                        },
+                        {
+                            "source_id": 3,
+                            "downtime_hours": 1
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": "Minimize sum((capacity_kw[i] - demand_kw[t])^2 / demand_kw[t]) for all i in power_sources and t in demand_profiles; Subject to: capacity_kw[i] > demand_kw[t] - transmission_losses[i][j] and reliability constraints derived from historical_outages.",
+            "ontology": {
+                "entities": [
+                    "power_sources",
+                    "demand_profiles",
+                    "transmission_losses",
+                    "historical_outages",
+                    "smart grid",
+                    "load balancing"
+                ],
+                "relations": [
+                    "power_sources supply electricity to meet demand_profiles",
+                    "transmission_losses affect efficiency between power_sources",
+                    "historical_outages impact reliability of power_sources",
+                    "load balancing ensures efficient operation of smart grid"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "32d7069c-6c15-4389-b686-20969d31ae36",
+        "task_details": {
+            "task_instructions": "Design a sustainable energy grid that optimizes the distribution of renewable energy resources (solar and wind) across a hypothetical small city. The grid should meet the energy demands of residential, commercial, and industrial sectors while minimizing energy loss through transmission and taking into account variability in renewable energy production.",
+            "task_data": {
+                "data_points": {
+                    "city_layout": {
+                        "residential_areas": 5,
+                        "commercial_areas": 3,
+                        "industrial_areas": 2,
+                        "total_area_km2": 100
+                    },
+                    "energy_demand": {
+                        "residential": 3000,
+                        "commercial": 2000,
+                        "industrial": 5000
+                    },
+                    "renewable_resources": {
+                        "solar": {
+                            "average_daily_output_mw": 50,
+                            "variation_percent": 20
+                        },
+                        "wind": {
+                            "average_daily_output_mw": 60,
+                            "variation_percent": 25
+                        }
+                    },
+                    "transmission_loss_percentage": 5,
+                    "peak_energy_hours": {
+                        "residential": [
+                            18,
+                            21
+                        ],
+                        "commercial": [
+                            9,
+                            17
+                        ],
+                        "industrial": [
+                            8,
+                            20
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "objective_function": "minimize \\sum_{t} (E_demand(t) - E_supply(t) * (1 - transmission_loss))^2",
+                "constraints": [
+                    "E_demand_residential(t) <= E_supply_residential(t)",
+                    "E_demand_commercial(t) <= E_supply_commercial(t)",
+                    "E_demand_industrial(t) <= E_supply_industrial(t)",
+                    "0 <= E_supply_solar(t) <= solar_capacity * (1 +/- solar_variation)",
+                    "0 <= E_supply_wind(t) <= wind_capacity * (1 +/- wind_variation)"
+                ]
+            },
+            "ontology": {
+                "entities": [
+                    "energy_grid",
+                    "solar_energy",
+                    "wind_energy",
+                    "energy_demand",
+                    "energy_supply",
+                    "transmission_loss",
+                    "residential_area",
+                    "commercial_area",
+                    "industrial_area",
+                    "peak_energy_hours"
+                ],
+                "relations": [
+                    "contains",
+                    "supplies",
+                    "demands",
+                    "loses",
+                    "varies"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "25167628-3581-45cb-90f3-a8193a25e1ca",
+        "task_details": {
+            "task_instructions": "Perform a thorough multiphysics simulation of a lithium-ion battery cell during a charge-discharge cycle to predict thermal behavior, mechanical stress, and electrochemical performance. The simulation should integrate thermal, mechanical, and electrochemical models and validate against known experimental data. Report on thermal hotspots, stress concentrations, and voltage profiles over time.",
+            "task_data": {
+                "data_points": {
+                    "battery_geometry": {
+                        "length": 0.065,
+                        "width": 0.045,
+                        "thickness": 0.006
+                    },
+                    "material_properties": {
+                        "current_collector_material": "Copper",
+                        "electrode_material": "LCO",
+                        "electrolyte_material": "LiPF6",
+                        "separator_material": "Polypropylene"
+                    },
+                    "thermal_properties": {
+                        "thermal_conductivity_electrode": 1.58,
+                        "thermal_conductivity_separator": 0.334
+                    },
+                    "mechanical_properties": {
+                        "youngs_modulus": {
+                            "LCO": 80,
+                            "copper": 110
+                        },
+                        "poissons_ratio": {
+                            "LCO": 0.3,
+                            "copper": 0.34
+                        }
+                    },
+                    "electrochemical_properties": {
+                        "diffusion_coefficient_Li": 1e-14,
+                        "conductivity_electrolyte": 0.02
+                    },
+                    "boundary_conditions": {
+                        "temperature_initial": 298,
+                        "current_density": 1.5
+                    },
+                    "experimental_validation_data": {
+                        "temperature_profile": [
+                            290,
+                            295,
+                            300,
+                            305
+                        ],
+                        "voltage_profile": [
+                            3.7,
+                            3.5,
+                            3.3,
+                            3.2
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "governing_equations": [
+                    "Poisson's equation for electrostatics: ∇·(σ∇φ) = 0",
+                    "Heat equation: ρCp(∂T/∂t) = ∇·(k∇T) + Q",
+                    "Fick's law of diffusion: J = -D∇C",
+                    "Cauchy's equation of motion: ∇·σ = ρ∂^2u/∂t^2"
+                ],
+                "initial_conditions": {
+                    "phi_initial": 0,
+                    "T_initial": 298
+                },
+                "boundary_conditions": {
+                    "Neumann": "q = -k(∂T/∂n) at boundaries",
+                    "Dirichlet": "φ = 3.7V at terminals"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "Battery Cell",
+                    "Thermal Model",
+                    "Mechanical Stress",
+                    "Electrochemical Performance",
+                    "Material Properties",
+                    "Boundary Conditions"
+                ],
+                "relations": [
+                    "is_affected_by",
+                    "is_composed_of",
+                    "conductivity_influences",
+                    "stress_generates"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "24d946c1-25cc-4c8d-9d26-70152b0ec242",
+        "task_details": {
+            "task_instructions": "Design and optimize an advanced turbine blade capable of withstanding extreme thermal and mechanical stresses in a high-efficiency gas turbine engine. The task involves computational fluid dynamics (CFD) simulation to analyze aerodynamic efficiency, structural mechanics simulation for stress analysis, and materials engineering for high-temperature resistance. The objective is to maximize turbine efficiency while ensuring component durability over a specified operation cycle.",
+            "task_data": {
+                "material_properties": {
+                    "nickel_alloy": {
+                        "density": 8900,
+                        "thermal_conductivity": 23.0,
+                        "youngs_modulus": 210,
+                        "yield_strength": 1400
+                    },
+                    "titanium_alloy": {
+                        "density": 4500,
+                        "thermal_conductivity": 15.0,
+                        "youngs_modulus": 115,
+                        "yield_strength": 950
+                    }
+                },
+                "operational_conditions": {
+                    "inlet_temperature": 1500,
+                    "pressure_ratio": 20,
+                    "rotational_speed": 12000,
+                    "operation_cycle": 100000
+                },
+                "geometrical_parameters": {
+                    "blade_height": 0.1,
+                    "chord_length": 0.05,
+                    "blade_thickness": 0.005
+                },
+                "boundary_conditions": {
+                    "inlet_flow_profile": "uniform",
+                    "outlet_pressure": "101325",
+                    "wall_temperature": "1000"
+                }
+            },
+            "mathematical_formulation": "Maximize E = η_turbine under constraints σ_max < σ_yield, T_max < T_material_limit. η_turbine = (Work_output) / (Heat_input). Stress_analysis: σ = F/A, Thermal_analysis: q_dot = k * A * ∆T / d.",
+            "ontology": {
+                "entities": [
+                    "turbine blade",
+                    "nickel_alloy",
+                    "titanium_alloy",
+                    "thermal_conductivity",
+                    "youngs_modulus",
+                    "yield_strength",
+                    "pressure_ratio",
+                    "rotational_speed"
+                ],
+                "relations": [
+                    "capable_of_withstanding",
+                    "analyzed_by",
+                    "maximized_by",
+                    "defined_by"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "d09df3a7-27ae-42b6-9baa-5c3b2d27c1d6",
+        "task_details": {
+            "task_instructions": "Design an optimized control system for a microgrid incorporating renewable energy sources (solar and wind), energy storage (batteries), and non-renewable backup generators. The system must minimize operational costs and maximize energy reliability while considering fluctuating energy demands. Provide a simulation model capable of testing different scenarios including variable weather conditions and demand surges.",
+            "task_data": {
+                "energy_sources": {
+                    "solar": {
+                        "average_output_kW": 5,
+                        "variability": "25%"
+                    },
+                    "wind": {
+                        "average_output_kW": 10,
+                        "variability": "40%"
+                    },
+                    "battery": {
+                        "capacity_kWh": 50,
+                        "charging_efficiency": 0.9,
+                        "discharging_efficiency": 0.9
+                    },
+                    "diesel_generator": {
+                        "operational_cost_per_kWh": 0.2,
+                        "max_output_kW": 15
+                    }
+                },
+                "demand_data": {
+                    "average_demand_kW": 20,
+                    "peak_demand_multiplier": 1.5,
+                    "variability": "15%"
+                },
+                "weather_patterns": {
+                    "sunny": {
+                        "probability": 0.6,
+                        "solar_output_multiplier": 1.0
+                    },
+                    "cloudy": {
+                        "probability": 0.3,
+                        "solar_output_multiplier": 0.5
+                    },
+                    "wind_storm": {
+                        "probability": 0.1,
+                        "wind_output_multiplier": 1.2
+                    }
+                }
+            },
+            "mathematical_formulation": "Objective: Minimize Cost = \\sum (C_gen_i \\times P_gen_i) - \\sum (C_sell_i \\times P_sell_i). Constraints: Demand \\leq P_solar + P_wind + P_battery - P_diesel. Battery constraints: SOC_min \\leq SOC_t \\leq SOC_max, where SOC is the state of charge. System reliability: Probability(Demand > Supply) < 0.01.",
+            "ontology": {
+                "entities": [
+                    "microgrid",
+                    "solar energy",
+                    "wind energy",
+                    "battery storage",
+                    "diesel generator",
+                    "operational cost",
+                    "energy demand",
+                    "weather conditions"
+                ],
+                "relations": [
+                    "provides energy to",
+                    "charges",
+                    "discharges",
+                    "incurs cost",
+                    "impacts",
+                    "depends on",
+                    "reduces need for"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "9858cdc0-dad2-4e86-ab58-1550ad2a0839",
+        "task_details": {
+            "task_instructions": "Perform a comprehensive structural optimization of a multi-story steel frame building under seismic loading conditions using finite element analysis. The building has 15 stories with variable floor height and mixed-use design, including residential and commercial spaces. Optimize the structural components to minimize the total weight of steel used while ensuring compliance with safety standards and regulations related to seismic performance and occupant safety.",
+            "task_data": {
+                "data_points": {
+                    "building_geometry": {
+                        "stories": 15,
+                        "floor_heights": [
+                            3.5,
+                            3.5,
+                            4.0,
+                            3.0,
+                            3.5,
+                            3.0,
+                            4.0,
+                            3.0,
+                            3.5,
+                            3.5,
+                            3.0,
+                            4.0,
+                            3.0,
+                            3.5,
+                            4.0
+                        ],
+                        "total_height": 53.5
+                    },
+                    "material_properties": {
+                        "steel_grade": "A992",
+                        "modulus_of_elasticity": 29000,
+                        "yield_strength": 345
+                    },
+                    "loading_conditions": {
+                        "seismic_zones": "Zone 4",
+                        "occupancy_load": {
+                            "residential": 40,
+                            "commercial": 50
+                        }
+                    },
+                    "safety_standards": [
+                        "ASCE 7-16",
+                        "IBC 2018"
+                    ]
+                }
+            },
+            "mathematical_formulation": "Minimize: W = Σ (A_i * L_i * ρ_steel), where A_i = cross-sectional area of the i-th element, L_i = length of the i-th element. Subject to: 1) ΣF_internal = ΣF_external for all loading scenarios, 2) Story drift ≤ allowable drift as per ASCE 7-16, 3) P/A ≤ F_y for all structural members.",
+            "ontology": {
+                "entities": [
+                    "Steel Frame Building",
+                    "Seismic Load",
+                    "Structural Optimization",
+                    "Finite Element Analysis",
+                    "Safety Standards",
+                    "Material Properties"
+                ],
+                "relations": [
+                    "Building has Stories",
+                    "Steel Frame resists Seismic Load",
+                    "Material used in Steel Frame",
+                    "Optimization respects Safety Standards",
+                    "Loading Conditions affect Structural Optimization"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e1cfd883-e901-4052-b880-2a8e5bcad9b4",
+        "task_details": {
+            "task_instructions": "Develop an optimized control algorithm for a smart HVAC (Heating, Ventilation, and Air Conditioning) system in a multistory commercial building. The system should minimize energy consumption while maintaining indoor temperature and air quality within predefined comfort constraints. The algorithm must consider dynamic environmental factors and occupancy levels.",
+            "task_data": {
+                "data_points": {
+                    "building_layout": {
+                        "floors": 5,
+                        "zones_per_floor": 10,
+                        "zone dimensions": "15m x 15m x 3m"
+                    },
+                    "initial_conditions": {
+                        "outside_temperature_C": 30,
+                        "inside_temperature_C": 22,
+                        "humidity_percentage": 50,
+                        "occupancy_levels": {
+                            "floor_1": 50,
+                            "floor_2": 40,
+                            "floor_3": 30,
+                            "floor_4": 20,
+                            "floor_5": 10
+                        }
+                    },
+                    "HVAC_system_specifications": {
+                        "heating_capacity_kW": 100,
+                        "cooling_capacity_kW": 150,
+                        "ventilation_rate_cubic_m_per_sec": 0.05,
+                        "electrical_efficiency": 0.8
+                    },
+                    "environmental_data": [
+                        {
+                            "time_hours": 0,
+                            "outside_temperature_C": 25
+                        },
+                        {
+                            "time_hours": 1,
+                            "outside_temperature_C": 28
+                        },
+                        {
+                            "time_hours": 2,
+                            "outside_temperature_C": 30
+                        },
+                        {
+                            "time_hours": 3,
+                            "outside_temperature_C": 30
+                        },
+                        {
+                            "time_hours": 4,
+                            "outside_temperature_C": 28
+                        },
+                        {
+                            "time_hours": 5,
+                            "outside_temperature_C": 26
+                        }
+                    ],
+                    "comfort_constraints": {
+                        "temperature_range_C": [
+                            21,
+                            25
+                        ],
+                        "humidity_range_percentage": [
+                            30,
+                            60
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": "minimize Energy = \\sum_{t=0}^{T} \\left( \\sum_{f=1}^{F} \\sum_{z=1}^{Z} \\left(Q_{heating}(f, z, t) + Q_{cooling}(f, z, t) + P(f, z, t) \\right) \\right) \nsubject to: \\text{Temperature constraints: } 21 \\degree C \\leq T_{inside}(f, z, t) \\leq 25 \\degree C \n\\text{Humidity constraints: } 30\\% \\leq H(f, z, t) \\leq 60\\% \n\\text{Energy constraints: } P(f, z, t) \\leq P_{max}",
+            "ontology": {
+                "entities": [
+                    "HVAC System",
+                    "Building",
+                    "Temperature",
+                    "Humidity",
+                    "Occupancy",
+                    "Energy Consumption",
+                    "Algorithm"
+                ],
+                "relations": [
+                    "HVAC System controls Temperature",
+                    "HVAC System controls Humidity",
+                    "Building has Floors",
+                    "Floors have Zones",
+                    "Occupancy affects Energy Consumption",
+                    "Energy Consumption impacts Optimization"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e19983c9-2b5a-45dd-ae18-9e4bcb7af56b",
+        "task_details": {
+            "task_instructions": "Design and simulate a dynamic control system for a quadrotor UAV (Unmanned Aerial Vehicle) to achieve stable flight and perform a predefined complex maneuver trajectory. The control system should account for aerodynamic forces, motor dynamics, and external disturbances such as wind. The simulation should include time-varying position, velocity, and acceleration data, and the output should demonstrate the system's capability to follow the trajectory with minimal error under varied conditions.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "arm_length": 0.25,
+                        "inertia": [
+                            0.082,
+                            0.0845,
+                            0.1377
+                        ],
+                        "propeller_thrust_coeff": 8.54858e-06,
+                        "propeller_drag_coeff": 1.0678e-07
+                    },
+                    "environment": {
+                        "air_density": 1.225,
+                        "gravity": 9.81,
+                        "wind_profile": [
+                            {
+                                "time": 0,
+                                "velocity": [
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            {
+                                "time": 5,
+                                "velocity": [
+                                    1,
+                                    0.5,
+                                    0
+                                ]
+                            },
+                            {
+                                "time": 10,
+                                "velocity": [
+                                    2,
+                                    1,
+                                    0
+                                ]
+                            },
+                            {
+                                "time": 15,
+                                "velocity": [
+                                    0.5,
+                                    0.5,
+                                    0
+                                ]
+                            }
+                        ]
+                    },
+                    "trajectory": [
+                        {
+                            "time": 0,
+                            "position": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "velocity": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "acceleration": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "time": 5,
+                            "position": [
+                                5,
+                                5,
+                                2
+                            ],
+                            "velocity": [
+                                1,
+                                1,
+                                0.4
+                            ],
+                            "acceleration": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "time": 10,
+                            "position": [
+                                10,
+                                10,
+                                5
+                            ],
+                            "velocity": [
+                                1,
+                                1,
+                                0.6
+                            ],
+                            "acceleration": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        {
+                            "time": 15,
+                            "position": [
+                                15,
+                                15,
+                                10
+                            ],
+                            "velocity": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "acceleration": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "equations": [
+                    "F_thrust = C_t * (RPM)^2",
+                    "F_drag = C_d * (RPM)^2",
+                    "tau = I * alpha",
+                    "R_b2i = R_z(yaw) * R_y(pitch) * R_x(roll)",
+                    "x_dot = x_velocity + wind_velocity",
+                    "u = K_p*(x_ref - x) + K_d*(v_ref - x_dot)"
+                ],
+                "constraints": [
+                    "0 <= RPM <= 5000",
+                    "roll, pitch, yaw within stability margins",
+                    "error_pos < 0.1 meters for trajectory"
+                ]
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor UAV",
+                    "dynamic control system",
+                    "aerodynamic forces",
+                    "motor dynamics",
+                    "external disturbances",
+                    "wind",
+                    "position",
+                    "velocity",
+                    "acceleration",
+                    "trajectory"
+                ],
+                "relations": [
+                    "UAV affected by aerodynamic forces",
+                    "control system stabilizes UAV",
+                    "environment introduces wind disturbances",
+                    "trajectory defines desired path",
+                    "control system minimizes error in position"
+                ]
+            }
+        }
+    }
+]

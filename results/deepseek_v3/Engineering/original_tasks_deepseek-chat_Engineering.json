@@ -1,0 +1,3385 @@
+[
+    {
+        "task_id": "e8bc386f-c192-40fe-ad23-d5bf5312ddeb",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-agent robotic system operating in a dynamic environment. The system consists of 5 autonomous robots tasked with collaboratively transporting a payload of 50 kg across a 100-meter-long uneven terrain. Each robot has a maximum thrust capacity of 20 N and a maximum velocity of 2 m/s. The payload must be delivered within 60 seconds while minimizing energy consumption and avoiding collisions. The terrain is modeled as a 2D grid with elevation data provided. The task requires: 1) Formulating a dynamic model of the system, 2) Designing a distributed control algorithm, 3) Simulating the system's performance under the proposed control strategy, and 4) Validating the results against predefined performance metrics.",
+            "task_data": {
+                "data_points": {
+                    "robots": [
+                        {
+                            "id": 1,
+                            "mass": 10,
+                            "max_thrust": 20,
+                            "max_velocity": 2
+                        },
+                        {
+                            "id": 2,
+                            "mass": 10,
+                            "max_thrust": 20,
+                            "max_velocity": 2
+                        },
+                        {
+                            "id": 3,
+                            "mass": 10,
+                            "max_thrust": 20,
+                            "max_velocity": 2
+                        },
+                        {
+                            "id": 4,
+                            "mass": 10,
+                            "max_thrust": 20,
+                            "max_velocity": 2
+                        },
+                        {
+                            "id": 5,
+                            "mass": 10,
+                            "max_thrust": 20,
+                            "max_velocity": 2
+                        }
+                    ],
+                    "payload": {
+                        "mass": 50
+                    },
+                    "terrain": {
+                        "grid_size": [
+                            100,
+                            100
+                        ],
+                        "elevation_data": "randomly generated with a standard deviation of 0.5 meters"
+                    },
+                    "constraints": {
+                        "time_limit": 60,
+                        "collision_avoidance": true,
+                        "energy_minimization": true
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamic_model": "M * d²x/dt² + C * dx/dt + K * x = F_ext + F_control",
+                "control_objective": "minimize ∫(F_control²) dt",
+                "collision_constraint": "||x_i - x_j|| ≥ r_min for all i ≠ j",
+                "energy_constraint": "∑(F_control_i²) ≤ E_max"
+            },
+            "ontology": {
+                "entities": [
+                    "robots",
+                    "payload",
+                    "terrain",
+                    "thrust",
+                    "velocity",
+                    "energy",
+                    "collision",
+                    "control_strategy",
+                    "dynamic_model"
+                ],
+                "relations": [
+                    "robots transport payload",
+                    "terrain affects robot motion",
+                    "thrust influences velocity",
+                    "control_strategy minimizes energy",
+                    "collision avoidance ensures safety"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "3e6e759a-a489-42d0-bd51-21d9ca0a781c",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a quadrotor UAV (Unmanned Aerial Vehicle) to achieve trajectory tracking in the presence of wind disturbances. The task involves: 1) Deriving the dynamic model of the quadrotor, 2) Formulating a robust control law using Linear Quadratic Regulator (LQR) with disturbance rejection, 3) Simulating the system response under varying wind conditions, and 4) Validating the control strategy's performance using predefined metrics such as tracking error, settling time, and energy consumption.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.2,
+                        "inertia_matrix": [
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.04
+                        ],
+                        "arm_length": 0.25,
+                        "thrust_coefficient": 8.54858e-06,
+                        "drag_coefficient": 0.016
+                    },
+                    "wind_disturbance": {
+                        "mean_speed": 5.0,
+                        "variance": 2.0,
+                        "direction": [
+                            0.707,
+                            0.707,
+                            0
+                        ]
+                    },
+                    "trajectory": {
+                        "waypoints": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                5,
+                                5,
+                                5
+                            ],
+                            [
+                                10,
+                                0,
+                                10
+                            ]
+                        ],
+                        "time_steps": [
+                            0,
+                            5,
+                            10
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamics": {
+                    "translational": "m * d²x/dt² = u_x - F_dx",
+                    "rotational": "I * d²θ/dt² = τ - τ_d",
+                    "thrust": "F = k_f * ω²",
+                    "drag": "F_d = 0.5 * ρ * C_d * A * v²"
+                },
+                "control_law": {
+                    "LQR": "u = -K * x",
+                    "disturbance_rejection": "u_d = -K_d * d"
+                },
+                "performance_metrics": {
+                    "tracking_error": "e = ||x_d - x||",
+                    "settling_time": "t_s",
+                    "energy_consumption": "E = ∫(u²) dt"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "trajectory",
+                    "wind_disturbance",
+                    "LQR",
+                    "thrust",
+                    "drag",
+                    "inertia",
+                    "control_law",
+                    "tracking_error",
+                    "settling_time",
+                    "energy_consumption"
+                ],
+                "relations": [
+                    "quadrotor_has_mass",
+                    "quadrotor_has_inertia",
+                    "wind_affects_quadrotor",
+                    "LQR_minimizes_error",
+                    "thrust_generated_by_motors",
+                    "drag_opposes_motion",
+                    "control_law_regulates_trajectory"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "6d9560f8-20fa-47ff-a32c-5ff5f18dcfed",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a quadrotor unmanned aerial vehicle (UAV) to achieve trajectory tracking in the presence of wind disturbances. The task involves the following steps: 1) Develop a dynamic model of the quadrotor UAV considering aerodynamic forces and moments. 2) Formulate a nonlinear model predictive control (NMPC) problem to minimize tracking error while satisfying constraints on control inputs and states. 3) Simulate the system under varying wind conditions and evaluate the performance of the controller using metrics such as root mean square error (RMSE) and control effort. 4) Provide a detailed analysis of the robustness and stability of the proposed control strategy.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.04
+                        ],
+                        "arm_length": 0.25,
+                        "thrust_coefficient": 8.54858e-06,
+                        "drag_coefficient": 0.016,
+                        "gravity": 9.81
+                    },
+                    "wind_disturbances": {
+                        "mean_wind_speed": [
+                            2.0,
+                            1.5,
+                            0.5
+                        ],
+                        "wind_gust_amplitude": [
+                            0.5,
+                            0.3,
+                            0.2
+                        ],
+                        "wind_gust_frequency": [
+                            0.1,
+                            0.2,
+                            0.15
+                        ]
+                    },
+                    "trajectory": {
+                        "reference_path": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                1,
+                                1,
+                                1
+                            ],
+                            [
+                                2,
+                                2,
+                                2
+                            ],
+                            [
+                                3,
+                                3,
+                                3
+                            ]
+                        ],
+                        "time_vector": [
+                            0,
+                            1,
+                            2,
+                            3
+                        ]
+                    },
+                    "control_constraints": {
+                        "max_thrust": 20,
+                        "min_thrust": 0,
+                        "max_torque": [
+                            1.5,
+                            1.5,
+                            1.5
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamic_model": "m * dv/dt = F_thrust - F_drag - m * g + F_wind",
+                "NMPC_objective": "minimize J = integral(||x(t) - x_ref(t)||^2 + ||u(t)||^2) dt",
+                "constraints": "u_min <= u(t) <= u_max, x_min <= x(t) <= x_max",
+                "wind_model": "F_wind = 0.5 * rho * Cd * A * ||v_wind - v||^2"
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "thrust",
+                    "drag",
+                    "wind_disturbance",
+                    "trajectory",
+                    "nonlinear_model_predictive_control",
+                    "robustness",
+                    "stability"
+                ],
+                "relations": [
+                    "quadrotor_experiences_wind_disturbance",
+                    "thrust_affects_quadrotor_motion",
+                    "drag_opposes_motion",
+                    "NMPC_minimizes_tracking_error",
+                    "wind_disturbance_affects_trajectory"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "742411f6-2fd9-4c2d-8f4f-d87d2a644a31",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-input multi-output (MIMO) nonlinear dynamical system representing a quadrotor UAV (Unmanned Aerial Vehicle) under wind disturbances. The task involves: 1) Deriving the nonlinear dynamics of the quadrotor, 2) Linearizing the system around a hover condition, 3) Designing a Linear Quadratic Regulator (LQR) for stabilization, 4) Incorporating a Kalman Filter for state estimation under sensor noise, and 5) Simulating the system's response to a step input in the presence of wind gusts. Provide detailed mathematical derivations, control gains, and simulation results.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.2,
+                        "inertia_matrix": [
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.04
+                        ],
+                        "arm_length": 0.25,
+                        "thrust_coefficient": 8.54858e-06,
+                        "drag_coefficient": 0.016,
+                        "gravity": 9.81
+                    },
+                    "wind_disturbance": {
+                        "gust_amplitude": 2.0,
+                        "gust_frequency": 0.5
+                    },
+                    "sensor_noise": {
+                        "position_noise_variance": 0.01,
+                        "velocity_noise_variance": 0.02
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "nonlinear_dynamics": "\\dot{x} = v, \\dot{v} = \\frac{1}{m}(R(\\phi, \\theta, \\psi)F - mg\\hat{z}), \\dot{\\omega} = J^{-1}(\\tau - \\omega \\times J\\omega)",
+                "linearized_dynamics": "\\delta\\dot{x} = A\\delta x + B\\delta u, \\delta y = C\\delta x + D\\delta u",
+                "LQR_cost_function": "J = \\int_0^\\infty (x^T Q x + u^T R u) dt",
+                "Kalman_filter": "\\hat{x}_{k|k-1} = A\\hat{x}_{k-1|k-1} + Bu_{k-1}, P_{k|k-1} = AP_{k-1|k-1}A^T + Q_k"
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "nonlinear dynamics",
+                    "linearization",
+                    "LQR",
+                    "Kalman Filter",
+                    "wind disturbance",
+                    "sensor noise",
+                    "state estimation",
+                    "control gains"
+                ],
+                "relations": [
+                    "quadrotor exhibits nonlinear dynamics",
+                    "linearization approximates nonlinear dynamics",
+                    "LQR stabilizes linearized system",
+                    "Kalman Filter estimates states under noise",
+                    "wind disturbance affects quadrotor dynamics",
+                    "sensor noise corrupts measurements"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "6a0c65c2-a099-4784-99aa-86eaf13e6ddf",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-input multi-output (MIMO) nonlinear dynamic system representing a quadrotor UAV (Unmanned Aerial Vehicle) under wind disturbances. The system must achieve trajectory tracking while minimizing energy consumption and ensuring stability. The control strategy should be based on a combination of Model Predictive Control (MPC) and Reinforcement Learning (RL). Provide a detailed simulation model, including system dynamics, constraints, and performance metrics.",
+            "task_data": {
+                "data_points": {
+                    "system_dynamics": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.04
+                        ],
+                        "thrust_coefficient": 8.54858e-06,
+                        "drag_coefficient": 0.016,
+                        "arm_length": 0.225,
+                        "gravity": 9.81
+                    },
+                    "wind_disturbance": {
+                        "mean_wind_speed": 5.0,
+                        "wind_speed_variance": 1.5,
+                        "direction": [
+                            0.707,
+                            0.707,
+                            0
+                        ]
+                    },
+                    "trajectory": {
+                        "waypoints": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                5,
+                                5,
+                                5
+                            ],
+                            [
+                                10,
+                                10,
+                                10
+                            ]
+                        ],
+                        "time_steps": [
+                            0,
+                            5,
+                            10
+                        ]
+                    },
+                    "constraints": {
+                        "max_thrust": 20.0,
+                        "max_tilt_angle": 0.35,
+                        "battery_capacity": 2200,
+                        "energy_consumption_rate": 0.1
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "system_dynamics": "m * d²x/dt² = ΣF_i - m * g + F_wind, I * d²θ/dt² = Στ_i",
+                "objective_function": "minimize J = ∫(e^T Q e + u^T R u) dt, where e = x_desired - x_actual",
+                "constraints": "|F_i| ≤ F_max, |θ| ≤ θ_max, E_consumed ≤ E_max",
+                "wind_model": "F_wind = 0.5 * ρ * C_d * A * v_wind²"
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "trajectory",
+                    "wind_disturbance",
+                    "thrust",
+                    "drag",
+                    "energy_consumption",
+                    "stability",
+                    "Model Predictive Control",
+                    "Reinforcement Learning"
+                ],
+                "relations": [
+                    "quadrotor is affected by wind_disturbance",
+                    "trajectory is tracked by quadrotor",
+                    "thrust is generated by quadrotor",
+                    "drag opposes motion of quadrotor",
+                    "energy_consumption depends on thrust and drag",
+                    "stability is ensured by control strategy"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "59e31ec5-a797-4a8e-b01f-9594e6369c4e",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-agent robotic system operating in a dynamic environment. The system consists of 5 autonomous robots tasked with collaboratively transporting a payload of 50 kg across a 100 m x 100 m terrain with obstacles. The control strategy must minimize energy consumption while ensuring collision avoidance and payload stability. The solution must include a mathematical model of the system dynamics, a control law, and a simulation of the system's performance under the proposed strategy.",
+            "task_data": {
+                "data_points": {
+                    "robots": [
+                        {
+                            "id": 1,
+                            "mass": 10,
+                            "max_velocity": 2,
+                            "max_force": 50,
+                            "battery_capacity": 5000
+                        },
+                        {
+                            "id": 2,
+                            "mass": 10,
+                            "max_velocity": 2,
+                            "max_force": 50,
+                            "battery_capacity": 5000
+                        },
+                        {
+                            "id": 3,
+                            "mass": 10,
+                            "max_velocity": 2,
+                            "max_force": 50,
+                            "battery_capacity": 5000
+                        },
+                        {
+                            "id": 4,
+                            "mass": 10,
+                            "max_velocity": 2,
+                            "max_force": 50,
+                            "battery_capacity": 5000
+                        },
+                        {
+                            "id": 5,
+                            "mass": 10,
+                            "max_velocity": 2,
+                            "max_force": 50,
+                            "battery_capacity": 5000
+                        }
+                    ],
+                    "payload": {
+                        "mass": 50,
+                        "dimensions": {
+                            "length": 2,
+                            "width": 1,
+                            "height": 0.5
+                        }
+                    },
+                    "terrain": {
+                        "dimensions": {
+                            "length": 100,
+                            "width": 100
+                        },
+                        "obstacles": [
+                            {
+                                "id": 1,
+                                "position": [
+                                    20,
+                                    30
+                                ],
+                                "radius": 5
+                            },
+                            {
+                                "id": 2,
+                                "position": [
+                                    60,
+                                    70
+                                ],
+                                "radius": 7
+                            },
+                            {
+                                "id": 3,
+                                "position": [
+                                    80,
+                                    20
+                                ],
+                                "radius": 4
+                            }
+                        ]
+                    },
+                    "environment": {
+                        "gravity": 9.81,
+                        "friction_coefficient": 0.3
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "system_dynamics": "M(q)q'' + C(q, q')q' + G(q) = τ + F_ext",
+                "energy_consumption": "E = ∫(τ^T q') dt",
+                "collision_avoidance": "||p_i - p_j|| ≥ r_i + r_j ∀ i ≠ j",
+                "payload_stability": "||θ|| ≤ θ_max, ||ω|| ≤ ω_max"
+            },
+            "ontology": {
+                "entities": [
+                    "robots",
+                    "payload",
+                    "terrain",
+                    "obstacles",
+                    "energy_consumption",
+                    "collision_avoidance",
+                    "payload_stability",
+                    "control_law",
+                    "system_dynamics"
+                ],
+                "relations": [
+                    "robots_transport_payload",
+                    "robots_avoid_obstacles",
+                    "control_law_minimizes_energy",
+                    "system_dynamics_describes_motion"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "dedd267f-34af-4655-b37d-ba80ed1111a4",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-agent robotic system operating in a dynamic environment. The system consists of 5 autonomous robots tasked with collaboratively transporting a payload of 50 kg across a 100-meter uneven terrain. Each robot has a maximum thrust capacity of 20 N, a mass of 10 kg, and a communication range of 30 meters. The terrain is modeled as a 2D grid with elevation data provided. The control strategy must minimize energy consumption while ensuring collision avoidance, payload stability, and adherence to time constraints (complete the task in under 10 minutes). Provide a detailed control algorithm, including state-space representation, cost function, and constraints.",
+            "task_data": {
+                "data_points": {
+                    "robots": [
+                        {
+                            "id": 1,
+                            "mass": 10,
+                            "thrust_capacity": 20,
+                            "communication_range": 30
+                        },
+                        {
+                            "id": 2,
+                            "mass": 10,
+                            "thrust_capacity": 20,
+                            "communication_range": 30
+                        },
+                        {
+                            "id": 3,
+                            "mass": 10,
+                            "thrust_capacity": 20,
+                            "communication_range": 30
+                        },
+                        {
+                            "id": 4,
+                            "mass": 10,
+                            "thrust_capacity": 20,
+                            "communication_range": 30
+                        },
+                        {
+                            "id": 5,
+                            "mass": 10,
+                            "thrust_capacity": 20,
+                            "communication_range": 30
+                        }
+                    ],
+                    "payload": {
+                        "mass": 50
+                    },
+                    "terrain": {
+                        "grid_size": "100m x 100m",
+                        "elevation_data": "provided as a 100x100 matrix with values in meters"
+                    },
+                    "time_constraint": 600
+                }
+            },
+            "mathematical_formulation": {
+                "state_space_representation": "x(t) = [p(t), v(t), θ(t)]^T, where p(t) is position, v(t) is velocity, and θ(t) is orientation.",
+                "cost_function": "J = ∫(u^T(t)Ru(t) + x^T(t)Qx(t)) dt, where R and Q are weight matrices, u(t) is control input.",
+                "constraints": [
+                    "||p_i(t) - p_j(t)|| ≥ d_min for all i ≠ j (collision avoidance)",
+                    "|θ_i(t) - θ_j(t)| ≤ θ_max for all i, j (payload stability)",
+                    "∑u_i(t) ≤ F_max (thrust capacity constraint)",
+                    "t_f ≤ 600 seconds (time constraint)"
+                ]
+            },
+            "ontology": {
+                "entities": [
+                    "autonomous robot",
+                    "payload",
+                    "terrain",
+                    "thrust capacity",
+                    "communication range",
+                    "state-space representation",
+                    "cost function",
+                    "constraints"
+                ],
+                "relations": [
+                    "robot-transports-payload",
+                    "robot-communicates-with-robot",
+                    "terrain-affects-robot-motion",
+                    "control-input-affects-state",
+                    "constraint-limits-control"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "a0689b46-c288-4f8d-8835-ac2ef5ad4d4e",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-agent robotic system operating in a dynamic environment. The system consists of 5 autonomous robots tasked with collaboratively transporting a payload of 50 kg across a 100-meter uneven terrain. Each robot has a maximum thrust capacity of 200 N and a maximum speed of 2 m/s. The terrain is modeled as a 2D grid with elevation data provided. The control strategy must minimize energy consumption while ensuring collision avoidance and payload stability. Provide a detailed algorithm, including state-space representation, control laws, and a simulation of the system's trajectory.",
+            "task_data": {
+                "data_points": {
+                    "robots": [
+                        {
+                            "id": 1,
+                            "mass": 20,
+                            "thrust_capacity": 200,
+                            "max_speed": 2
+                        },
+                        {
+                            "id": 2,
+                            "mass": 20,
+                            "thrust_capacity": 200,
+                            "max_speed": 2
+                        },
+                        {
+                            "id": 3,
+                            "mass": 20,
+                            "thrust_capacity": 200,
+                            "max_speed": 2
+                        },
+                        {
+                            "id": 4,
+                            "mass": 20,
+                            "thrust_capacity": 200,
+                            "max_speed": 2
+                        },
+                        {
+                            "id": 5,
+                            "mass": 20,
+                            "thrust_capacity": 200,
+                            "max_speed": 2
+                        }
+                    ],
+                    "payload": {
+                        "mass": 50
+                    },
+                    "terrain": {
+                        "grid_size": [
+                            100,
+                            100
+                        ],
+                        "elevation_data": "randomly_generated_0_to_10_meters"
+                    },
+                    "environment": {
+                        "gravity": 9.81,
+                        "friction_coefficient": 0.3
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "state_space_representation": "ẋ = Ax + Bu, where x = [position, velocity], u = [thrust_vector]",
+                "energy_minimization": "min ∫(u^T R u) dt, subject to dynamics and constraints",
+                "collision_avoidance": "||p_i - p_j|| ≥ d_min, ∀i ≠ j",
+                "payload_stability": "|θ| ≤ θ_max, where θ is the payload tilt angle"
+            },
+            "ontology": {
+                "entities": [
+                    "autonomous_robot",
+                    "payload",
+                    "terrain",
+                    "thrust_vector",
+                    "state_space",
+                    "control_law",
+                    "energy_consumption",
+                    "collision_avoidance",
+                    "payload_stability"
+                ],
+                "relations": [
+                    "robot_transports_payload",
+                    "robot_interacts_with_terrain",
+                    "control_law_regulates_robot_motion",
+                    "energy_consumption_depends_on_thrust",
+                    "collision_avoidance_ensures_safety",
+                    "payload_stability_ensures_success"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "11a70fe1-418c-4ba0-8484-8908c82d6431",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-agent robotic system operating in a dynamic environment. The system consists of 5 autonomous robots tasked with collaboratively transporting a payload of 50 kg across a 100-meter-long uneven terrain. Each robot has a maximum thrust capacity of 20 N and a maximum speed of 2 m/s. The terrain is modeled as a 2D grid with elevation data provided. The control strategy must minimize energy consumption while ensuring collision avoidance and payload stability. Provide a detailed control algorithm, including state-space representation, cost function, and constraints.",
+            "task_data": {
+                "data_points": {
+                    "robots": [
+                        {
+                            "id": 1,
+                            "mass": 10,
+                            "max_thrust": 20,
+                            "max_speed": 2
+                        },
+                        {
+                            "id": 2,
+                            "mass": 10,
+                            "max_thrust": 20,
+                            "max_speed": 2
+                        },
+                        {
+                            "id": 3,
+                            "mass": 10,
+                            "max_thrust": 20,
+                            "max_speed": 2
+                        },
+                        {
+                            "id": 4,
+                            "mass": 10,
+                            "max_thrust": 20,
+                            "max_speed": 2
+                        },
+                        {
+                            "id": 5,
+                            "mass": 10,
+                            "max_thrust": 20,
+                            "max_speed": 2
+                        }
+                    ],
+                    "payload": {
+                        "mass": 50
+                    },
+                    "terrain": {
+                        "grid_size": "100x100",
+                        "elevation_data": "provided as a 100x100 matrix with values in meters"
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "state_space_representation": "x(k+1) = Ax(k) + Bu(k) + w(k), where x(k) is the state vector, u(k) is the control input, and w(k) is the process noise.",
+                "cost_function": "J = ∑(x(k)^T Q x(k) + u(k)^T R u(k)), where Q and R are weighting matrices.",
+                "constraints": {
+                    "thrust_constraint": "||u_i(k)|| ≤ 20 N for all robots i",
+                    "speed_constraint": "||v_i(k)|| ≤ 2 m/s for all robots i",
+                    "collision_avoidance": "||p_i(k) - p_j(k)|| ≥ d_min for all i ≠ j, where d_min is the minimum safe distance",
+                    "payload_stability": "θ(k) ≤ θ_max, where θ(k) is the payload tilt angle and θ_max is the maximum allowable tilt"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "autonomous robot",
+                    "payload",
+                    "terrain",
+                    "thrust",
+                    "speed",
+                    "elevation",
+                    "state-space representation",
+                    "cost function",
+                    "constraints"
+                ],
+                "relations": [
+                    "robot-transports-payload",
+                    "robot-operates-on-terrain",
+                    "thrust-acts-on-robot",
+                    "speed-limits-robot-motion",
+                    "elevation-affects-terrain",
+                    "state-space-representation-describes-system-dynamics",
+                    "cost-function-minimizes-energy-consumption",
+                    "constraints-ensure-safety-and-stability"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "1b0792df-9e3f-440e-9f6d-b9544cc59741",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a quadrotor unmanned aerial vehicle (UAV) to achieve stable hovering in the presence of wind disturbances. The control strategy must minimize energy consumption while maintaining a position error of less than 0.1 meters in all three spatial dimensions. The solution must include a detailed mathematical model of the quadrotor dynamics, a description of the control algorithm, and a simulation-based validation using the provided dataset.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_mass": 1.2,
+                    "rotor_thrust_coefficient": 8.548e-06,
+                    "rotor_drag_coefficient": 0.016,
+                    "moment_of_inertia": [
+                        0.034,
+                        0.045,
+                        0.097
+                    ],
+                    "arm_length": 0.225,
+                    "gravity": 9.81,
+                    "wind_disturbance": {
+                        "magnitude": [
+                            0.5,
+                            1.0,
+                            1.5
+                        ],
+                        "direction": [
+                            30,
+                            45,
+                            60
+                        ]
+                    },
+                    "initial_position": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "desired_position": [
+                        0,
+                        0,
+                        2
+                    ],
+                    "simulation_time": 10,
+                    "time_step": 0.01
+                }
+            },
+            "mathematical_formulation": {
+                "dynamics": {
+                    "translational": "m * d²x/dt² = Σ(F_i) - m * g * e_z + F_wind",
+                    "rotational": "I * d²θ/dt² = Σ(τ_i) + τ_wind",
+                    "thrust": "F_i = k_f * ω_i²",
+                    "drag": "τ_i = k_d * ω_i²"
+                },
+                "control_objective": "minimize ∫(u(t)^T * R * u(t)) dt, subject to ||x(t) - x_desired|| < 0.1",
+                "constraints": {
+                    "position_error": "||x(t) - x_desired|| < 0.1",
+                    "energy_consumption": "∫(u(t)^T * R * u(t)) dt < E_max"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "thrust",
+                    "drag",
+                    "moment_of_inertia",
+                    "wind_disturbance",
+                    "control_strategy",
+                    "energy_consumption",
+                    "position_error"
+                ],
+                "relations": [
+                    "quadrotor generates thrust",
+                    "quadrotor experiences drag",
+                    "wind_disturbance affects quadrotor",
+                    "control_strategy minimizes energy_consumption",
+                    "control_strategy maintains position_error"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "9fe42e49-74ac-45b9-acf0-1220879946a2",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-input multi-output (MIMO) nonlinear dynamic system representing a quadrotor unmanned aerial vehicle (UAV). The system must account for external disturbances such as wind gusts and payload variations. The control strategy should minimize energy consumption while ensuring stability and tracking performance. Provide a detailed analysis of the system's response to step inputs and sinusoidal disturbances, including transient and steady-state behavior.",
+            "task_data": {
+                "data_points": {
+                    "system_parameters": {
+                        "mass": 1.2,
+                        "inertia_matrix": [
+                            [
+                                0.034,
+                                0,
+                                0
+                            ],
+                            [
+                                0,
+                                0.045,
+                                0
+                            ],
+                            [
+                                0,
+                                0,
+                                0.097
+                            ]
+                        ],
+                        "arm_length": 0.225,
+                        "thrust_coefficient": 8.54858e-06,
+                        "drag_coefficient": 0.016,
+                        "gravity": 9.81
+                    },
+                    "disturbances": {
+                        "wind_gust": {
+                            "magnitude": 2.5,
+                            "direction": [
+                                0.707,
+                                0.707,
+                                0
+                            ],
+                            "frequency": 0.5
+                        },
+                        "payload_variation": {
+                            "mass_change": 0.3,
+                            "time_of_change": 5.0
+                        }
+                    },
+                    "control_constraints": {
+                        "max_thrust_per_motor": 15.0,
+                        "max_tilt_angle": 0.35,
+                        "sampling_time": 0.01
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamics": {
+                    "translational": "m * d²r/dt² = Σ(F_i) - m * g * e_z + F_d",
+                    "rotational": "I * d²ω/dt² + ω × (I * ω) = Σ(M_i)",
+                    "thrust": "F_i = k_f * ω_i²",
+                    "drag": "F_d = -0.5 * ρ * C_d * A * ||v|| * v"
+                },
+                "control_objective": "minimize J = ∫(eᵀQe + uᵀRu) dt, where e = r_desired - r_actual",
+                "constraints": {
+                    "thrust": "0 ≤ F_i ≤ F_max",
+                    "tilt": "|θ| ≤ θ_max"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "thrust",
+                    "drag",
+                    "inertia",
+                    "wind_gust",
+                    "payload",
+                    "control_strategy",
+                    "energy_consumption",
+                    "stability",
+                    "tracking_performance"
+                ],
+                "relations": [
+                    "quadrotor_produces_thrust",
+                    "thrust_opposes_drag",
+                    "inertia_affects_rotation",
+                    "wind_gust_disturbs_motion",
+                    "payload_alters_mass",
+                    "control_strategy_minimizes_energy",
+                    "stability_ensures_safety",
+                    "tracking_performance_measures_accuracy"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "17f329d3-a911-4775-a6ec-eb0b6935b816",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-input multi-output (MIMO) nonlinear dynamic system representing a quadrotor unmanned aerial vehicle (UAV). The system must account for external disturbances such as wind gusts and sensor noise. The control strategy should minimize energy consumption while ensuring stability and tracking performance. Provide a detailed analysis of the system's response to step inputs and sinusoidal disturbances, including time-domain and frequency-domain characteristics.",
+            "task_data": {
+                "data_points": {
+                    "system_parameters": {
+                        "mass": 1.2,
+                        "inertia_matrix": [
+                            [
+                                0.034,
+                                0,
+                                0
+                            ],
+                            [
+                                0,
+                                0.045,
+                                0
+                            ],
+                            [
+                                0,
+                                0,
+                                0.097
+                            ]
+                        ],
+                        "arm_length": 0.25,
+                        "thrust_coefficient": 8.54858e-06,
+                        "drag_coefficient": 0.016,
+                        "gravity": 9.81
+                    },
+                    "disturbances": {
+                        "wind_gust": {
+                            "magnitude": 2.5,
+                            "direction": [
+                                0.707,
+                                0.707,
+                                0
+                            ],
+                            "frequency": 0.5
+                        },
+                        "sensor_noise": {
+                            "mean": 0,
+                            "variance": 0.01
+                        }
+                    },
+                    "control_constraints": {
+                        "max_thrust": 20,
+                        "min_thrust": 0,
+                        "saturation_limits": [
+                            -15,
+                            15
+                        ]
+                    },
+                    "performance_metrics": {
+                        "settling_time": 2.0,
+                        "overshoot": 0.05,
+                        "tracking_error": 0.01
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamics": {
+                    "translational": "m * d²x/dt² = Σ(F_i) - m * g * e_z + F_wind",
+                    "rotational": "I * d²θ/dt² = Σ(τ_i) + τ_wind",
+                    "thrust": "F_i = k_f * ω_i²",
+                    "torque": "τ_i = k_m * ω_i²"
+                },
+                "control_objective": "minimize J = ∫(e^T Q e + u^T R u) dt",
+                "constraints": {
+                    "thrust": "0 ≤ F_i ≤ F_max",
+                    "torque": "|τ_i| ≤ τ_max"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor UAV",
+                    "nonlinear dynamics",
+                    "MIMO system",
+                    "control strategy",
+                    "energy consumption",
+                    "stability",
+                    "tracking performance",
+                    "wind gust",
+                    "sensor noise",
+                    "thrust",
+                    "torque",
+                    "inertia matrix",
+                    "performance metrics"
+                ],
+                "relations": [
+                    "quadrotor UAV exhibits nonlinear dynamics",
+                    "control strategy minimizes energy consumption",
+                    "wind gust affects system dynamics",
+                    "sensor noise impacts measurement accuracy",
+                    "thrust and torque are control inputs",
+                    "performance metrics evaluate system response"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "8bac5468-fd09-4b74-a74c-5e85526be2e8",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-input multi-output (MIMO) nonlinear dynamic system representing a quadrotor unmanned aerial vehicle (UAV) under wind disturbances. The control strategy must ensure stability, minimize energy consumption, and achieve precise trajectory tracking. The system dynamics are provided, and the task involves deriving a control law using Lyapunov-based techniques, implementing it in a simulation environment, and validating its performance against predefined metrics.",
+            "task_data": {
+                "data_points": {
+                    "system_dynamics": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            [
+                                0.03,
+                                0,
+                                0
+                            ],
+                            [
+                                0,
+                                0.03,
+                                0
+                            ],
+                            [
+                                0,
+                                0,
+                                0.04
+                            ]
+                        ],
+                        "gravity": 9.81,
+                        "thrust_coefficient": 8.548e-06,
+                        "drag_coefficient": 1.033e-05,
+                        "arm_length": 0.25,
+                        "wind_disturbance": {
+                            "mean_speed": 3.0,
+                            "variance": 1.5,
+                            "direction": [
+                                0.707,
+                                0.707,
+                                0
+                            ]
+                        }
+                    },
+                    "trajectory": {
+                        "waypoints": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                5,
+                                5,
+                                5
+                            ],
+                            [
+                                10,
+                                0,
+                                10
+                            ]
+                        ],
+                        "time_steps": [
+                            0,
+                            5,
+                            10
+                        ]
+                    },
+                    "performance_metrics": {
+                        "position_error_threshold": 0.1,
+                        "energy_consumption_limit": 500,
+                        "settling_time_limit": 10
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "system_equations": {
+                    "translational_dynamics": "m * d²x/dt² = u_x - m * g + F_wind_x",
+                    "rotational_dynamics": "I * d²θ/dt² = τ - F_wind_θ",
+                    "control_input": "u = [u_x, u_y, u_z, τ_roll, τ_pitch, τ_yaw]"
+                },
+                "lyapunov_function": "V = 0.5 * (e_x² + e_v²)",
+                "stability_condition": "dV/dt ≤ 0",
+                "energy_consumption": "E = ∫(u_x² + u_y² + u_z² + τ_roll² + τ_pitch² + τ_yaw²) dt"
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor UAV",
+                    "wind disturbance",
+                    "Lyapunov function",
+                    "trajectory tracking",
+                    "control law",
+                    "stability",
+                    "energy consumption",
+                    "nonlinear dynamics",
+                    "performance metrics"
+                ],
+                "relations": [
+                    "quadrotor UAV is affected by wind disturbance",
+                    "Lyapunov function ensures stability",
+                    "control law minimizes energy consumption",
+                    "trajectory tracking requires precise control",
+                    "nonlinear dynamics describe system behavior",
+                    "performance metrics evaluate control strategy"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "f3f4ee71-cce9-4917-8d14-3395b3b50e09",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a quadrotor unmanned aerial vehicle (UAV) operating in a dynamic urban environment with obstacles. The task involves generating a trajectory that minimizes energy consumption while avoiding collisions and adhering to kinematic constraints. The control strategy must be robust to wind disturbances and sensor noise. Provide a detailed mathematical model of the quadrotor dynamics, the control algorithm, and a simulation of the trajectory in a 3D environment.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            0.03,
+                            0.03,
+                            0.04
+                        ],
+                        "rotor_thrust_coefficient": 8.54858e-06,
+                        "rotor_drag_coefficient": 0.016,
+                        "arm_length": 0.25
+                    },
+                    "environment_parameters": {
+                        "wind_speed": [
+                            2.0,
+                            1.5,
+                            0.5
+                        ],
+                        "obstacle_positions": [
+                            [
+                                5,
+                                5,
+                                3
+                            ],
+                            [
+                                10,
+                                8,
+                                4
+                            ],
+                            [
+                                15,
+                                12,
+                                5
+                            ]
+                        ],
+                        "noise_std_dev": 0.1
+                    },
+                    "kinematic_constraints": {
+                        "max_velocity": 10.0,
+                        "max_acceleration": 5.0,
+                        "max_angular_velocity": 3.0
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "quadrotor_dynamics": {
+                    "translational_dynamics": "m * d²x/dt² = Σ(T_i) - m * g * e_z - F_drag",
+                    "rotational_dynamics": "I * d²θ/dt² = Σ(τ_i) - ω × (I * ω)",
+                    "thrust_and_torque": "T_i = k_f * ω_i², τ_i = k_m * ω_i²"
+                },
+                "control_objective": "minimize ∫(T_i²) dt subject to collision avoidance and kinematic constraints",
+                "wind_disturbance_model": "F_wind = 0.5 * ρ * C_d * A * ||v_wind||²"
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "thrust",
+                    "torque",
+                    "wind_disturbance",
+                    "obstacle",
+                    "trajectory",
+                    "kinematic_constraints",
+                    "control_strategy"
+                ],
+                "relations": [
+                    "quadrotor_generates_thrust",
+                    "quadrotor_experiences_torque",
+                    "wind_affects_quadrotor",
+                    "obstacle_blocks_trajectory",
+                    "control_strategy_minimizes_energy"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "404a9e37-914a-437c-b395-bfebe053b4c5",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-input multi-output (MIMO) nonlinear dynamic system representing a quadrotor unmanned aerial vehicle (UAV) under wind disturbances. The system must stabilize the UAV's attitude (roll, pitch, yaw) and altitude while minimizing energy consumption. The control strategy should be robust to parameter uncertainties and external disturbances. Provide a detailed mathematical formulation of the system dynamics, the control law, and the optimization criteria. Validate the design using the provided dataset and simulate the system's response under varying wind conditions.",
+            "task_data": {
+                "data_points": {
+                    "UAV_parameters": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            [
+                                0.03,
+                                0,
+                                0
+                            ],
+                            [
+                                0,
+                                0.03,
+                                0
+                            ],
+                            [
+                                0,
+                                0,
+                                0.06
+                            ]
+                        ],
+                        "arm_length": 0.25,
+                        "thrust_coefficient": 8.548e-06,
+                        "drag_coefficient": 1.1e-07,
+                        "gravity": 9.81
+                    },
+                    "wind_disturbances": {
+                        "mean_wind_speed": 5.0,
+                        "wind_speed_variation": 2.0,
+                        "wind_direction": [
+                            0.0,
+                            45.0,
+                            90.0
+                        ]
+                    },
+                    "initial_conditions": {
+                        "roll": 0.1,
+                        "pitch": 0.05,
+                        "yaw": 0.0,
+                        "altitude": 0.0,
+                        "angular_velocities": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "linear_velocities": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "system_dynamics": {
+                    "translational_motion": "m * d^2z/dt^2 = (cos(phi) * cos(theta) * T) - m * g",
+                    "rotational_motion": "I * d^2(phi, theta, psi)/dt^2 = tau - cross(omega, I * omega)",
+                    "thrust_and_torque": "T = k_t * (w1^2 + w2^2 + w3^2 + w4^2), tau = [l * k_t * (w2^2 - w4^2); l * k_t * (w3^2 - w1^2); k_d * (w1^2 - w2^2 + w3^2 - w4^2)]"
+                },
+                "control_law": "u = K_p * e + K_i * integral(e) + K_d * de/dt, where e = [phi_desired - phi; theta_desired - theta; psi_desired - psi; z_desired - z]",
+                "optimization_criteria": "minimize J = integral(0 to T) [e^T * Q * e + u^T * R * u] dt, subject to system dynamics and constraints"
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor UAV",
+                    "attitude control",
+                    "altitude control",
+                    "nonlinear dynamics",
+                    "wind disturbances",
+                    "robust control",
+                    "energy optimization",
+                    "PID control",
+                    "thrust",
+                    "torque",
+                    "inertia matrix",
+                    "angular velocities",
+                    "linear velocities"
+                ],
+                "relations": [
+                    "quadrotor UAV has attitude control",
+                    "quadrotor UAV has altitude control",
+                    "wind disturbances affect UAV dynamics",
+                    "robust control mitigates parameter uncertainties",
+                    "energy optimization minimizes thrust usage",
+                    "PID control stabilizes attitude and altitude",
+                    "thrust and torque are generated by rotors",
+                    "inertia matrix relates angular velocities to torques"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "9a5943e0-7630-4af7-89ec-51aff297f02a",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-input multi-output (MIMO) nonlinear dynamic system representing a quadrotor unmanned aerial vehicle (UAV) under wind disturbances. The control strategy must ensure stability, trajectory tracking, and robustness against uncertainties. The task involves: 1) Deriving the nonlinear dynamic model of the quadrotor, 2) Linearizing the model around a hover condition, 3) Designing a state feedback controller using Linear Quadratic Regulator (LQR) theory, 4) Implementing a disturbance observer to estimate and compensate for wind disturbances, and 5) Validating the control strategy through simulation under varying wind conditions.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.2,
+                        "inertia_matrix": [
+                            [
+                                0.03,
+                                0,
+                                0
+                            ],
+                            [
+                                0,
+                                0.03,
+                                0
+                            ],
+                            [
+                                0,
+                                0,
+                                0.04
+                            ]
+                        ],
+                        "arm_length": 0.25,
+                        "thrust_coefficient": 8.54858e-06,
+                        "drag_coefficient": 0.016,
+                        "gravity": 9.81
+                    },
+                    "wind_disturbance": {
+                        "mean_speed": 5.0,
+                        "variance": 1.5,
+                        "direction": [
+                            0.707,
+                            0.707,
+                            0
+                        ]
+                    },
+                    "initial_conditions": {
+                        "position": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "velocity": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "orientation": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "angular_velocity": [
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    "desired_trajectory": {
+                        "x": "0.5 * t",
+                        "y": "0.5 * t",
+                        "z": "1.0 * sin(0.5 * t)"
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "nonlinear_dynamics": {
+                    "translational_motion": "m * d²r/dt² = F - m * g * e_z - F_d",
+                    "rotational_motion": "I * d²θ/dt² = τ - ω × (I * ω)",
+                    "thrust_force": "F = k_f * (ω_1² + ω_2² + ω_3² + ω_4²)",
+                    "drag_force": "F_d = 0.5 * ρ * C_d * A * ||v|| * v"
+                },
+                "linearized_model": {
+                    "state_space": "dx/dt = A * x + B * u",
+                    "output_equation": "y = C * x + D * u"
+                },
+                "lqr_control": {
+                    "cost_function": "J = ∫(x^T Q x + u^T R u) dt",
+                    "riccati_equation": "A^T P + P A - P B R^{-1} B^T P + Q = 0"
+                },
+                "disturbance_observer": {
+                    "observer_dynamics": "dz/dt = L * (y - C * z)",
+                    "disturbance_estimate": "d_hat = z - L * y"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "nonlinear_dynamics",
+                    "linearized_model",
+                    "LQR_controller",
+                    "disturbance_observer",
+                    "wind_disturbance",
+                    "trajectory_tracking",
+                    "stability",
+                    "robustness"
+                ],
+                "relations": [
+                    "quadrotor exhibits nonlinear_dynamics",
+                    "nonlinear_dynamics linearized to linearized_model",
+                    "linearized_model controlled by LQR_controller",
+                    "LQR_controller compensates for wind_disturbance",
+                    "disturbance_observer estimates wind_disturbance",
+                    "LQR_controller ensures trajectory_tracking",
+                    "LQR_controller ensures stability",
+                    "LQR_controller ensures robustness"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "162751ba-fefc-49d2-b805-18fd7fd8c034",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-input multi-output (MIMO) nonlinear dynamic system representing a quadrotor UAV (Unmanned Aerial Vehicle) in a 3D environment. The system must account for external disturbances such as wind gusts and sensor noise. The control strategy should minimize energy consumption while ensuring stability and tracking accuracy for a predefined trajectory. Provide a detailed analysis of the system's response to step inputs, sinusoidal disturbances, and random noise. Validate the design using a simulation environment with the provided dataset.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.2,
+                        "inertia_matrix": [
+                            [
+                                0.03,
+                                0,
+                                0
+                            ],
+                            [
+                                0,
+                                0.03,
+                                0
+                            ],
+                            [
+                                0,
+                                0,
+                                0.06
+                            ]
+                        ],
+                        "arm_length": 0.25,
+                        "thrust_coefficient": 8.54858e-06,
+                        "drag_coefficient": 0.016,
+                        "motor_time_constant": 0.02
+                    },
+                    "environmental_conditions": {
+                        "wind_gust_amplitude": 2.5,
+                        "wind_gust_frequency": 0.5,
+                        "sensor_noise_variance": 0.01
+                    },
+                    "trajectory": {
+                        "waypoints": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                5,
+                                5,
+                                5
+                            ],
+                            [
+                                10,
+                                0,
+                                10
+                            ]
+                        ],
+                        "time_vector": [
+                            0,
+                            5,
+                            10
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamics": {
+                    "translational": "m * d²r/dt² = R * F - m * g * e_z - F_d",
+                    "rotational": "I * d²θ/dt² + ω × (I * ω) = M",
+                    "thrust": "F_i = k_f * ω_i²",
+                    "drag": "F_d = 0.5 * ρ * C_d * A * ||v|| * v"
+                },
+                "control_objective": "minimize ∫(u^T * R * u) dt subject to ||r - r_d|| < ε and ||θ - θ_d|| < δ",
+                "constraints": {
+                    "actuator_limits": "0 ≤ ω_i ≤ ω_max",
+                    "stability": "Re(λ) < 0 for all eigenvalues λ of the closed-loop system"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "thrust",
+                    "drag",
+                    "wind_gust",
+                    "sensor_noise",
+                    "trajectory",
+                    "stability",
+                    "energy_consumption"
+                ],
+                "relations": [
+                    "quadrotor_generates_thrust",
+                    "thrust_opposes_drag",
+                    "wind_gust_affects_trajectory",
+                    "sensor_noise_affects_measurement",
+                    "control_strategy_optimizes_energy_consumption"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "3b78554d-9a55-4f87-9e81-fd1832280274",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a quadrotor UAV (Unmanned Aerial Vehicle) to achieve stable hovering in the presence of wind disturbances. The task involves: 1) Developing a dynamic model of the quadrotor UAV, 2) Formulating a control law using Linear Quadratic Regulator (LQR) theory, 3) Simulating the system response under varying wind conditions, and 4) Validating the control strategy's robustness by analyzing the system's stability margins and tracking performance. The solution must include a detailed derivation of the dynamic model, the LQR control law, and a simulation report with performance metrics.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "arm_length": 0.25,
+                        "moment_of_inertia": [
+                            0.03,
+                            0.03,
+                            0.04
+                        ],
+                        "thrust_coefficient": 1.1e-05,
+                        "drag_coefficient": 1.4e-06,
+                        "gravity": 9.81
+                    },
+                    "wind_disturbances": {
+                        "mean_wind_speed": 5.0,
+                        "wind_speed_variation": 2.0,
+                        "wind_direction": [
+                            0.0,
+                            45.0,
+                            90.0
+                        ]
+                    },
+                    "control_parameters": {
+                        "state_weighting_matrix": [
+                            [
+                                10,
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                0,
+                                10,
+                                0,
+                                0
+                            ],
+                            [
+                                0,
+                                0,
+                                1,
+                                0
+                            ],
+                            [
+                                0,
+                                0,
+                                0,
+                                1
+                            ]
+                        ],
+                        "input_weighting_matrix": [
+                            [
+                                0.1,
+                                0
+                            ],
+                            [
+                                0,
+                                0.1
+                            ]
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamic_model": "\\dot{x} = Ax + Bu + d, where x is the state vector, u is the control input, and d is the disturbance vector.",
+                "LQR_control_law": "u = -Kx, where K is the optimal gain matrix obtained by minimizing the cost function J = \\int_0^\\infty (x^T Q x + u^T R u) dt.",
+                "stability_analysis": "The system's stability is analyzed using the Lyapunov function V(x) = x^T P x, where P is the solution to the Riccati equation."
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor UAV",
+                    "dynamic model",
+                    "LQR control",
+                    "wind disturbances",
+                    "stability margins",
+                    "tracking performance"
+                ],
+                "relations": [
+                    "quadrotor UAV is modeled by dynamic model",
+                    "LQR control minimizes cost function",
+                    "wind disturbances affect quadrotor UAV",
+                    "stability margins ensure robustness",
+                    "tracking performance is evaluated by simulation"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "ea6439a8-5fce-4b7d-80d8-7e7be37818dc",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-agent robotic system operating in a dynamic environment. The system consists of 5 autonomous robots tasked with collaboratively transporting a payload of 50 kg across a 100 m long uneven terrain. Each robot has a maximum thrust capacity of 200 N, a mass of 10 kg, and a communication range of 20 m. The terrain is modeled as a 2D grid with elevation data provided. The control strategy must minimize energy consumption while ensuring collision avoidance, payload stability, and adherence to a predefined trajectory. Provide a detailed control algorithm, including state equations, optimization criteria, and a simulation of the system's performance over the terrain.",
+            "task_data": {
+                "data_points": {
+                    "robots": [
+                        {
+                            "id": 1,
+                            "mass": 10,
+                            "max_thrust": 200,
+                            "communication_range": 20
+                        },
+                        {
+                            "id": 2,
+                            "mass": 10,
+                            "max_thrust": 200,
+                            "communication_range": 20
+                        },
+                        {
+                            "id": 3,
+                            "mass": 10,
+                            "max_thrust": 200,
+                            "communication_range": 20
+                        },
+                        {
+                            "id": 4,
+                            "mass": 10,
+                            "max_thrust": 200,
+                            "communication_range": 20
+                        },
+                        {
+                            "id": 5,
+                            "mass": 10,
+                            "max_thrust": 200,
+                            "communication_range": 20
+                        }
+                    ],
+                    "payload": {
+                        "mass": 50
+                    },
+                    "terrain": {
+                        "grid_size": [
+                            100,
+                            100
+                        ],
+                        "elevation_data": "randomly generated with a standard deviation of 0.5 m"
+                    },
+                    "trajectory": {
+                        "start": [
+                            0,
+                            0
+                        ],
+                        "end": [
+                            100,
+                            100
+                        ],
+                        "waypoints": [
+                            [
+                                20,
+                                20
+                            ],
+                            [
+                                40,
+                                40
+                            ],
+                            [
+                                60,
+                                60
+                            ],
+                            [
+                                80,
+                                80
+                            ]
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "state_equations": [
+                    "dx_i/dt = v_i",
+                    "dv_i/dt = (F_i - F_drag_i) / m_i",
+                    "F_drag_i = 0.5 * ρ * C_d * A * ||v_i||^2"
+                ],
+                "optimization_criteria": [
+                    "minimize Σ(F_i^2 * Δt)",
+                    "subject to ||x_i - x_j|| ≥ d_min for all i ≠ j",
+                    "subject to ||x_payload - x_trajectory|| ≤ ε"
+                ],
+                "constraints": [
+                    "F_i ≤ F_max",
+                    "communication_range ≥ ||x_i - x_j|| for all i, j"
+                ]
+            },
+            "ontology": {
+                "entities": [
+                    "autonomous robot",
+                    "payload",
+                    "terrain",
+                    "trajectory",
+                    "thrust",
+                    "drag force",
+                    "energy consumption",
+                    "collision avoidance",
+                    "stability"
+                ],
+                "relations": [
+                    "robot_transports_payload",
+                    "robot_communicates_with_robot",
+                    "robot_navigates_terrain",
+                    "robot_follows_trajectory",
+                    "thrust_affects_motion",
+                    "drag_opposes_motion"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "25fde018-4a7a-4038-9bb0-67a9027a9486",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-input multi-output (MIMO) nonlinear dynamical system representing a quadrotor UAV (Unmanned Aerial Vehicle) under wind disturbances. The system must achieve trajectory tracking while minimizing energy consumption and ensuring stability. The control strategy should be implemented using a Model Predictive Control (MPC) framework. Provide a detailed analysis of the system's response to step changes in the reference trajectory and evaluate the robustness of the controller under varying wind conditions.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.2,
+                        "inertia_matrix": [
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.04
+                        ],
+                        "arm_length": 0.25,
+                        "thrust_coefficient": 8.54858e-06,
+                        "drag_coefficient": 0.016,
+                        "gravity": 9.81
+                    },
+                    "wind_disturbance": {
+                        "mean_speed": 5.0,
+                        "variance": 1.5,
+                        "direction": [
+                            0.707,
+                            0.707,
+                            0
+                        ]
+                    },
+                    "reference_trajectory": {
+                        "x": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ],
+                        "y": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ],
+                        "z": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ],
+                        "yaw": [
+                            0,
+                            0.1,
+                            0.2,
+                            0.3,
+                            0.4,
+                            0.5
+                        ]
+                    },
+                    "control_constraints": {
+                        "max_thrust": 20.0,
+                        "min_thrust": 0.0,
+                        "max_torque": 2.0,
+                        "min_torque": -2.0
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamics": {
+                    "translational": "m * d^2r/dt^2 = F - m * g * e_z + F_wind",
+                    "rotational": "I * dω/dt + ω × (I * ω) = τ",
+                    "thrust": "F = k_f * (ω_1^2 + ω_2^2 + ω_3^2 + ω_4^2)",
+                    "torque": "τ = [l * k_f * (ω_4^2 - ω_2^2); l * k_f * (ω_3^2 - ω_1^2); k_m * (ω_1^2 - ω_2^2 + ω_3^2 - ω_4^2)]"
+                },
+                "objective_function": "minimize J = ∫(e^T Q e + u^T R u) dt, where e = r - r_ref, u = [F; τ]",
+                "constraints": {
+                    "state_constraints": "r_min ≤ r ≤ r_max, ω_min ≤ ω ≤ ω_max",
+                    "input_constraints": "u_min ≤ u ≤ u_max"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "wind_disturbance",
+                    "trajectory",
+                    "thrust",
+                    "torque",
+                    "Model Predictive Control",
+                    "stability",
+                    "robustness"
+                ],
+                "relations": [
+                    "quadrotor is affected by wind_disturbance",
+                    "trajectory is tracked by quadrotor",
+                    "thrust and torque are controlled by MPC",
+                    "stability is ensured by control strategy",
+                    "robustness is evaluated under wind_disturbance"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "b61acb50-52bd-4970-ab15-1cc56dd78c0b",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-robot system operating in a dynamic environment to minimize energy consumption while maximizing task completion efficiency. The system consists of 5 autonomous robots with varying capabilities, operating in a 10m x 10m grid-based environment with dynamic obstacles. The task involves coordinating the robots to collectively transport 10 objects from a starting zone to a target zone within a time limit of 300 seconds. Each robot has a maximum energy capacity of 1000 Joules, and energy consumption rates vary based on movement speed and payload. The control strategy must account for real-time obstacle avoidance, energy constraints, and task prioritization.",
+            "task_data": {
+                "data_points": {
+                    "robots": [
+                        {
+                            "id": 1,
+                            "max_speed": 1.5,
+                            "payload_capacity": 5,
+                            "energy_consumption_rate": {
+                                "idle": 0.1,
+                                "moving": {
+                                    "0.5m/s": 0.5,
+                                    "1.0m/s": 1.0,
+                                    "1.5m/s": 1.5
+                                }
+                            }
+                        },
+                        {
+                            "id": 2,
+                            "max_speed": 2.0,
+                            "payload_capacity": 3,
+                            "energy_consumption_rate": {
+                                "idle": 0.2,
+                                "moving": {
+                                    "0.5m/s": 0.6,
+                                    "1.0m/s": 1.2,
+                                    "2.0m/s": 2.4
+                                }
+                            }
+                        },
+                        {
+                            "id": 3,
+                            "max_speed": 1.0,
+                            "payload_capacity": 7,
+                            "energy_consumption_rate": {
+                                "idle": 0.15,
+                                "moving": {
+                                    "0.5m/s": 0.4,
+                                    "1.0m/s": 0.8
+                                }
+                            }
+                        },
+                        {
+                            "id": 4,
+                            "max_speed": 1.8,
+                            "payload_capacity": 4,
+                            "energy_consumption_rate": {
+                                "idle": 0.12,
+                                "moving": {
+                                    "0.5m/s": 0.55,
+                                    "1.0m/s": 1.1,
+                                    "1.8m/s": 1.98
+                                }
+                            }
+                        },
+                        {
+                            "id": 5,
+                            "max_speed": 1.2,
+                            "payload_capacity": 6,
+                            "energy_consumption_rate": {
+                                "idle": 0.18,
+                                "moving": {
+                                    "0.5m/s": 0.45,
+                                    "1.0m/s": 0.9,
+                                    "1.2m/s": 1.08
+                                }
+                            }
+                        }
+                    ],
+                    "objects": [
+                        {
+                            "id": 1,
+                            "weight": 2,
+                            "start_position": [
+                                1,
+                                1
+                            ],
+                            "target_position": [
+                                9,
+                                9
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "weight": 3,
+                            "start_position": [
+                                2,
+                                2
+                            ],
+                            "target_position": [
+                                8,
+                                8
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "weight": 4,
+                            "start_position": [
+                                3,
+                                3
+                            ],
+                            "target_position": [
+                                7,
+                                7
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "weight": 5,
+                            "start_position": [
+                                4,
+                                4
+                            ],
+                            "target_position": [
+                                6,
+                                6
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "weight": 1,
+                            "start_position": [
+                                5,
+                                5
+                            ],
+                            "target_position": [
+                                5,
+                                9
+                            ]
+                        },
+                        {
+                            "id": 6,
+                            "weight": 2,
+                            "start_position": [
+                                6,
+                                6
+                            ],
+                            "target_position": [
+                                4,
+                                4
+                            ]
+                        },
+                        {
+                            "id": 7,
+                            "weight": 3,
+                            "start_position": [
+                                7,
+                                7
+                            ],
+                            "target_position": [
+                                3,
+                                3
+                            ]
+                        },
+                        {
+                            "id": 8,
+                            "weight": 4,
+                            "start_position": [
+                                8,
+                                8
+                            ],
+                            "target_position": [
+                                2,
+                                2
+                            ]
+                        },
+                        {
+                            "id": 9,
+                            "weight": 5,
+                            "start_position": [
+                                9,
+                                9
+                            ],
+                            "target_position": [
+                                1,
+                                1
+                            ]
+                        },
+                        {
+                            "id": 10,
+                            "weight": 1,
+                            "start_position": [
+                                10,
+                                10
+                            ],
+                            "target_position": [
+                                10,
+                                1
+                            ]
+                        }
+                    ],
+                    "obstacles": [
+                        {
+                            "id": 1,
+                            "position": [
+                                2,
+                                5
+                            ],
+                            "size": 1,
+                            "dynamic": true,
+                            "movement_pattern": "linear",
+                            "velocity": 0.2
+                        },
+                        {
+                            "id": 2,
+                            "position": [
+                                5,
+                                2
+                            ],
+                            "size": 1,
+                            "dynamic": false
+                        },
+                        {
+                            "id": 3,
+                            "position": [
+                                7,
+                                7
+                            ],
+                            "size": 2,
+                            "dynamic": true,
+                            "movement_pattern": "circular",
+                            "radius": 1,
+                            "angular_velocity": 0.1
+                        }
+                    ]
+                }
+            },
+            "mathematical_formulation": {
+                "objective_function": "Minimize total energy consumption while maximizing task completion efficiency: min Σ(E_i) + λ * (1 - Σ(T_j)/T_max), where E_i is the energy consumed by robot i, T_j is the time taken to complete task j, T_max is the time limit, and λ is a weighting factor.",
+                "constraints": [
+                    "Σ(energy_consumed_by_robot_i) ≤ 1000 Joules for all robots.",
+                    "Σ(payload_carried_by_robot_i) ≤ payload_capacity for all robots.",
+                    "Obstacle avoidance: robots must maintain a minimum distance of 0.5m from all obstacles.",
+                    "Task completion: all objects must be transported to their target positions within 300 seconds."
+                ]
+            },
+            "ontology": {
+                "entities": [
+                    "robot",
+                    "object",
+                    "obstacle",
+                    "energy_consumption",
+                    "payload_capacity",
+                    "movement_speed",
+                    "task_completion_time",
+                    "dynamic_environment"
+                ],
+                "relations": [
+                    "robot_transports_object",
+                    "robot_avoids_obstacle",
+                    "robot_consumes_energy",
+                    "object_has_weight",
+                    "obstacle_has_position",
+                    "task_has_time_limit"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "feb6ce0a-dfd7-4008-a6ef-cf23ff8579d5",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a quadrotor UAV (Unmanned Aerial Vehicle) to achieve trajectory tracking in the presence of wind disturbances. The task involves deriving a nonlinear dynamic model of the quadrotor, formulating a control law using a combination of feedback linearization and robust control techniques, and simulating the system under varying wind conditions. The control strategy must ensure stability, minimize tracking error, and account for uncertainties in the system parameters.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.2,
+                        "inertia_matrix": [
+                            0.034,
+                            0.045,
+                            0.097
+                        ],
+                        "arm_length": 0.25,
+                        "thrust_coefficient": 8.54858e-06,
+                        "drag_coefficient": 0.016,
+                        "motor_time_constant": 0.02
+                    },
+                    "wind_disturbance": {
+                        "mean_wind_speed": 5.0,
+                        "wind_speed_variation": 1.5,
+                        "wind_direction": [
+                            0.707,
+                            0.707,
+                            0
+                        ]
+                    },
+                    "desired_trajectory": {
+                        "x_trajectory": "0.5 * t",
+                        "y_trajectory": "0.5 * sin(0.5 * t)",
+                        "z_trajectory": "1.0"
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamic_model": {
+                    "translational_dynamics": "m * d^2r/dt^2 = R * F - m * g * e_z - F_d",
+                    "rotational_dynamics": "I * dω/dt + ω × (I * ω) = M",
+                    "thrust_force": "F = [0, 0, sum(T_i)]^T",
+                    "drag_force": "F_d = 0.5 * ρ * C_d * A * ||v|| * v"
+                },
+                "control_law": {
+                    "feedback_linearization": "u = inv(B) * (v - A * x)",
+                    "robust_control": "u_robust = -K * sgn(s)",
+                    "sliding_surface": "s = e + λ * de/dt"
+                },
+                "stability_criteria": "Lyapunov function V = 0.5 * s^2, dV/dt ≤ -η * |s|"
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "trajectory_tracking",
+                    "wind_disturbance",
+                    "feedback_linearization",
+                    "robust_control",
+                    "Lyapunov_stability",
+                    "sliding_mode_control"
+                ],
+                "relations": [
+                    "quadrotor is subject to wind_disturbance",
+                    "feedback_linearization is used for trajectory_tracking",
+                    "robust_control compensates for wind_disturbance",
+                    "Lyapunov_stability ensures system stability",
+                    "sliding_mode_control minimizes tracking error"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "dde75c1b-88b8-4017-8617-90a4ae091da1",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a quadrotor UAV (Unmanned Aerial Vehicle) to achieve trajectory tracking in a 3D space while minimizing energy consumption. The task involves deriving the dynamic model of the quadrotor, formulating the control problem as an optimization task, and implementing a Model Predictive Control (MPC) algorithm. The solution must account for external disturbances such as wind gusts and ensure stability under varying payload conditions.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            0.03,
+                            0.03,
+                            0.04
+                        ],
+                        "arm_length": 0.25,
+                        "thrust_coefficient": 8.54858e-06,
+                        "drag_coefficient": 0.016,
+                        "motor_time_constant": 0.02
+                    },
+                    "environmental_conditions": {
+                        "wind_gust_velocity": [
+                            2.0,
+                            1.5,
+                            0.5
+                        ],
+                        "air_density": 1.225
+                    },
+                    "trajectory": {
+                        "waypoints": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                5,
+                                5,
+                                5
+                            ],
+                            [
+                                10,
+                                0,
+                                10
+                            ],
+                            [
+                                15,
+                                -5,
+                                5
+                            ]
+                        ],
+                        "time_steps": [
+                            0,
+                            5,
+                            10,
+                            15
+                        ]
+                    },
+                    "payload_variation": {
+                        "mass_range": [
+                            1.0,
+                            2.0
+                        ],
+                        "time_intervals": [
+                            0,
+                            7.5,
+                            15
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamic_model": {
+                    "translational_dynamics": "m * d²r/dt² = F_thrust - m * g * e_z - F_drag",
+                    "rotational_dynamics": "I * d²ω/dt² = τ - ω × (I * ω)",
+                    "thrust_force": "F_thrust = k_f * (ω_1² + ω_2² + ω_3² + ω_4²)",
+                    "drag_force": "F_drag = 0.5 * ρ * C_d * A * ||v|| * v"
+                },
+                "optimization_problem": {
+                    "objective_function": "minimize ∫(F_thrust² + τ²) dt",
+                    "constraints": [
+                        "r(t) = r_desired(t)",
+                        "ω(t) ≤ ω_max",
+                        "F_thrust(t) ≤ F_max"
+                    ]
+                },
+                "MPC_formulation": {
+                    "prediction_horizon": 10,
+                    "control_horizon": 5,
+                    "state_constraints": [
+                        "r_min ≤ r(t) ≤ r_max",
+                        "v_min ≤ v(t) ≤ v_max"
+                    ]
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "trajectory",
+                    "thrust_force",
+                    "drag_force",
+                    "wind_gust",
+                    "payload",
+                    "Model Predictive Control",
+                    "optimization",
+                    "stability"
+                ],
+                "relations": [
+                    "quadrotor is controlled by MPC",
+                    "thrust_force acts on quadrotor",
+                    "drag_force opposes motion of quadrotor",
+                    "wind_gust affects quadrotor dynamics",
+                    "payload variation influences quadrotor mass",
+                    "optimization minimizes energy consumption",
+                    "stability is ensured by control constraints"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "09ea5274-3ffc-416a-a456-3c0359b81c82",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a quadrotor UAV (Unmanned Aerial Vehicle) to achieve trajectory tracking in the presence of wind disturbances. The task involves: 1) Deriving the dynamic model of the quadrotor, 2) Formulating a robust control law using sliding mode control (SMC), 3) Simulating the system under varying wind conditions, and 4) Evaluating the performance using metrics such as tracking error, control effort, and robustness to disturbances. Provide a detailed report including the mathematical derivation, simulation results, and analysis.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.2,
+                        "inertia_matrix": [
+                            0.03,
+                            0.03,
+                            0.04
+                        ],
+                        "arm_length": 0.25,
+                        "thrust_coefficient": 8.54858e-06,
+                        "drag_coefficient": 0.016,
+                        "gravity": 9.81
+                    },
+                    "wind_disturbance": {
+                        "mean_wind_speed": 5.0,
+                        "wind_speed_variation": 1.5,
+                        "wind_direction": [
+                            0.5,
+                            0.5,
+                            0.0
+                        ]
+                    },
+                    "desired_trajectory": {
+                        "x_trajectory": "0.5 * t",
+                        "y_trajectory": "0.5 * sin(t)",
+                        "z_trajectory": "1.0"
+                    },
+                    "simulation_parameters": {
+                        "time_step": 0.01,
+                        "simulation_duration": 20.0
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamic_model": {
+                    "translational_dynamics": "m * d^2x/dt^2 = u_x - k_d * dx/dt + d_x",
+                    "rotational_dynamics": "I * d^2θ/dt^2 = τ - k_d * dθ/dt + d_θ",
+                    "control_inputs": {
+                        "u_x": "thrust in x-direction",
+                        "τ": "torque"
+                    },
+                    "disturbances": {
+                        "d_x": "wind disturbance in x-direction",
+                        "d_θ": "wind disturbance in rotation"
+                    }
+                },
+                "sliding_mode_control": {
+                    "sliding_surface": "s = e + λ * de/dt",
+                    "control_law": "u = -K * sign(s)",
+                    "stability_condition": "s * ds/dt < 0"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "trajectory_tracking",
+                    "sliding_mode_control",
+                    "wind_disturbance",
+                    "dynamic_model",
+                    "robust_control",
+                    "simulation",
+                    "performance_metrics"
+                ],
+                "relations": [
+                    "quadrotor is controlled by sliding_mode_control",
+                    "sliding_mode_control minimizes tracking_error",
+                    "wind_disturbance affects quadrotor dynamics",
+                    "dynamic_model describes quadrotor motion",
+                    "performance_metrics evaluate control_law effectiveness"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "a8a9652f-bfbb-409b-856f-89c487494e5a",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-input multi-output (MIMO) nonlinear dynamic system representing a quadrotor UAV (Unmanned Aerial Vehicle) under wind disturbances. The system must stabilize the quadrotor's attitude (roll, pitch, yaw) and altitude while minimizing energy consumption. The control strategy should be based on a combination of Model Predictive Control (MPC) and Reinforcement Learning (RL) techniques. Provide a detailed simulation of the system dynamics, including the effects of wind gusts, and validate the control strategy using a numerical solver. The solution must include a stability analysis and a sensitivity analysis of the control parameters.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "arm_length": 0.25,
+                        "moment_of_inertia": [
+                            0.03,
+                            0.03,
+                            0.04
+                        ],
+                        "thrust_coefficient": 8.54858e-06,
+                        "drag_coefficient": 0.016,
+                        "gravity": 9.81
+                    },
+                    "wind_disturbance": {
+                        "mean_wind_speed": 5.0,
+                        "gust_amplitude": 2.0,
+                        "gust_frequency": 0.5
+                    },
+                    "control_constraints": {
+                        "max_thrust": 20.0,
+                        "min_thrust": 0.0,
+                        "max_torque": 1.0,
+                        "min_torque": -1.0
+                    },
+                    "simulation_parameters": {
+                        "time_step": 0.01,
+                        "simulation_duration": 10.0
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "system_dynamics": {
+                    "equations_of_motion": [
+                        "m * ddot{x} = (u1 + u2 + u3 + u4) * sin(theta) - kx * dot{x}",
+                        "m * ddot{y} = (u1 + u2 + u3 + u4) * sin(phi) * cos(theta) - ky * dot{y}",
+                        "m * ddot{z} = (u1 + u2 + u3 + u4) * cos(phi) * cos(theta) - m * g - kz * dot{z}",
+                        "Ixx * ddot{phi} = l * (u2 - u4) - k_phi * dot{phi}",
+                        "Iyy * ddot{theta} = l * (u3 - u1) - k_theta * dot{theta}",
+                        "Izz * ddot{psi} = tau1 + tau2 + tau3 + tau4 - k_psi * dot{psi}"
+                    ],
+                    "wind_model": "F_wind = 0.5 * rho * Cd * A * (V_wind - V_quad)^2",
+                    "control_objective": "minimize J = integral(0 to T) [alpha * (phi^2 + theta^2 + psi^2) + beta * (u1^2 + u2^2 + u3^2 + u4^2)] dt"
+                },
+                "stability_analysis": "Lyapunov function V(x) = 0.5 * (x^T P x), where P is a positive definite matrix.",
+                "sensitivity_analysis": "Partial derivatives of control gains with respect to system parameters."
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "attitude",
+                    "altitude",
+                    "wind_disturbance",
+                    "Model Predictive Control (MPC)",
+                    "Reinforcement Learning (RL)",
+                    "stability_analysis",
+                    "sensitivity_analysis",
+                    "Lyapunov_function",
+                    "energy_consumption"
+                ],
+                "relations": [
+                    "quadrotor has attitude",
+                    "quadrotor has altitude",
+                    "wind_disturbance affects quadrotor",
+                    "MPC controls quadrotor",
+                    "RL optimizes control strategy",
+                    "stability_analysis ensures system stability",
+                    "sensitivity_analysis evaluates control robustness",
+                    "Lyapunov_function proves stability",
+                    "energy_consumption is minimized by control strategy"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "08ff411a-18ec-4e5f-9418-8d8d91960212",
+        "task_details": {
+            "task_instructions": "Design an optimal control system for a quadrotor UAV (Unmanned Aerial Vehicle) performing aggressive maneuvers in a turbulent wind field. The system must stabilize the UAV while minimizing energy consumption and adhering to physical constraints. The solution must include: 1) A nonlinear dynamic model of the quadrotor, 2) A wind turbulence model, 3) A control law derived using Hamilton-Jacobi-Bellman (HJB) optimization, 4) A numerical simulation validating the control system under stochastic wind conditions.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.04
+                        ],
+                        "arm_length": 0.25,
+                        "motor_thrust_coefficient": 1.1e-05,
+                        "motor_torque_coefficient": 0.016,
+                        "max_motor_rpm": 15000
+                    },
+                    "wind_turbulence_parameters": {
+                        "mean_wind_speed": 5.0,
+                        "turbulence_intensity": 0.2,
+                        "von_karman_scale": 500.0,
+                        "wind_gust_amplitude": 3.0,
+                        "wind_gust_frequency": 0.5
+                    },
+                    "environmental_parameters": {
+                        "gravity": 9.81,
+                        "air_density": 1.225
+                    },
+                    "control_constraints": {
+                        "max_tilt_angle": 0.35,
+                        "max_angular_velocity": 6.0,
+                        "max_thrust": 25.0
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "quadrotor_dynamics": "\\dot{x} = v, \\dot{v} = \\frac{1}{m}(R(\\phi, \\theta, \\psi)F - mg\\hat{e}_3 - Dv + F_{wind})",
+                "rotation_dynamics": "\\dot{R} = R \\hat{\\omega}, I \\dot{\\omega} = -\\omega \\times I \\omega + \\tau + \\tau_{wind}",
+                "wind_model": "F_{wind} = \\frac{1}{2} \\rho A C_d ||v_{wind} - v|| (v_{wind} - v)",
+                "cost_function": "J = \\int_0^T (x^T Q x + u^T R u) dt",
+                "HJB_equation": "\\min_u \\left( \\frac{\\partial V}{\\partial x} f(x,u) + L(x,u) \\right) = 0"
+            },
+            "ontology": {
+                "entities": [
+                    "Quadrotor UAV",
+                    "Nonlinear dynamics",
+                    "Wind turbulence",
+                    "Hamilton-Jacobi-Bellman optimization",
+                    "Stochastic control",
+                    "Aerodynamic drag",
+                    "Rigid body dynamics",
+                    "Lyapunov stability",
+                    "Numerical simulation"
+                ],
+                "relations": [
+                    "Quadrotor UAV is modeled using Nonlinear dynamics",
+                    "Wind turbulence affects Quadrotor UAV",
+                    "Hamilton-Jacobi-Bellman optimization derives control law",
+                    "Stochastic control accounts for Wind turbulence",
+                    "Aerodynamic drag is a function of Wind turbulence",
+                    "Rigid body dynamics govern Quadrotor UAV motion",
+                    "Lyapunov stability ensures system convergence",
+                    "Numerical simulation validates control system"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "37d0e716-7aa7-4fe5-902e-34042ea27b17",
+        "task_details": {
+            "task_instructions": "Design an optimal control system for a quadrotor UAV (Unmanned Aerial Vehicle) performing aggressive maneuvers in a turbulent wind field. The system must minimize trajectory tracking error while respecting actuator saturation limits and energy constraints. The solution must include: (1) A nonlinear dynamic model of the quadrotor, (2) A wind turbulence model based on the Dryden spectrum, (3) A real-time nonlinear model predictive control (NMPC) formulation, (4) A numerical solver capable of handling the NMPC optimization problem within a 10 ms control loop.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.04
+                        ],
+                        "arm_length": 0.25,
+                        "motor_thrust_coefficient": 1.1e-05,
+                        "motor_torque_coefficient": 1.5e-06,
+                        "max_motor_speed": 1500,
+                        "min_motor_speed": 200
+                    },
+                    "wind_parameters": {
+                        "mean_wind_speed": 5.0,
+                        "turbulence_intensity": 0.2,
+                        "Dryden_parameters": {
+                            "Lu": 200.0,
+                            "Lv": 200.0,
+                            "Lw": 50.0,
+                            "sigma_u": 1.06,
+                            "sigma_v": 0.7,
+                            "sigma_w": 0.5
+                        }
+                    },
+                    "trajectory": {
+                        "waypoints": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                5,
+                                5,
+                                5
+                            ],
+                            [
+                                10,
+                                0,
+                                5
+                            ],
+                            [
+                                5,
+                                -5,
+                                0
+                            ],
+                            [
+                                0,
+                                0,
+                                0
+                            ]
+                        ],
+                        "time_points": [
+                            0,
+                            2.5,
+                            5.0,
+                            7.5,
+                            10.0
+                        ]
+                    },
+                    "control_constraints": {
+                        "max_roll_rate": 3.0,
+                        "max_pitch_rate": 3.0,
+                        "max_yaw_rate": 2.0,
+                        "max_thrust": 25.0,
+                        "energy_budget": 5000.0
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "quadrotor_dynamics": "\\dot{x} = v, \\dot{v} = R(\\phi, \\theta, \\psi) \\cdot (0, 0, T/m) - (0, 0, g) - \\frac{1}{m} D v, \\dot{R} = R \\cdot \\hat{\\omega}, J \\dot{\\omega} = -\\omega \\times J \\omega + \\tau",
+                "wind_model": "u_g(t) = \\sigma_u \\sqrt{\\frac{2V}{L_u}} \\sum_{i=1}^n \\frac{1}{(1 + \\frac{V}{L_u} s)^n} w_i(t), where w_i(t) is white noise",
+                "NMPC_objective": "min \\int_{t_k}^{t_k+H} (\\|x(t) - x_{ref}(t)\\|^2_Q + \\|u(t)\\|^2_R) dt + \\|x(t_k+H) - x_{ref}(t_k+H)\\|^2_P",
+                "constraints": "x_{min} \\leq x(t) \\leq x_{max}, u_{min} \\leq u(t) \\leq u_{max}, \\sum_{k=1}^N \\|u_k\\|^2 \\Delta t \\leq E_{max}"
+            },
+            "ontology": {
+                "entities": [
+                    "Quadrotor UAV",
+                    "Nonlinear dynamics",
+                    "Dryden wind turbulence model",
+                    "Nonlinear Model Predictive Control (NMPC)",
+                    "Actuator saturation",
+                    "Trajectory tracking",
+                    "Energy constraints",
+                    "Numerical optimization"
+                ],
+                "relations": [
+                    "Quadrotor UAV is modeled using nonlinear dynamics",
+                    "Dryden wind turbulence model affects Quadrotor UAV dynamics",
+                    "NMPC controls Quadrotor UAV",
+                    "Actuator saturation limits NMPC outputs",
+                    "Trajectory tracking is the objective of NMPC",
+                    "Energy constraints bound the total control effort",
+                    "Numerical optimization solves the NMPC problem"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "2649cd8e-d0dd-4d33-954b-6aa88082c866",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a multi-agent swarm of autonomous underwater vehicles (AUVs) tasked with mapping a dynamically changing hydrothermal vent field. The control strategy must minimize energy consumption while maximizing coverage accuracy under uncertain ocean currents and thermal plumes. The solution must include: 1) A distributed control algorithm accounting for communication delays and packet loss, 2) A probabilistic model of vent field dynamics, 3) A robustness analysis against sensor noise and actuator failures.",
+            "task_data": {
+                "data_points": {
+                    "AUV_specs": {
+                        "mass": "25 kg",
+                        "thrust_max": "50 N",
+                        "battery_capacity": "500 Wh",
+                        "sensor_range": "10 m",
+                        "communication_range": "100 m",
+                        "packet_loss_rate": "0.1-0.3",
+                        "actuator_failure_prob": "0.05"
+                    },
+                    "environment": {
+                        "ocean_current_speed": "0.1-0.5 m/s",
+                        "thermal_plume_velocity": "0.2-0.8 m/s",
+                        "vent_field_dimensions": "200x200 m",
+                        "vent_activity_rate": "0.1-0.5 events/min"
+                    },
+                    "constraints": {
+                        "mission_duration": "6 hours",
+                        "coverage_threshold": "95%",
+                        "energy_reserve": "20%"
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "energy_model": "E_total = Σ (E_propulsion + E_communication + E_sensing)",
+                "propulsion_energy": "E_propulsion = ∫ (k1·v(t)^3 + k2·‖ω(t)‖^2) dt",
+                "coverage_objective": "maximize ∫∫ p_detect(x,y,t) dx dy dt",
+                "communication_delay": "τ_ij = ‖r_i - r_j‖ / c + ε_ij, ε_ij ~ Exp(λ)",
+                "failure_model": "P_failure = 1 - ∏ (1 - p_actuator(t))",
+                "current_uncertainty": "v_current(x,y,t) = v_mean + GP(μ, K)"
+            },
+            "ontology": {
+                "entities": [
+                    "Autonomous Underwater Vehicle (AUV)",
+                    "Hydrothermal Vent Field",
+                    "Ocean Currents",
+                    "Thermal Plumes",
+                    "Distributed Control",
+                    "Probabilistic Mapping",
+                    "Communication Delay",
+                    "Packet Loss",
+                    "Actuator Failure",
+                    "Sensor Noise",
+                    "Energy Optimization"
+                ],
+                "relations": [
+                    "AUVs interact via delayed communication",
+                    "Vent dynamics affect plume distribution",
+                    "Currents constrain AUV motion",
+                    "Sensor range limits detection probability",
+                    "Energy consumption depends on trajectory",
+                    "Failures degrade system performance"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "740a1af3-9efe-4e21-9864-a828e5aec749",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a quadrotor UAV (Unmanned Aerial Vehicle) performing aggressive maneuvers in a constrained urban environment with dynamic obstacles. The strategy must minimize energy consumption while ensuring collision avoidance and trajectory tracking within specified tolerances. The solution must include a real-time implementable control law, validated through numerical simulation using the provided dataset.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.03,
+                            0,
+                            0,
+                            0,
+                            0.04
+                        ],
+                        "rotor_thrust_coefficient": 8.548e-06,
+                        "rotor_drag_coefficient": 1.094e-07,
+                        "arm_length": 0.23
+                    },
+                    "environment_parameters": {
+                        "urban_canyon_dimensions": [
+                            100,
+                            100,
+                            50
+                        ],
+                        "dynamic_obstacles": [
+                            {
+                                "position": [
+                                    30,
+                                    40,
+                                    10
+                                ],
+                                "velocity": [
+                                    2,
+                                    0,
+                                    0
+                                ],
+                                "radius": 5
+                            },
+                            {
+                                "position": [
+                                    70,
+                                    60,
+                                    20
+                                ],
+                                "velocity": [
+                                    0,
+                                    -3,
+                                    0
+                                ],
+                                "radius": 7
+                            }
+                        ],
+                        "wind_gust_model": {
+                            "mean_velocity": [
+                                1.5,
+                                0.5,
+                                0
+                            ],
+                            "turbulence_intensity": 0.2
+                        }
+                    },
+                    "trajectory_constraints": {
+                        "waypoints": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                20,
+                                30,
+                                10
+                            ],
+                            [
+                                50,
+                                70,
+                                20
+                            ],
+                            [
+                                80,
+                                90,
+                                30
+                            ]
+                        ],
+                        "max_velocity": 15,
+                        "max_acceleration": 7,
+                        "position_tolerance": 0.5,
+                        "attitude_tolerance": 0.1
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamics": "M(q)q'' + C(q, q')q' + G(q) = τ + τ_ext",
+                "cost_function": "J = ∫(τ^T R τ + (q - q_des)^T Q (q - q_des)) dt",
+                "constraints": {
+                    "collision_avoidance": "||p - p_obs|| ≥ r_obs + r_safety",
+                    "actuator_limits": "τ_min ≤ τ ≤ τ_max",
+                    "trajectory_tracking": "||p - p_des|| ≤ ε_p, ||θ - θ_des|| ≤ ε_θ"
+                },
+                "control_law": "τ = K_p e + K_d e' + feedforward_term"
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "UAV",
+                    "optimal control",
+                    "trajectory tracking",
+                    "collision avoidance",
+                    "dynamic obstacles",
+                    "energy minimization",
+                    "real-time control",
+                    "numerical simulation"
+                ],
+                "relations": [
+                    "quadrotor performs trajectory tracking",
+                    "optimal control minimizes energy consumption",
+                    "dynamic obstacles require collision avoidance",
+                    "real-time control implements control law",
+                    "numerical simulation validates control strategy"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "e45221a4-160e-4029-9071-32fce246345b",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a quadrotor UAV (Unmanned Aerial Vehicle) performing aggressive maneuvering in a constrained urban environment with dynamic obstacles. The task involves computing real-time control inputs (thrust and torques) to achieve a predefined trajectory while avoiding collisions and minimizing energy consumption. The solution must account for aerodynamic disturbances, actuator dynamics, and sensor noise.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            0.03,
+                            0.03,
+                            0.04
+                        ],
+                        "arm_length": 0.25,
+                        "thrust_coefficient": 1.1e-05,
+                        "drag_coefficient": 1.5e-06,
+                        "max_thrust_per_rotor": 15.0,
+                        "min_thrust_per_rotor": 0.5
+                    },
+                    "environment_parameters": {
+                        "wind_gust_model": "Dryden",
+                        "wind_speed_mean": 5.0,
+                        "wind_speed_variance": 2.0,
+                        "obstacle_positions": [
+                            [
+                                10,
+                                5,
+                                3
+                            ],
+                            [
+                                15,
+                                -2,
+                                4
+                            ],
+                            [
+                                20,
+                                0,
+                                2
+                            ]
+                        ],
+                        "obstacle_velocities": [
+                            [
+                                0.5,
+                                0,
+                                0
+                            ],
+                            [
+                                0,
+                                -0.3,
+                                0
+                            ],
+                            [
+                                0,
+                                0,
+                                0.1
+                            ]
+                        ],
+                        "trajectory_waypoints": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                5,
+                                5,
+                                5
+                            ],
+                            [
+                                10,
+                                0,
+                                10
+                            ],
+                            [
+                                15,
+                                5,
+                                5
+                            ],
+                            [
+                                20,
+                                0,
+                                0
+                            ]
+                        ]
+                    },
+                    "sensor_parameters": {
+                        "imu_noise_density": 0.01,
+                        "gps_position_error": 0.1,
+                        "gps_velocity_error": 0.05
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamics": {
+                    "translational": "m * d²x/dt² = R * F - m * g * e_z - D * v",
+                    "rotational": "I * dω/dt + ω × (I * ω) = M",
+                    "actuator": "F_i = k_f * ω_i², M_i = k_m * ω_i²"
+                },
+                "constraints": {
+                    "collision_avoidance": "min(||x - o_i||) > r_safe ∀ i",
+                    "control_inputs": "F_min ≤ F_i ≤ F_max",
+                    "energy": "min ∫ (F_1² + F_2² + F_3² + F_4²) dt"
+                },
+                "optimization": "min J = w1 * ∫ (x - x_des)² dt + w2 * ∫ (F_1² + F_2² + F_3² + F_4²) dt"
+            },
+            "ontology": {
+                "entities": [
+                    "Quadrotor UAV",
+                    "Thrust",
+                    "Torque",
+                    "Trajectory",
+                    "Dynamic Obstacles",
+                    "Aerodynamic Disturbances",
+                    "Actuator Dynamics",
+                    "Sensor Noise",
+                    "Optimal Control",
+                    "Energy Minimization"
+                ],
+                "relations": [
+                    "Quadrotor UAV is controlled by Thrust and Torque",
+                    "Quadrotor UAV follows Trajectory",
+                    "Quadrotor UAV avoids Dynamic Obstacles",
+                    "Aerodynamic Disturbances affect Quadrotor UAV",
+                    "Actuator Dynamics limit Thrust and Torque",
+                    "Sensor Noise affects state estimation",
+                    "Optimal Control minimizes Energy Minimization"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "2e4652f9-1039-477f-ba6e-4a0c75f868d6",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a quadrotor UAV (Unmanned Aerial Vehicle) to perform aggressive maneuvering in a constrained urban environment while avoiding dynamic obstacles. The control strategy must account for nonlinear aerodynamics, actuator saturation, and real-time computational constraints. The solution should include a detailed derivation of the control laws, stability analysis, and simulation results using the provided dataset.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            0.03,
+                            0.03,
+                            0.04
+                        ],
+                        "motor_thrust_coefficient": 8.548e-06,
+                        "motor_torque_coefficient": 0.016,
+                        "arm_length": 0.25,
+                        "max_motor_speed": 1500,
+                        "min_motor_speed": 200
+                    },
+                    "environment_parameters": {
+                        "obstacle_positions": [
+                            [
+                                5,
+                                5,
+                                3
+                            ],
+                            [
+                                10,
+                                8,
+                                4
+                            ],
+                            [
+                                15,
+                                12,
+                                5
+                            ]
+                        ],
+                        "obstacle_velocities": [
+                            [
+                                0.5,
+                                0.3,
+                                0
+                            ],
+                            [
+                                0.4,
+                                0.2,
+                                0
+                            ],
+                            [
+                                0.3,
+                                0.1,
+                                0
+                            ]
+                        ],
+                        "wind_gust": [
+                            2.0,
+                            1.5,
+                            0.5
+                        ],
+                        "urban_canyon_dimensions": [
+                            20,
+                            20,
+                            10
+                        ]
+                    },
+                    "initial_conditions": {
+                        "position": [
+                            0,
+                            0,
+                            1
+                        ],
+                        "velocity": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "orientation": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "angular_velocity": [
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    "desired_trajectory": {
+                        "waypoints": [
+                            [
+                                5,
+                                5,
+                                2
+                            ],
+                            [
+                                10,
+                                10,
+                                3
+                            ],
+                            [
+                                15,
+                                15,
+                                4
+                            ],
+                            [
+                                20,
+                                20,
+                                5
+                            ]
+                        ],
+                        "time_constraints": [
+                            5,
+                            10,
+                            15,
+                            20
+                        ]
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamics": {
+                    "translational": "m * ddot{x} = R * F - m * g * e_3 - D * dot{x}",
+                    "rotational": "I * dot{omega} + omega x (I * omega) = M",
+                    "motor_forces": "F_i = k_f * omega_i^2",
+                    "motor_torques": "tau_i = k_m * omega_i^2"
+                },
+                "constraints": {
+                    "actuator_saturation": "omega_min <= omega_i <= omega_max",
+                    "collision_avoidance": "||x - x_obs|| >= r_obs",
+                    "stability": "Lyapunov function V(x) > 0, dot{V}(x) < 0"
+                },
+                "optimization": {
+                    "objective": "minimize integral from t0 to tf of (||x - x_d||^2 + ||u||^2) dt",
+                    "subject_to": "dynamics, constraints"
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "UAV",
+                    "nonlinear aerodynamics",
+                    "actuator saturation",
+                    "Lyapunov stability",
+                    "optimal control",
+                    "dynamic obstacles",
+                    "urban environment",
+                    "trajectory planning",
+                    "real-time computation"
+                ],
+                "relations": [
+                    "quadrotor has dynamics described by translational and rotational equations",
+                    "optimal control strategy minimizes trajectory tracking error",
+                    "actuator saturation limits motor speeds",
+                    "Lyapunov stability ensures system convergence",
+                    "dynamic obstacles require real-time collision avoidance",
+                    "urban environment imposes spatial constraints"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "681303f1-7bd0-410d-bb37-52455f02b9ce",
+        "task_details": {
+            "task_instructions": "Design an optimal control system for a quadrotor UAV (Unmanned Aerial Vehicle) operating in a turbulent wind field with stochastic disturbances. The system must minimize energy consumption while maintaining stability and tracking a predefined trajectory with a maximum allowable deviation of 0.1 meters. The solution must include a robust control law, a state estimation algorithm, and a disturbance rejection mechanism. Provide a detailed analysis of the system's performance under varying wind speeds (5-15 m/s) and validate the design using numerical simulations.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": "1.5 kg",
+                        "inertia_matrix": "[0.03, 0, 0; 0, 0.03, 0; 0, 0, 0.04] kg·m²",
+                        "rotor_thrust_coefficient": "8.54858e-6 N/(rad/s)²",
+                        "rotor_drag_coefficient": "1.6e-7 N·m/(rad/s)²",
+                        "arm_length": "0.25 m"
+                    },
+                    "wind_field_parameters": {
+                        "mean_wind_speed": "[5, 15] m/s",
+                        "turbulence_intensity": "10-20%",
+                        "wind_gust_model": "Dryden spectrum"
+                    },
+                    "trajectory_waypoints": {
+                        "waypoint_1": "[0, 0, 0] m",
+                        "waypoint_2": "[10, 5, 3] m",
+                        "waypoint_3": "[20, 10, 5] m",
+                        "waypoint_4": "[30, 15, 7] m"
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamics": "M(q)q̈ + C(q, q̇)q̇ + G(q) = τ + τ_d",
+                "control_law": "τ = -K_p e - K_d ė + τ_ff",
+                "state_estimation": "x̂_{k+1} = f(x̂_k, u_k) + L(y_k - h(x̂_k))",
+                "disturbance_rejection": "τ_d = -B(q) d̂",
+                "performance_metric": "J = ∫(eᵀQe + uᵀRu) dt"
+            },
+            "ontology": {
+                "entities": [
+                    "Quadrotor UAV",
+                    "Turbulent wind field",
+                    "Optimal control",
+                    "State estimation",
+                    "Disturbance rejection",
+                    "Trajectory tracking",
+                    "Energy consumption",
+                    "Robust control law",
+                    "Dryden spectrum",
+                    "Numerical simulation"
+                ],
+                "relations": [
+                    "Quadrotor UAV is controlled by Optimal control",
+                    "Optimal control minimizes Energy consumption",
+                    "State estimation provides feedback to Optimal control",
+                    "Disturbance rejection mitigates Turbulent wind field effects",
+                    "Trajectory tracking is constrained by maximum deviation",
+                    "Robust control law ensures stability under disturbances",
+                    "Dryden spectrum models Turbulent wind field",
+                    "Numerical simulation validates system performance"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "bdc21090-d6d4-41ec-827c-33c8e96a4f08",
+        "task_details": {
+            "task_instructions": "Design an optimal control strategy for a quadrotor UAV (Unmanned Aerial Vehicle) performing aggressive maneuvers in a turbulent wind field. The strategy must minimize energy consumption while ensuring stability and tracking precision under the following constraints: 1) The quadrotor must follow a predefined trajectory with a maximum positional error of 0.1 m. 2) The control inputs must not exceed the actuator saturation limits. 3) The system must reject wind gusts up to 10 m/s. Provide the control law, stability analysis, and simulation results.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            0.03,
+                            0.03,
+                            0.04
+                        ],
+                        "arm_length": 0.25,
+                        "thrust_coefficient": 1.1e-05,
+                        "drag_coefficient": 1.4e-06,
+                        "motor_time_constant": 0.02,
+                        "max_motor_speed": 1500,
+                        "min_motor_speed": 200
+                    },
+                    "trajectory": {
+                        "waypoints": [
+                            [
+                                0,
+                                0,
+                                0
+                            ],
+                            [
+                                5,
+                                3,
+                                2
+                            ],
+                            [
+                                10,
+                                0,
+                                4
+                            ],
+                            [
+                                15,
+                                -3,
+                                2
+                            ],
+                            [
+                                20,
+                                0,
+                                0
+                            ]
+                        ],
+                        "time_vector": [
+                            0,
+                            2.5,
+                            5,
+                            7.5,
+                            10
+                        ]
+                    },
+                    "wind_field": {
+                        "mean_speed": 5,
+                        "gust_amplitude": 10,
+                        "turbulence_intensity": 0.2,
+                        "spatial_correlation_length": 2
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "dynamics": {
+                    "translational": "m * ddot{x} = R * F - m * g * e_z - D_t * dot{x}",
+                    "rotational": "I * dot{omega} + omega x (I * omega) = M - D_r * omega",
+                    "motor_model": "tau * dot{omega}_i + omega_i = k * u_i"
+                },
+                "constraints": {
+                    "position_error": "||x_d - x|| <= 0.1",
+                    "control_input": "omega_min <= omega_i <= omega_max",
+                    "wind_rejection": "||delta_F|| <= 10 * D_t"
+                },
+                "objective": "min integral_0^T (sum(u_i^2)) dt"
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "UAV",
+                    "control_strategy",
+                    "trajectory",
+                    "wind_field",
+                    "actuator_saturation",
+                    "stability_analysis",
+                    "energy_consumption",
+                    "thrust_coefficient",
+                    "drag_coefficient"
+                ],
+                "relations": [
+                    "quadrotor follows trajectory",
+                    "wind_field affects quadrotor",
+                    "control_strategy minimizes energy_consumption",
+                    "actuator_saturation limits control_input",
+                    "stability_analysis ensures performance"
+                ]
+            }
+        }
+    },
+    {
+        "task_id": "133a81c8-4785-4cf7-8e6d-428b1d4f7b31",
+        "task_details": {
+            "task_instructions": "Design an optimal control system for a quadrotor UAV (Unmanned Aerial Vehicle) performing aggressive maneuvers in a turbulent wind field. The system must stabilize the UAV while minimizing energy consumption and adhering to physical constraints. The solution must include: 1) A nonlinear dynamic model of the quadrotor, 2) A wind turbulence model, 3) A control law derived using Model Predictive Control (MPC), 4) Validation via numerical simulation under specified wind conditions.",
+            "task_data": {
+                "data_points": {
+                    "quadrotor_parameters": {
+                        "mass": 1.5,
+                        "inertia_matrix": [
+                            0.03,
+                            0.03,
+                            0.04
+                        ],
+                        "arm_length": 0.25,
+                        "motor_thrust_coefficient": 8.548e-06,
+                        "motor_torque_coefficient": 0.016,
+                        "max_motor_speed": 1500
+                    },
+                    "wind_conditions": {
+                        "mean_wind_speed": 5.0,
+                        "turbulence_intensity": 0.2,
+                        "wind_gust_amplitude": 3.0,
+                        "gust_frequency": 0.5
+                    },
+                    "environmental_parameters": {
+                        "gravity": 9.81,
+                        "air_density": 1.225
+                    }
+                }
+            },
+            "mathematical_formulation": {
+                "nonlinear_dynamics": {
+                    "equations_of_motion": [
+                        "m * ddot{x} = (cos(phi)sin(theta)cos(psi) + sin(phi)sin(psi)) * U1 - k_x * dot{x} + F_wx",
+                        "m * ddot{y} = (cos(phi)sin(theta)sin(psi) - sin(phi)cos(psi)) * U1 - k_y * dot{y} + F_wy",
+                        "m * ddot{z} = (cos(phi)cos(theta)) * U1 - m * g - k_z * dot{z} + F_wz",
+                        "I_x * ddot{phi} = dot{theta} * dot{psi} (I_y - I_z) + l * U2 - k_phi * dot{phi} + M_wx",
+                        "I_y * ddot{theta} = dot{phi} * dot{psi} (I_z - I_x) + l * U3 - k_theta * dot{theta} + M_wy",
+                        "I_z * ddot{psi} = dot{phi} * dot{theta} (I_x - I_y) + U4 - k_psi * dot{psi} + M_wz"
+                    ],
+                    "control_inputs": [
+                        "U1 = b * (omega_1^2 + omega_2^2 + omega_3^2 + omega_4^2)",
+                        "U2 = b * (omega_4^2 - omega_2^2)",
+                        "U3 = b * (omega_3^2 - omega_1^2)",
+                        "U4 = d * (omega_1^2 - omega_2^2 + omega_3^2 - omega_4^2)"
+                    ]
+                },
+                "wind_model": {
+                    "turbulence_model": "Dryden Wind Turbulence Model",
+                    "gust_model": "1-cos gust model with amplitude A and frequency omega"
+                },
+                "mpc_formulation": {
+                    "objective_function": "minimize J = integral( x^T Q x + u^T R u ) dt",
+                    "constraints": [
+                        "motor speeds within [0, max_motor_speed]",
+                        "attitude angles within stability limits",
+                        "wind disturbance rejection"
+                    ]
+                }
+            },
+            "ontology": {
+                "entities": [
+                    "quadrotor",
+                    "nonlinear dynamics",
+                    "Model Predictive Control",
+                    "wind turbulence",
+                    "Dryden model",
+                    "aggressive maneuvers",
+                    "energy minimization"
+                ],
+                "relations": [
+                    "quadrotor is controlled by MPC",
+                    "MPC optimizes energy consumption",
+                    "wind turbulence affects quadrotor dynamics",
+                    "nonlinear dynamics describe quadrotor motion"
+                ]
+            }
+        }
+    }
+]
